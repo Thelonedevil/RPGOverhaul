@@ -25,16 +25,16 @@ public class MyBlocks {
 	public static Block LootChest;
 
 	public static void init() {
-		ore_xiatherium = new Xiatherium_ore(Material.ground).setBlockTextureName(RPGOMain.MODID + ":xiatherium_ore").setCreativeTab(RPGOMain.myTab).setStepSound(Block.soundTypeStone)
-				.setBlockName("xiatherium_ore");
-		ore_farunese = new Farunese_ore(Material.ground).setBlockTextureName(RPGOMain.MODID + ":farunese_ore").setCreativeTab(RPGOMain.myTab).setStepSound(Block.soundTypeStone)
-				.setBlockName("farunese_ore");
-		ore_orobalt = new Orobalt_ore(Material.ground).setBlockTextureName(RPGOMain.MODID + ":orbalt_ore").setCreativeTab(RPGOMain.myTab).setStepSound(Block.soundTypeStone)
-				.setBlockName("orobalt_ore");
-		ore_kiritorium = new Kiritorium_ore(Material.ground).setBlockTextureName(RPGOMain.MODID + ":kiritorium_ore").setCreativeTab(RPGOMain.myTab).setStepSound(Block.soundTypeStone)
-				.setBlockName("kiritorium_ore");
-		ore_asunalt = new Asunalt_ore(Material.ground).setBlockTextureName(RPGOMain.MODID + ":asunalt_ore").setCreativeTab(RPGOMain.myTab).setStepSound(Block.soundTypeStone)
-				.setBlockName("asunalt_ore");
+		ore_xiatherium = new Xiatherium_ore(Material.rock).setBlockTextureName(RPGOMain.MODID + ":xiatherium_ore").setCreativeTab(RPGOMain.myTab).setStepSound(Block.soundTypeStone)
+				.setBlockName("xiatherium_ore").setHardness(10.0f);
+		ore_farunese = new Farunese_ore(Material.rock).setBlockTextureName(RPGOMain.MODID + ":farunese_ore").setCreativeTab(RPGOMain.myTab).setStepSound(Block.soundTypeStone)
+				.setBlockName("farunese_ore").setHardness(10.0f);
+		ore_orobalt = new Orobalt_ore(Material.rock).setBlockTextureName(RPGOMain.MODID + ":orobalt_ore").setCreativeTab(RPGOMain.myTab).setStepSound(Block.soundTypeStone)
+				.setBlockName("orobalt_ore").setHardness(10.0f);
+		ore_kiritorium = new Kiritorium_ore(Material.rock).setBlockTextureName(RPGOMain.MODID + ":kiritorium_ore").setCreativeTab(RPGOMain.myTab).setStepSound(Block.soundTypeStone)
+				.setBlockName("kiritorium_ore").setHardness(10.0f);
+		ore_asunalt = new Asunalt_ore(Material.rock).setBlockTextureName(RPGOMain.MODID + ":asunalt_ore").setCreativeTab(RPGOMain.myTab).setStepSound(Block.soundTypeStone)
+				.setBlockName("asunalt_ore").setHardness(10.0f);
 		
 		ore_xiatherium.setHarvestLevel("pickaxe", 2);
 		ore_farunese.setHarvestLevel("pickaxe", 2);

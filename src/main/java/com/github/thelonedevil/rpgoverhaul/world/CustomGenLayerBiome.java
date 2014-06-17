@@ -13,11 +13,6 @@ import net.minecraftforge.common.BiomeManager.BiomeEntry;
 
 public class CustomGenLayerBiome extends GenLayer {
 	private List<BiomeEntry> desertBiomes = new ArrayList<BiomeEntry>();
-	private List<BiomeEntry> warmBiomes = new ArrayList<BiomeEntry>();
-	private List<BiomeEntry> coolBiomes = new ArrayList<BiomeEntry>();
-	private List<BiomeEntry> icyBiomes = new ArrayList<BiomeEntry>();
-
-	private static final String __OBFID = "CL_00000555";
 
 	public CustomGenLayerBiome(long par1, GenLayer par3GenLayer, WorldType par4WorldType) {
 		super(par1);

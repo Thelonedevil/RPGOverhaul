@@ -58,7 +58,7 @@ public class Alloy_Furnace extends BlockContainer {
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
-		player.openGui(RPGOMain.instance, 0, world, x, y, z);
+		player.openGui(RPGOMain.instance, RPGOMain.Alloy_furnace_GUI, world, x, y, z);
 		return true;
 	}
 

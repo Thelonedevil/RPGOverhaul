@@ -1,9 +1,12 @@
 package com.github.thelonedevil.rpgoverhaul.world;
 
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProvider;
+import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
 import net.minecraft.world.gen.layer.GenLayerBiomeEdge;
@@ -16,6 +19,7 @@ public class WorldTypeCustom extends WorldType {
 
 		DimensionManager.unregisterProviderType(0);
 		DimensionManager.registerProviderType(0, CustomWorldProvider.class, false);
+		
 	}
 
 	@Override

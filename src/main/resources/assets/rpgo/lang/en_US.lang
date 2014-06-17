@@ -1,0 +1,30 @@
+tile.lootChest.name=Loot Chest
+tile.alloyfurnace.name=Alloy Furnace
+
+tile.asunalt_ore.name=Asunalt Ore
+tile.kiritorium_ore.name=Kiritorium Ore
+tile.orobalt_ore.name=Orobalt Ore
+tile.farunese_ore.name=Farunese Ore
+tile.xiatherium_ore.name=Xiatherium Ore
+
+tile.Fire_Crystal_Cluster.name=Fire Crystal Cluster
+tile.Water_Crystal_Cluster.name=Water Crystal Cluster
+tile.Air_Crystal_Cluster.name=Air Crystal Cluster
+tile.Earth_Crystal_Cluster.name=Earth Crystal Cluster
+
+item.crystal_fire.name=Fire Crystal
+item.crystal_water.name=Water Crystal
+item.crystal_air.name=Air Crystal
+item.crystal_earth.name=Earth Crystal
+item.crystal_plasma.name=Plasma Crystal
+
+item.ingot_asunalt.name=Asunalt Ingot
+item.ingot_kiritorium.name=Kiritiorium Ingot
+item.ingot_orobalt.name=Orobalt Ingot
+item.ingot_farunese.name=Farunese Ingot
+item.ingot_xiatherium.name=Xiatherium Ingot
+
+entity.Unknown.name=????????
+rpgo=RPG Overhaul
+
+itemGroup.RPG Overhaul=RPG Overhaul

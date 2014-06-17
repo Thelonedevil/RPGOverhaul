@@ -4,20 +4,26 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
 import com.github.thelonedevil.rpgoverhaul.MyBlocks;
+import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.blocks.CustomChest;
+import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
+import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
 import com.github.thelonedevil.rpgoverhaul.Util;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class DeathHandler {
 	@SubscribeEvent
-	public void death(LivingDropsEvent event) {
+	public void onDrops(LivingDropsEvent event) {
+		// System.out.println("Get Actual World Height returned = "+event.entityLiving.worldObj.getActualHeight());
 		if (!(event.entityLiving instanceof EntityPlayer)) {
 			int x = MathHelper.floor_double(event.entity.posX);
 			int y = MathHelper.floor_double(event.entity.posY);
@@ -128,4 +134,14 @@ public class DeathHandler {
 		}
 		world.setTileEntity(x, y, z, chest);
 	}
+
+	@SubscribeEvent
+	public void onLivingDeathEvent(LivingDeathEvent event) {
+		// we only want to save data for players (most likely, anyway)
+		if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer) {
+
+			ExtendedPlayer.saveProxyData((EntityPlayer) event.entity);
+		}
+	}
+
 }

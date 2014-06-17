@@ -8,12 +8,19 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 
+import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
+import com.github.thelonedevil.rpgoverhaul.handlers.AttackHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.DeathHandler;
+import com.github.thelonedevil.rpgoverhaul.handlers.EntityConstructionHandler;
+import com.github.thelonedevil.rpgoverhaul.handlers.KeyHandler;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
+import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
+import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
 import com.github.thelonedevil.rpgoverhaul.world.CustomGenerator;
 import com.github.thelonedevil.rpgoverhaul.world.WorldTypeCustom;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -21,8 +28,11 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = RPGOMain.MODID, version = RPGOMain.VERSION)
 public class RPGOMain {
@@ -32,6 +42,11 @@ public class RPGOMain {
 	@Instance(value = "rpgo")
 	public static RPGOMain instance;
 	public static DeathHandler deathHandler = new DeathHandler();
+	public static AttackHandler attackHandler = new AttackHandler();
+	public static KeyHandler keyHandler = new KeyHandler();
+	public static EntityConstructionHandler entityCHandler = new EntityConstructionHandler();
+	public static final int Alloy_furnace_GUI = 0;
+	public static final int Armour_Inventory_GUI = 1;
 	public static CreativeTabs myTab = new CreativeTabs("RPG Overhaul") {
 		public Item getTabIconItem() {
 			return Item.getItemFromBlock(Blocks.dirt);
@@ -40,8 +55,9 @@ public class RPGOMain {
 
 	@SidedProxy(clientSide = "com.github.thelonedevil.rpgoverhaul.proxy.ClientProxy", serverSide = "com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy")
 	public static CommonProxy proxy;
-	
+
 	public static CustomGenerator worldgen = new CustomGenerator();
+	public static SimpleNetworkWrapper network;
 
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
@@ -49,8 +65,14 @@ public class RPGOMain {
 		MyBlocks.init();
 		MyItems.init();
 		MyRecipes.init();
-		
+		MyCrystals.init();
+		ItemRemoval.init();
+		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
+	    network.registerMessage(SyncPlayerProps.Handler.class, SyncPlayerProps.class, 0, Side.SERVER);
+		network.registerMessage(OpenGui.Handler.class, OpenGui.class, 0, Side.SERVER);
+
 		GameRegistry.registerWorldGenerator(worldgen, 9);
+		proxy.registerItemRenderers();
 
 	}
 
@@ -58,14 +80,19 @@ public class RPGOMain {
 	public static void load(FMLInitializationEvent event) {
 		proxy.registerNetworkStuff();
 		MinecraftForge.EVENT_BUS.register(deathHandler);
+		MinecraftForge.EVENT_BUS.register(attackHandler);
+		MinecraftForge.EVENT_BUS.register(entityCHandler);
+		FMLCommonHandler.instance().bus().register(keyHandler);
 		proxy.registerTileEntities();
 
 	}
+
 	@EventHandler
-	public static void post(FMLPostInitializationEvent event){
-		WorldTypeCustom custom =  new WorldTypeCustom();
+	public static void post(FMLPostInitializationEvent event) {
+		WorldTypeCustom custom = new WorldTypeCustom();
+		
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static void registerEntity(Class entityClass, String name) {
 		int entityID = EntityRegistry.findGlobalUniqueEntityId();
@@ -77,7 +104,7 @@ public class RPGOMain {
 		EntityRegistry.registerGlobalEntityID(entityClass, name, entityID);
 		EntityRegistry.registerModEntity(entityClass, name, entityID, instance, 64, 1, true);
 		EntityList.entityEggs.put(Integer.valueOf(entityID), new EntityList.EntityEggInfo(entityID, primaryColor, secondaryColor));
-		
+
 		proxy.registerRenderers();
 	}
 
