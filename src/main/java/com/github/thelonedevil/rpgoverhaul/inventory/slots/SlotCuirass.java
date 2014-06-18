@@ -36,7 +36,7 @@ public class SlotCuirass extends Slot {
 
 	@SideOnly(Side.CLIENT)
 	public IIcon getBackgroundIconIndex() {
-		return ItemArmor.func_94602_b(0);
+		return ItemArmor.func_94602_b(1);
 	}
 
 }

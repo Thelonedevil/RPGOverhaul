@@ -10,7 +10,6 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventory;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
-import com.github.thelonedevil.rpgoverhaul.packet.SyncPlayerPropsPacket;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
 
 public class ExtendedPlayer implements IExtendedEntityProperties {
@@ -22,6 +21,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 
 	public ExtendedPlayer(EntityPlayer player) {
 		this.player = player;
+		
 	}
 
 	public static final void register(EntityPlayer player) {
@@ -41,7 +41,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	@Override
 	public void saveNBTData(NBTTagCompound compound) {
 		NBTTagCompound properties = new NBTTagCompound();
-		this.customInventory.writeToNBT(properties);
+		customInventory.writeToNBT(properties);
 
 		compound.setTag(EXT_PROP_NAME, properties);
 
@@ -50,7 +50,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	@Override
 	public void loadNBTData(NBTTagCompound compound) {
 		NBTTagCompound properties = (NBTTagCompound) compound.getTag(EXT_PROP_NAME);
-		this.customInventory.readFromNBT(properties);
+		customInventory.readFromNBT(properties);
 
 
 	}

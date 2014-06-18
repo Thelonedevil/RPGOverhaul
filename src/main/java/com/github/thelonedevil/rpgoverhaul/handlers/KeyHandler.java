@@ -3,13 +3,13 @@ package com.github.thelonedevil.rpgoverhaul.handlers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.entity.player.EntityPlayer;
 
 import org.lwjgl.input.Keyboard;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
-import com.github.thelonedevil.rpgoverhaul.packet.OpenGuiPacket;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -20,6 +20,7 @@ public class KeyHandler {
 
 	/** Key index for easy handling */
 	public static final int CUSTOM_INV = 0;
+
 	/** Key descriptions; use a language file to localize the description later */
 	private static final String[] desc = { "key.armour_inv.desc" };
 	/** Default key values */
@@ -46,6 +47,8 @@ public class KeyHandler {
 				RPGOMain.network.sendToServer(new OpenGui(RPGOMain.Armour_Inventory_GUI));
 				System.out.println("Open GUI packet sent to server");
 			}
+
 		}
 	}
+
 }

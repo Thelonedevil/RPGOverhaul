@@ -13,6 +13,8 @@ import com.github.thelonedevil.rpgoverhaul.handlers.AttackHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.DeathHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.EntityConstructionHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.KeyHandler;
+import com.github.thelonedevil.rpgoverhaul.handlers.PlayerConnectHandler;
+import com.github.thelonedevil.rpgoverhaul.handlers.PlayerTickHandler;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
 import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
@@ -34,17 +36,20 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid = RPGOMain.MODID, version = RPGOMain.VERSION)
+@Mod(modid = RPGOMain.MODID, version = RPGOMain.VERSION, name = RPGOMain.NAME)
 public class RPGOMain {
 
 	public static final String MODID = "rpgo";
 	public static final String VERSION = "1.0";
+	public static final String NAME = "RPG Overhaul";
 	@Instance(value = "rpgo")
 	public static RPGOMain instance;
 	public static DeathHandler deathHandler = new DeathHandler();
 	public static AttackHandler attackHandler = new AttackHandler();
 	public static KeyHandler keyHandler = new KeyHandler();
 	public static EntityConstructionHandler entityCHandler = new EntityConstructionHandler();
+	public static PlayerConnectHandler connectHandler = new PlayerConnectHandler();
+	public static PlayerTickHandler tickHandler =new PlayerTickHandler();
 	public static final int Alloy_furnace_GUI = 0;
 	public static final int Armour_Inventory_GUI = 1;
 	public static CreativeTabs myTab = new CreativeTabs("RPG Overhaul") {
@@ -82,7 +87,9 @@ public class RPGOMain {
 		MinecraftForge.EVENT_BUS.register(deathHandler);
 		MinecraftForge.EVENT_BUS.register(attackHandler);
 		MinecraftForge.EVENT_BUS.register(entityCHandler);
+		MinecraftForge.EVENT_BUS.register(tickHandler);
 		FMLCommonHandler.instance().bus().register(keyHandler);
+		FMLCommonHandler.instance().bus().register(connectHandler);
 		proxy.registerTileEntities();
 
 	}

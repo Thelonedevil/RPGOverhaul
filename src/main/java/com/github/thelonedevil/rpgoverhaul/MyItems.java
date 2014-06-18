@@ -2,6 +2,7 @@ package com.github.thelonedevil.rpgoverhaul;
 
 import net.minecraft.item.Item;
 
+import com.github.thelonedevil.rpgoverhaul.armour.Belt;
 import com.github.thelonedevil.rpgoverhaul.armour.Helmet;
 import com.github.thelonedevil.rpgoverhaul.weapons.swords.LegendarySword;
 
@@ -51,6 +52,8 @@ public class MyItems {
 	public static Item TestCuirass;
 	public static Item TestBracerL;
 	public static Item TestBracerR;
+	public static Item TestBelt;
+
 
 	
 	public static void init(){
@@ -77,6 +80,8 @@ public class MyItems {
 		
 		TestHelmet = new Helmet().setCreativeTab(RPGOMain.myTab).setUnlocalizedName("testhelmet");
 		GameRegistry.registerItem(TestHelmet, "testhelmet");
+		TestBelt = new Belt(0.3D, 1, 20, 10D, 0, 0).setCreativeTab(RPGOMain.myTab).setUnlocalizedName("testbelt");
+		GameRegistry.registerItem(TestBelt, "testbelt");
 		
 		GameRegistry.registerItem(ingot_xiatherium, "Xiatherium Ingot");
 		GameRegistry.registerItem(ingot_farunese, "Farunese Ingot");

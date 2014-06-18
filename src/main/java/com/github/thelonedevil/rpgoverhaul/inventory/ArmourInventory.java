@@ -34,6 +34,18 @@ public class ArmourInventory implements IInventory {
 	// different types,
 	// for example SLOT_SHIELD = 0, SLOT_AMULET = 1;
 	public static final int INV_SIZE = 53;
+	public static final int helmet = 41;
+	public static final int pauldronl = 42;
+	public static final int pauldronr = 43;
+	public static final int chest = 44;
+	public static final int bracerl = 45;
+	public static final int bracerr = 46;
+	public static final int belt = 47;
+	public static final int glovel = 48;
+	public static final int glover = 49;
+	public static final int legs = 50;
+	public static final int bootl = 51;
+	public static final int bootr = 52;
 
 	/**
 	 * Inventory's size must be same as number of slots you add to the Container
@@ -143,18 +155,7 @@ public class ArmourInventory implements IInventory {
 		// return true;
 
 		// For now, only ItemUseMana items can be stored in these slots
-		final int helmet = 41;
-		final int pauldronl = 42;
-		final int pauldronr = 43;
-		final int chest = 44;
-		final int bracerl = 45;
-		final int bracerr = 46;
-		final int belt = 47;
-		final int glovel = 48;
-		final int glover = 49;
-		final int legs = 50;
-		final int bootl = 51;
-		final int bootr = 52;
+
 		switch (slot) {
 		case helmet:
 			if(itemstack.getItem() instanceof Helmet){
