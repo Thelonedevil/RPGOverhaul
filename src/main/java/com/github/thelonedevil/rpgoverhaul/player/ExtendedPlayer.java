@@ -1,5 +1,8 @@
 package com.github.thelonedevil.rpgoverhaul.player;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -17,11 +20,14 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public final static String EXT_PROP_NAME = RPGOMain.MODID + "ExtendedPlayer";
 	private final EntityPlayer player;
 	public final static ArmourInventory customInventory = new ArmourInventory();
-
+	public List<Boolean> equippedModifiers = new ArrayList<Boolean>();
 
 	public ExtendedPlayer(EntityPlayer player) {
 		this.player = player;
-		
+		for(int i = 0; i< 12; i++){
+		equippedModifiers.add(false);
+		}
+
 	}
 
 	public static final void register(EntityPlayer player) {
@@ -31,11 +37,12 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public static final ExtendedPlayer get(EntityPlayer player) {
 		return (ExtendedPlayer) player.getExtendedProperties(EXT_PROP_NAME);
 	}
-	
-	public static ArmourInventory getInv(EntityPlayer player){
-		if(customInventory != null){
+
+	public static ArmourInventory getInv(EntityPlayer player) {
+		if (customInventory != null) {
 			return customInventory;
-		}else return new ArmourInventory();
+		} else
+			return new ArmourInventory();
 	}
 
 	@Override
@@ -51,7 +58,6 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public void loadNBTData(NBTTagCompound compound) {
 		NBTTagCompound properties = (NBTTagCompound) compound.getTag(EXT_PROP_NAME);
 		customInventory.readFromNBT(properties);
-
 
 	}
 
