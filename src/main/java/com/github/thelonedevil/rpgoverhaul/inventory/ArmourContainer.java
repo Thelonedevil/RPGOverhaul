@@ -27,7 +27,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ArmourContainer extends Container {
 	private static final int HOTBARSTART = 0, HOTBAREND = HOTBARSTART + 9, INVSTART = HOTBAREND + 1, INVEND = INVSTART + 26, VARMSTART = INVEND + 1, VARMEND = VARMSTART + 3,
-			CUSTOMARMSTART = VARMEND + 1, CUSTOMARMEND = CUSTOMARMSTART + 11;
+			CUSTOMARMSTART = 0, CUSTOMARMEND = CUSTOMARMSTART + 11;
 
 	// hotbar 0-9
 	// inv 10-36
@@ -40,18 +40,18 @@ public class ArmourContainer extends Container {
 
 	public ArmourContainer(final EntityPlayer player, InventoryPlayer inventoryplayer, ArmourInventory inv) {
 
-		this.addSlotToContainer(new SlotHelmet(inv, 41, 112, 8));
-		this.addSlotToContainer(new SlotPauldronL(inv, 42, 80, 8));
-		this.addSlotToContainer(new SlotPauldronR(inv, 43, 144, 8));
-		this.addSlotToContainer(new SlotCuirass(inv, 44, 112, 26));
-		this.addSlotToContainer(new SlotBracerL(inv, 45, 80, 26));
-		this.addSlotToContainer(new SlotBracerR(inv, 46, 144, 26));
-		this.addSlotToContainer(new SlotBelt(inv, 47, 112, 44));
-		this.addSlotToContainer(new SlotGauntletL(inv, 48, 80, 44));
-		this.addSlotToContainer(new SlotGauntletR(inv, 49, 144, 44));
-		this.addSlotToContainer(new SlotGreaves(inv, 50, 112, 62));
-		this.addSlotToContainer(new SlotBootL(inv, 51, 80, 62));
-		this.addSlotToContainer(new SlotBootR(inv, 52, 144, 62));
+		this.addSlotToContainer(new SlotHelmet(inv, 0, 112, 8));
+		this.addSlotToContainer(new SlotPauldronL(inv, 1, 80, 8));
+		this.addSlotToContainer(new SlotPauldronR(inv, 2, 144, 8));
+		this.addSlotToContainer(new SlotCuirass(inv, 3, 112, 26));
+		this.addSlotToContainer(new SlotBracerL(inv, 4, 80, 26));
+		this.addSlotToContainer(new SlotBracerR(inv, 5, 144, 26));
+		this.addSlotToContainer(new SlotBelt(inv, 6, 112, 44));
+		this.addSlotToContainer(new SlotGauntletL(inv, 7, 80, 44));
+		this.addSlotToContainer(new SlotGauntletR(inv, 8, 144, 44));
+		this.addSlotToContainer(new SlotGreaves(inv, 9, 112, 62));
+		this.addSlotToContainer(new SlotBootL(inv, 10, 80, 62));
+		this.addSlotToContainer(new SlotBootR(inv, 11, 144, 62));
 
 		// Add vanilla PLAYER INVENTORY - just copied/pasted from vanilla
 		// classes

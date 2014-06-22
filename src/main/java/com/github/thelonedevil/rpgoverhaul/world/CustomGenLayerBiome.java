@@ -6,6 +6,7 @@ import java.util.List;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.BiomeGenOcean;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager;
@@ -13,6 +14,7 @@ import net.minecraftforge.common.BiomeManager.BiomeEntry;
 
 public class CustomGenLayerBiome extends GenLayer {
 	private List<BiomeEntry> desertBiomes = new ArrayList<BiomeEntry>();
+	 protected static final BiomeGenBase.Height height_Oceans = new BiomeGenBase.Height(-2.0F, 0.1F);
 
 	public CustomGenLayerBiome(long par1, GenLayer par3GenLayer, WorldType par4WorldType) {
 		super(par1);
@@ -20,10 +22,13 @@ public class CustomGenLayerBiome extends GenLayer {
 		this.parent = par3GenLayer;
 
 		this.desertBiomes.addAll(BiomeManager.desertBiomes);
+		
+		
 
 		desertBiomes.add(new BiomeEntry(BiomeGenBase.desert, 30));
 		desertBiomes.add(new BiomeEntry(BiomeGenBase.savanna, 20));
-		desertBiomes.add(new BiomeEntry(BiomeGenBase.mesa, 500));
+		desertBiomes.add(new BiomeEntry(BiomeGenBase.mesa, 50));
+
 	}
 	
 	/**

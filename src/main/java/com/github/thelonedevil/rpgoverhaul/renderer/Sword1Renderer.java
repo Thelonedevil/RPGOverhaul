@@ -1,4 +1,4 @@
-package com.github.thelonedevil.rpgoverhaul.render;
+package com.github.thelonedevil.rpgoverhaul.renderer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -9,14 +9,14 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
-import com.github.thelonedevil.rpgoverhaul.weapons.swords.Sword2;
+import com.github.thelonedevil.rpgoverhaul.weapons.swords.ModelSword1;
 
-public class Sword2Renderer implements IItemRenderer {
+public class Sword1Renderer implements IItemRenderer {
 
-	Sword2 model;
+	ModelSword1 model;
 
-	public Sword2Renderer() {
-		model = new Sword2();
+	public Sword1Renderer() {
+		model = new ModelSword1();
 	}
 
 	@Override
@@ -49,7 +49,7 @@ public class Sword2Renderer implements IItemRenderer {
 			GL11.glPushMatrix(); // start gl rendering for this section
 			scale = 3F;
 			GL11.glScalef(scale, scale, scale);
-			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword2.png"));
+			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword1.png"));
 			GL11.glRotatef(30F, 1.0f, 0.0f, 0.0f); // rotate 0 ° on X axis
 			GL11.glRotatef(-70F, 0.0f, 1.0f, 0.0f); // rotate -5 ° on Y axis
 			GL11.glRotatef(-150F, 0.0f, 0.0f, 1.0f); // rotate -150 ° on Z axis
@@ -67,11 +67,11 @@ public class Sword2Renderer implements IItemRenderer {
 			GL11.glPushMatrix();
 			scale = 3F;
 			GL11.glScalef(scale, scale, scale);
-			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword2.png"));
+			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword1.png"));
 			GL11.glRotatef(0F, 1.0f, 0.0f, 0.0f);
 			GL11.glRotatef(-5F, 0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(-150F, 0.0f, 0.0f, 1.0f);
-			GL11.glTranslatef(-0.2f, -0.0F, -0.1F);
+			GL11.glTranslatef(-0.1f, -0.0F, -0.1F);
 			model.render((Entity) data[1], 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
 			GL11.glPopMatrix();
 			break;
@@ -80,7 +80,7 @@ public class Sword2Renderer implements IItemRenderer {
 			GL11.glPushMatrix();
 			scale = 3F;
 			GL11.glScalef(scale, scale, scale);
-			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword2.png"));
+			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword1.png"));
 			GL11.glRotatef(90F, 1.0f, 0.0f, 0.0f);
 			GL11.glRotatef(0F, 0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(45F, 0.0f, 0.0f, 1.0f);
@@ -93,7 +93,7 @@ public class Sword2Renderer implements IItemRenderer {
 			GL11.glPushMatrix();
 			scale = 1F;
 			GL11.glScalef(scale, scale, scale);
-			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword2.png"));
+			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword1.png"));
 
 			GL11.glRotatef(200F, 1.0f, 0.0f, 0.0f);
 			GL11.glRotatef(-80F, 0.0f, 1.0f, 0.0f);

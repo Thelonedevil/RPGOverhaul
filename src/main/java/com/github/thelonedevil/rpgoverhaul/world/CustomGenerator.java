@@ -22,6 +22,24 @@ public class CustomGenerator implements IWorldGenerator {
 		world.setBlock(chunkX*16 + random.nextInt(16), 9, chunkZ*16 + random.nextInt(16), MyBlocks.ore_farunese);
 		world.setBlock(chunkX*16 + random.nextInt(16), 9, chunkZ*16 + random.nextInt(16), MyBlocks.ore_orobalt);
 		world.setBlock(chunkX*16 + random.nextInt(16), 9, chunkZ*16 + random.nextInt(16), MyBlocks.ore_xiatherium);
+		world.setBlock(chunkX*16 + random.nextInt(16), 7, chunkZ*16 + random.nextInt(16), MyBlocks.ore_farunese);
+		world.setBlock(chunkX*16 + random.nextInt(16), 7, chunkZ*16 + random.nextInt(16), MyBlocks.ore_orobalt);
+		world.setBlock(chunkX*16 + random.nextInt(16), 7, chunkZ*16 + random.nextInt(16), MyBlocks.ore_xiatherium);
+		world.setBlock(chunkX*16 + random.nextInt(16), 8, chunkZ*16 + random.nextInt(16), MyBlocks.ore_farunese);
+		world.setBlock(chunkX*16 + random.nextInt(16), 8, chunkZ*16 + random.nextInt(16), MyBlocks.ore_orobalt);
+		world.setBlock(chunkX*16 + random.nextInt(16), 8, chunkZ*16 + random.nextInt(16), MyBlocks.ore_xiatherium);
+		world.setBlock(chunkX*16 + random.nextInt(16), 9, chunkZ*16 + random.nextInt(16), MyBlocks.ore_farunese);
+		world.setBlock(chunkX*16 + random.nextInt(16), 9, chunkZ*16 + random.nextInt(16), MyBlocks.ore_orobalt);
+		world.setBlock(chunkX*16 + random.nextInt(16), 9, chunkZ*16 + random.nextInt(16), MyBlocks.ore_xiatherium);
+		world.setBlock(chunkX*16 + random.nextInt(16), 7, chunkZ*16 + random.nextInt(16), MyBlocks.ore_farunese);
+		world.setBlock(chunkX*16 + random.nextInt(16), 7, chunkZ*16 + random.nextInt(16), MyBlocks.ore_orobalt);
+		world.setBlock(chunkX*16 + random.nextInt(16), 7, chunkZ*16 + random.nextInt(16), MyBlocks.ore_xiatherium);
+		world.setBlock(chunkX*16 + random.nextInt(16), 8, chunkZ*16 + random.nextInt(16), MyBlocks.ore_farunese);
+		world.setBlock(chunkX*16 + random.nextInt(16), 8, chunkZ*16 + random.nextInt(16), MyBlocks.ore_orobalt);
+		world.setBlock(chunkX*16 + random.nextInt(16), 8, chunkZ*16 + random.nextInt(16), MyBlocks.ore_xiatherium);
+		world.setBlock(chunkX*16 + random.nextInt(16), 9, chunkZ*16 + random.nextInt(16), MyBlocks.ore_farunese);
+		world.setBlock(chunkX*16 + random.nextInt(16), 9, chunkZ*16 + random.nextInt(16), MyBlocks.ore_orobalt);
+		world.setBlock(chunkX*16 + random.nextInt(16), 9, chunkZ*16 + random.nextInt(16), MyBlocks.ore_xiatherium);
 
 	}
 }

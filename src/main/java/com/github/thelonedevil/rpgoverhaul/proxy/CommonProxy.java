@@ -7,6 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.Alloy_Furnace_TileEntity;
+import com.github.thelonedevil.rpgoverhaul.blocks.crystals.CrystalClusterTileEntity;
 import com.github.thelonedevil.rpgoverhaul.handlers.GUIHandler;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -27,6 +28,7 @@ public class CommonProxy {
 
 	public void registerTileEntities() {
 		GameRegistry.registerTileEntity(Alloy_Furnace_TileEntity.class, "Alloy_Furnace_TileEntity");
+		GameRegistry.registerTileEntity(CrystalClusterTileEntity.class, "CrystalClusterTileEntity");
 	}
 
 	public void registerNetworkStuff() {

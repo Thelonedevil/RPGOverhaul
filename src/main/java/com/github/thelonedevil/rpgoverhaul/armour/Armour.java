@@ -1,13 +1,19 @@
 package com.github.thelonedevil.rpgoverhaul.armour;
 
+import java.util.List;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
+import net.minecraft.util.StatCollector;
 
-import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventory;
-import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
+import org.lwjgl.input.Keyboard;
+
+import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 
 public class Armour extends Item implements IArmour {
 	public int type;
@@ -18,8 +24,34 @@ public class Armour extends Item implements IArmour {
 
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub if(player.ticksExisted == 1)
+		if (player.ticksExisted == 1) {
+			onEquipped(itemstack, player);
+		}
 
+	}
+
+	@Override
+	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+		if (GuiScreen.isShiftKeyDown()) {
+			addStringToTooltip(StatCollector.translateToLocal(RPGOMain.MODID+".armour." + type), par3List);
+
+			KeyBinding key = null;
+			KeyBinding[] keys = Minecraft.getMinecraft().gameSettings.keyBindings;
+			for (KeyBinding otherKey : keys)
+				if (otherKey.getKeyDescription().equals("key.armour_inv.desc")) {
+					key = otherKey;
+					break;
+				}
+
+			if (key != null)
+				addStringToTooltip(StatCollector.translateToLocal(RPGOMain.MODID+".armourtooltip").replaceAll("%key%", Keyboard.getKeyName(key.getKeyCode())), par3List);
+		} else
+			addStringToTooltip(StatCollector.translateToLocal(RPGOMain.MODID+".shiftinfo"), par3List);
+	}
+
+	private void addStringToTooltip(String s, List<String> tooltip) {
+		tooltip.add(s.replaceAll("&", "\u00a7"));
 	}
 
 	@Override
@@ -32,24 +64,6 @@ public class Armour extends Item implements IArmour {
 	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-		if (!par2World.isRemote) {
-			ArmourInventory armour = ExtendedPlayer.get(par3EntityPlayer).customInventory;
-			for (int i = 41; i < armour.getSizeInventory(); i++)
-				if (armour.getStackInSlot(i) == null && armour.isItemValidForSlot(i, par1ItemStack)) {
-					armour.setInventorySlotContents(i, par1ItemStack.copy());
-					if (!par3EntityPlayer.capabilities.isCreativeMode)
-						par3EntityPlayer.inventory.setInventorySlotContents(par3EntityPlayer.inventory.currentItem, null);
-
-					onEquipped(par1ItemStack, par3EntityPlayer);
-					break;
-				}
-		}
-
-		return par1ItemStack;
 	}
 
 }

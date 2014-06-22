@@ -6,6 +6,7 @@ import net.minecraft.world.WorldSettings;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenLiquids;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerBiome;
@@ -19,7 +20,7 @@ public class WorldTypeCustom extends WorldType {
 
 		DimensionManager.unregisterProviderType(0);
 		DimensionManager.registerProviderType(0, CustomWorldProvider.class, false);
-		
+
 	}
 
 	@Override
@@ -34,5 +35,14 @@ public class WorldTypeCustom extends WorldType {
 	public WorldChunkManager getChunkManager(World world) {
 		WorldChunkManager wcm = new WorldChunkManager(world);
 		return wcm;
+	}
+
+	@Override
+	public double getHorizon(World world) {
+		return 35.0D;
+	}
+
+	public IChunkProvider getChunkGenerator(World world, String generatorOptions) {
+		return new CustomChunkProvider(world, world.getSeed(), world.getWorldInfo().isMapFeaturesEnabled());
 	}
 }

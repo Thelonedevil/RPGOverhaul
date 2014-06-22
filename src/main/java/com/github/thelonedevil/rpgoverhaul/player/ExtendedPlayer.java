@@ -1,16 +1,19 @@
 package com.github.thelonedevil.rpgoverhaul.player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.armour.Armour;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventory;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
@@ -21,11 +24,17 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	private final EntityPlayer player;
 	public final static ArmourInventory customInventory = new ArmourInventory();
 	public List<Boolean> equippedModifiers = new ArrayList<Boolean>();
+	public List<Armour> EquippedLastTick = new ArrayList<Armour>();
+	private int[] skills = {};
+	private HashMap<String,Boolean> perks = new HashMap<String,Boolean>();
 
 	public ExtendedPlayer(EntityPlayer player) {
 		this.player = player;
-		for(int i = 0; i< 12; i++){
-		equippedModifiers.add(false);
+		for (int i = 0; i < 12; i++) {
+			equippedModifiers.add(false);
+		}
+		for (int i = 0; i < 12; i++) {
+			EquippedLastTick.add(null);
 		}
 
 	}
@@ -49,6 +58,10 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public void saveNBTData(NBTTagCompound compound) {
 		NBTTagCompound properties = new NBTTagCompound();
 		customInventory.writeToNBT(properties);
+		properties.setIntArray("Skills", skills);
+		for(String key :perks.keySet()){
+			properties.setBoolean(key, perks.get(key));
+		}
 
 		compound.setTag(EXT_PROP_NAME, properties);
 
@@ -58,6 +71,14 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public void loadNBTData(NBTTagCompound compound) {
 		NBTTagCompound properties = (NBTTagCompound) compound.getTag(EXT_PROP_NAME);
 		customInventory.readFromNBT(properties);
+		skills = properties.getIntArray("Skills");
+		Perks[] perklist = Perks.values();
+		for(int i = 0; i< perklist.length; i++){
+			if(properties.getBoolean(perklist[i].name())){
+				addPerk(perklist[i].name());
+			}
+		}
+		
 
 	}
 
@@ -102,6 +123,39 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public void init(Entity entity, World world) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	public boolean addPerk(String perk){
+		if(!perks.containsKey(perk)){
+			perks.put(perk, true);
+			return true;
+		} else if(perks.get(perk) == false){
+			perks.put(perk, true);
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public boolean removePerk(String perk){
+		if(perks.containsKey(perk)){
+			perks.put(perk, false);
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	public boolean hasPerk(String perk){
+		return perks.containsKey(perk);
+	}
+	
+	public int getSkill(int skill){
+		return skills[skill];
+	}
+	
+	public void setSkill(int skill, int value){
+		skills[skill] = value;
 	}
 
 }

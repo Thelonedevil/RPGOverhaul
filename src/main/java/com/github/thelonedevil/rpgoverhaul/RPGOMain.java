@@ -52,6 +52,7 @@ public class RPGOMain {
 	public static PlayerTickHandler tickHandler =new PlayerTickHandler();
 	public static final int Alloy_furnace_GUI = 0;
 	public static final int Armour_Inventory_GUI = 1;
+	public static final int CRYSTAL_SWAP_GUI = 2;
 	public static CreativeTabs myTab = new CreativeTabs("RPG Overhaul") {
 		public Item getTabIconItem() {
 			return Item.getItemFromBlock(Blocks.dirt);
@@ -98,6 +99,7 @@ public class RPGOMain {
 	public static void post(FMLPostInitializationEvent event) {
 		WorldTypeCustom custom = new WorldTypeCustom();
 		
+		
 	}
 
 	@SuppressWarnings("unchecked")
@@ -107,6 +109,18 @@ public class RPGOMain {
 		Random rand = new Random(seed);
 		int primaryColor = rand.nextInt() * 16777215;
 		int secondaryColor = rand.nextInt() * 16777215;
+
+		EntityRegistry.registerGlobalEntityID(entityClass, name, entityID);
+		EntityRegistry.registerModEntity(entityClass, name, entityID, instance, 64, 1, true);
+		EntityList.entityEggs.put(Integer.valueOf(entityID), new EntityList.EntityEggInfo(entityID, primaryColor, secondaryColor));
+
+		proxy.registerRenderers();
+	}
+	@SuppressWarnings("unchecked")
+	public static void registerEntity(Class entityClass, String name, int primaryColor, int secondaryColor) {
+		int entityID = EntityRegistry.findGlobalUniqueEntityId();
+		long seed = name.hashCode();
+		Random rand = new Random(seed);
 
 		EntityRegistry.registerGlobalEntityID(entityClass, name, entityID);
 		EntityRegistry.registerModEntity(entityClass, name, entityID, instance, 64, 1, true);

@@ -20,11 +20,12 @@ public class KeyHandler {
 
 	/** Key index for easy handling */
 	public static final int CUSTOM_INV = 0;
+	public static final int CRYSTAL_SWAP = 1;
 
 	/** Key descriptions; use a language file to localize the description later */
-	private static final String[] desc = { "key.armour_inv.desc" };
+	private static final String[] desc = { "key.armour_inv.desc", "key.crystal.desc" };
 	/** Default key values */
-	private static final int[] keyValues = { Keyboard.KEY_I };
+	private static final int[] keyValues = { Keyboard.KEY_I, Keyboard.KEY_C };
 	private final KeyBinding[] keys;
 
 	public KeyHandler() {
@@ -44,6 +45,9 @@ public class KeyHandler {
 
 		if (!FMLClientHandler.instance().isGUIOpen(GuiChat.class) && FMLClientHandler.instance().getClient().inGameHasFocus) {
 			if (keys[CUSTOM_INV].isPressed()) {
+				RPGOMain.network.sendToServer(new OpenGui(RPGOMain.Armour_Inventory_GUI));
+				System.out.println("Open GUI packet sent to server");
+			}else if(keys[CRYSTAL_SWAP].isPressed()){
 				RPGOMain.network.sendToServer(new OpenGui(RPGOMain.Armour_Inventory_GUI));
 				System.out.println("Open GUI packet sent to server");
 			}

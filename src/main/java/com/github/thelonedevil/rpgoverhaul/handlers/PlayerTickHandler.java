@@ -19,14 +19,15 @@ public class PlayerTickHandler {
 			EntityPlayer player = (EntityPlayer) event.entity;
 
 			ArmourInventory armour = ExtendedPlayer.get(player).customInventory;
-			for (int a = 41; a < armour.getSizeInventory(); a++) {
+			for (int a = 0; a < 12; a++) {
 				if (armour.getStackInSlot(a) != null && armour.getStackInSlot(a).getItem() instanceof Armour) {
 					((Armour) armour.getStackInSlot(a).getItem()).onWornTick(armour.getStackInSlot(a), player);
+
 				}
+
 			}
 
 		}
 
 	}
-
 }

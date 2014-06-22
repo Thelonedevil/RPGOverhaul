@@ -12,6 +12,7 @@ tile.Water_Crystal_Cluster.name=Water Crystal Cluster
 tile.Air_Crystal_Cluster.name=Air Crystal Cluster
 tile.Earth_Crystal_Cluster.name=Earth Crystal Cluster
 
+item.crystal_none.name=No Crystal
 item.crystal_fire.name=Fire Crystal
 item.crystal_water.name=Water Crystal
 item.crystal_air.name=Air Crystal
@@ -26,5 +27,22 @@ item.ingot_xiatherium.name=Xiatherium Ingot
 
 entity.Unknown.name=????????
 rpgo=RPG Overhaul
+
+rpgo.shiftinfo=Press &bShift&7 For Info
+rpgo.crystal.info=Crystal Type:
+rpgo.weapon.SWORD=Sword
+rpgo.armour.0=Helmet
+rpgo.armour.1=Cuirass
+rpgo.armour.2=Belt
+rpgo.armour.3=Greaves
+rpgo.armour.4=Left Pauldron 
+rpgo.armour.5=Right Pauldron
+rpgo.armour.6=Left VanBracer
+rpgo.armour.7=Right VanBracer 
+rpgo.armour.8=Left Gauntlet
+rpgo.armour.9=Right Gauntlet
+rpgo.armour.10=Left Boot
+rpgo.armour.11=Right Boot
+rpgo.armourtooltip=Press %key% to open the Armour Inventory
 
 itemGroup.RPG Overhaul=RPG Overhaul
