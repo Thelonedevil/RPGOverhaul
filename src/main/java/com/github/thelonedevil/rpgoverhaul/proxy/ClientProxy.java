@@ -1,12 +1,15 @@
 package com.github.thelonedevil.rpgoverhaul.proxy;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
 import com.github.thelonedevil.rpgoverhaul.MyItems;
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.CrystalClusterTileEntity;
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
+import com.github.thelonedevil.rpgoverhaul.gui.XpGui;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
 import com.github.thelonedevil.rpgoverhaul.mobs.RenderTest;
 import com.github.thelonedevil.rpgoverhaul.renderer.RenderIds;
@@ -29,6 +32,8 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void registerRenderers() {
 		RenderingRegistry.registerEntityRenderingHandler(Mob1.class, new RenderTest(new ModelBiped(), 0.5F));
+		MinecraftForge.EVENT_BUS.register(new XpGui(Minecraft.getMinecraft()));
+
 
 	}
 	

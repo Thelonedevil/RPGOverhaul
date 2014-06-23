@@ -102,13 +102,15 @@ public class DeathHandler {
 		for (int j = 0; j < event.drops.size(); j++) {
 			for (int i = 0; i < chest.getSizeInventory(); i++) {
 				if (chest.getStackInSlot(i) != null) {
-					if (chest.getStackInSlot(i).isItemEqual(event.drops.get(j).getEntityItem())) {
-						ItemStack[] stacks = Util.mergeItemStacks(chest.getStackInSlot(i), event.drops.get(j).getEntityItem());
-						event.drops.remove(event.drops.get(j));
-						chest.setInventorySlotContents(i, stacks[0]);
-						int emptySlot = Util.findEmptySlot(chest);
-						if (emptySlot != -1 && stacks.length == 2) {
-							chest.setInventorySlotContents(emptySlot, stacks[1]);
+					if (!(event.drops.size() >= j)) {
+						if (chest.getStackInSlot(i).isItemEqual(event.drops.get(j).getEntityItem())) {
+							ItemStack[] stacks = Util.mergeItemStacks(chest.getStackInSlot(i), event.drops.get(j).getEntityItem());
+							event.drops.remove(event.drops.get(j));
+							chest.setInventorySlotContents(i, stacks[0]);
+							int emptySlot = Util.findEmptySlot(chest);
+							if (emptySlot != -1 && stacks.length == 2) {
+								chest.setInventorySlotContents(emptySlot, stacks[1]);
+							}
 						}
 					}
 				}

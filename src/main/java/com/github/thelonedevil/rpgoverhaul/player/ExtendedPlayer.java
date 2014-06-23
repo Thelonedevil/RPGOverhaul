@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
@@ -26,7 +27,8 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public List<Boolean> equippedModifiers = new ArrayList<Boolean>();
 	public List<Armour> EquippedLastTick = new ArrayList<Armour>();
 	private int[] skills = {};
-	private HashMap<String,Boolean> perks = new HashMap<String,Boolean>();
+	private HashMap<String, Boolean> perks = new HashMap<String, Boolean>();
+	private double xp = 0;
 
 	public ExtendedPlayer(EntityPlayer player) {
 		this.player = player;
@@ -58,8 +60,9 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public void saveNBTData(NBTTagCompound compound) {
 		NBTTagCompound properties = new NBTTagCompound();
 		customInventory.writeToNBT(properties);
+		properties.setDouble("xp", xp);
 		properties.setIntArray("Skills", skills);
-		for(String key :perks.keySet()){
+		for (String key : perks.keySet()) {
 			properties.setBoolean(key, perks.get(key));
 		}
 
@@ -71,14 +74,14 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public void loadNBTData(NBTTagCompound compound) {
 		NBTTagCompound properties = (NBTTagCompound) compound.getTag(EXT_PROP_NAME);
 		customInventory.readFromNBT(properties);
+		xp = properties.getDouble("xp");
 		skills = properties.getIntArray("Skills");
 		Perks[] perklist = Perks.values();
-		for(int i = 0; i< perklist.length; i++){
-			if(properties.getBoolean(perklist[i].name())){
+		for (int i = 0; i < perklist.length; i++) {
+			if (properties.getBoolean(perklist[i].name())) {
 				addPerk(perklist[i].name());
 			}
 		}
-		
 
 	}
 
@@ -124,38 +127,59 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public boolean addPerk(String perk){
-		if(!perks.containsKey(perk)){
+
+	public boolean addPerk(String perk) {
+		if (!perks.containsKey(perk)) {
 			perks.put(perk, true);
 			return true;
-		} else if(perks.get(perk) == false){
+		} else if (perks.get(perk) == false) {
 			perks.put(perk, true);
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-	
-	public boolean removePerk(String perk){
-		if(perks.containsKey(perk)){
+
+	public boolean removePerk(String perk) {
+		if (perks.containsKey(perk)) {
 			perks.put(perk, false);
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
-	
-	public boolean hasPerk(String perk){
+
+	public boolean hasPerk(String perk) {
 		return perks.containsKey(perk);
 	}
-	
-	public int getSkill(int skill){
+
+	public int getSkill(int skill) {
 		return skills[skill];
 	}
-	
-	public void setSkill(int skill, int value){
+
+	public void setSkill(int skill, int value) {
 		skills[skill] = value;
 	}
 
+	public void addXp(double xp) {
+		this.xp += xp;
+		System.out.println("Xp added, xp is now " + this.xp);
+		System.out.println("Level is now "+ getLevel());
+		System.out.println(" add player is " + player.getCommandSenderName());
+		this.saveProxyData(player);
+		this.loadProxyData(player);
+	}
+	public double getXp(){
+		//System.out.println("xp got and is " + this.xp);
+		//System.out.println("get player is " + player.getCommandSenderName());
+		return this.xp;
+	}
+	
+	public int getLevel(){
+		if(xp < 21){
+			return 0;
+		}else{
+		return 2^((int)(Math.log(xp)));
+		}
+	}
 }
