@@ -38,6 +38,7 @@ public class Alloy_Furnace extends BlockContainer {
 	public Alloy_Furnace(boolean isActive) {
 		super(Material.rock);
 		isBurning2 = isActive;
+		setTickRandomly(true);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -45,6 +46,10 @@ public class Alloy_Furnace extends BlockContainer {
 		this.blockIcon = iconregister.registerIcon(RPGOMain.MODID + ":AlloyFurnaceSide");
 		this.front = iconregister.registerIcon(this.isBurning2 ? RPGOMain.MODID + ":AlloyFurnaceActive" : RPGOMain.MODID + ":AlloyFurnaceInActive");
 		this.top = iconregister.registerIcon(RPGOMain.MODID + ":AlloyFurnaceTop");
+	}
+
+	public int tickRate(World p_149738_1_) {
+		return 1;
 	}
 
 	public IIcon getIcon(int side, int meta) {
@@ -123,6 +128,7 @@ public class Alloy_Furnace extends BlockContainer {
 			((Alloy_Furnace_TileEntity) world.getTileEntity(x, y, z)).furnaceName(stack.getDisplayName());
 		}
 	}
+
 	public static void updateFurnaceBlockState(boolean burning, World world, int x, int y, int z) {
 		int direction = world.getBlockMetadata(x, y, z);
 		TileEntity tileentity = world.getTileEntity(x, y, z);

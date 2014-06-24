@@ -19,10 +19,10 @@ public class AlloyContainer extends Container {
 
 	public AlloyContainer(InventoryPlayer player, Alloy_Furnace_TileEntity tileEntityFurnace) {
 		this.tileFurnace = tileEntityFurnace;
-		this.addSlotToContainer(new Slot(tileEntityFurnace, 0, 42, 17));
-		this.addSlotToContainer(new Slot(tileEntityFurnace, 1, 56, 53));
-		this.addSlotToContainer(new Slot(tileEntityFurnace, 3, 69, 17));
-		this.addSlotToContainer(new SlotFurnace(player.player, tileEntityFurnace, 2, 116, 35));
+		this.addSlotToContainer(new Slot(tileEntityFurnace, AlloyFurnaceSlots.in1, 42, 17));
+		this.addSlotToContainer(new Slot(tileEntityFurnace, AlloyFurnaceSlots.fuel, 56, 53));
+		this.addSlotToContainer(new Slot(tileEntityFurnace, AlloyFurnaceSlots.in2, 69, 17));
+		this.addSlotToContainer(new SlotFurnace(player.player, tileEntityFurnace, AlloyFurnaceSlots.out, 116, 35));
 		int i;
 
 		for (i = 0; i < 3; ++i) {

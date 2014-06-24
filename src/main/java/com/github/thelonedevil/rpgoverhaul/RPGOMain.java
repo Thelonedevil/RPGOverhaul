@@ -74,8 +74,9 @@ public class RPGOMain {
 		registerEntity(Mob1.class, "Unknown");
 		MyBlocks.init();
 		MyItems.init();
-		MyRecipes.init();
 		MyCrystals.init();
+		MixedIngots.init();
+		MyRecipes.init();
 		ItemRemoval.init();
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
 	    network.registerMessage(SyncPlayerProps.Handler.class, SyncPlayerProps.class, 0, Side.SERVER);

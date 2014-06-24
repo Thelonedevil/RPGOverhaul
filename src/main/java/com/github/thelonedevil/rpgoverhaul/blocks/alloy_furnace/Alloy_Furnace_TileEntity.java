@@ -13,9 +13,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class Alloy_Furnace_TileEntity extends TileEntity implements ISidedInventory {
 
-	private static final int[] slotsTop = new int[] { 0 , 3};
-	private static final int[] slotsBottom = new int[] { 2, 1 };
-	private static final int[] slotsSides = new int[] { 1 };
+	private static final int[] slotsTop = new int[] { AlloyFurnaceSlots.in1, AlloyFurnaceSlots.in2 };
+	private static final int[] slotsBottom = new int[] { AlloyFurnaceSlots.out, AlloyFurnaceSlots.fuel };
+	private static final int[] slotsSides = new int[] { AlloyFurnaceSlots.fuel };
 
 	private ItemStack[] furnaceItemStacks = new ItemStack[4];
 
@@ -212,11 +212,14 @@ public class Alloy_Furnace_TileEntity extends TileEntity implements ISidedInvent
 			ItemStack itemstack = AlloyRecipes.smelting().getSmeltingResult(this.furnaceItemStacks[0], this.furnaceItemStacks[3]);
 			if (itemstack == null)
 				return false;
-			if (this.furnaceItemStacks[2] == null)
+			if (this.furnaceItemStacks[2] == null) {
+				System.out.println(true);
 				return true;
+			}
 			if (!this.furnaceItemStacks[2].isItemEqual(itemstack))
 				return false;
 			int result = furnaceItemStacks[2].stackSize + itemstack.stackSize;
+			System.out.println(result <= getInventoryStackLimit() && result <= this.furnaceItemStacks[2].getMaxStackSize());
 			return result <= getInventoryStackLimit() && result <= this.furnaceItemStacks[2].getMaxStackSize();
 		}
 	}
