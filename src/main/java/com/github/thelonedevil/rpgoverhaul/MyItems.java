@@ -1,6 +1,8 @@
 package com.github.thelonedevil.rpgoverhaul;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraftforge.oredict.OreDictionary;
 
 import com.github.thelonedevil.rpgoverhaul.armour.Belt;
 import com.github.thelonedevil.rpgoverhaul.armour.Helmet;
@@ -28,6 +30,10 @@ public class MyItems {
 	public static Item ingot_ayagrese;
 	public static Item ingot_tenshirium;
 	public static Item ingot_onecrum;
+	
+	public static Item mixedIngot;
+	
+	public static Item alloyIngot;
 
 	public static Item Zangetsu;
 	public static Item Sword1;
@@ -86,7 +92,14 @@ public class MyItems {
 		ingot_ayagrese = new Item().setUnlocalizedName("ingot_ayagrese").setTextureName(RPGOMain.MODID + ":ingot_ayagrese").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_tenshirium = new Item().setUnlocalizedName("ingot_tenshirium").setTextureName(RPGOMain.MODID + ":tenshirium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_onecrum = new Item().setUnlocalizedName("ingot_onecrum").setTextureName(RPGOMain.MODID + ":ingot_onecrum").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-
+		
+		
+		mixedIngot = new MixedIngot().setUnlocalizedName("mixedIngot").setMaxStackSize(64);
+		GameRegistry.registerItem(mixedIngot, "mixedIngot");
+		
+		alloyIngot = new AlloyIngot().setUnlocalizedName("alloyIngot").setMaxStackSize(64);
+		GameRegistry.registerItem(alloyIngot, "alloyIngot");
+		
 		crystal_fire = new Item().setUnlocalizedName("crystal_fire").setTextureName(RPGOMain.MODID + ":crystal_fire").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 		crystal_water = new Item().setUnlocalizedName("crystal_water").setTextureName(RPGOMain.MODID + ":crystal_water").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 		crystal_air = new Item().setUnlocalizedName("crystal_air").setTextureName(RPGOMain.MODID + ":crystal_air").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
@@ -125,6 +138,26 @@ public class MyItems {
 		GameRegistry.registerItem(ingot_ayagrese, "Ayagrese Ingot");
 		GameRegistry.registerItem(ingot_tenshirium, "Tenshirium Ingot");
 		GameRegistry.registerItem(ingot_onecrum, "Onecrum Ingot");
+		OreDictionary.registerOre("mixedIngot", ingot_xiatherium);
+		OreDictionary.registerOre("mixedIngot", ingot_farunese);
+		OreDictionary.registerOre("mixedIngot", ingot_orobalt);
+		OreDictionary.registerOre("mixedIngot", ingot_kiritorium);
+		OreDictionary.registerOre("mixedIngot", ingot_asunalt);
+		OreDictionary.registerOre("mixedIngot", ingot_eruslalt);
+		OreDictionary.registerOre("mixedIngot", ingot_ithasium);
+		OreDictionary.registerOre("mixedIngot", ingot_ozestum);
+		OreDictionary.registerOre("mixedIngot", ingot_evosum);
+		OreDictionary.registerOre("mixedIngot", ingot_emodralt);
+		OreDictionary.registerOre("mixedIngot", ingot_nautrenese);
+		OreDictionary.registerOre("mixedIngot", ingot_axespium);
+		OreDictionary.registerOre("mixedIngot", ingot_ketsuekium);
+		OreDictionary.registerOre("mixedIngot", ingot_shikyolt);
+		OreDictionary.registerOre("mixedIngot", ingot_sakuralt);
+		OreDictionary.registerOre("mixedIngot", ingot_ayagrese);
+		OreDictionary.registerOre("mixedIngot", ingot_tenshirium);
+		OreDictionary.registerOre("mixedIngot", ingot_onecrum);
+		OreDictionary.registerOre("mixedIngot", Items.gold_ingot);
+		OreDictionary.registerOre("mixedIngot", Items.iron_ingot);
 
 		GameRegistry.registerItem(crystal_fire, "Fire Crystal");
 		GameRegistry.registerItem(crystal_water, "Water Crystal");

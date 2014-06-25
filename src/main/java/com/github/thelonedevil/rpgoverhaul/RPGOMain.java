@@ -10,6 +10,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
 import com.github.thelonedevil.rpgoverhaul.handlers.AttackHandler;
+import com.github.thelonedevil.rpgoverhaul.handlers.CraftingHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.DeathHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.EntityConstructionHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.EntityJoinWorldHandler;
@@ -54,6 +55,7 @@ public class RPGOMain {
 	public static PlayerTickHandler tickHandler =new PlayerTickHandler();
 	public static PlayerKillHandler killHandler = new PlayerKillHandler();
 	public static EntityJoinWorldHandler entityjoin = new EntityJoinWorldHandler();
+	public static CraftingHandler craft = new CraftingHandler();
 	public static final int Alloy_furnace_GUI = 0;
 	public static final int Armour_Inventory_GUI = 1;
 	public static final int CRYSTAL_SWAP_GUI = 2;
@@ -75,7 +77,6 @@ public class RPGOMain {
 		MyBlocks.init();
 		MyItems.init();
 		MyCrystals.init();
-		MixedIngots.init();
 		MyRecipes.init();
 		ItemRemoval.init();
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
@@ -96,6 +97,7 @@ public class RPGOMain {
 		MinecraftForge.EVENT_BUS.register(tickHandler);
 		MinecraftForge.EVENT_BUS.register(killHandler);
 		MinecraftForge.EVENT_BUS.register(entityjoin);
+		FMLCommonHandler.instance().bus().register(craft);
 		FMLCommonHandler.instance().bus().register(keyHandler);
 		FMLCommonHandler.instance().bus().register(connectHandler);
 		proxy.registerTileEntities();
