@@ -58,7 +58,7 @@ public class EntityAIFleeLight extends EntityAIBase {
 			int l = MathHelper.floor_double(this.theCreature.posZ + (double) random.nextInt(20) - 10.0D);
 
 			if (this.theWorld.getBlock(j, k, l).getLightValue() < 3 && this.theCreature.getBlockPathWeight(j, k, l) < 1.0F) {
-				return this.theWorld.getWorldVec3Pool().getVecFromPool((double) j, (double) k, (double) l);
+				return Vec3.createVectorHelper((double) j, (double) k, (double) l);
 			}
 		}
 

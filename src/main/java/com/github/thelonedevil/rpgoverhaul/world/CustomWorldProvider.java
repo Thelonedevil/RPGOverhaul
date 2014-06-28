@@ -24,7 +24,7 @@ public class CustomWorldProvider extends WorldProvider {
 	@Override
 	public Vec3 getFogColor(float var1, float var2) {
 
-		return this.worldObj.getWorldVec3Pool().getVecFromPool((double) 0F / 255F, (double) 0F / 255F, (double) 0F / 255F);
+		return Vec3.createVectorHelper((double) 0F / 255F, (double) 0F / 255F, (double) 0F / 255F);
 	}
 
 	@Override
@@ -87,7 +87,7 @@ public class CustomWorldProvider extends WorldProvider {
 				f6 = f6 * (1.0F - f9) + 1.0F * f9;
 			}
 
-			return this.worldObj.getWorldVec3Pool().getVecFromPool((double) f4, (double) f5, (double) f6);
+			return Vec3.createVectorHelper((double) f4, (double) f5, (double) f6);
 
 		}
 	}

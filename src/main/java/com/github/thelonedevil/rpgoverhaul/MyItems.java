@@ -43,9 +43,12 @@ public class MyItems {
 	public static Item crystal_water;
 	public static Item crystal_earth;
 	public static Item crystal_air;
+	
 	public static Item crystal_plasma;
+	
 	public static Item crystal_sun;
 	public static Item crystal_moon;
+	
 	public static Item crystal_aries;
 	public static Item crystal_taurus;
 	public static Item crystal_gemini;
@@ -58,12 +61,25 @@ public class MyItems {
 	public static Item crystal_capricorn;
 	public static Item crystal_aquarius;
 	public static Item crystal_pisces;
+	
 	public static Item crystal_dragon_fire;
 	public static Item crystal_dragon_sky;
 	public static Item crystal_dragon_iron;
 	public static Item crystal_dragon_lightning;
 	public static Item crystal_dragon_shadow;
 	public static Item crystal_dragon_light;
+	
+	public static Item crystal_crest_courage;
+	public static Item crystal_crest_friendship;
+	public static Item crystal_crest_love;
+	public static Item crystal_crest_sincerity;
+	public static Item crystal_crest_knowledge;
+	public static Item crystal_crest_reliability;
+	public static Item crystal_crest_hope;
+	public static Item crystal_crest_light;
+	public static Item crystal_crest_kindness;
+	
+	public static Item crystal_smelting;
 
 	public static Item TestHelmet;
 	public static Item TestPauldronL;
@@ -80,7 +96,7 @@ public class MyItems {
 		ingot_kiritorium = new Item().setUnlocalizedName("ingot_kiritorium").setTextureName(RPGOMain.MODID + ":ingot_kiritorium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_asunalt = new Item().setUnlocalizedName("ingot_asunalt").setTextureName(RPGOMain.MODID + ":ingot_asunalt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_eruslalt = new Item().setUnlocalizedName("ingot_eruslalt").setTextureName(RPGOMain.MODID + ":ingot_eruslalt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_ithasium = new Item().setUnlocalizedName("ingot_ithasium").setTextureName(RPGOMain.MODID + ":ingot_ingot_ithasium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
+		ingot_ithasium = new Item().setUnlocalizedName("ingot_ithasium").setTextureName(RPGOMain.MODID + ":ingot_ithasium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_ozestum = new Item().setUnlocalizedName("ingot_ozestum").setTextureName(RPGOMain.MODID + ":ingot_ozestum").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_emodralt = new Item().setUnlocalizedName("ingot_emodralt").setTextureName(RPGOMain.MODID + ":ingot_emodralt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_evosum = new Item().setUnlocalizedName("ingot_evosum").setTextureName(RPGOMain.MODID + ":ingot_evosum").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
@@ -90,14 +106,14 @@ public class MyItems {
 		ingot_shikyolt = new Item().setUnlocalizedName("ingot_shikyolt").setTextureName(RPGOMain.MODID + ":ingot_shikyolt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_sakuralt = new Item().setUnlocalizedName("ingot_sakuralt").setTextureName(RPGOMain.MODID + ":ingot_sakuralt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_ayagrese = new Item().setUnlocalizedName("ingot_ayagrese").setTextureName(RPGOMain.MODID + ":ingot_ayagrese").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_tenshirium = new Item().setUnlocalizedName("ingot_tenshirium").setTextureName(RPGOMain.MODID + ":tenshirium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
+		ingot_tenshirium = new Item().setUnlocalizedName("ingot_tenshirium").setTextureName(RPGOMain.MODID + ":ingot_tenshirium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_onecrum = new Item().setUnlocalizedName("ingot_onecrum").setTextureName(RPGOMain.MODID + ":ingot_onecrum").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		
 		
-		mixedIngot = new MixedIngot().setUnlocalizedName("mixedIngot").setMaxStackSize(64);
+		mixedIngot = new MixedIngot().setUnlocalizedName("mixedIngot").setMaxStackSize(64).setCreativeTab(RPGOMain.myTab);
 		GameRegistry.registerItem(mixedIngot, "mixedIngot");
 		
-		alloyIngot = new AlloyIngot().setUnlocalizedName("alloyIngot").setMaxStackSize(64);
+		alloyIngot = new AlloyIngot().setUnlocalizedName("alloyIngot").setMaxStackSize(64).setCreativeTab(RPGOMain.myTab);
 		GameRegistry.registerItem(alloyIngot, "alloyIngot");
 		
 		crystal_fire = new Item().setUnlocalizedName("crystal_fire").setTextureName(RPGOMain.MODID + ":crystal_fire").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
@@ -105,7 +121,8 @@ public class MyItems {
 		crystal_air = new Item().setUnlocalizedName("crystal_air").setTextureName(RPGOMain.MODID + ":crystal_air").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 		crystal_earth = new Item().setUnlocalizedName("crystal_earth").setTextureName(RPGOMain.MODID + ":crystal_earth").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 		crystal_plasma = new Item().setUnlocalizedName("crystal_plasma").setTextureName(RPGOMain.MODID + ":crystal_plasma").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-
+		crystal_smelting = new Item().setUnlocalizedName("crystal_smelting").setTextureName(RPGOMain.MODID + ":crystal_smelting").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		
 		Zangetsu = new LegendarySword("Zangetsu", "The Slaying Moon", new int[] { 20, 20, 4 });
 		GameRegistry.registerItem(Zangetsu, "Zangetsu");
 
@@ -138,32 +155,33 @@ public class MyItems {
 		GameRegistry.registerItem(ingot_ayagrese, "Ayagrese Ingot");
 		GameRegistry.registerItem(ingot_tenshirium, "Tenshirium Ingot");
 		GameRegistry.registerItem(ingot_onecrum, "Onecrum Ingot");
-		OreDictionary.registerOre("mixedIngot", ingot_xiatherium);
-		OreDictionary.registerOre("mixedIngot", ingot_farunese);
-		OreDictionary.registerOre("mixedIngot", ingot_orobalt);
-		OreDictionary.registerOre("mixedIngot", ingot_kiritorium);
-		OreDictionary.registerOre("mixedIngot", ingot_asunalt);
-		OreDictionary.registerOre("mixedIngot", ingot_eruslalt);
-		OreDictionary.registerOre("mixedIngot", ingot_ithasium);
-		OreDictionary.registerOre("mixedIngot", ingot_ozestum);
-		OreDictionary.registerOre("mixedIngot", ingot_evosum);
-		OreDictionary.registerOre("mixedIngot", ingot_emodralt);
-		OreDictionary.registerOre("mixedIngot", ingot_nautrenese);
-		OreDictionary.registerOre("mixedIngot", ingot_axespium);
-		OreDictionary.registerOre("mixedIngot", ingot_ketsuekium);
-		OreDictionary.registerOre("mixedIngot", ingot_shikyolt);
-		OreDictionary.registerOre("mixedIngot", ingot_sakuralt);
-		OreDictionary.registerOre("mixedIngot", ingot_ayagrese);
-		OreDictionary.registerOre("mixedIngot", ingot_tenshirium);
-		OreDictionary.registerOre("mixedIngot", ingot_onecrum);
-		OreDictionary.registerOre("mixedIngot", Items.gold_ingot);
-		OreDictionary.registerOre("mixedIngot", Items.iron_ingot);
+		OreDictionary.registerOre("mixIngot", ingot_xiatherium);
+		OreDictionary.registerOre("mixIngot", ingot_farunese);
+		OreDictionary.registerOre("mixIngot", ingot_orobalt);
+		OreDictionary.registerOre("mixIngot", ingot_kiritorium);
+		OreDictionary.registerOre("mixIngot", ingot_asunalt);
+		OreDictionary.registerOre("mixIngot", ingot_eruslalt);
+		OreDictionary.registerOre("mixIngot", ingot_ithasium);
+		OreDictionary.registerOre("mixIngot", ingot_ozestum);
+		OreDictionary.registerOre("mixIngot", ingot_evosum);
+		OreDictionary.registerOre("mixIngot", ingot_emodralt);
+		OreDictionary.registerOre("mixIngot", ingot_nautrenese);
+		OreDictionary.registerOre("mixIngot", ingot_axespium);
+		OreDictionary.registerOre("mixIngot", ingot_ketsuekium);
+		OreDictionary.registerOre("mixIngot", ingot_shikyolt);
+		OreDictionary.registerOre("mixIngot", ingot_sakuralt);
+		OreDictionary.registerOre("mixIngot", ingot_ayagrese);
+		OreDictionary.registerOre("mixIngot", ingot_tenshirium);
+		OreDictionary.registerOre("mixIngot", ingot_onecrum);
+		OreDictionary.registerOre("mixIngot", Items.gold_ingot);
+		OreDictionary.registerOre("mixIngot", Items.iron_ingot);
 
 		GameRegistry.registerItem(crystal_fire, "Fire Crystal");
 		GameRegistry.registerItem(crystal_water, "Water Crystal");
 		GameRegistry.registerItem(crystal_air, "Air Crystal");
 		GameRegistry.registerItem(crystal_earth, "Earth Crystal");
 		GameRegistry.registerItem(crystal_plasma, "Plasma Crystal");
+		GameRegistry.registerItem(crystal_smelting, "Smelting Crystal");
 	}
 
 }

@@ -20,7 +20,7 @@ public class Mob1 extends EntityMyMob implements IMob {
 		super(par1World);
 		this.tasks.addTask(1, new EntityAISwimming(this));
 		this.tasks.addTask(2,new EntityAIStartled(this,10.0D));
-		this.tasks.addTask(3, new EntityAIFleeLight(this, 2.0D));
+		//this.tasks.addTask(3, new EntityAIFleeLight(this, 2.0D));
 		this.tasks.addTask(4, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.2D, false));
 		this.tasks.addTask(5, new EntityAIWander(this, 1.0D));
 		this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));

@@ -1,5 +1,8 @@
 package com.github.thelonedevil.rpgoverhaul.weapons.swords;
 
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemStack;
+
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 
 
@@ -14,6 +17,12 @@ public class LegendarySword extends Sword {
 	
 	public String getLore(){
 		return lore;
+	}
+	
+	@Override
+	 public EnumRarity getRarity(ItemStack par1ItemStack){
+		return EnumRarity.epic;
+		
 	}
 
 	

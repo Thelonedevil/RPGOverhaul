@@ -1,10 +1,8 @@
 package com.github.thelonedevil.rpgoverhaul;
 
-import java.util.List;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
+import net.minecraft.nbt.NBTTagCompound;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MyRecipes {
@@ -47,7 +45,10 @@ public class MyRecipes {
 		 * GameRegistry.addShapelessRecipe(new
 		 * ItemStack(MixedIngotSmart.mixedIngot,1), new Object[]{});
 		 */
-
+		/*ItemStack input = new ItemStack(MyItems.mixedIngot);
+		ItemStack output = new ItemStack(MyItems.alloyIngot);
+		GameRegistry.addSmelting(input, output, xp);*/
+		GameRegistry.addShapelessRecipe(new ItemStack(MyItems.alloyIngot,1), new Object[] {new ItemStack(MyItems.crystal_smelting), new ItemStack(MyItems.mixedIngot)}  );
 		GameRegistry.addShapelessRecipe(new ItemStack(MyItems.mixedIngot, 1), new Object[] { stack1, stack2 });
 		GameRegistry.addShapelessRecipe(new ItemStack(MyItems.mixedIngot, 1), new Object[] { stack1, stack3 });
 		GameRegistry.addShapelessRecipe(new ItemStack(MyItems.mixedIngot, 1), new Object[] { stack1, stack4 });
