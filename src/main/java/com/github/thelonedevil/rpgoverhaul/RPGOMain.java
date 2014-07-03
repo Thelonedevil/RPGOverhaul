@@ -5,11 +5,15 @@ import java.util.Random;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
 import com.github.thelonedevil.rpgoverhaul.handlers.AttackHandler;
+import com.github.thelonedevil.rpgoverhaul.handlers.BBHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.CraftingHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.DeathHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.EntityConstructionHandler;
@@ -56,9 +60,11 @@ public class RPGOMain {
 	public static PlayerKillHandler killHandler = new PlayerKillHandler();
 	public static EntityJoinWorldHandler entityjoin = new EntityJoinWorldHandler();
 	public static CraftingHandler craft = new CraftingHandler();
+	public static BBHandler bb = new BBHandler();
 	public static final int Alloy_furnace_GUI = 0;
 	public static final int Armour_Inventory_GUI = 1;
 	public static final int CRYSTAL_SWAP_GUI = 2;
+	public static final int WEAPON_SMITH_GUI = 3;
 	public static CreativeTabs myTab = new CreativeTabs("RPG Overhaul") {
 		public Item getTabIconItem() {
 			return Item.getItemFromBlock(Blocks.dirt);
@@ -76,6 +82,7 @@ public class RPGOMain {
 		registerEntity(Mob1.class, "Unknown");
 		MyBlocks.init();
 		MyItems.init();
+		MyWeapons.init();
 		MyCrystals.init();
 		MyRecipes.init();
 		ItemRemoval.init();
@@ -97,10 +104,12 @@ public class RPGOMain {
 		MinecraftForge.EVENT_BUS.register(tickHandler);
 		MinecraftForge.EVENT_BUS.register(killHandler);
 		MinecraftForge.EVENT_BUS.register(entityjoin);
+		MinecraftForge.EVENT_BUS.register(bb);
 		FMLCommonHandler.instance().bus().register(craft);
 		FMLCommonHandler.instance().bus().register(keyHandler);
 		FMLCommonHandler.instance().bus().register(connectHandler);
 		proxy.registerTileEntities();
+		removeArmourFromChests();
 
 	}
 
@@ -137,5 +146,22 @@ public class RPGOMain {
 
 		proxy.registerRenderers();
 	}
+	
+	private static void removeArmourFromChests(){
+		ItemStack ironHat = new ItemStack(Items.iron_helmet,1, -1);
+		ItemStack ironChest  = new ItemStack(Items.iron_chestplate,1, -1);
+		ItemStack ironLegs  = new ItemStack(Items.iron_leggings,1, -1);
+		ItemStack ironBoots  = new ItemStack(Items.iron_boots,1, -1);
+		ItemStack ironSword  = new ItemStack(Items.iron_sword,1, -1);
+		
+		ItemStack goldSword  = new ItemStack(Items.golden_sword,1, -1);
+		ItemStack goldChest  = new ItemStack(Items.golden_chestplate,1, -1);
+		
+		ChestGenHooks.removeItem(ChestGenHooks.VILLAGE_BLACKSMITH, ironHat);
+		ChestGenHooks.removeItem(ChestGenHooks.VILLAGE_BLACKSMITH, ironChest);
+		ChestGenHooks.removeItem(ChestGenHooks.VILLAGE_BLACKSMITH, ironLegs);
+		ChestGenHooks.removeItem(ChestGenHooks.VILLAGE_BLACKSMITH, ironBoots);
+		ChestGenHooks.removeItem(ChestGenHooks.VILLAGE_BLACKSMITH, ironSword);
 
+	}
 }

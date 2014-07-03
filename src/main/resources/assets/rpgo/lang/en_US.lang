@@ -1,5 +1,7 @@
 tile.lootChest.name=Loot Chest
 tile.alloyfurnace.name=Alloy Furnace
+rpgo.container.weaponsmith=Weapon Smith
+tile.weaponsmith.name=Weapon Smith
 
 tile.asunalt_ore.name=Asunalt Ore
 tile.kiritorium_ore.name=Kiritorium Ore

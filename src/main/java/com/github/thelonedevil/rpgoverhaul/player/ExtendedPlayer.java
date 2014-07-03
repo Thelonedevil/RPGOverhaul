@@ -7,8 +7,10 @@ import java.util.List;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.play.server.S2DPacketOpenWindow;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
@@ -16,6 +18,7 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.armour.Armour;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventory;
+import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
 
@@ -27,8 +30,10 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public List<Boolean> equippedModifiers = new ArrayList<Boolean>();
 	public List<Armour> EquippedLastTick = new ArrayList<Armour>();
 	private int[] skills = {};
-	private HashMap<String, Boolean> perks = new HashMap<String, Boolean>();
+	private HashMap<Perks, Boolean> perks = new HashMap<Perks, Boolean>();
 	private double xp = 0;
+	private int skillPoints = 0;
+	private ContainerWorkbench openContainer;
 
 	public ExtendedPlayer(EntityPlayer player) {
 		this.player = player;
@@ -62,8 +67,8 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		customInventory.writeToNBT(properties);
 		properties.setDouble("xp", xp);
 		properties.setIntArray("Skills", skills);
-		for (String key : perks.keySet()) {
-			properties.setBoolean(key, perks.get(key));
+		for (Perks key : perks.keySet()) {
+			properties.setBoolean(key.toString(), perks.get(key));
 		}
 
 		compound.setTag(EXT_PROP_NAME, properties);
@@ -78,8 +83,8 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		skills = properties.getIntArray("Skills");
 		Perks[] perklist = Perks.values();
 		for (int i = 0; i < perklist.length; i++) {
-			if (properties.getBoolean(perklist[i].name())) {
-				addPerk(perklist[i].name());
+			if (properties.getBoolean(perklist[i].toString())) {
+				addPerk(perklist[i]);
 			}
 		}
 
@@ -128,19 +133,19 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 
 	}
 
-	public boolean addPerk(String perk) {
-		if (!perks.containsKey(perk)) {
-			perks.put(perk, true);
+	public boolean addPerk(Perks perk1) {
+		if (!perks.containsKey(perk1)) {
+			perks.put(perk1, true);
 			return true;
-		} else if (perks.get(perk) == false) {
-			perks.put(perk, true);
+		} else if (perks.get(perk1) == false) {
+			perks.put(perk1, true);
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public boolean removePerk(String perk) {
+	public boolean removePerk(Perks perk) {
 		if (perks.containsKey(perk)) {
 			perks.put(perk, false);
 			return true;
@@ -162,24 +167,47 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	}
 
 	public void addXp(double xp) {
+
+		int oldlvl = this.getLevel();
 		this.xp += xp;
+		int newlvl = this.getLevel();
+		if (newlvl > oldlvl) {
+			levelUp(newlvl);
+		}
 		System.out.println("Xp added, xp is now " + this.xp);
-		System.out.println("Level is now "+ getLevel());
+		System.out.println("Level is now " + getLevel());
 		System.out.println(" add player is " + player.getCommandSenderName());
-		this.saveProxyData(player);
-		this.loadProxyData(player);
+		ExtendedPlayer.saveProxyData(player);
+		ExtendedPlayer.loadProxyData(player);
 	}
-	public double getXp(){
-		//System.out.println("xp got and is " + this.xp);
-		//System.out.println("get player is " + player.getCommandSenderName());
+
+	public double getXp() {
+		// System.out.println("xp got and is " + this.xp);
+		// System.out.println("get player is " + player.getCommandSenderName());
 		return this.xp;
 	}
-	
-	public int getLevel(){
-		if(xp < 21){
-			return 0;
-		}else{
-		return 2^((int)(Math.log(xp)));
+
+	public int getLevel() {
+		return MathHelper.floor_double(Math.pow(xp / 100.0, 0.6));
+	}
+
+	private void levelUp(int newLvl) {
+		skillPoints++;
+		switch (newLvl) {
+		case 50:
+			addPerk(Perks.UPHILLSTEP);
+			break;
+		case 60:
+			addPerk(Perks.RESPIRATION);
+			break;
 		}
+	}
+
+	public void openWeaponSmith() {
+		player.openGui(RPGOMain.instance, RPGOMain.WEAPON_SMITH_GUI, player.getEntityWorld(), MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY), MathHelper.floor_double(player.posZ));
+		
+		// this.openContainer.windowId = this.currentWindowId;
+		// this.openContainer.addCraftingToCrafters(this);
+
 	}
 }

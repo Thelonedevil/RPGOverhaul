@@ -22,44 +22,28 @@ public class PlayerKillHandler {
 			if (e instanceof EntityMob) {
 				ExtendedMob mob = ExtendedMob.get((EntityMob) e);
 				int moblevel = mob.getLevel();
-				int playerlevel = player.getLevel();
+				System.out.println("mob level="+moblevel);
 				if (e instanceof EntityCreeper) {
-					if (playerlevel > 0) {
-						double xp = ((moblevel) / playerlevel) * BaseXP.CREEPER;
-						if (xp > 0) {
-							player.addXp(xp);
-						}
-					} else {
-						double xp = ((moblevel)) * BaseXP.CREEPER;
-						if (xp > 0) {
-							player.addXp(xp);
-						}
-					}
-				} else if (e instanceof EntityZombie) {
-					if (playerlevel > 0) {
-						double xp = ((moblevel) / playerlevel) * BaseXP.ZOMBIE;
-						if (xp > 0) {
-							player.addXp(xp);
-						}
-					} else {
 
-						double xp = ((moblevel)) * BaseXP.ZOMBIE;
-						if (xp > 0) {
-							player.addXp(xp);
-						}
+					double xp = ((Math.pow(moblevel, 0.6))) * BaseXP.CREEPER;
+					if (xp > 0) {
+						player.addXp(xp);
 					}
+
+				} else if (e instanceof EntityZombie) {
+
+					double xp = ((Math.pow(moblevel, 0.6))) * BaseXP.ZOMBIE;
+					if (xp > 0) {
+						player.addXp(xp);
+					}
+
 				} else if (e instanceof EntitySkeleton) {
-					if (playerlevel > 0) {
-						double xp = ((moblevel) / playerlevel) * BaseXP.SKELETON;
-						if (xp > 0) {
-							player.addXp(xp);
-						}
-					} else {
-						double xp = ((moblevel)) * BaseXP.SKELETON;
-						if (xp > 0) {
-							player.addXp(xp);
-						}
+
+					double xp = ((Math.pow(moblevel, 0.6))) * BaseXP.SKELETON;
+					if (xp > 0) {
+						player.addXp(xp);
 					}
+
 				}
 			}
 

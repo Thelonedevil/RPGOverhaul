@@ -4,11 +4,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.blocks.WeaponSmithContainer;
+import com.github.thelonedevil.rpgoverhaul.blocks.WeaponSmithGUI;
 import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.AlloyContainer;
 import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.Alloy_Furnace_GUI;
 import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.Alloy_Furnace_TileEntity;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourContainer;
-import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventory;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventoryGUI;
 import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
 
@@ -23,9 +24,10 @@ public class GUIHandler implements IGuiHandler {
 			return new AlloyContainer(player.inventory, tileEntityFurnace);
 		}
 		if(ID== RPGOMain.Armour_Inventory_GUI){
-			ArmourInventory inv = ExtendedPlayer.get(player).customInventory;
-			
 			return new ArmourContainer(player, player.inventory, ExtendedPlayer.get(player).customInventory);
+		}
+		if(ID == RPGOMain.WEAPON_SMITH_GUI){
+			return new WeaponSmithContainer(player.inventory, world, x, y, z);
 		}
 		return null;
 	}
@@ -38,6 +40,10 @@ public class GUIHandler implements IGuiHandler {
 		}
 		if(ID== RPGOMain.Armour_Inventory_GUI){
 			return new ArmourInventoryGUI(player, player.inventory, ExtendedPlayer.get(player).customInventory);
+		}
+		if(ID == RPGOMain.WEAPON_SMITH_GUI){
+			return new WeaponSmithGUI(player.inventory, world, x, y, z);
+			
 		}
 		return null;
 	}

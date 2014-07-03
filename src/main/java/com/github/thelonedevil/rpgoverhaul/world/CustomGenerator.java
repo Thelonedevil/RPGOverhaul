@@ -8,6 +8,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import com.github.thelonedevil.rpgoverhaul.MyBlocks;
+import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
 
 import cpw.mods.fml.common.IWorldGenerator;
 
@@ -15,43 +16,6 @@ public class CustomGenerator implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		/*
-		 * int y = random.nextInt(24); world.setBlock(chunkX * 16 +
-		 * random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_farunese); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_orobalt); world.setBlock(chunkX * 16
-		 * + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_xiatherium); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_asunalt); world.setBlock(chunkX * 16
-		 * + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_axespium); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_ayagrese); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_emodralt); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_eruslalt); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_evosum); world.setBlock(chunkX * 16
-		 * + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_ithasium); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_ketsuekium); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_nautrenese); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_onecrum); world.setBlock(chunkX * 16
-		 * + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_ozestum); world.setBlock(chunkX * 16
-		 * + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_sakuralt); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_shikyolt); world.setBlock(chunkX *
-		 * 16 + random.nextInt(16), y + 1 + random.nextInt(5), chunkZ * 16 +
-		 * random.nextInt(16), MyBlocks.ore_tenshirium);
-		 */
 
 		switch (world.provider.dimensionId) {
 		case -1:
@@ -86,10 +50,25 @@ public class CustomGenerator implements IWorldGenerator {
 		this.addOreSpawn(MyBlocks.ore_shikyolt, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
 		this.addOreSpawn(MyBlocks.ore_tenshirium, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
 		this.addOreSpawn(MyBlocks.ore_xiatherium, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
+		
+		//this.addCrystalSpawn(MyCrystals.Fire_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
+		//this.addCrystalSpawn(MyCrystals.Air_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
+		//this.addCrystalSpawn(MyCrystals.Earth_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
+		//this.addCrystalSpawn(MyCrystals.Water_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
 	}
 
 	private void generateNether(World world, Random random, int x, int z) {
 
+	}
+	
+	public void addCrystalSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int minY, int maxY){
+		int diffBtwnMinMaxY = maxY - minY;
+		for (int x = 0; x < chancesToSpawn; x++) {
+			int posX = blockXPos + random.nextInt(maxX);
+			int posY = minY + random.nextInt(diffBtwnMinMaxY);
+			int posZ = blockZPos + random.nextInt(maxZ);
+			(new WorldGenCrystal(block)).generate(world, random, posX, posY, posZ);
+		}
 	}
 
 	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {

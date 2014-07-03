@@ -1,9 +1,11 @@
 package com.github.thelonedevil.rpgoverhaul;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 
 import com.github.thelonedevil.rpgoverhaul.blocks.CustomChest;
+import com.github.thelonedevil.rpgoverhaul.blocks.WeaponSmith;
 import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.Alloy_Furnace;
 import com.github.thelonedevil.rpgoverhaul.blocks.ores.Base_Ore;
 
@@ -33,6 +35,7 @@ public class MyBlocks {
 	public static Block AlloyFurnace;
 	public static Block AlloyFurnaceActive;
 	public static Block LootChest;
+	public static Block WeaponSmithblock;
 
 	public static void init() {
 		ore_xiatherium = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":xiatherium_ore").setBlockName("xiatherium_ore");
@@ -73,11 +76,11 @@ public class MyBlocks {
 		ore_tenshirium.setHarvestLevel("pickaxe", 2);
 		ore_onecrum.setHarvestLevel("pickaxe", 2);
 
-		AlloyFurnace = new Alloy_Furnace(false).setBlockName("alloyfurnace").setCreativeTab(RPGOMain.myTab);
-		AlloyFurnaceActive = new Alloy_Furnace(true).setBlockName("alloyfurnaceactive");
+		//AlloyFurnace = new Alloy_Furnace(false).setBlockName("alloyfurnace").setCreativeTab(RPGOMain.myTab);
+		//AlloyFurnaceActive = new Alloy_Furnace(true).setBlockName("alloyfurnaceactive");
 
-		LootChest = new CustomChest(0).setBlockName("lootChest").setCreativeTab(RPGOMain.myTab).setHardness(-1.0f);
-
+		LootChest = new CustomChest(0).setBlockName("lootChest").setCreativeTab(RPGOMain.myTab).setBlockUnbreakable().setResistance(2000000.0f);
+		WeaponSmithblock = new WeaponSmith().setBlockName("weaponsmith").setCreativeTab(RPGOMain.myTab);
 		GameRegistry.registerBlock(ore_xiatherium, "Xiatherium_ore");
 		GameRegistry.registerBlock(ore_farunese, "Farunese_ore");
 		GameRegistry.registerBlock(ore_orobalt, "Orobalt_ore");
@@ -97,9 +100,10 @@ public class MyBlocks {
 		GameRegistry.registerBlock(ore_tenshirium, "Tenshirium_ore");
 		GameRegistry.registerBlock(ore_onecrum, "Onecrum_ore");
 
-		GameRegistry.registerBlock(AlloyFurnace, "Alloy_Furnace");
-		GameRegistry.registerBlock(AlloyFurnaceActive, "Alloy_Furnace_active");
+		//GameRegistry.registerBlock(AlloyFurnace, "Alloy_Furnace");
+		//GameRegistry.registerBlock(AlloyFurnaceActive, "Alloy_Furnace_active");
 		GameRegistry.registerBlock(LootChest, "LootChest");
+		GameRegistry.registerBlock(WeaponSmithblock, "WeaponSmith");
 	}
 
 }
