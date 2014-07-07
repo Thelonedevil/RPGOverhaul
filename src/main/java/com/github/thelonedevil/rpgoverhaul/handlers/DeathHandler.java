@@ -16,7 +16,7 @@ import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.blocks.CustomChest;
 import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
-import com.github.thelonedevil.rpgoverhaul.Util;
+import com.github.thelonedevil.rpgoverhaul.util.Util;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 

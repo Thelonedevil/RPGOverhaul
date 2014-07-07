@@ -1,11 +1,11 @@
 package com.github.thelonedevil.rpgoverhaul.mobs;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+
+import com.github.thelonedevil.rpgoverhaul.Ref;
 
 public class RenderTest extends RenderBiped {	
 
@@ -16,7 +16,7 @@ public class RenderTest extends RenderBiped {
 	@Override
 	protected ResourceLocation getEntityTexture(Entity par3Entity) {
 		Mob1 mob = (Mob1) par3Entity;
-		return new ResourceLocation(RPGOMain.MODID+":textures/models/Unknown.png");
+		return new ResourceLocation(Ref.MODID+":textures/models/Unknown.png");
 
 
 	}

@@ -1,7 +1,11 @@
 package com.github.thelonedevil.rpgoverhaul;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.HashMap;
 import java.util.Random;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;
 import net.minecraft.init.Blocks;
@@ -22,10 +26,14 @@ import com.github.thelonedevil.rpgoverhaul.handlers.KeyHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerConnectHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerKillHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerTickHandler;
+import com.github.thelonedevil.rpgoverhaul.items.RecipeRemoval;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
 import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
+import com.github.thelonedevil.rpgoverhaul.recipes.MyRecipes;
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
+import com.github.thelonedevil.rpgoverhaul.util.Util;
 import com.github.thelonedevil.rpgoverhaul.world.CustomGenerator;
 import com.github.thelonedevil.rpgoverhaul.world.WorldTypeCustom;
 
@@ -43,28 +51,26 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid = RPGOMain.MODID, version = RPGOMain.VERSION, name = RPGOMain.NAME)
+@Mod(modid = Ref.MODID, version = Ref.VERSION, name = Ref.NAME)
 public class RPGOMain {
 
-	public static final String MODID = "rpgo";
-	public static final String VERSION = "1.0";
-	public static final String NAME = "RPG Overhaul";
-	@Instance(value = "rpgo")
+
+	
+	@Instance(value = Ref.MODID)
 	public static RPGOMain instance;
 	public static DeathHandler deathHandler = new DeathHandler();
 	public static AttackHandler attackHandler = new AttackHandler();
 	public static KeyHandler keyHandler = new KeyHandler();
 	public static EntityConstructionHandler entityCHandler = new EntityConstructionHandler();
 	public static PlayerConnectHandler connectHandler = new PlayerConnectHandler();
-	public static PlayerTickHandler tickHandler =new PlayerTickHandler();
+	public static PlayerTickHandler tickHandler = new PlayerTickHandler();
 	public static PlayerKillHandler killHandler = new PlayerKillHandler();
 	public static EntityJoinWorldHandler entityjoin = new EntityJoinWorldHandler();
 	public static CraftingHandler craft = new CraftingHandler();
 	public static BBHandler bb = new BBHandler();
-	public static final int Alloy_furnace_GUI = 0;
-	public static final int Armour_Inventory_GUI = 1;
-	public static final int CRYSTAL_SWAP_GUI = 2;
-	public static final int WEAPON_SMITH_GUI = 3;
+
+
+	public static HashMap<String,BufferedImage> textures;
 	public static CreativeTabs myTab = new CreativeTabs("RPG Overhaul") {
 		public Item getTabIconItem() {
 			return Item.getItemFromBlock(Blocks.dirt);
@@ -80,18 +86,21 @@ public class RPGOMain {
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
 		registerEntity(Mob1.class, "Unknown");
+		File file1 = new File(Ref.modsfolder, "rpgo/textures");
+		textures = Util.getImages(file1);
 		MyBlocks.init();
 		MyItems.init();
 		MyWeapons.init();
 		MyCrystals.init();
 		MyRecipes.init();
-		ItemRemoval.init();
+		RecipeRemoval.init();
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
-	    network.registerMessage(SyncPlayerProps.Handler.class, SyncPlayerProps.class, 0, Side.SERVER);
+		network.registerMessage(SyncPlayerProps.Handler.class, SyncPlayerProps.class, 0, Side.SERVER);
 		network.registerMessage(OpenGui.Handler.class, OpenGui.class, 0, Side.SERVER);
 
 		GameRegistry.registerWorldGenerator(worldgen, 9);
 		proxy.registerItemRenderers();
+		LogHelper.info("Pre Initialization Complete");
 
 	}
 
@@ -110,14 +119,15 @@ public class RPGOMain {
 		FMLCommonHandler.instance().bus().register(connectHandler);
 		proxy.registerTileEntities();
 		removeArmourFromChests();
+		LogHelper.info("Initialization Complete");
 
 	}
 
 	@EventHandler
 	public static void post(FMLPostInitializationEvent event) {
 		WorldTypeCustom custom = new WorldTypeCustom();
-		
-		
+		LogHelper.info("Post Initialization Complete");
+
 	}
 
 	@SuppressWarnings("unchecked")
@@ -134,6 +144,7 @@ public class RPGOMain {
 
 		proxy.registerRenderers();
 	}
+
 	@SuppressWarnings("unchecked")
 	public static void registerEntity(Class entityClass, String name, int primaryColor, int secondaryColor) {
 		int entityID = EntityRegistry.findGlobalUniqueEntityId();
@@ -146,17 +157,17 @@ public class RPGOMain {
 
 		proxy.registerRenderers();
 	}
-	
-	private static void removeArmourFromChests(){
-		ItemStack ironHat = new ItemStack(Items.iron_helmet,1, -1);
-		ItemStack ironChest  = new ItemStack(Items.iron_chestplate,1, -1);
-		ItemStack ironLegs  = new ItemStack(Items.iron_leggings,1, -1);
-		ItemStack ironBoots  = new ItemStack(Items.iron_boots,1, -1);
-		ItemStack ironSword  = new ItemStack(Items.iron_sword,1, -1);
-		
-		ItemStack goldSword  = new ItemStack(Items.golden_sword,1, -1);
-		ItemStack goldChest  = new ItemStack(Items.golden_chestplate,1, -1);
-		
+
+	private static void removeArmourFromChests() {
+		ItemStack ironHat = new ItemStack(Items.iron_helmet, 1, -1);
+		ItemStack ironChest = new ItemStack(Items.iron_chestplate, 1, -1);
+		ItemStack ironLegs = new ItemStack(Items.iron_leggings, 1, -1);
+		ItemStack ironBoots = new ItemStack(Items.iron_boots, 1, -1);
+		ItemStack ironSword = new ItemStack(Items.iron_sword, 1, -1);
+
+		ItemStack goldSword = new ItemStack(Items.golden_sword, 1, -1);
+		ItemStack goldChest = new ItemStack(Items.golden_chestplate, 1, -1);
+
 		ChestGenHooks.removeItem(ChestGenHooks.VILLAGE_BLACKSMITH, ironHat);
 		ChestGenHooks.removeItem(ChestGenHooks.VILLAGE_BLACKSMITH, ironChest);
 		ChestGenHooks.removeItem(ChestGenHooks.VILLAGE_BLACKSMITH, ironLegs);

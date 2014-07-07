@@ -1,4 +1,4 @@
-package com.github.thelonedevil.rpgoverhaul;
+package com.github.thelonedevil.rpgoverhaul.items;
 
 import net.minecraft.item.ItemStack;
 
@@ -8,9 +8,9 @@ public class Hardness {
 	public static final String SOFT = "SOFT";
 
 	public static String getAlloyHardness(ItemStack item) {
-		String name = item.stackTagCompound.getString("metal1") +" "+ item.stackTagCompound.getString("metal2");
+		String name = item.getTagCompound().getString("metal1") +" "+ item.getTagCompound().getString("metal2");
 		switch(name){
-		case AlloyReferrence.Alloy1:
+		case AlloyReferrence.Alloy1: case AlloyReferrence.Alloy2:
 			return HARD;
 		default:
 			return HARD;

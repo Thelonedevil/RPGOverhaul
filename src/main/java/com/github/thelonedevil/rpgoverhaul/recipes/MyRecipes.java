@@ -1,4 +1,8 @@
-package com.github.thelonedevil.rpgoverhaul;
+package com.github.thelonedevil.rpgoverhaul.recipes;
+
+import com.github.thelonedevil.rpgoverhaul.MyBlocks;
+import com.github.thelonedevil.rpgoverhaul.MyItems;
+import com.github.thelonedevil.rpgoverhaul.MyWeapons;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;

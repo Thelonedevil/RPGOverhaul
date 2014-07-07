@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.weapons.swords.LegendarySword;
 
 public class Weapon extends Item {
@@ -47,13 +48,13 @@ public class Weapon extends Item {
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if (GuiScreen.isShiftKeyDown()) {
-			addStringToTooltip(StatCollector.translateToLocal(RPGOMain.MODID+".weapon." + type), par3List);
-			addStringToTooltip(StatCollector.translateToLocal(RPGOMain.MODID+".crystal.info") +" "+ StatCollector.translateToLocal("item.crystal_"+crystal.toString().toLowerCase()+".name"), par3List);
+			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID+".weapon." + type), par3List);
+			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID+".crystal.info") +" "+ StatCollector.translateToLocal("item.crystal_"+crystal.toString().toLowerCase()+".name"), par3List);
 			if(itemstack.getItem() instanceof LegendarySword){
 				addStringToTooltip(((LegendarySword)itemstack.getItem()).getLore(), par3List);
 			}
 		} else
-			addStringToTooltip(StatCollector.translateToLocal(RPGOMain.MODID+".shiftinfo"), par3List);
+			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID+".shiftinfo"), par3List);
 	}
 
 	private void addStringToTooltip(String s, List<String> tooltip) {

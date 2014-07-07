@@ -8,7 +8,7 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.weapons.swords.Sword2;
 
 public class Sword2Renderer implements IItemRenderer {
@@ -49,7 +49,7 @@ public class Sword2Renderer implements IItemRenderer {
 			GL11.glPushMatrix(); // start gl rendering for this section
 			scale = 3F;
 			GL11.glScalef(scale, scale, scale);
-			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword2.png"));
+			mc.renderEngine.bindTexture(new ResourceLocation(Ref.MODID+":textures/models/Sword2.png"));
 			GL11.glRotatef(30F, 1.0f, 0.0f, 0.0f); // rotate 0 ° on X axis
 			GL11.glRotatef(-70F, 0.0f, 1.0f, 0.0f); // rotate -5 ° on Y axis
 			GL11.glRotatef(-150F, 0.0f, 0.0f, 1.0f); // rotate -150 ° on Z axis
@@ -67,7 +67,7 @@ public class Sword2Renderer implements IItemRenderer {
 			GL11.glPushMatrix();
 			scale = 3F;
 			GL11.glScalef(scale, scale, scale);
-			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword2.png"));
+			mc.renderEngine.bindTexture(new ResourceLocation(Ref.MODID+":textures/models/Sword2.png"));
 			GL11.glRotatef(0F, 1.0f, 0.0f, 0.0f);
 			GL11.glRotatef(-5F, 0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(-150F, 0.0f, 0.0f, 1.0f);
@@ -80,7 +80,7 @@ public class Sword2Renderer implements IItemRenderer {
 			GL11.glPushMatrix();
 			scale = 3F;
 			GL11.glScalef(scale, scale, scale);
-			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword2.png"));
+			mc.renderEngine.bindTexture(new ResourceLocation(Ref.MODID+":textures/models/Sword2.png"));
 			GL11.glRotatef(90F, 1.0f, 0.0f, 0.0f);
 			GL11.glRotatef(0F, 0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(45F, 0.0f, 0.0f, 1.0f);
@@ -93,7 +93,7 @@ public class Sword2Renderer implements IItemRenderer {
 			GL11.glPushMatrix();
 			scale = 1F;
 			GL11.glScalef(scale, scale, scale);
-			mc.renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID+":textures/models/Sword2.png"));
+			mc.renderEngine.bindTexture(new ResourceLocation(Ref.MODID+":textures/models/Sword2.png"));
 
 			GL11.glRotatef(200F, 1.0f, 0.0f, 0.0f);
 			GL11.glRotatef(-80F, 0.0f, 1.0f, 0.0f);

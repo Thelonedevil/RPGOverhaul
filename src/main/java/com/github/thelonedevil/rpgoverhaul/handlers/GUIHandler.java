@@ -3,7 +3,7 @@ package com.github.thelonedevil.rpgoverhaul.handlers;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.blocks.WeaponSmithContainer;
 import com.github.thelonedevil.rpgoverhaul.blocks.WeaponSmithGUI;
 import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.AlloyContainer;
@@ -19,14 +19,14 @@ public class GUIHandler implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if(ID == RPGOMain.Alloy_furnace_GUI){
+		if(ID == Ref.Alloy_furnace_GUI){
 			Alloy_Furnace_TileEntity tileEntityFurnace = (Alloy_Furnace_TileEntity) world.getTileEntity(x, y, z);
 			return new AlloyContainer(player.inventory, tileEntityFurnace);
 		}
-		if(ID== RPGOMain.Armour_Inventory_GUI){
+		if(ID== Ref.Armour_Inventory_GUI){
 			return new ArmourContainer(player, player.inventory, ExtendedPlayer.get(player).customInventory);
 		}
-		if(ID == RPGOMain.WEAPON_SMITH_GUI){
+		if(ID == Ref.WEAPON_SMITH_GUI){
 			return new WeaponSmithContainer(player.inventory, world, x, y, z);
 		}
 		return null;
@@ -34,14 +34,14 @@ public class GUIHandler implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if(ID == RPGOMain.Alloy_furnace_GUI){
+		if(ID == Ref.Alloy_furnace_GUI){
 			Alloy_Furnace_TileEntity tileEntityTestContainer = (Alloy_Furnace_TileEntity) world.getTileEntity(x, y, z);
 			return new Alloy_Furnace_GUI(player.inventory, tileEntityTestContainer);
 		}
-		if(ID== RPGOMain.Armour_Inventory_GUI){
+		if(ID== Ref.Armour_Inventory_GUI){
 			return new ArmourInventoryGUI(player, player.inventory, ExtendedPlayer.get(player).customInventory);
 		}
-		if(ID == RPGOMain.WEAPON_SMITH_GUI){
+		if(ID == Ref.WEAPON_SMITH_GUI){
 			return new WeaponSmithGUI(player.inventory, world, x, y, z);
 			
 		}

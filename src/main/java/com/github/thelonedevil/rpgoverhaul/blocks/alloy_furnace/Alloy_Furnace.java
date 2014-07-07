@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 
 import com.github.thelonedevil.rpgoverhaul.MyBlocks;
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -43,9 +44,9 @@ public class Alloy_Furnace extends BlockContainer {
 
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconregister) {
-		this.blockIcon = iconregister.registerIcon(RPGOMain.MODID + ":AlloyFurnaceSide");
-		this.front = iconregister.registerIcon(this.isBurning2 ? RPGOMain.MODID + ":AlloyFurnaceActive" : RPGOMain.MODID + ":AlloyFurnaceInActive");
-		this.top = iconregister.registerIcon(RPGOMain.MODID + ":AlloyFurnaceTop");
+		this.blockIcon = iconregister.registerIcon(Ref.MODID + ":AlloyFurnaceSide");
+		this.front = iconregister.registerIcon(this.isBurning2 ? Ref.MODID + ":AlloyFurnaceActive" : Ref.MODID + ":AlloyFurnaceInActive");
+		this.top = iconregister.registerIcon(Ref.MODID + ":AlloyFurnaceTop");
 	}
 
 	public int tickRate(World p_149738_1_) {
@@ -63,7 +64,7 @@ public class Alloy_Furnace extends BlockContainer {
 	}
 
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
-		player.openGui(RPGOMain.instance, RPGOMain.Alloy_furnace_GUI, world, x, y, z);
+		player.openGui(RPGOMain.instance, Ref.Alloy_furnace_GUI, world, x, y, z);
 		return true;
 	}
 

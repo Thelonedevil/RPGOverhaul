@@ -1,12 +1,12 @@
 package com.github.thelonedevil.rpgoverhaul.models;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
-
 import net.minecraft.util.ResourceLocation;
+
+import com.github.thelonedevil.rpgoverhaul.Ref;
 
 public class Models {
 	
-	public static final ResourceLocation ZANGETSU =  new ResourceLocation(RPGOMain.MODID, "models/zangetsu.obj");
-	public static final ResourceLocation CRYSTALBASE =  new ResourceLocation(RPGOMain.MODID, "models/crystalBase.obj");
+	public static final ResourceLocation ZANGETSU =  new ResourceLocation(Ref.MODID, "models/zangetsu.obj");
+	public static final ResourceLocation CRYSTALBASE =  new ResourceLocation(Ref.MODID, "models/crystalBase.obj");
 
 }

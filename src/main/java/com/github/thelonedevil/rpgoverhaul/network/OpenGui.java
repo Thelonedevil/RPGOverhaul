@@ -1,12 +1,12 @@
 package com.github.thelonedevil.rpgoverhaul.network;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
-import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
-
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.MathHelper;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.util.MathHelper;
+
+import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
+
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -39,11 +39,11 @@ public class OpenGui implements IMessage {
 
 		@Override
 		public IMessage onMessage(OpenGui message, MessageContext ctx) {
-			System.out.println(String.format("Received %s from %s", "OpenGui", ctx.getServerHandler().playerEntity.getDisplayName()));
+			LogHelper.info(String.format("Received %s from %s", "OpenGui", ctx.getServerHandler().playerEntity.getDisplayName()));
 			int x = MathHelper.floor_double(ctx.getServerHandler().playerEntity.posX);
 			int y = MathHelper.floor_double(ctx.getServerHandler().playerEntity.posY);
 			int z = MathHelper.floor_double(ctx.getServerHandler().playerEntity.posZ);
-			ctx.getServerHandler().playerEntity.openGui(RPGOMain.instance, RPGOMain.Armour_Inventory_GUI, ctx.getServerHandler().playerEntity.worldObj, x, y, z);
+			ctx.getServerHandler().playerEntity.openGui(RPGOMain.instance, Ref.Armour_Inventory_GUI, ctx.getServerHandler().playerEntity.worldObj, x, y, z);
 			return null; // no response in this case
 		}
 	}

@@ -1,4 +1,4 @@
-package com.github.thelonedevil.rpgoverhaul;
+package com.github.thelonedevil.rpgoverhaul.items;
 
 import java.util.Iterator;
 import java.util.List;
@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 
-public class ItemRemoval {
+public class RecipeRemoval {
 
 	public static void init() {
 		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();

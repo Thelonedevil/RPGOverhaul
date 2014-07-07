@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -15,7 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class Alloy_Furnace_GUI extends GuiContainer {
 
-	private static final ResourceLocation furnaceGuiTextures = new ResourceLocation(RPGOMain.MODID,"textures/gui/container/alloy.png");
+	private static final ResourceLocation furnaceGuiTextures = new ResourceLocation(Ref.MODID,"textures/gui/container/alloy.png");
 	private Alloy_Furnace_TileEntity tileFurnace;
 
 	public Alloy_Furnace_GUI(InventoryPlayer invPlayer, Alloy_Furnace_TileEntity tile) {

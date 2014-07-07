@@ -1,5 +1,6 @@
 package com.github.thelonedevil.rpgoverhaul;
 
+import com.github.thelonedevil.rpgoverhaul.items.BroadSwordBottom;
 import com.github.thelonedevil.rpgoverhaul.weapons.swords.Sword;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -12,7 +13,7 @@ public class MyWeapons {
 	
 	public static void init(){
 		broadsword = new Sword("BroadSword", new int[] { 20, 20, 4 });
-		broadsword_bottom = new Item();
+		broadsword_bottom = new BroadSwordBottom();
 		broadsword_top = new Item();
 		
 		GameRegistry.registerItem(broadsword, "broadsword");

@@ -1,4 +1,11 @@
-package com.github.thelonedevil.rpgoverhaul;
+package com.github.thelonedevil.rpgoverhaul.util;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+
+import javax.imageio.ImageIO;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -19,13 +26,31 @@ public class Util {
 		} else
 			return new ItemStack[] { stack1, stack2 };
 	}
-	public static int findEmptySlot(IInventory inv){
+
+	public static int findEmptySlot(IInventory inv) {
 		for (int i = 0; i < inv.getSizeInventory(); i++) {
-			if(inv.getStackInSlot(i) == null){
+			if (inv.getStackInSlot(i) == null) {
 				return i;
 			}
 		}
 		return -1;
-		
+
+	}
+
+	public static HashMap<String,BufferedImage> getImages(File file1) {
+		HashMap<String,BufferedImage> imgs = new HashMap<String,BufferedImage>();
+		for (File file : file1.listFiles()) {
+			if (file.getName().endsWith(".png")) {
+				try {
+					BufferedImage img = ImageIO.read(file);
+					if (img != null) {
+						imgs.put(file.getName(),img);
+					}
+				} catch (IOException e) {
+				}
+			}
+		}
+
+		return imgs;
 	}
 }

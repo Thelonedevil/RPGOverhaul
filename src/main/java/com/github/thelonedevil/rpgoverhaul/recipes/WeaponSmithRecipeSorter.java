@@ -1,4 +1,4 @@
-package com.github.thelonedevil.rpgoverhaul;
+package com.github.thelonedevil.rpgoverhaul.recipes;
 
 import java.util.Comparator;
 

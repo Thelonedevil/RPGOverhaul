@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.CrystalClusterTileEntity;
 import com.github.thelonedevil.rpgoverhaul.models.ModelCrystalBase;
 
@@ -42,25 +42,25 @@ public class TileEntityCrystalRenderer extends TileEntitySpecialRenderer {
             GL11.glTranslated((float)x+0.4f,(float) y, (float)z+0.4f);
             switch(TE.Type){
             case 0:
-            	this.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 1:
-            	this.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/water_crystal.png"));
+            	this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
             	break;
             case 2:
-            	this.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/air_crystal.png"));
+            	this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
             	break;
             case 3:
-            	this.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/earth_crystal.png"));
+            	this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
             	break;
             case 4:
-            	this.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 5:
-            	this.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 6:
-            	this.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             }
             model.render();

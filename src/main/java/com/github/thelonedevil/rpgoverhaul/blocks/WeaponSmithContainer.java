@@ -11,8 +11,8 @@ import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.github.thelonedevil.rpgoverhaul.CustomCrafting;
 import com.github.thelonedevil.rpgoverhaul.MyBlocks;
+import com.github.thelonedevil.rpgoverhaul.recipes.CustomCrafting;
 
 public class WeaponSmithContainer extends Container {
 	

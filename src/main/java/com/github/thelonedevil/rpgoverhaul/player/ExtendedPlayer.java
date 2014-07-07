@@ -8,23 +8,21 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.ContainerWorkbench;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.play.server.S2DPacketOpenWindow;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.armour.Armour;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventory;
-import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
 
 public class ExtendedPlayer implements IExtendedEntityProperties {
 
-	public final static String EXT_PROP_NAME = RPGOMain.MODID + "ExtendedPlayer";
+	public final static String EXT_PROP_NAME = Ref.MODID + "ExtendedPlayer";
 	private final EntityPlayer player;
 	public final static ArmourInventory customInventory = new ArmourInventory();
 	public List<Boolean> equippedModifiers = new ArrayList<Boolean>();
@@ -204,7 +202,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	}
 
 	public void openWeaponSmith() {
-		player.openGui(RPGOMain.instance, RPGOMain.WEAPON_SMITH_GUI, player.getEntityWorld(), MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY), MathHelper.floor_double(player.posZ));
+		player.openGui(RPGOMain.instance, Ref.WEAPON_SMITH_GUI, player.getEntityWorld(), MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY), MathHelper.floor_double(player.posZ));
 		
 		// this.openContainer.windowId = this.currentWindowId;
 		// this.openContainer.addCraftingToCrafters(this);

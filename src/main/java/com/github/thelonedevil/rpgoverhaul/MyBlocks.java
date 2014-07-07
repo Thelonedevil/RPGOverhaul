@@ -38,24 +38,24 @@ public class MyBlocks {
 	public static Block WeaponSmithblock;
 
 	public static void init() {
-		ore_xiatherium = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":xiatherium_ore").setBlockName("xiatherium_ore");
-		ore_farunese = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":farunese_ore").setBlockName("farunese_ore");
-		ore_orobalt = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":orobalt_ore").setBlockName("orobalt_ore");
-		ore_kiritorium = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":kiritorium_ore").setBlockName("kiritorium_ore");
-		ore_asunalt = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":asunalt_ore").setBlockName("asunalt_ore");
-		ore_eruslalt = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":eruslalt_ore").setBlockName("eruslalt_ore");
-		ore_ithasium = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":ithasium_ore").setBlockName("ithasium_ore");
-		ore_ozestum = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":ozestum_ore").setBlockName("ozestum_ore");
-		ore_emodralt = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":emodralt_ore").setBlockName("emodralt_ore");
-		ore_evosum = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":evosum_ore").setBlockName("evosum_ore");
-		ore_nautrenese = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":nautrenese_ore").setBlockName("nautrenese_ore");
-		ore_axespium = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":axespium_ore").setBlockName("axespium_ore");
-		ore_ketsuekium = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":ketsuekium_ore").setBlockName("ketsuekium_ore");
-		ore_shikyolt = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":shikyolt_ore").setBlockName("shikyolt_ore");
-		ore_sakuralt = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":sakuralt_ore").setBlockName("sakuralt_ore");
-		ore_ayagrese = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":ayagrese_ore").setBlockName("ayagrese_ore");
-		ore_tenshirium = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":tenshirium_ore").setBlockName("tenshirium_ore");
-		ore_onecrum = new Base_Ore().setBlockTextureName(RPGOMain.MODID + ":onecrum_ore").setBlockName("onecrum_ore");
+		ore_xiatherium = new Base_Ore().setBlockTextureName(Ref.MODID + ":xiatherium_ore").setBlockName("xiatherium_ore");
+		ore_farunese = new Base_Ore().setBlockTextureName(Ref.MODID + ":farunese_ore").setBlockName("farunese_ore");
+		ore_orobalt = new Base_Ore().setBlockTextureName(Ref.MODID + ":orobalt_ore").setBlockName("orobalt_ore");
+		ore_kiritorium = new Base_Ore().setBlockTextureName(Ref.MODID + ":kiritorium_ore").setBlockName("kiritorium_ore");
+		ore_asunalt = new Base_Ore().setBlockTextureName(Ref.MODID + ":asunalt_ore").setBlockName("asunalt_ore");
+		ore_eruslalt = new Base_Ore().setBlockTextureName(Ref.MODID + ":eruslalt_ore").setBlockName("eruslalt_ore");
+		ore_ithasium = new Base_Ore().setBlockTextureName(Ref.MODID + ":ithasium_ore").setBlockName("ithasium_ore");
+		ore_ozestum = new Base_Ore().setBlockTextureName(Ref.MODID + ":ozestum_ore").setBlockName("ozestum_ore");
+		ore_emodralt = new Base_Ore().setBlockTextureName(Ref.MODID + ":emodralt_ore").setBlockName("emodralt_ore");
+		ore_evosum = new Base_Ore().setBlockTextureName(Ref.MODID + ":evosum_ore").setBlockName("evosum_ore");
+		ore_nautrenese = new Base_Ore().setBlockTextureName(Ref.MODID + ":nautrenese_ore").setBlockName("nautrenese_ore");
+		ore_axespium = new Base_Ore().setBlockTextureName(Ref.MODID + ":axespium_ore").setBlockName("axespium_ore");
+		ore_ketsuekium = new Base_Ore().setBlockTextureName(Ref.MODID + ":ketsuekium_ore").setBlockName("ketsuekium_ore");
+		ore_shikyolt = new Base_Ore().setBlockTextureName(Ref.MODID + ":shikyolt_ore").setBlockName("shikyolt_ore");
+		ore_sakuralt = new Base_Ore().setBlockTextureName(Ref.MODID + ":sakuralt_ore").setBlockName("sakuralt_ore");
+		ore_ayagrese = new Base_Ore().setBlockTextureName(Ref.MODID + ":ayagrese_ore").setBlockName("ayagrese_ore");
+		ore_tenshirium = new Base_Ore().setBlockTextureName(Ref.MODID + ":tenshirium_ore").setBlockName("tenshirium_ore");
+		ore_onecrum = new Base_Ore().setBlockTextureName(Ref.MODID + ":onecrum_ore").setBlockName("onecrum_ore");
 
 		ore_xiatherium.setHarvestLevel("pickaxe", 2);
 		ore_farunese.setHarvestLevel("pickaxe", 2);

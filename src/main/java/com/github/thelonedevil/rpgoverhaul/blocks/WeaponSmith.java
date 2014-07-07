@@ -9,7 +9,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
-import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -23,7 +23,7 @@ public class WeaponSmith extends Block {
 
 	public WeaponSmith() {
 		super(Material.iron);
-		this.setBlockTextureName(RPGOMain.MODID+":weapon_smith");
+		this.setBlockTextureName(Ref.MODID+":weapon_smith");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -48,7 +48,7 @@ public class WeaponSmith extends Block {
 		if (world.isRemote) {
 			return true;
 		} else {
-			player.openGui(RPGOMain.instance, RPGOMain.WEAPON_SMITH_GUI, world, x, y, z);
+			player.openGui(RPGOMain.instance, Ref.WEAPON_SMITH_GUI, world, x, y, z);
 			return true;
 		}
 	}

@@ -8,10 +8,9 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.CrystalCluster;
 import com.github.thelonedevil.rpgoverhaul.models.ModelCrystalBase;
-import com.github.thelonedevil.rpgoverhaul.models.ModelZangetsu;
 
 import cpw.mods.fml.client.FMLClientHandler;
 
@@ -55,25 +54,25 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 	        GL11.glRotatef(0F, 0, 0, 1F);
 	        switch(((CrystalCluster)Block.getBlockFromItem(item.getItem())).type){
             case 0:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 1:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/water_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
             	break;
             case 2:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/air_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
             	break;
             case 3:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/earth_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
             	break;
             case 4:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 5:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 6:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             }
 
@@ -100,25 +99,25 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 
 	        switch(((CrystalCluster)Block.getBlockFromItem(item.getItem())).type){
             case 0:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 1:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/water_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
             	break;
             case 2:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/air_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
             	break;
             case 3:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/earth_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
             	break;
             case 4:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 5:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 6:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             }
 	        // Render
@@ -140,25 +139,25 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 
 	        switch(((CrystalCluster)Block.getBlockFromItem(item.getItem())).type){
             case 0:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 1:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/water_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
             	break;
             case 2:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/air_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
             	break;
             case 3:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/earth_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
             	break;
             case 4:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 5:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 6:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             }
 	        // Render
@@ -179,25 +178,25 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 
 	        switch(((CrystalCluster)Block.getBlockFromItem(item.getItem())).type){
             case 0:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 1:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/water_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
             	break;
             case 2:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/air_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
             	break;
             case 3:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/earth_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
             	break;
             case 4:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 5:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             case 6:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(RPGOMain.MODID, "textures/models/fire_crystal.png"));
+            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
             	break;
             }
 	        // Render

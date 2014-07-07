@@ -8,14 +8,14 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class WeaponSmithGUI extends GuiContainer {
-	private static final ResourceLocation craftingTableGuiTextures = new ResourceLocation(RPGOMain.MODID,"textures/gui/container/weaponsmith.png");
+	private static final ResourceLocation craftingTableGuiTextures = new ResourceLocation(Ref.MODID,"textures/gui/container/weaponsmith.png");
 
 	public WeaponSmithGUI(InventoryPlayer p_i1084_1_, World p_i1084_2_, int p_i1084_3_, int p_i1084_4_, int p_i1084_5_) {
 		super(new WeaponSmithContainer(p_i1084_1_, p_i1084_2_, p_i1084_3_, p_i1084_4_, p_i1084_5_));

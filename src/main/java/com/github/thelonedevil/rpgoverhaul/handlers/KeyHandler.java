@@ -1,15 +1,13 @@
 package com.github.thelonedevil.rpgoverhaul.handlers;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.entity.player.EntityPlayer;
 
 import org.lwjgl.input.Keyboard;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
-import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -45,10 +43,10 @@ public class KeyHandler {
 
 		if (!FMLClientHandler.instance().isGUIOpen(GuiChat.class) && FMLClientHandler.instance().getClient().inGameHasFocus) {
 			if (keys[CUSTOM_INV].isPressed()) {
-				RPGOMain.network.sendToServer(new OpenGui(RPGOMain.Armour_Inventory_GUI));
+				RPGOMain.network.sendToServer(new OpenGui(Ref.Armour_Inventory_GUI));
 				System.out.println("Open GUI packet sent to server");
 			}else if(keys[CRYSTAL_SWAP].isPressed()){
-				RPGOMain.network.sendToServer(new OpenGui(RPGOMain.Armour_Inventory_GUI));
+				RPGOMain.network.sendToServer(new OpenGui(Ref.Armour_Inventory_GUI));
 				System.out.println("Open GUI packet sent to server");
 			}
 

@@ -1,17 +1,15 @@
 package com.github.thelonedevil.rpgoverhaul.mobs;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
-import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
+import com.github.thelonedevil.rpgoverhaul.Ref;
+
 public class ExtendedMob implements IExtendedEntityProperties {
-	public final static String EXT_PROP_NAME = RPGOMain.MODID + "ExtendedMob";
+	public final static String EXT_PROP_NAME = Ref.MODID + "ExtendedMob";
 	
 	private final EntityMob Mob;
 	private int lvl = 1;

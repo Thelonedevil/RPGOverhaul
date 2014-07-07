@@ -1,9 +1,14 @@
-package com.github.thelonedevil.rpgoverhaul;
+package com.github.thelonedevil.rpgoverhaul.recipes;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+
+import com.github.thelonedevil.rpgoverhaul.MyItems;
+import com.github.thelonedevil.rpgoverhaul.MyWeapons;
+import com.github.thelonedevil.rpgoverhaul.items.Hardness;
+import com.github.thelonedevil.rpgoverhaul.items.MetalUtil;
 
 import net.minecraft.block.Block;
 import net.minecraft.inventory.InventoryCrafting;
@@ -164,33 +169,25 @@ public class CustomCrafting {
 					return broadswordBottom(par1InventoryCrafting, irecipe);
 				}
 				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyItems.alloyIngot)) {
-					int k = 0;
 					ItemStack itemstack4 = null;
 					ItemStack itemstack5 = null;
 
 					for (j = 0; j < par1InventoryCrafting.getSizeInventory(); ++j) {
 						ItemStack itemstack2 = par1InventoryCrafting.getStackInSlot(j);
 						if (itemstack2 != null) {
-							if (k == 0) {
-								if (itemstack2.getItem().equals(MyItems.mixedIngot)) {
-									itemstack4 = itemstack2;
-								}
 
+							if (itemstack4 == null && itemstack2.getItem().equals(MyItems.mixedIngot)) {
+								itemstack4 = itemstack2;
 							}
 
-							if (k == 1) {
-
-								if (itemstack2.getItem().equals(MyItems.crystal_smelting)) {
-									itemstack5 = itemstack2;
-								}
-
+							if (itemstack5 == null && itemstack2.getItem().equals(MyItems.crystal_smelting)) {
+								itemstack5 = itemstack2;
 							}
 
-							++k;
 						}
 					}
 
-					if (k == 2 && itemstack4 != null && itemstack5 != null) {
+					if (itemstack4 != null && itemstack5 != null) {
 						ItemStack stack = new ItemStack(MyItems.alloyIngot);
 						NBTTagCompound tag = new NBTTagCompound();
 						tag.setString("metal1", itemstack4.getTagCompound().getString("metal1"));
@@ -221,7 +218,7 @@ public class CustomCrafting {
 			} else if (slot2 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
 				slot2 = par1InventoryCrafting.getStackInSlot(k);
 			} else if (slot3 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
-				slot4 = par1InventoryCrafting.getStackInSlot(k);
+				slot3 = par1InventoryCrafting.getStackInSlot(k);
 			} else if (slot4 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
 				slot4 = par1InventoryCrafting.getStackInSlot(k);
 			} else if (slot5 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
@@ -241,8 +238,19 @@ public class CustomCrafting {
 				&& (Hardness.getAlloyHardness(slot5) == Hardness.HARD || Hardness.getMetalHardness(slot5) == Hardness.HARD)
 				&& (Hardness.getAlloyHardness(slot6) == Hardness.HARD || Hardness.getMetalHardness(slot6) == Hardness.HARD)
 				&& (Hardness.getAlloyHardness(slot7) == Hardness.HARD || Hardness.getMetalHardness(slot7) == Hardness.HARD)
-				&& (Hardness.getAlloyHardness(slot8) == Hardness.SOFT || Hardness.getMetalHardness(slot8) == Hardness.SOFT)) {
-			return irecipe.getCraftingResult(par1InventoryCrafting);
+				&& (Hardness.getAlloyHardness(slot8) == Hardness.HARD || Hardness.getMetalHardness(slot8) == Hardness.HARD)) {
+			ItemStack stack = irecipe.getCraftingResult(par1InventoryCrafting);
+			NBTTagCompound tag = new NBTTagCompound();
+			tag.setString("metals1",MetalUtil.getMetals(slot1));
+			tag.setString("metals2",MetalUtil.getMetals(slot2));
+			tag.setString("metals3",MetalUtil.getMetals(slot3));
+			tag.setString("metals4",MetalUtil.getMetals(slot4));
+			tag.setString("metals5",MetalUtil.getMetals(slot5));
+			tag.setString("metals6",MetalUtil.getMetals(slot6));
+			tag.setString("metals7",MetalUtil.getMetals(slot7));
+			tag.setString("metals8",MetalUtil.getMetals(slot8));
+			stack.setTagCompound(tag);
+			return stack;
 		} else {
 			return null;
 		}

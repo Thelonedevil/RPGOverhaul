@@ -4,7 +4,6 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -13,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.github.thelonedevil.rpgoverhaul.RPGOMain;
+import com.github.thelonedevil.rpgoverhaul.Ref;
 
 public class ArmourInventoryGUI extends GuiContainer {
 	/**
@@ -31,7 +30,7 @@ public class ArmourInventoryGUI extends GuiContainer {
 	 * Normally I use '(ModInfo.MOD_ID, "textures/...")', but it can be done
 	 * this way as well
 	 */
-	private static final ResourceLocation iconLocation = new ResourceLocation(RPGOMain.MODID+":textures/gui/container/inventory.png");
+	private static final ResourceLocation iconLocation = new ResourceLocation(Ref.MODID+":textures/gui/container/inventory.png");
 
 	/**
 	 * Could use IInventory type to be more generic, but this way will save an

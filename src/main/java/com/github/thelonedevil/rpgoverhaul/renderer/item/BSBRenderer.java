@@ -1,47 +1,45 @@
 package com.github.thelonedevil.rpgoverhaul.renderer.item;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
+import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.Ref;
-import com.github.thelonedevil.rpgoverhaul.models.ModelZangetsu;
+import com.github.thelonedevil.rpgoverhaul.util.Util;
 
 import cpw.mods.fml.client.FMLClientHandler;
 
-public class ZangetsuRenderer implements IItemRenderer {
-
-	ModelZangetsu model;
-
-	public ZangetsuRenderer() {
-		model = new ModelZangetsu();
-	}
+public class BSBRenderer implements IItemRenderer {
 
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
 		// TODO Auto-generated method stub
 		return true;
-
 	}
 
 	@Override
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
-		switch (type) {
-		case INVENTORY:
-			return true;
-		default:
-			break;
-		}
-		return false;
-
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+
 		Minecraft mc = Minecraft.getMinecraft();
+		NBTTagCompound tag = item.getTagCompound();
 		Float scale;
 		switch (type) {
 
@@ -58,10 +56,22 @@ public class ZangetsuRenderer implements IItemRenderer {
 			GL11.glRotatef(-40F, 0, 0, 1F);
 
 			// Bind texture
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/zangetsu.png"));
-
-			// Render
-			ModelZangetsu.render();
+			BufferedImage img = null;
+			ResourceLocation resloc;
+			for(String key : RPGOMain.textures.keySet()){
+				if(key.equalsIgnoreCase("bsb.png")){
+					img = RPGOMain.textures.get(key);
+					break;
+				}
+			}
+			if (img == null){
+				resloc= new ResourceLocation(Ref.MODID, "textures/models/bsb.png");
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(resloc);
+				
+			}else{
+				 GL11.glBindTexture(GL11.GL_TEXTURE_2D, TextureUtil.uploadTextureImage(TextureUtil.glGenTextures(), img));
+			}
+			
 
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
@@ -73,18 +83,13 @@ public class ZangetsuRenderer implements IItemRenderer {
 			GL11.glPushMatrix();
 			GL11.glDisable(GL11.GL_LIGHTING);
 
-			// Scale, Translate, Rotate
 			GL11.glScalef(scale, scale, scale);
 			GL11.glTranslatef(40.1F, -2.1F, -0.175F);
 			GL11.glRotatef(0F, 1F, 0, 0);
 			GL11.glRotatef(180F, 0, 1F, 0);
 			GL11.glRotatef(-90F, 0, 0, 1F);
 
-			// Bind texture
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/zangetsu.png"));
-
-			// Render
-			ModelZangetsu.render();
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/bsb.png"));
 
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
@@ -95,16 +100,11 @@ public class ZangetsuRenderer implements IItemRenderer {
 			GL11.glPushMatrix();
 			GL11.glDisable(GL11.GL_LIGHTING);
 
-			// Scale, Translate, Rotate
 			GL11.glScalef(0.04F, 0.04F, 0.04F);
 			GL11.glTranslatef(0, 0, 0);
 			GL11.glRotatef(0, 1F, 0, 0);
 
-			// Bind texture
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/zangetsu.png"));
-
-			// Render
-			ModelZangetsu.render();
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/bsb.png"));
 
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
@@ -114,16 +114,11 @@ public class ZangetsuRenderer implements IItemRenderer {
 			GL11.glPushMatrix();
 			GL11.glDisable(GL11.GL_LIGHTING);
 
-			// Scale, Translate, Rotate
 			GL11.glScalef(0.01F, 0.01F, 0.01F);
 			GL11.glTranslatef(0, 0, 0);
 			GL11.glRotatef(-90F, 1F, 0, 0);
 
-			// Bind texture
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/zangetsu.png"));
-
-			// Render
-			ModelZangetsu.render();
 
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
