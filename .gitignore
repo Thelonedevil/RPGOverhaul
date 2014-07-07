@@ -15,12 +15,13 @@ local.properties
 .classpath
 .settings/
 .loadpath
-
+.idea
 crash-reports/
 logs/
 asm/
 configs/
 config/
+*iml
 /RPGOverhaul/
 mods/
 saves/

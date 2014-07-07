@@ -10,6 +10,8 @@ import com.github.thelonedevil.rpgoverhaul.MyItems;
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.CrystalClusterTileEntity;
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
 import com.github.thelonedevil.rpgoverhaul.gui.XpGui;
+import com.github.thelonedevil.rpgoverhaul.handlers.BBHandler;
+import com.github.thelonedevil.rpgoverhaul.handlers.KeyHandler;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
 import com.github.thelonedevil.rpgoverhaul.mobs.RenderTest;
 import com.github.thelonedevil.rpgoverhaul.renderer.RenderIds;
@@ -21,6 +23,7 @@ import com.github.thelonedevil.rpgoverhaul.renderer.item.ZangetsuRenderer;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class ClientProxy extends CommonProxy {
 
@@ -35,6 +38,11 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForge.EVENT_BUS.register(new XpGui(Minecraft.getMinecraft()));
 
 
+	}
+	
+	public void registerKeys(){
+		FMLCommonHandler.instance().bus().register(new KeyHandler());
+		MinecraftForge.EVENT_BUS.register(new BBHandler());
 	}
 	
 	public void registerItemRenderers(){

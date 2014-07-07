@@ -40,7 +40,7 @@ public class ArmourContainer extends Container {
 
 	public ArmourContainer(final EntityPlayer player, InventoryPlayer inventoryplayer, ArmourInventory inv) {
 
-		this.addSlotToContainer(new SlotHelmet(inv, 0, 112, 8));
+		this.addSlotToContainer(new Slot(inv, 0, 112, 8));
 		this.addSlotToContainer(new SlotPauldronL(inv, 1, 80, 8));
 		this.addSlotToContainer(new SlotPauldronR(inv, 2, 144, 8));
 		this.addSlotToContainer(new SlotCuirass(inv, 3, 112, 26));

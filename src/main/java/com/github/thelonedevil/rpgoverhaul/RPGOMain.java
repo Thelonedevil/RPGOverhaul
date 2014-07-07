@@ -60,14 +60,12 @@ public class RPGOMain {
 	public static RPGOMain instance;
 	public static DeathHandler deathHandler = new DeathHandler();
 	public static AttackHandler attackHandler = new AttackHandler();
-	public static KeyHandler keyHandler = new KeyHandler();
 	public static EntityConstructionHandler entityCHandler = new EntityConstructionHandler();
 	public static PlayerConnectHandler connectHandler = new PlayerConnectHandler();
 	public static PlayerTickHandler tickHandler = new PlayerTickHandler();
 	public static PlayerKillHandler killHandler = new PlayerKillHandler();
 	public static EntityJoinWorldHandler entityjoin = new EntityJoinWorldHandler();
 	public static CraftingHandler craft = new CraftingHandler();
-	public static BBHandler bb = new BBHandler();
 
 
 	public static HashMap<String,BufferedImage> textures;
@@ -86,8 +84,8 @@ public class RPGOMain {
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
 		registerEntity(Mob1.class, "Unknown");
-		File file1 = new File(Ref.modsfolder, "rpgo/textures");
-		textures = Util.getImages(file1);
+		//File file1 = new File(Ref.modsfolder, "rpgo/textures");
+		//textures = Util.getImages(file1);
 		MyBlocks.init();
 		MyItems.init();
 		MyWeapons.init();
@@ -113,9 +111,9 @@ public class RPGOMain {
 		MinecraftForge.EVENT_BUS.register(tickHandler);
 		MinecraftForge.EVENT_BUS.register(killHandler);
 		MinecraftForge.EVENT_BUS.register(entityjoin);
-		MinecraftForge.EVENT_BUS.register(bb);
+		
 		FMLCommonHandler.instance().bus().register(craft);
-		FMLCommonHandler.instance().bus().register(keyHandler);
+		proxy.registerKeys();
 		FMLCommonHandler.instance().bus().register(connectHandler);
 		proxy.registerTileEntities();
 		removeArmourFromChests();
