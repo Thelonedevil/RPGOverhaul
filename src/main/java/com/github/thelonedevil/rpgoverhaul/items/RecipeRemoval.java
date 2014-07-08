@@ -17,7 +17,7 @@ public class RecipeRemoval {
 
 		while (recipe.hasNext()) {
 			ItemStack is = recipe.next().getRecipeOutput();
-			if (is != null && is.getItem() == Items.diamond_boots
+			if (is != null && (is.getItem() == Items.diamond_boots
 					|| is.getItem() == Items.diamond_chestplate
 					|| is.getItem() == Items.diamond_leggings
 					|| is.getItem() == Items.diamond_helmet
@@ -33,7 +33,7 @@ public class RecipeRemoval {
 					|| is.getItem() == Items.golden_chestplate
 					|| is.getItem() == Items.golden_leggings
 					|| is.getItem() == Items.golden_helmet
-					|| is.getItem() == Items.paper) {
+					|| is.getItem() == Items.paper)) {
 				recipe.remove();
 			}
 		}

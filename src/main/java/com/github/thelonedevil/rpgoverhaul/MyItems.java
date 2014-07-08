@@ -91,6 +91,8 @@ public class MyItems {
 	public static Item TestBracerR;
 	public static Item TestBelt;
 	
+	public static Item RawGoat;
+	
 	//dummy items
 	public static Item MIXABLE;
 
@@ -174,6 +176,8 @@ public class MyItems {
 		GameRegistry.registerItem(TestHelmet, "testhelmet");
 		TestBelt = new Belt(0.3D, 1, 20, 10D, 0, 0).setCreativeTab(RPGOMain.myTab).setUnlocalizedName("testbelt");
 		GameRegistry.registerItem(TestBelt, "testbelt");
+		
+		
 
 		GameRegistry.registerItem(ingot_xiatherium, "Xiatherium Ingot");
 		GameRegistry.registerItem(ingot_farunese, "Farunese Ingot");
