@@ -17,41 +17,27 @@ public class RecipeRemoval {
 
 		while (recipe.hasNext()) {
 			ItemStack is = recipe.next().getRecipeOutput();
-			if (is != null && is.getItem() == Items.diamond_boots) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.diamond_chestplate) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.diamond_leggings) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.diamond_helmet) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.leather_boots) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.leather_chestplate) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.leather_leggings) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.leather_helmet) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.iron_boots) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.iron_chestplate) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.iron_leggings) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.iron_helmet) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.golden_boots) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.golden_chestplate) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.golden_leggings) {
-				recipe.remove();
-			} else if (is != null && is.getItem() == Items.golden_helmet) {
+			if (is != null && is.getItem() == Items.diamond_boots
+					|| is.getItem() == Items.diamond_chestplate
+					|| is.getItem() == Items.diamond_leggings
+					|| is.getItem() == Items.diamond_helmet
+					|| is.getItem() == Items.leather_boots
+					|| is.getItem() == Items.leather_chestplate
+					|| is.getItem() == Items.leather_leggings
+					|| is.getItem() == Items.leather_helmet
+					|| is.getItem() == Items.iron_boots
+					|| is.getItem() == Items.iron_chestplate
+					|| is.getItem() == Items.iron_leggings
+					|| is.getItem() == Items.iron_helmet
+					|| is.getItem() == Items.golden_boots
+					|| is.getItem() == Items.golden_chestplate
+					|| is.getItem() == Items.golden_leggings
+					|| is.getItem() == Items.golden_helmet
+					|| is.getItem() == Items.paper) {
 				recipe.remove();
 			}
 		}
-		;
+
 	}
 
 }
