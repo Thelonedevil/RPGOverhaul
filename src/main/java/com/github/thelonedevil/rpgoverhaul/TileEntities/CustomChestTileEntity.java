@@ -1,4 +1,4 @@
-package com.github.thelonedevil.rpgoverhaul.TileEntities;
+package com.github.thelonedevil.rpgoverhaul.tileentities;
 
 import net.minecraft.tileentity.TileEntityChest;
 

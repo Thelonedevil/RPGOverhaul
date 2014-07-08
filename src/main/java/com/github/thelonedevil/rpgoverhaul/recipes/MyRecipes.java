@@ -18,6 +18,20 @@ public class MyRecipes {
 		GameRegistry.addSmelting(MyBlocks.ore_orobalt, new ItemStack(MyItems.ingot_orobalt), xp);
 		GameRegistry.addSmelting(MyBlocks.ore_kiritorium, new ItemStack(MyItems.ingot_kiritorium), xp);
 		GameRegistry.addSmelting(MyBlocks.ore_asunalt, new ItemStack(MyItems.ingot_asunalt), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_axespium, new ItemStack(MyItems.ingot_axespium), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_ayagrese, new ItemStack(MyItems.ingot_ayagrese), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_emodralt, new ItemStack(MyItems.ingot_emodralt), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_eruslalt, new ItemStack(MyItems.ingot_eruslalt), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_evosum, new ItemStack(MyItems.ingot_evosum), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_ithasium, new ItemStack(MyItems.ingot_ithasium), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_ketsuekium, new ItemStack(MyItems.ingot_ketsuekium), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_nautrenese, new ItemStack(MyItems.ingot_nautrenese), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_onecrum, new ItemStack(MyItems.ingot_onecrum), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_ozestum, new ItemStack(MyItems.ingot_ozestum), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_sakuralt, new ItemStack(MyItems.ingot_sakuralt), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_shikyolt, new ItemStack(MyItems.ingot_shikyolt), xp);
+		GameRegistry.addSmelting(MyBlocks.ore_tenshirium, new ItemStack(MyItems.ingot_tenshirium), xp);
+		
 
 		GameRegistry.addShapedRecipe(new ItemStack(MyItems.crystal_plasma), new Object[] { " A ", "BCD", " E ", 'A', MyItems.crystal_fire, 'B', MyItems.crystal_air, 'C', Items.diamond, 'D',
 				MyItems.crystal_earth, 'E', MyItems.crystal_water });

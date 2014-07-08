@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
-import com.github.thelonedevil.rpgoverhaul.TileEntities.CustomChestTileEntity;
+import com.github.thelonedevil.rpgoverhaul.tileentities.CustomChestTileEntity;
 
 public class CustomChest extends BlockChest {
 
