@@ -1,7 +1,9 @@
 package com.github.thelonedevil.rpgoverhaul;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraftforge.oredict.OreDictionary;
 
 import com.github.thelonedevil.rpgoverhaul.armour.Belt;
@@ -92,6 +94,9 @@ public class MyItems {
 	public static Item TestBelt;
 	
 	public static Item RawGoat;
+	public static Item CookedGoat;
+	public static Item Parchment;
+			
 	
 	//dummy items
 	public static Item MIXABLE;
@@ -177,7 +182,14 @@ public class MyItems {
 		TestBelt = new Belt(0.3D, 1, 20, 10D, 0, 0).setCreativeTab(RPGOMain.myTab).setUnlocalizedName("testbelt");
 		GameRegistry.registerItem(TestBelt, "testbelt");
 		
-		
+		RawGoat = new ItemFood(3, 0.3F, true).setTextureName(Ref.MODID+":goatRaw");
+		GameRegistry.registerItem(RawGoat, "rawgoat");
+		CookedGoat = new ItemFood(8, 0.8F, true).setTextureName(Ref.MODID+":goatCooked");
+		GameRegistry.registerItem(CookedGoat, "cookedgoat");
+		Parchment = new Item().setUnlocalizedName("parchment").setTextureName(Ref.MODID + ":parchment").setCreativeTab(CreativeTabs.tabMaterials);
+		GameRegistry.registerItem(Parchment, "parchment");
+		OreDictionary.registerOre("materialPaper", Parchment);
+		OreDictionary.registerOre("materialPaper", Items.paper);
 
 		GameRegistry.registerItem(ingot_xiatherium, "Xiatherium Ingot");
 		GameRegistry.registerItem(ingot_farunese, "Farunese Ingot");
@@ -198,29 +210,29 @@ public class MyItems {
 		GameRegistry.registerItem(ingot_tenshirium, "Tenshirium Ingot");
 		GameRegistry.registerItem(ingot_onecrum, "Onecrum Ingot");
 		
-		OreDictionary.registerOre("baseIngot", ingot_xiatherium);
-		OreDictionary.registerOre("baseIngot", ingot_farunese);
-		OreDictionary.registerOre("baseIngot", ingot_orobalt);
-		OreDictionary.registerOre("baseIngot", ingot_kiritorium);
-		OreDictionary.registerOre("baseIngot", ingot_asunalt);
-		OreDictionary.registerOre("baseIngot", ingot_eruslalt);
-		OreDictionary.registerOre("baseIngot", ingot_ithasium);
-		OreDictionary.registerOre("baseIngot", ingot_ozestum);
-		OreDictionary.registerOre("baseIngot", ingot_evosum);
-		OreDictionary.registerOre("baseIngot", ingot_emodralt);
-		OreDictionary.registerOre("baseIngot", ingot_nautrenese);
-		OreDictionary.registerOre("baseIngot", ingot_axespium);
-		OreDictionary.registerOre("baseIngot", ingot_ketsuekium);
-		OreDictionary.registerOre("baseIngot", ingot_shikyolt);
-		OreDictionary.registerOre("baseIngot", ingot_sakuralt);
-		OreDictionary.registerOre("baseIngot", ingot_ayagrese);
-		OreDictionary.registerOre("baseIngot", ingot_tenshirium);
-		OreDictionary.registerOre("baseIngot", ingot_onecrum);
-		OreDictionary.registerOre("baseIngot", Items.gold_ingot);
-		OreDictionary.registerOre("baseIngot", Items.iron_ingot);
+		OreDictionary.registerOre("ingotMetal", ingot_xiatherium);
+		OreDictionary.registerOre("ingotMetal", ingot_farunese);
+		OreDictionary.registerOre("ingotMetal", ingot_orobalt);
+		OreDictionary.registerOre("ingotMetal", ingot_kiritorium);
+		OreDictionary.registerOre("ingotMetal", ingot_asunalt);
+		OreDictionary.registerOre("ingotMetal", ingot_eruslalt);
+		OreDictionary.registerOre("ingotMetal", ingot_ithasium);
+		OreDictionary.registerOre("ingotMetal", ingot_ozestum);
+		OreDictionary.registerOre("ingotMetal", ingot_evosum);
+		OreDictionary.registerOre("ingotMetal", ingot_emodralt);
+		OreDictionary.registerOre("ingotMetal", ingot_nautrenese);
+		OreDictionary.registerOre("ingotMetal", ingot_axespium);
+		OreDictionary.registerOre("ingotMetal", ingot_ketsuekium);
+		OreDictionary.registerOre("ingotMetal", ingot_shikyolt);
+		OreDictionary.registerOre("ingotMetal", ingot_sakuralt);
+		OreDictionary.registerOre("ingotMetal", ingot_ayagrese);
+		OreDictionary.registerOre("ingotMetal", ingot_tenshirium);
+		OreDictionary.registerOre("ingotMetal", ingot_onecrum);
+		OreDictionary.registerOre("ingotMetal", Items.gold_ingot);
+		OreDictionary.registerOre("ingotMetal", Items.iron_ingot);
 
 		
-		OreDictionary.registerOre("mixIngot", alloyIngot);
+		OreDictionary.registerOre("ingotMetal", alloyIngot);
 
 		GameRegistry.registerItem(crystal_fire, "Fire Crystal");
 		GameRegistry.registerItem(crystal_water, "Water Crystal");

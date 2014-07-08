@@ -1,4 +1,4 @@
-package com.github.thelonedevil.rpgoverhaul.items;
+package com.github.thelonedevil.rpgoverhaul.recipes;
 
 import java.util.Iterator;
 import java.util.List;

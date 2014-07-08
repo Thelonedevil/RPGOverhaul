@@ -118,7 +118,30 @@ public class CustomCrafting {
 			}
 		}
 
-		this.recipes.add(new ShapelessRecipes(par1ItemStack, arraylist));
+		this.recipes.add(new WeaponSmithShapelessRecipe(par1ItemStack, arraylist));
+	}
+	public void addShapelessOreRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
+		ArrayList arraylist = new ArrayList();
+		Object[] aobject = par2ArrayOfObj;
+		int i = par2ArrayOfObj.length;
+
+		for (int j = 0; j < i; ++j) {
+			Object object1 = aobject[j];
+
+			if (object1 instanceof ItemStack) {
+				arraylist.add(((ItemStack) object1).copy());
+			} else if (object1 instanceof Item) {
+				arraylist.add(new ItemStack((Item) object1));
+			} else {
+				if (!(object1 instanceof Block)) {
+					throw new RuntimeException("Invalid shapeless recipe!");
+				}
+
+				arraylist.add(new ItemStack((Block) object1));
+			}
+		}
+
+		this.recipes.add(new WeaponSmithShaplessOreRecipes(par1ItemStack, arraylist));
 	}
 
 	public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, World par2World) {
