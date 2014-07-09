@@ -27,6 +27,7 @@ import com.github.thelonedevil.rpgoverhaul.handlers.PlayerConnectHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerKillHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerTickHandler;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
+import com.github.thelonedevil.rpgoverhaul.mobs.passive.Goat;
 import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
@@ -84,6 +85,7 @@ public class RPGOMain {
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
 		registerEntity(Mob1.class, "Unknown");
+		registerEntity(Goat.class, "Goat");
 		//File file1 = new File(Ref.modsfolder, "rpgo/textures");
 		//textures = Util.getImages(file1);
 		MyBlocks.init();

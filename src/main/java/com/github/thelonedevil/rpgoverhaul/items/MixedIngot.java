@@ -13,12 +13,13 @@ public class MixedIngot extends Item {
 
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-
+		if(itemstack.getTagCompound() != null){
 			String s = itemstack.getTagCompound().getString("metal1");
 			String s1 = itemstack.getTagCompound().getString("metal2");
 			String s2 = "Made from " + StatCollector.translateToLocal(s) + " + " + StatCollector.translateToLocal(s1);
 			addStringToTooltip(s2, par3List);
 			this.setTextureName(Ref.MODID+ ":mixedIngot_"+s+"_"+s1);
+		}
 	}
 
 	private void addStringToTooltip(String s, List<String> tooltip) {

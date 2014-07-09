@@ -2,6 +2,7 @@ package com.github.thelonedevil.rpgoverhaul.handlers;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -16,6 +17,7 @@ import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.blocks.CustomChest;
 import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 import com.github.thelonedevil.rpgoverhaul.util.Util;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -38,7 +40,8 @@ public class DeathHandler {
 						Block block1 = world.getBlock(x + a, y + b, z + c);
 						if (Block.isEqualTo(block1, MyBlocks.LootChest)) {
 							if (flag == false) {
-								this.addLootToChest(world, x + a, y + b, z + c, event, loot);
+								this.addLootToChest(world, x + a, y + b, z + c,
+										loot);
 								flag = true;
 							}
 						}
@@ -46,92 +49,75 @@ public class DeathHandler {
 				}
 			}
 			if (flag == false) {
-				if (block.isAir(world, x, y, z)) {
+				if (block.isAir(world, x, y, z)
+						|| block.equals(Blocks.tallgrass)) {
 					setLootChest(world, x, y, z, event, loot);
-				} else if (block.isAir(world, x + 1, y, z)) {
+				} else if (block.isAir(world, x + 1, y, z)
+						|| block.equals(Blocks.tallgrass)) {
 					setLootChest(world, x + 1, y, z, event, loot);
-				} else if (block.isAir(world, x - 1, y, z)) {
+				} else if (block.isAir(world, x - 1, y, z)
+						|| block.equals(Blocks.tallgrass)) {
 					setLootChest(world, x - 1, y, z, event, loot);
-				} else if (block.isAir(world, x, y, z + 1)) {
+				} else if (block.isAir(world, x, y, z + 1)
+						|| block.equals(Blocks.tallgrass)) {
 					setLootChest(world, x, y, z + 1, event, loot);
-				} else if (block.isAir(world, x, y, z - 1)) {
+				} else if (block.isAir(world, x, y, z - 1)
+						|| block.equals(Blocks.tallgrass)) {
 					setLootChest(world, x, y, z - 1, event, loot);
-				} else if (block.isAir(world, x, y + 1, z)) {
+				} else if (block.isAir(world, x, y + 1, z)
+						|| block.equals(Blocks.tallgrass)) {
 					setLootChest(world, x, y + 1, z, event, loot);
-				} else if (block.isAir(world, x, y - 1, z)) {
+				} else if (block.isAir(world, x, y - 1, z)
+						|| block.equals(Blocks.tallgrass)) {
 					setLootChest(world, x, y - 1, z, event, loot);
 				}
 			}
-		}/*
-		 * else if(event.entityLiving instanceof EntityPlayer){ EntityPlayer
-		 * player = (EntityPlayer)event.entityLiving; IInventory dead =
-		 * player.inventory; double x = event.entity.posX; double y =
-		 * event.entity.posY; double z = event.entity.posZ; World world =
-		 * event.entityLiving.worldObj;
-		 * world.setBlock(MathHelper.floor_double(x),
-		 * MathHelper.floor_double(y), MathHelper.floor_double(z),
-		 * MyBlocks.LootChest); TileEntityChest chest = (TileEntityChest)
-		 * world.getTileEntity(MathHelper.floor_double(x),
-		 * MathHelper.floor_double(y), MathHelper.floor_double(z)); for(int i =
-		 * 0; i<dead.getSizeInventory();i++){ if(dead.getStackInSlot(i)!=null){
-		 * chest.setInventorySlotContents(i, dead.getStackInSlot(i)); } }
-		 * world.setTileEntity(MathHelper.floor_double(x),
-		 * MathHelper.floor_double(y), MathHelper.floor_double(z), chest); }
-		 */
+		}
+		event.setCanceled(true);
 	}
 
-	private void setLootChest(World world, int x, int y, int z, LivingDropsEvent event, ItemStack loot) {
+	private void setLootChest(World world, int x, int y, int z,
+			LivingDropsEvent event, ItemStack loot) {
 		world.setBlock(x, y, z, MyBlocks.LootChest);
-		TileEntityChest chest = (TileEntityChest) world.getTileEntity(x, y, z);
 
-		int slot = 0;
-		chest.setInventorySlotContents(slot, loot);
-		slot++;
+		addLootToChest(world, x, y, z, loot);
 		for (int i = 0; i < event.drops.size(); i++) {
-			chest.setInventorySlotContents(slot, event.drops.get(i).getEntityItem());
-			event.drops.remove(event.drops.get(i));
-			slot++;
+			addLootToChest(world, x, y, z, event.drops.get(i).getEntityItem());
+			LogHelper.info(event.drops.get(i).getEntityItem().getDisplayName()
+					+ event.drops.get(i).getEntityItem().stackSize);
+
 		}
-		world.setTileEntity(x, y, z, chest);
+
 		world.markBlockForUpdate(x, y, z);
 	}
 
-	private void addLootToChest(World world, int x, int y, int z, LivingDropsEvent event, ItemStack loot) {
+	private void addLootToChest(World world, int x, int y, int z, ItemStack loot) {
 		TileEntityChest chest = (TileEntityChest) world.getTileEntity(x, y, z);
-		boolean flag = false;
-		for (int j = 0; j < event.drops.size(); j++) {
-			for (int i = 0; i < chest.getSizeInventory(); i++) {
-				if (chest.getStackInSlot(i) != null) {
-					if (!(event.drops.size() >= j)) {
-						if (chest.getStackInSlot(i).isItemEqual(event.drops.get(j).getEntityItem())) {
-							ItemStack[] stacks = Util.mergeItemStacks(chest.getStackInSlot(i), event.drops.get(j).getEntityItem());
-							event.drops.remove(event.drops.get(j));
-							chest.setInventorySlotContents(i, stacks[0]);
-							int emptySlot = Util.findEmptySlot(chest);
-							if (emptySlot != -1 && stacks.length == 2) {
-								chest.setInventorySlotContents(emptySlot, stacks[1]);
-							}
-						}
-					}
-				}
-			}
-		}
 		for (int i = 0; i < chest.getSizeInventory(); i++) {
-
-			if (flag == false) {
-				if (chest.getStackInSlot(i) != null) {
-					if (chest.getStackInSlot(i).isItemEqual(loot)) {
-						if (chest.getStackInSlot(i).stackSize != 64) {
-							ItemStack[] stacks = Util.mergeItemStacks(chest.getStackInSlot(i), loot);
-							chest.setInventorySlotContents(i, stacks[0]);
-							int emptySlot = Util.findEmptySlot(chest);
-							if (emptySlot != -1 && stacks.length == 2) {
-								chest.setInventorySlotContents(emptySlot, stacks[1]);
-							}
-							flag = true;
+			if (chest.getStackInSlot(i) != null) {
+				if (chest.getStackInSlot(i).stackSize != 64) {
+					if (chest.getStackInSlot(i).getItem() == loot.getItem()) {
+						int size = chest.getStackInSlot(i).stackSize
+								+ loot.stackSize;
+						if (size < 65) {
+							ItemStack newloot = new ItemStack(loot.getItem(),
+									size);
+							chest.setInventorySlotContents(i, newloot);
+						} else {
+							int size2 = size - 64;
+							ItemStack newloot2 = new ItemStack(loot.getItem(),
+									size2);
+							ItemStack newloot = new ItemStack(loot.getItem(),
+									64);
+							chest.setInventorySlotContents(i, newloot);
+							addLootToChest(world, x, y, z, newloot2);
+							break;
 						}
 					}
 				}
+			} else {
+				chest.setInventorySlotContents(i, loot);
+				break;
 			}
 		}
 		world.setTileEntity(x, y, z, chest);
@@ -139,8 +125,8 @@ public class DeathHandler {
 
 	@SubscribeEvent
 	public void onLivingDeathEvent(LivingDeathEvent event) {
-		// we only want to save data for players (most likely, anyway)
-		if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer) {
+		if (!event.entity.worldObj.isRemote
+				&& event.entity instanceof EntityPlayer) {
 
 			ExtendedPlayer.saveProxyData((EntityPlayer) event.entity);
 		}

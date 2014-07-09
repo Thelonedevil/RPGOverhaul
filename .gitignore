@@ -25,6 +25,11 @@ config/
 /RPGOverhaul/
 mods/
 saves/
+.gradle/
+gradle/
+build/
+*.bat
+
 options.txt
 
 

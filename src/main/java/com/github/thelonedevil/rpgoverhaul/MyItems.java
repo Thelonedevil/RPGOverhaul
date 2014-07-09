@@ -182,9 +182,9 @@ public class MyItems {
 		TestBelt = new Belt(0.3D, 1, 20, 10D, 0, 0).setCreativeTab(RPGOMain.myTab).setUnlocalizedName("testbelt");
 		GameRegistry.registerItem(TestBelt, "testbelt");
 		
-		RawGoat = new ItemFood(3, 0.3F, true).setTextureName(Ref.MODID+":goatRaw");
+		RawGoat = new ItemFood(3, 0.3F, true).setTextureName(Ref.MODID+":goatRaw").setUnlocalizedName("rawGoat");
 		GameRegistry.registerItem(RawGoat, "rawgoat");
-		CookedGoat = new ItemFood(8, 0.8F, true).setTextureName(Ref.MODID+":goatCooked");
+		CookedGoat = new ItemFood(8, 0.8F, true).setTextureName(Ref.MODID+":goatCooked").setUnlocalizedName("cookedGoat");
 		GameRegistry.registerItem(CookedGoat, "cookedgoat");
 		Parchment = new Item().setUnlocalizedName("parchment").setTextureName(Ref.MODID + ":parchment").setCreativeTab(CreativeTabs.tabMaterials);
 		GameRegistry.registerItem(Parchment, "parchment");
