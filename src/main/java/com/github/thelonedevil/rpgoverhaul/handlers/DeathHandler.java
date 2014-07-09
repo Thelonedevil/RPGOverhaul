@@ -1,6 +1,9 @@
 package com.github.thelonedevil.rpgoverhaul.handlers;
 
+import java.util.ArrayList;
+
 import net.minecraft.block.Block;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -25,7 +28,6 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class DeathHandler {
 	@SubscribeEvent
 	public void onDrops(LivingDropsEvent event) {
-		// System.out.println("Get Actual World Height returned = "+event.entityLiving.worldObj.getActualHeight());
 		if (!(event.entityLiving instanceof EntityPlayer)) {
 			int x = MathHelper.floor_double(event.entity.posX);
 			int y = MathHelper.floor_double(event.entity.posY);
@@ -34,7 +36,7 @@ public class DeathHandler {
 			Block block = world.getBlock(x, y, z);
 			ItemStack loot = new ItemStack(Items.diamond, 12);
 			boolean flag = false;
-			for (int a = -3; a <= 3; a++) {
+			bigLoop:for (int a = -3; a <= 3; a++) {
 				for (int b = 0; b <= 5; b++) {
 					for (int c = -3; c <= 3; c++) {
 						Block block1 = world.getBlock(x + a, y + b, z + c);
@@ -42,7 +44,9 @@ public class DeathHandler {
 							if (flag == false) {
 								this.addLootToChest(world, x + a, y + b, z + c,
 										loot);
+								addLootsToChest(world, x + a, y + b, z + c,event.drops);
 								flag = true;
+								break bigLoop;
 							}
 						}
 					}
@@ -50,30 +54,41 @@ public class DeathHandler {
 			}
 			if (flag == false) {
 				if (block.isAir(world, x, y, z)
-						|| block.equals(Blocks.tallgrass)) {
+						|| Block.isEqualTo(block,Blocks.tallgrass)) {
 					setLootChest(world, x, y, z, event, loot);
 				} else if (block.isAir(world, x + 1, y, z)
-						|| block.equals(Blocks.tallgrass)) {
+						|| Block.isEqualTo(block,Blocks.tallgrass)) {
 					setLootChest(world, x + 1, y, z, event, loot);
 				} else if (block.isAir(world, x - 1, y, z)
-						|| block.equals(Blocks.tallgrass)) {
+						|| Block.isEqualTo(block,Blocks.tallgrass)) {
 					setLootChest(world, x - 1, y, z, event, loot);
 				} else if (block.isAir(world, x, y, z + 1)
-						|| block.equals(Blocks.tallgrass)) {
+						|| Block.isEqualTo(block,Blocks.tallgrass)) {
 					setLootChest(world, x, y, z + 1, event, loot);
 				} else if (block.isAir(world, x, y, z - 1)
-						|| block.equals(Blocks.tallgrass)) {
+						|| Block.isEqualTo(block,Blocks.tallgrass)) {
 					setLootChest(world, x, y, z - 1, event, loot);
 				} else if (block.isAir(world, x, y + 1, z)
-						|| block.equals(Blocks.tallgrass)) {
+						|| Block.isEqualTo(block,Blocks.tallgrass)) {
 					setLootChest(world, x, y + 1, z, event, loot);
 				} else if (block.isAir(world, x, y - 1, z)
-						|| block.equals(Blocks.tallgrass)) {
+						|| Block.isEqualTo(block,Blocks.tallgrass)) {
 					setLootChest(world, x, y - 1, z, event, loot);
 				}
 			}
 		}
 		event.setCanceled(true);
+	}
+
+	private void addLootsToChest(World world, int x, int y, int z,
+			ArrayList<EntityItem> drops) {
+		
+		for (int i = 0; i < drops.size(); i++) {
+			addLootToChest(world, x, y, z, drops.get(i).getEntityItem());
+			LogHelper.info(drops.get(i).getEntityItem().getDisplayName()
+					+ drops.get(i).getEntityItem().stackSize);
+
+		}
 	}
 
 	private void setLootChest(World world, int x, int y, int z,
@@ -103,6 +118,7 @@ public class DeathHandler {
 							ItemStack newloot = new ItemStack(loot.getItem(),
 									size);
 							chest.setInventorySlotContents(i, newloot);
+							break;
 						} else {
 							int size2 = size - 64;
 							ItemStack newloot2 = new ItemStack(loot.getItem(),
