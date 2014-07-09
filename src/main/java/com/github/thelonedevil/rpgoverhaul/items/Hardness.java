@@ -24,6 +24,8 @@ public class Hardness {
 			return HARD;
 		case "ingot_gold":
 			return SOFT;
+		case "alloyIngot":
+			return getAlloyHardness(slot1);
 		default:
 			return HARD;
 		}

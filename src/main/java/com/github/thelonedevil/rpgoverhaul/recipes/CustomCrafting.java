@@ -39,7 +39,8 @@ public class CustomCrafting {
 		Collections.sort(this.recipes, new WeaponSmithRecipeSorter(this));
 	}
 
-	public WeaponSmithShapedRecipe addRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
+	public WeaponSmithShapedRecipe addRecipe(ItemStack par1ItemStack,
+			Object... par2ArrayOfObj) {
 		String s = "";
 		int i = 0;
 		int j = 0;
@@ -72,7 +73,8 @@ public class CustomCrafting {
 			if (par2ArrayOfObj[i + 1] instanceof Item) {
 				itemstack1 = new ItemStack((Item) par2ArrayOfObj[i + 1]);
 			} else if (par2ArrayOfObj[i + 1] instanceof Block) {
-				itemstack1 = new ItemStack((Block) par2ArrayOfObj[i + 1], 1, 32767);
+				itemstack1 = new ItemStack((Block) par2ArrayOfObj[i + 1], 1,
+						32767);
 			} else if (par2ArrayOfObj[i + 1] instanceof ItemStack) {
 				itemstack1 = (ItemStack) par2ArrayOfObj[i + 1];
 			}
@@ -86,18 +88,21 @@ public class CustomCrafting {
 			char c0 = s.charAt(i1);
 
 			if (hashmap.containsKey(Character.valueOf(c0))) {
-				aitemstack[i1] = ((ItemStack) hashmap.get(Character.valueOf(c0))).copy();
+				aitemstack[i1] = ((ItemStack) hashmap
+						.get(Character.valueOf(c0))).copy();
 			} else {
 				aitemstack[i1] = null;
 			}
 		}
 
-		WeaponSmithShapedRecipe shapedrecipes = new WeaponSmithShapedRecipe(j, k, aitemstack, par1ItemStack);
+		WeaponSmithShapedRecipe shapedrecipes = new WeaponSmithShapedRecipe(j,
+				k, aitemstack, par1ItemStack);
 		this.recipes.add(shapedrecipes);
 		return shapedrecipes;
 	}
 
-	public void addShapelessRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
+	public void addShapelessRecipe(ItemStack par1ItemStack,
+			Object... par2ArrayOfObj) {
 		ArrayList arraylist = new ArrayList();
 		Object[] aobject = par2ArrayOfObj;
 		int i = par2ArrayOfObj.length;
@@ -118,9 +123,12 @@ public class CustomCrafting {
 			}
 		}
 
-		this.recipes.add(new WeaponSmithShapelessRecipe(par1ItemStack, arraylist));
+		this.recipes.add(new WeaponSmithShapelessRecipe(par1ItemStack,
+				arraylist));
 	}
-	public void addShapelessOreRecipe(ItemStack par1ItemStack, Object... par2ArrayOfObj) {
+
+	public void addShapelessOreRecipe(ItemStack par1ItemStack,
+			Object... par2ArrayOfObj) {
 		ArrayList arraylist = new ArrayList();
 		Object[] aobject = par2ArrayOfObj;
 		int i = par2ArrayOfObj.length;
@@ -141,10 +149,20 @@ public class CustomCrafting {
 			}
 		}
 
-		this.recipes.add(new WeaponSmithShaplessOreRecipes(par1ItemStack, arraylist));
+		this.recipes.add(new WeaponSmithShaplessOreRecipes(par1ItemStack,
+				arraylist));
 	}
 
-	public ItemStack findMatchingRecipe(InventoryCrafting par1InventoryCrafting, World par2World) {
+	public WeaponSmithShapedOreRecipe addShapedOreRecipe(
+			ItemStack par1ItemStack, Object... recipe) {
+		WeaponSmithShapedOreRecipe shapedrecipes = new WeaponSmithShapedOreRecipe(
+				par1ItemStack, recipe);
+		this.recipes.add(shapedrecipes);
+		return shapedrecipes;
+	}
+
+	public ItemStack findMatchingRecipe(
+			InventoryCrafting par1InventoryCrafting, World par2World) {
 
 		int i = 0;
 		ItemStack itemstack = null;
@@ -157,7 +175,8 @@ public class CustomCrafting {
 			if (itemstack2 != null) {
 				if (i == 0) {
 					for (int l = 0; l < ingots.size(); l++) {
-						if (ingots.get(l).getItem().equals(itemstack2.getItem())) {
+						if (ingots.get(l).getItem()
+								.equals(itemstack2.getItem())) {
 							itemstack = itemstack2;
 						}
 					}
@@ -166,7 +185,8 @@ public class CustomCrafting {
 
 				if (i == 1) {
 					for (int l = 0; l < ingots.size(); l++) {
-						if (ingots.get(l).getItem().equals(itemstack2.getItem())) {
+						if (ingots.get(l).getItem()
+								.equals(itemstack2.getItem())) {
 							itemstack1 = itemstack2;
 						}
 					}
@@ -176,11 +196,14 @@ public class CustomCrafting {
 			}
 		}
 
-		if (i == 2 && itemstack != null && itemstack1 != null && !itemstack1.getItem().equals(itemstack.getItem())) {
+		if (i == 2 && itemstack != null && itemstack1 != null
+				&& !itemstack1.getItem().equals(itemstack.getItem())) {
 			ItemStack stack = new ItemStack(MyItems.mixedIngot);
 			NBTTagCompound tag = new NBTTagCompound();
-			tag.setString("metal1", itemstack.getUnlocalizedName().substring(11));
-			tag.setString("metal2", itemstack1.getUnlocalizedName().substring(11));
+			tag.setString("metal1", itemstack.getUnlocalizedName()
+					.substring(11));
+			tag.setString("metal2",
+					itemstack1.getUnlocalizedName().substring(11));
 			stack.setTagCompound(tag);
 			return stack;
 		}
@@ -188,22 +211,29 @@ public class CustomCrafting {
 			IRecipe irecipe = (IRecipe) this.recipes.get(j);
 
 			if (irecipe.matches(par1InventoryCrafting, par2World)) {
-				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyWeapons.broadsword_bottom)) {
+				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem()
+						.equals(MyWeapons.broadsword_bottom)) {
 					return broadswordBottom(par1InventoryCrafting, irecipe);
 				}
-				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyItems.alloyIngot)) {
+				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem()
+						.equals(MyItems.alloyIngot)) {
 					ItemStack itemstack4 = null;
 					ItemStack itemstack5 = null;
 
 					for (j = 0; j < par1InventoryCrafting.getSizeInventory(); ++j) {
-						ItemStack itemstack2 = par1InventoryCrafting.getStackInSlot(j);
+						ItemStack itemstack2 = par1InventoryCrafting
+								.getStackInSlot(j);
 						if (itemstack2 != null) {
 
-							if (itemstack4 == null && itemstack2.getItem().equals(MyItems.mixedIngot)) {
+							if (itemstack4 == null
+									&& itemstack2.getItem().equals(
+											MyItems.mixedIngot)) {
 								itemstack4 = itemstack2;
 							}
 
-							if (itemstack5 == null && itemstack2.getItem().equals(MyItems.crystal_smelting)) {
+							if (itemstack5 == null
+									&& itemstack2.getItem().equals(
+											MyItems.crystal_smelting)) {
 								itemstack5 = itemstack2;
 							}
 
@@ -213,8 +243,10 @@ public class CustomCrafting {
 					if (itemstack4 != null && itemstack5 != null) {
 						ItemStack stack = new ItemStack(MyItems.alloyIngot);
 						NBTTagCompound tag = new NBTTagCompound();
-						tag.setString("metal1", itemstack4.getTagCompound().getString("metal1"));
-						tag.setString("metal2", itemstack4.getTagCompound().getString("metal2"));
+						tag.setString("metal1", itemstack4.getTagCompound()
+								.getString("metal1"));
+						tag.setString("metal2", itemstack4.getTagCompound()
+								.getString("metal2"));
 						stack.setTagCompound(tag);
 						return stack;
 					}
@@ -226,7 +258,8 @@ public class CustomCrafting {
 
 	}
 
-	private ItemStack broadswordBottom(InventoryCrafting par1InventoryCrafting, IRecipe irecipe) {
+	private ItemStack broadswordBottom(InventoryCrafting par1InventoryCrafting,
+			IRecipe irecipe) {
 		ItemStack slot1 = null;
 		ItemStack slot2 = null;
 		ItemStack slot3 = null;
@@ -236,42 +269,50 @@ public class CustomCrafting {
 		ItemStack slot7 = null;
 		ItemStack slot8 = null;
 		for (int k = 0; k < par1InventoryCrafting.getSizeInventory(); k++) {
-			if (slot1 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
+			if (slot1 == null
+					&& par1InventoryCrafting.getStackInSlot(k) != null) {
 				slot1 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot2 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
+			} else if (slot2 == null
+					&& par1InventoryCrafting.getStackInSlot(k) != null) {
 				slot2 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot3 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
+			} else if (slot3 == null
+					&& par1InventoryCrafting.getStackInSlot(k) != null) {
 				slot3 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot4 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
+			} else if (slot4 == null
+					&& par1InventoryCrafting.getStackInSlot(k) != null) {
 				slot4 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot5 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
+			} else if (slot5 == null
+					&& par1InventoryCrafting.getStackInSlot(k) != null) {
 				slot5 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot6 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
+			} else if (slot6 == null
+					&& par1InventoryCrafting.getStackInSlot(k) != null) {
 				slot6 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot7 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
+			} else if (slot7 == null
+					&& par1InventoryCrafting.getStackInSlot(k) != null) {
 				slot7 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot8 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
+			} else if (slot8 == null
+					&& par1InventoryCrafting.getStackInSlot(k) != null) {
 				slot8 = par1InventoryCrafting.getStackInSlot(k);
 			}
 		}
-		if ((Hardness.getAlloyHardness(slot1) == Hardness.HARD || Hardness.getMetalHardness(slot1) == Hardness.HARD)
-				&& (Hardness.getAlloyHardness(slot2) == Hardness.HARD || Hardness.getMetalHardness(slot2) == Hardness.HARD)
-				&& (Hardness.getAlloyHardness(slot3) == Hardness.HARD || Hardness.getMetalHardness(slot3) == Hardness.HARD)
-				&& (Hardness.getAlloyHardness(slot4) == Hardness.HARD || Hardness.getMetalHardness(slot4) == Hardness.HARD)
-				&& (Hardness.getAlloyHardness(slot5) == Hardness.HARD || Hardness.getMetalHardness(slot5) == Hardness.HARD)
-				&& (Hardness.getAlloyHardness(slot6) == Hardness.HARD || Hardness.getMetalHardness(slot6) == Hardness.HARD)
-				&& (Hardness.getAlloyHardness(slot7) == Hardness.HARD || Hardness.getMetalHardness(slot7) == Hardness.HARD)
-				&& (Hardness.getAlloyHardness(slot8) == Hardness.HARD || Hardness.getMetalHardness(slot8) == Hardness.HARD)) {
+		if (Hardness.getMetalHardness(slot1) == Hardness.HARD
+				&& Hardness.getMetalHardness(slot2) == Hardness.HARD
+				&& Hardness.getMetalHardness(slot3) == Hardness.HARD
+				&& Hardness.getMetalHardness(slot4) == Hardness.HARD
+				&& Hardness.getMetalHardness(slot5) == Hardness.HARD
+				&& Hardness.getMetalHardness(slot6) == Hardness.HARD
+				&& Hardness.getMetalHardness(slot7) == Hardness.HARD
+				&& Hardness.getMetalHardness(slot8) == Hardness.SOFT) {
 			ItemStack stack = irecipe.getCraftingResult(par1InventoryCrafting);
 			NBTTagCompound tag = new NBTTagCompound();
-			tag.setString("metals1",MetalUtil.getMetals(slot1));
-			tag.setString("metals2",MetalUtil.getMetals(slot2));
-			tag.setString("metals3",MetalUtil.getMetals(slot3));
-			tag.setString("metals4",MetalUtil.getMetals(slot4));
-			tag.setString("metals5",MetalUtil.getMetals(slot5));
-			tag.setString("metals6",MetalUtil.getMetals(slot6));
-			tag.setString("metals7",MetalUtil.getMetals(slot7));
-			tag.setString("metals8",MetalUtil.getMetals(slot8));
+			tag.setString("metals1", MetalUtil.getMetals(slot1));
+			tag.setString("metals2", MetalUtil.getMetals(slot2));
+			tag.setString("metals3", MetalUtil.getMetals(slot3));
+			tag.setString("metals4", MetalUtil.getMetals(slot4));
+			tag.setString("metals5", MetalUtil.getMetals(slot5));
+			tag.setString("metals6", MetalUtil.getMetals(slot6));
+			tag.setString("metals7", MetalUtil.getMetals(slot7));
+			tag.setString("metals8", MetalUtil.getMetals(slot8));
 			stack.setTagCompound(tag);
 			return stack;
 		} else {
