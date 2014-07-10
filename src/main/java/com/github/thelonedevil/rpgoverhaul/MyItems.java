@@ -200,7 +200,7 @@ public class MyItems {
 		foxFur = new Item().setUnlocalizedName("foxFur").setTextureName(Ref.MODID + ":foxFur").setCreativeTab(CreativeTabs.tabMaterials);
 		GameRegistry.registerItem(foxFur, "foxFur");
 		
-		questBook = new QuestBook().setCreativeTab(RPGOMain.myTab);
+		questBook = new QuestBook().setCreativeTab(RPGOMain.myTab).setTextureName(Ref.MODID+":questbook");
 		GameRegistry.registerItem(questBook, "questBook");
 		
 		GameRegistry.registerItem(ingot_xiatherium, "Xiatherium Ingot");
