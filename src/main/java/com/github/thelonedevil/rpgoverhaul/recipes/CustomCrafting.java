@@ -171,7 +171,7 @@ public class CustomCrafting {
 
 		for (j = 0; j < par1InventoryCrafting.getSizeInventory(); ++j) {
 			ItemStack itemstack2 = par1InventoryCrafting.getStackInSlot(j);
-			List<ItemStack> ingots = OreDictionary.getOres("baseIngot");
+			List<ItemStack> ingots = OreDictionary.getOres("ingotBase");
 			if (itemstack2 != null) {
 				if (i == 0) {
 					for (int l = 0; l < ingots.size(); l++) {

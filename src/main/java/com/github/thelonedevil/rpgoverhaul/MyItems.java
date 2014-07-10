@@ -245,6 +245,27 @@ public class MyItems {
 
 		
 		OreDictionary.registerOre("ingotMetal", alloyIngot);
+		
+		OreDictionary.registerOre("ingotBase", ingot_xiatherium);
+		OreDictionary.registerOre("ingotBase", ingot_farunese);
+		OreDictionary.registerOre("ingotBase", ingot_orobalt);
+		OreDictionary.registerOre("ingotBase", ingot_kiritorium);
+		OreDictionary.registerOre("ingotBase", ingot_asunalt);
+		OreDictionary.registerOre("ingotBase", ingot_eruslalt);
+		OreDictionary.registerOre("ingotBase", ingot_ithasium);
+		OreDictionary.registerOre("ingotBase", ingot_ozestum);
+		OreDictionary.registerOre("ingotBase", ingot_evosum);
+		OreDictionary.registerOre("ingotBase", ingot_emodralt);
+		OreDictionary.registerOre("ingotBase", ingot_nautrenese);
+		OreDictionary.registerOre("ingotBase", ingot_axespium);
+		OreDictionary.registerOre("ingotBase", ingot_ketsuekium);
+		OreDictionary.registerOre("ingotBase", ingot_shikyolt);
+		OreDictionary.registerOre("ingotBase", ingot_sakuralt);
+		OreDictionary.registerOre("ingotBase", ingot_ayagrese);
+		OreDictionary.registerOre("ingotBase", ingot_tenshirium);
+		OreDictionary.registerOre("ingotBase", ingot_onecrum);
+		OreDictionary.registerOre("ingotBase", Items.gold_ingot);
+		OreDictionary.registerOre("ingotBase", Items.iron_ingot);
 
 		GameRegistry.registerItem(crystal_fire, "Fire Crystal");
 		GameRegistry.registerItem(crystal_water, "Water Crystal");
