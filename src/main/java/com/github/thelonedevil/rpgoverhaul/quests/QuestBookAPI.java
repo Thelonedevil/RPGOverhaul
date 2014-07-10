@@ -32,11 +32,11 @@ public final class QuestBookAPI {
 	public static Map<String, KnowledgeType> knowledgeTypes = new HashMap<String, KnowledgeType>();
 
 
-	public static KnowledgeType basicKnowledge, elvenKnowledge;
+	public static KnowledgeType firstKnowledge, secondKnowledge;
 
 	static {
-		basicKnowledge = registerKnowledgeType("minecraft", EnumChatFormatting.RESET, true);
-		elvenKnowledge = registerKnowledgeType("alfheim", EnumChatFormatting.DARK_GREEN, false);
+		firstKnowledge = registerKnowledgeType("first", EnumChatFormatting.RESET, true);
+		secondKnowledge = registerKnowledgeType("second", EnumChatFormatting.RESET, false);
 	}
 
 

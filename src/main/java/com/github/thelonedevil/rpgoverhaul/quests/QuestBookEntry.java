@@ -13,7 +13,7 @@ public class QuestBookEntry implements Comparable<QuestBookEntry> {
 	public final String unlocalizedName;
 	public final QuestBookCategory category;
 
-	private KnowledgeType type = QuestBookAPI.basicKnowledge;
+	private KnowledgeType type = QuestBookAPI.firstKnowledge;
 
 	public List<QuestBookPage> pages = new ArrayList<QuestBookPage>();
 	private boolean priority = false;

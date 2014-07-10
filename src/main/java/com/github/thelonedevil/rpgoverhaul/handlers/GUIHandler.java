@@ -13,6 +13,7 @@ import com.github.thelonedevil.rpgoverhaul.gui.GuiQuestBook;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourContainer;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventoryGUI;
 import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
+import com.github.thelonedevil.rpgoverhaul.quests.IQuestBook;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 
@@ -46,7 +47,11 @@ public class GUIHandler implements IGuiHandler {
 			return new WeaponSmithGUI(player.inventory, world, x, y, z);
 			
 		} if(ID == Ref.QUESTBOOK_GUI){
-			return new GuiQuestBook();
+			GuiQuestBook lex = GuiQuestBook.currentOpenQuestBook;
+			GuiQuestBook.stackUsed = player.getCurrentEquippedItem();
+			if(GuiQuestBook.stackUsed == null || !(GuiQuestBook.stackUsed.getItem() instanceof IQuestBook))
+			return null;
+			return lex;
 		}
 		return null;
 	}

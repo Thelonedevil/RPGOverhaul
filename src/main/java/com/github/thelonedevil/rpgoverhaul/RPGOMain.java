@@ -29,6 +29,7 @@ import com.github.thelonedevil.rpgoverhaul.mobs.passive.Goat;
 import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
+import com.github.thelonedevil.rpgoverhaul.quests.QuestBookData;
 import com.github.thelonedevil.rpgoverhaul.recipes.MyRecipes;
 import com.github.thelonedevil.rpgoverhaul.recipes.RecipeRemoval;
 import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
@@ -94,6 +95,7 @@ public class RPGOMain {
 		MyCrystals.init();
 		MyRecipes.init();
 		RecipeRemoval.init();
+		QuestBookData.init();
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
 		network.registerMessage(SyncPlayerProps.Handler.class, SyncPlayerProps.class, 0, Side.SERVER);
 		network.registerMessage(OpenGui.Handler.class, OpenGui.class, 0, Side.SERVER);

@@ -56,13 +56,10 @@ public class QuestBook extends Item implements IQuestBook {
 					typesKnown.add(type);
 			}
 
-			String format = typesKnown.size() == 1 ? "botaniamisc.knowledgeTypesSingular" : "botaniamisc.knowledgeTypesPlural";
-			addStringToTooltip(String.format(StatCollector.translateToLocal(format), typesKnown.size()), par3List);
-
 			for(KnowledgeType type : typesKnown)
 				addStringToTooltip(" \u2022 " + StatCollector.translateToLocal(type.getUnlocalizedName()), par3List);
 
-		} else addStringToTooltip(StatCollector.translateToLocal("botaniamisc.shiftinfo"), par3List);
+		} else addStringToTooltip(StatCollector.translateToLocal("rpgo.shiftinfo"), par3List);
 	}
 
 	private void addStringToTooltip(String s, List<String> tooltip) {
@@ -71,6 +68,7 @@ public class QuestBook extends Item implements IQuestBook {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
+		
 		par3EntityPlayer.openGui(RPGOMain.instance, Ref.QUESTBOOK_GUI, par2World, 0, 0, 0);
 		return par1ItemStack;
 	}
