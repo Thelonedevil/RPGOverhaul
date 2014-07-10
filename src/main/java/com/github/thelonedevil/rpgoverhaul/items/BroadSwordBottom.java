@@ -11,7 +11,7 @@ public class BroadSwordBottom extends WeaponPart{
 	
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-
+		if(itemstack.getTagCompound() != null){
 			String s = itemstack.getTagCompound().getString("metals1");
 			String s1 = itemstack.getTagCompound().getString("metals2");
 			String s2 = itemstack.getTagCompound().getString("metals3");
@@ -22,6 +22,7 @@ public class BroadSwordBottom extends WeaponPart{
 			String s7 = itemstack.getTagCompound().getString("metals8");
 			String s8 = "Made from " + s + ", " + s1+ ", " + s2+ ", " + s3+ ", " + s4+ ", " + s5+ ", " + s6+ ", " + s7;
 			addStringToTooltip(StatCollector.translateToLocal(s8), par3List);
+		}
 
 	}
 
