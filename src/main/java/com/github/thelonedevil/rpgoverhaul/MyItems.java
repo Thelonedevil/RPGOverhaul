@@ -97,10 +97,11 @@ public class MyItems {
 	public static Item CookedGoat;
 	public static Item Parchment;
 	public static Item goatSkin;
-			
+	public static Item foxFur;		
 	
 	//dummy items
 	public static Item MIXABLE;
+	
 
 	public static void init() {
 		
@@ -193,7 +194,10 @@ public class MyItems {
 		OreDictionary.registerOre("materialPaper", Items.paper);
 		goatSkin = new Item().setUnlocalizedName("goatSkin").setTextureName(Ref.MODID + ":goatSkin").setCreativeTab(CreativeTabs.tabMaterials);
 		GameRegistry.registerItem(goatSkin, "goatSkin");
-
+		
+		foxFur = new Item().setUnlocalizedName("foxFur").setTextureName(Ref.MODID + ":foxFur").setCreativeTab(CreativeTabs.tabMaterials);
+		GameRegistry.registerItem(foxFur, "foxFur");
+		
 		GameRegistry.registerItem(ingot_xiatherium, "Xiatherium Ingot");
 		GameRegistry.registerItem(ingot_farunese, "Farunese Ingot");
 		GameRegistry.registerItem(ingot_orobalt, "Orobalt Ingot");

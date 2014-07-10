@@ -89,6 +89,7 @@ public class RPGOMain {
 		//textures = Util.getImages(file1);
 		MyBlocks.init();
 		MyItems.init();
+		MyClothes.init();
 		MyWeapons.init();
 		MyCrystals.init();
 		MyRecipes.init();
