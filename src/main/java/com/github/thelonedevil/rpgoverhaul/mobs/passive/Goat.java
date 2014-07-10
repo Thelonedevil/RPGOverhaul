@@ -105,7 +105,7 @@ public class Goat extends EntityAnimal {
 
         for (k = 0; k < j; ++k)
         {
-            this.dropItem(Items.leather, 1);
+            this.dropItem(MyItems.goatSkin, 1);
         }
 
         j = this.rand.nextInt(3) + 1 + this.rand.nextInt(1 + p_70628_2_);

@@ -63,6 +63,7 @@ public class MyRecipes {
 				new Object[] { "ABA", "ACA", "AAA", 'A',
 						MyItems.ingot_kiritorium, 'B',
 						MyItems.ingot_ketsuekium, 'C', Blocks.iron_block });
+		GameRegistry.addShapelessRecipe(new ItemStack(MyItems.Parchment,1), new Object[]{MyItems.goatSkin,Items.flint} );
 
 		CustomCrafting.getInstance().addShapelessRecipe(
 				new ItemStack(MyItems.alloyIngot, 1),
