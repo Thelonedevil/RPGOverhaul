@@ -110,6 +110,7 @@ public class RPGOMain {
 	public static void load(FMLInitializationEvent event) {
 		proxy.registerNetworkStuff();
 		MinecraftForge.EVENT_BUS.register(deathHandler);
+		FMLCommonHandler.instance().bus().register(deathHandler);
 		MinecraftForge.EVENT_BUS.register(attackHandler);
 		MinecraftForge.EVENT_BUS.register(entityCHandler);
 		MinecraftForge.EVENT_BUS.register(tickHandler);

@@ -37,7 +37,7 @@ public class GuiButtonBack extends GuiButton {
 	}
 
 	public List<String> getTooltip() {
-		return Arrays.asList(StatCollector.translateToLocal("botaniamisc.back"));
+		return Arrays.asList(StatCollector.translateToLocal("rpgo.back"));
 	}
 
 }

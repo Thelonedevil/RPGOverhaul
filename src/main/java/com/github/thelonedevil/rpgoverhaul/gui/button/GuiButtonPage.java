@@ -39,8 +39,8 @@ public class GuiButtonPage extends GuiButton {
 								par2,
 								par3,
 								Arrays.asList(StatCollector
-										.translateToLocal(right ? "botaniamisc.nextPage"
-												: "botaniamisc.prevPage")));
+										.translateToLocal(right ? "rpgo.nextPage"
+												: "rpgo.prevPage")));
 		}
 	}
 

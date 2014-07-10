@@ -110,7 +110,7 @@ public class GuiQuestBook extends GuiScreen {
 		for (int i = 0; i < l + 6; i++)
 			drawTexturedModalRect(x - l / 2 - 3 + i, y - 1, 60, 180, 1, 11);
 
-		font.drawString(s, x - l / 2 + fontOff, y, 0x111111, false);
+		font.drawString(s, x - l / 2 + fontOff, y, 0xffffff, false);
 		font.setUnicodeFlag(unicode);
 	}
 

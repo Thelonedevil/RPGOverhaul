@@ -15,6 +15,6 @@ public class KnowledgeType {
 	}
 
 	public String getUnlocalizedName() {
-		return "botania.knowledge." + id;
+		return "rpgo.knowledge." + id;
 	}
 }

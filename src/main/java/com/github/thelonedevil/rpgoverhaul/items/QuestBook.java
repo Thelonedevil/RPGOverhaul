@@ -45,7 +45,7 @@ public class QuestBook extends Item implements IQuestBook {
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if(GuiScreen.isShiftKeyDown()) {
-			String edition = EnumChatFormatting.GOLD + String.format(StatCollector.translateToLocal("botaniamisc.edition"));
+			String edition = EnumChatFormatting.GOLD + String.format(StatCollector.translateToLocal("rpgo.edition"));
 			if(!edition.isEmpty())
 				par3List.add(edition);
 

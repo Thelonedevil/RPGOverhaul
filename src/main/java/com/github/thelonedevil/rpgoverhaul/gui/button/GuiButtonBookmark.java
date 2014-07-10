@@ -27,11 +27,11 @@ public class GuiButtonBookmark extends GuiButton {
 
 		List<String> tooltip = new ArrayList();
 		if(displayString.equals("+"))
-			tooltip.add(StatCollector.translateToLocal("botaniamisc.clickToAdd"));
+			tooltip.add(StatCollector.translateToLocal("rpgo.clickToAdd"));
 		else {
-			tooltip.add(String.format(StatCollector.translateToLocal("botaniamisc.bookmark"), id - GuiQuestBook.BOOKMARK_START + 1));
-			tooltip.add(EnumChatFormatting.GRAY + StatCollector.translateToLocal("botaniamisc.clickToSee"));
-			tooltip.add(EnumChatFormatting.GRAY + StatCollector.translateToLocal("botaniamisc.shiftToRemove"));
+			tooltip.add(String.format(StatCollector.translateToLocal("rpgo.bookmark"), id - GuiQuestBook.BOOKMARK_START + 1));
+			tooltip.add(EnumChatFormatting.GRAY + StatCollector.translateToLocal("rpgo.clickToSee"));
+			tooltip.add(EnumChatFormatting.GRAY + StatCollector.translateToLocal("rpgo.shiftToRemove"));
 		}
 
 		int tooltipY = (tooltip.size() + 1) * 5;
