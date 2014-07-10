@@ -8,6 +8,12 @@ tile.kiritorium_ore.name=Kiritorium Ore
 tile.orobalt_ore.name=Orobalt Ore
 tile.farunese_ore.name=Farunese Ore
 tile.xiatherium_ore.name=Xiatherium Ore
+tile.eruslalt_ore.name=Eruslalt Ore
+tile.ithasium_ore.name=Ithasium Ore
+tile.ozestum_ore.name=Ozestum Ore
+tile.emodralt_ore.name=Emodralt Ore
+tile.evosum_ore.name=Evosum Ore
+tile.nautrenese_ore.name=Nautrenese Ore
 
 tile.Fire_Crystal_Cluster.name=Fire Crystal Cluster
 tile.Water_Crystal_Cluster.name=Water Crystal Cluster
@@ -26,8 +32,24 @@ item.ingot_kiritorium.name=Kiritiorium Ingot
 item.ingot_orobalt.name=Orobalt Ingot
 item.ingot_farunese.name=Farunese Ingot
 item.ingot_xiatherium.name=Xiatherium Ingot
+item.ingot_eruslalt.name=Eruslalt Ingot
+item.ingot_ithasium.name=Ithasium Ingot
+item.ingot_ozestum.name=Ozestum Ingot
+item.ingot_emodralt.name=Emodralt Ingot
+item.ingot_evosum.name=Evosum Ingot
+item.ingot_nautrenese.name=Nautrense Ingot
+item.ingot_axespium.name=Axespium Ingot
+item.ingot_ketsuekium.name=Ketsuekium Ingot
+item.ingot_shikyolt.name=Shikyolt Ingot
+item.ingot_sakuralt.name=Sakuralt Ingot
+item.ingot_ayagrese.name=Ayagrese Ingot
+item.ingot_tenshirium.name=Tenshirium Ingot
+item.ingot_onecrum.name=Onecrum Ingot
+
+item.questbook.name=Quest Book
 
 entity.Unknown.name=????????
+entity.goat.name=Goat
 rpgo=RPG Overhaul
 
 rpgo.shiftinfo=Press &bShift&7 For Info

@@ -28,7 +28,7 @@ public class QuestBook extends Item implements IQuestBook {
 	public QuestBook() {
 		super();
 		setMaxStackSize(1);
-		setUnlocalizedName("QuestBook");
+		setUnlocalizedName("questbook");
 	}
 
 	@Override
