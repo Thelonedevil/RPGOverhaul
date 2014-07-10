@@ -12,6 +12,7 @@ public class Ref {
 	public static final int Armour_Inventory_GUI = 1;
 	public static final int CRYSTAL_SWAP_GUI = 2;
 	public static final int WEAPON_SMITH_GUI = 3;
+	public static final int QUESTBOOK_GUI = 4;
 	public static final File modsfolder = new File(Minecraft.getMinecraft().mcDataDir, "mods");
 
 }

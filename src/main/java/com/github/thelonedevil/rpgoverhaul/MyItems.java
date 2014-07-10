@@ -10,6 +10,7 @@ import com.github.thelonedevil.rpgoverhaul.armour.Belt;
 import com.github.thelonedevil.rpgoverhaul.armour.Helmet;
 import com.github.thelonedevil.rpgoverhaul.items.AlloyIngot;
 import com.github.thelonedevil.rpgoverhaul.items.MixedIngot;
+import com.github.thelonedevil.rpgoverhaul.items.QuestBook;
 import com.github.thelonedevil.rpgoverhaul.weapons.swords.LegendarySword;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -101,6 +102,7 @@ public class MyItems {
 	
 	//dummy items
 	public static Item MIXABLE;
+	public static Item questBook;
 	
 
 	public static void init() {
@@ -197,6 +199,9 @@ public class MyItems {
 		
 		foxFur = new Item().setUnlocalizedName("foxFur").setTextureName(Ref.MODID + ":foxFur").setCreativeTab(CreativeTabs.tabMaterials);
 		GameRegistry.registerItem(foxFur, "foxFur");
+		
+		questBook = new QuestBook().setCreativeTab(RPGOMain.myTab);
+		GameRegistry.registerItem(questBook, "questBook");
 		
 		GameRegistry.registerItem(ingot_xiatherium, "Xiatherium Ingot");
 		GameRegistry.registerItem(ingot_farunese, "Farunese Ingot");

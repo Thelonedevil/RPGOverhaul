@@ -11,6 +11,7 @@ import com.github.thelonedevil.rpgoverhaul.blocks.crystals.CrystalClusterTileEnt
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
 import com.github.thelonedevil.rpgoverhaul.gui.XpGui;
 import com.github.thelonedevil.rpgoverhaul.handlers.BBHandler;
+import com.github.thelonedevil.rpgoverhaul.handlers.ClientTickHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.KeyHandler;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
 import com.github.thelonedevil.rpgoverhaul.mobs.RenderTest;
@@ -22,6 +23,7 @@ import com.github.thelonedevil.rpgoverhaul.renderer.Sword1Renderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.Sword2Renderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.block.TileEntityCrystalRenderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.ItemCrystalClusterRenderer;
+import com.github.thelonedevil.rpgoverhaul.renderer.item.RenderQuestBook;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.ZangetsuRenderer;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -46,6 +48,7 @@ public class ClientProxy extends CommonProxy {
 	
 	public void registerKeys(){
 		FMLCommonHandler.instance().bus().register(new KeyHandler());
+		FMLCommonHandler.instance().bus().register(new ClientTickHandler());
 		MinecraftForge.EVENT_BUS.register(new BBHandler());
 	}
 	
@@ -56,6 +59,8 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.registerItemRenderer(MyItems.Zangetsu, new ZangetsuRenderer());
 		MinecraftForgeClient.registerItemRenderer(MyItems.Sword1, new Sword1Renderer());
 		MinecraftForgeClient.registerItemRenderer(MyItems.Sword2, new Sword2Renderer());
+		
+		MinecraftForgeClient.registerItemRenderer(MyItems.questBook, new RenderQuestBook());
 		
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(MyCrystals.Fire_Crystal), new ItemCrystalClusterRenderer());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(MyCrystals.Water_Crystal), new ItemCrystalClusterRenderer());

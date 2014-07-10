@@ -9,6 +9,7 @@ import com.github.thelonedevil.rpgoverhaul.blocks.WeaponSmithGUI;
 import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.AlloyContainer;
 import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.Alloy_Furnace_GUI;
 import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.Alloy_Furnace_TileEntity;
+import com.github.thelonedevil.rpgoverhaul.gui.GuiQuestBook;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourContainer;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventoryGUI;
 import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
@@ -44,6 +45,8 @@ public class GUIHandler implements IGuiHandler {
 		if(ID == Ref.WEAPON_SMITH_GUI){
 			return new WeaponSmithGUI(player.inventory, world, x, y, z);
 			
+		} if(ID == Ref.QUESTBOOK_GUI){
+			return new GuiQuestBook();
 		}
 		return null;
 	}
