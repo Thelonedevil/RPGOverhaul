@@ -51,10 +51,10 @@ public class CustomGenerator implements IWorldGenerator {
 		this.addOreSpawn(MyBlocks.ore_tenshirium, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
 		this.addOreSpawn(MyBlocks.ore_xiatherium, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
 		
-		//this.addCrystalSpawn(MyCrystals.Fire_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
-		//this.addCrystalSpawn(MyCrystals.Air_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
-		//this.addCrystalSpawn(MyCrystals.Earth_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
-		//this.addCrystalSpawn(MyCrystals.Water_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
+		this.addCrystalSpawn(MyCrystals.Fire_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
+		this.addCrystalSpawn(MyCrystals.Air_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
+		this.addCrystalSpawn(MyCrystals.Earth_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
+		this.addCrystalSpawn(MyCrystals.Water_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
 	}
 
 	private void generateNether(World world, Random random, int x, int z) {
