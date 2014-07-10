@@ -1,28 +1,26 @@
 package com.github.thelonedevil.rpgoverhaul;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.HashMap;
 import java.util.Random;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
 import com.github.thelonedevil.rpgoverhaul.handlers.AttackHandler;
-import com.github.thelonedevil.rpgoverhaul.handlers.BBHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.CraftingHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.DeathHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.EntityConstructionHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.EntityJoinWorldHandler;
-import com.github.thelonedevil.rpgoverhaul.handlers.KeyHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerConnectHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerKillHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerTickHandler;
@@ -34,7 +32,6 @@ import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
 import com.github.thelonedevil.rpgoverhaul.recipes.MyRecipes;
 import com.github.thelonedevil.rpgoverhaul.recipes.RecipeRemoval;
 import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
-import com.github.thelonedevil.rpgoverhaul.util.Util;
 import com.github.thelonedevil.rpgoverhaul.world.CustomGenerator;
 import com.github.thelonedevil.rpgoverhaul.world.WorldTypeCustom;
 
@@ -86,6 +83,8 @@ public class RPGOMain {
 	public void preinit(FMLPreInitializationEvent event) {
 		registerEntity(Mob1.class, "Unknown");
 		registerEntity(Goat.class, "Goat");
+		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savanna);
+		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savannaPlateau);
 		//File file1 = new File(Ref.modsfolder, "rpgo/textures");
 		//textures = Util.getImages(file1);
 		MyBlocks.init();
