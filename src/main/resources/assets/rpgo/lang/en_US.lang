@@ -70,3 +70,20 @@ rpgo.armour.11=Right Boot
 rpgo.armourtooltip=Press %key% to open the Armour Inventory
 
 itemGroup.RPG Overhaul=RPG Overhaul
+
+rpgo.questbook=Quest Book
+rpgo.category.starter=Starter Quests
+rpgo.questbook.entry.quest1=Beginnings of New Minecraftia
+rpgo.questbook.page.quest1.0=Humans fled Minecraftia before the impact, those that were left behind struggled to survive in  the aftermath of that terrible night...<br>A few years passed and the remaining Minecraftians adapted to the harshness of their beloved home. Then rumours surfaced that They had found refuge on another world, and that They had found a way to send items back and forth between Minecraftia and There.
+rpgo.questbook.page.quest1.1=If you are reading this then you have established that the rumours are in fact true. This book being proof of it. This book will automatically update with new quests as they become available from Them.
+rpgo.questbook.entry.quest2=First Contact
+rpgo.questbook.page.quest2.0=<Insert Lore Here>
+rpgo.questbook.page.quest2.1=You need to make a stable portal to Them.
+
+rpgo.questbook.cover.crafted=Crafted this Quest Book
+rpgo.questbook.cover.line3=RPGOverhaul Coded By
+rpgo.questbook.cover.line4=The_Lone_Devil
+
+
+
+
