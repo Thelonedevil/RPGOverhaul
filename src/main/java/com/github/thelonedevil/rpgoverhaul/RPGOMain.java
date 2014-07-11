@@ -25,6 +25,7 @@ import com.github.thelonedevil.rpgoverhaul.handlers.PlayerConnectHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerKillHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerTickHandler;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
+import com.github.thelonedevil.rpgoverhaul.mobs.passive.Fox;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.Goat;
 import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
@@ -81,8 +82,11 @@ public class RPGOMain {
 	public void preinit(FMLPreInitializationEvent event) {
 		registerEntity(Mob1.class, "Unknown");
 		registerEntity(Goat.class, "Goat");
+		registerEntity(Fox.class, "Fox");
 		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savanna);
 		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savannaPlateau);
+		EntityRegistry.addSpawn(Fox.class, 200,2, 8,  EnumCreatureType.creature, BiomeGenBase.desert);
+		EntityRegistry.addSpawn(Fox.class, 200,2, 8,  EnumCreatureType.creature, BiomeGenBase.desertHills);
 		// File file1 = new File(Ref.modsfolder, "rpgo/textures");
 		// textures = Util.getImages(file1);
 		MyBlocks.init();
