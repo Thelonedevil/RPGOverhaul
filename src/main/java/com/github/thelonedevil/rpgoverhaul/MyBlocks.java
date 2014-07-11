@@ -1,12 +1,11 @@
 package com.github.thelonedevil.rpgoverhaul;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
+import net.minecraft.init.Blocks;
 
 import com.github.thelonedevil.rpgoverhaul.blocks.CustomChest;
+import com.github.thelonedevil.rpgoverhaul.blocks.Portal;
 import com.github.thelonedevil.rpgoverhaul.blocks.WeaponSmith;
-import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.Alloy_Furnace;
 import com.github.thelonedevil.rpgoverhaul.blocks.ores.Base_Ore;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -80,7 +79,7 @@ public class MyBlocks {
 
 		//AlloyFurnace = new Alloy_Furnace(false).setBlockName("alloyfurnace").setCreativeTab(RPGOMain.myTab);
 		//AlloyFurnaceActive = new Alloy_Furnace(true).setBlockName("alloyfurnaceactive");
-
+		portal = new Portal();
 		LootChest = new CustomChest(0).setBlockName("lootChest").setCreativeTab(RPGOMain.myTab).setBlockUnbreakable().setResistance(2000000.0f);
 		WeaponSmithblock = new WeaponSmith().setBlockName("weaponsmith").setCreativeTab(RPGOMain.myTab);
 		GameRegistry.registerBlock(ore_xiatherium, "Xiatherium_ore");
@@ -104,6 +103,7 @@ public class MyBlocks {
 
 		//GameRegistry.registerBlock(AlloyFurnace, "Alloy_Furnace");
 		//GameRegistry.registerBlock(AlloyFurnaceActive, "Alloy_Furnace_active");
+		GameRegistry.registerBlock(portal, "Portal");
 		GameRegistry.registerBlock(LootChest, "LootChest");
 		GameRegistry.registerBlock(WeaponSmithblock, "WeaponSmith");
 	}
