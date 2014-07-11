@@ -37,14 +37,14 @@ public class Util {
 
 	}
 
-	public static HashMap<String,BufferedImage> getImages(File file1) {
-		HashMap<String,BufferedImage> imgs = new HashMap<String,BufferedImage>();
+	public static HashMap<String, BufferedImage> getImages(File file1) {
+		HashMap<String, BufferedImage> imgs = new HashMap<String, BufferedImage>();
 		for (File file : file1.listFiles()) {
 			if (file.getName().endsWith(".png")) {
 				try {
 					BufferedImage img = ImageIO.read(file);
 					if (img != null) {
-						imgs.put(file.getName(),img);
+						imgs.put(file.getName(), img);
 					}
 				} catch (IOException e) {
 				}

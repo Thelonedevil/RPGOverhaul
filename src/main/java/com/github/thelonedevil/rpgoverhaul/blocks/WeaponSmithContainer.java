@@ -15,9 +15,9 @@ import com.github.thelonedevil.rpgoverhaul.MyBlocks;
 import com.github.thelonedevil.rpgoverhaul.recipes.CustomCrafting;
 
 public class WeaponSmithContainer extends Container {
-	
-private final int rows = 5;
-private final int cols = 5;
+
+	private final int rows = 5;
+	private final int cols = 5;
 	public InventoryCrafting craftMatrix = new InventoryCrafting(this, rows, cols);
 	public IInventory craftResult = new InventoryCraftResult();
 	private World worldObj;

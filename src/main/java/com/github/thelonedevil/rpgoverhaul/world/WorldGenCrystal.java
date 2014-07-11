@@ -15,9 +15,9 @@ public class WorldGenCrystal extends WorldGenerator {
 
 	public boolean generate(World world, Random random, int x, int y, int z) {
 		Block block = world.getBlock(x, y, z);
-		Block block1 = world.getBlock(x,y-1, z);
-		if (world.isAirBlock(x, y, z)){
-			if(!world.isAirBlock(x, y - 1, z)){
+		Block block1 = world.getBlock(x, y - 1, z);
+		if (world.isAirBlock(x, y, z)) {
+			if (!world.isAirBlock(x, y - 1, z)) {
 				world.setBlock(x, y, z, this.block);
 			}
 		}

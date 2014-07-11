@@ -1,4 +1,3 @@
-
 package com.github.thelonedevil.rpgoverhaul.gui.button;
 
 import net.minecraft.client.Minecraft;

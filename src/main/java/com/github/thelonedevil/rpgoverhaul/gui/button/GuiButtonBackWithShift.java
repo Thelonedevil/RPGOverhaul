@@ -1,4 +1,3 @@
-
 package com.github.thelonedevil.rpgoverhaul.gui.button;
 
 import java.util.Arrays;

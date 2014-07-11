@@ -1,9 +1,8 @@
 package com.github.thelonedevil.rpgoverhaul.armour;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class Greaves extends Armour{
+public class Greaves extends Armour {
 
 	public Greaves() {
 		super(3);

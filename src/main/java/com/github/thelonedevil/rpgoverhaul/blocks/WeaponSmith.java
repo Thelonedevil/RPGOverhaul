@@ -23,14 +23,13 @@ public class WeaponSmith extends Block {
 
 	public WeaponSmith() {
 		super(Material.iron);
-		this.setBlockTextureName(Ref.MODID+":weapon_smith");
+		this.setBlockTextureName(Ref.MODID + ":weapon_smith");
 		// TODO Auto-generated constructor stub
 	}
 
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
-		return side == 1 ? this.field_150035_a : (side == 0 ? Blocks.iron_block.getBlockTextureFromSide(side) : (side == 3 ? this.blockIcon
-				: this.field_150034_b));
+		return side == 1 ? this.field_150035_a : (side == 0 ? Blocks.iron_block.getBlockTextureFromSide(side) : (side == 3 ? this.blockIcon : this.field_150034_b));
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -43,8 +42,7 @@ public class WeaponSmith extends Block {
 	/**
 	 * Called upon block activation (right click on the block.)
 	 */
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_,
-			float p_149727_9_) {
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
 		if (world.isRemote) {
 			return true;
 		} else {
@@ -52,6 +50,5 @@ public class WeaponSmith extends Block {
 			return true;
 		}
 	}
-	
 
 }

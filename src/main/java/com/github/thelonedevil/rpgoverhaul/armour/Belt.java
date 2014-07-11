@@ -1,15 +1,12 @@
 package com.github.thelonedevil.rpgoverhaul.armour;
 
-import java.util.UUID;
-
-import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventory;
-import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
-
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventory;
+import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
 
 public class Belt extends Armour {
 
@@ -45,22 +42,22 @@ public class Belt extends Armour {
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		super.onWornTick(itemstack, player);
-		if(player instanceof EntityPlayer) {
-		EntityPlayer player1 = (EntityPlayer) player;
-		if((player.onGround || player1.capabilities.isFlying) && player.moveForward > 0F)
-		player.moveFlying(0F, 1F, player1.capabilities.isFlying ? 0.035F : 0.07F);
+		if (player instanceof EntityPlayer) {
+			EntityPlayer player1 = (EntityPlayer) player;
+			if ((player.onGround || player1.capabilities.isFlying) && player.moveForward > 0F)
+				player.moveFlying(0F, 1F, player1.capabilities.isFlying ? 0.035F : 0.07F);
 
-		if(player.isSneaking())
-		player.stepHeight = 0.50001F; // Not 0.5F because that is the default
-		else if(player.stepHeight == 0.50001F)
-		player.stepHeight = 1F;
+			if (player.isSneaking())
+				player.stepHeight = 0.50001F; // Not 0.5F because that is the
+												// default
+			else if (player.stepHeight == 0.50001F)
+				player.stepHeight = 1F;
 		}
 	}
 
 	@Override
 	public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
 		player.stepHeight = 1F;
-
 
 	}
 
@@ -69,7 +66,7 @@ public class Belt extends Armour {
 		player.stepHeight = 0.5F;
 
 	}
-	
+
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
 		if (!par2World.isRemote) {
@@ -77,7 +74,7 @@ public class Belt extends Armour {
 			for (int i = 0; i < 12; i++)
 				if (armour.getStackInSlot(i) == null && armour.isItemValidForSlot(i, par1ItemStack)) {
 					armour.setInventorySlotContents(i, par1ItemStack.copy());
-					if (!par3EntityPlayer.capabilities.isCreativeMode){
+					if (!par3EntityPlayer.capabilities.isCreativeMode) {
 						par3EntityPlayer.inventory.setInventorySlotContents(par3EntityPlayer.inventory.currentItem, null);
 					}
 					onEquipped(par1ItemStack, par3EntityPlayer);

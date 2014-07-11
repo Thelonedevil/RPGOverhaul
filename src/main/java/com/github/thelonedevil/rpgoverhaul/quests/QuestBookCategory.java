@@ -1,4 +1,3 @@
-
 package com.github.thelonedevil.rpgoverhaul.quests;
 
 import java.util.ArrayList;
@@ -10,7 +9,9 @@ public final class QuestBookCategory {
 	public final List<QuestBookEntry> entries = new ArrayList<QuestBookEntry>();
 
 	/**
-	 * @param unlocalizedName The unlocalized name of this category. This will be localized by the client display.
+	 * @param unlocalizedName
+	 *            The unlocalized name of this category. This will be localized
+	 *            by the client display.
 	 */
 	public QuestBookCategory(String unlocalizedName) {
 		this.unlocalizedName = unlocalizedName;

@@ -1,4 +1,3 @@
-
 package com.github.thelonedevil.rpgoverhaul.gui.button;
 
 import java.util.Arrays;
@@ -12,8 +11,6 @@ import org.lwjgl.opengl.GL11;
 
 import com.github.thelonedevil.rpgoverhaul.gui.GuiQuestBook;
 import com.github.thelonedevil.rpgoverhaul.gui.RenderHelper;
-
-
 
 public class GuiButtonBack extends GuiButton {
 
@@ -32,7 +29,7 @@ public class GuiButtonBack extends GuiButton {
 
 		List<String> tooltip = getTooltip();
 		int tooltipY = (tooltip.size() - 1) * 10;
-		if(k == 2)
+		if (k == 2)
 			RenderHelper.renderTooltip(par2, par3 + tooltipY, tooltip);
 	}
 

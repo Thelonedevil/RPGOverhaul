@@ -32,13 +32,11 @@ public class PageText extends QuestBookPage {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void renderText(int x, int y, int width, int height,
-			String unlocalizedText) {
+	public static void renderText(int x, int y, int width, int height, String unlocalizedText) {
 		FontRenderer renderer = Minecraft.getMinecraft().fontRenderer;
 		boolean unicode = renderer.getUnicodeFlag();
 		renderer.setUnicodeFlag(true);
-		String text = StatCollector.translateToLocal(unlocalizedText)
-				.replaceAll("&", "\u00a7");
+		String text = StatCollector.translateToLocal(unlocalizedText).replaceAll("&", "\u00a7");
 		String[] textEntries = text.split("<br>");
 
 		String lastFormat = "";
@@ -53,8 +51,7 @@ public class PageText extends QuestBookPage {
 				boolean skipPending = false;
 				String format = FontHelper.getFormatFromString(s1);
 
-				if (!format.isEmpty() && s1.length() > 0
-						&& s1.charAt(0) != '\u00a7') {
+				if (!format.isEmpty() && s1.length() > 0 && s1.charAt(0) != '\u00a7') {
 					skipPending = true;
 					pendingFormat = format;
 					format = "";

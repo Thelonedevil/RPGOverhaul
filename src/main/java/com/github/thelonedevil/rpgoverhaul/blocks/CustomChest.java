@@ -3,11 +3,9 @@ package com.github.thelonedevil.rpgoverhaul.blocks;
 import java.util.Random;
 
 import net.minecraft.block.BlockChest;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
-import com.github.thelonedevil.rpgoverhaul.tileentities.CustomChestTileEntity;
 
 public class CustomChest extends BlockChest {
 
@@ -35,6 +33,5 @@ public class CustomChest extends BlockChest {
 	public int tickRate(World world) {
 		return 1;
 	}
-
 
 }

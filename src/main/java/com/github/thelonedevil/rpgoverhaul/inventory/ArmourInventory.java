@@ -158,53 +158,65 @@ public class ArmourInventory implements IInventory {
 
 		switch (slot) {
 		case helmet:
-			if(itemstack.getItem() instanceof Helmet){
+			if (itemstack.getItem() instanceof Helmet) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case pauldronl:
-			if(itemstack.getItem() instanceof PauldronL){
+			if (itemstack.getItem() instanceof PauldronL) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case pauldronr:
-			if(itemstack.getItem() instanceof PauldronR){
+			if (itemstack.getItem() instanceof PauldronR) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case chest:
-			if(itemstack.getItem() instanceof Cuirass){
+			if (itemstack.getItem() instanceof Cuirass) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case bracerl:
-			if(itemstack.getItem() instanceof BracerL){
+			if (itemstack.getItem() instanceof BracerL) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case bracerr:
-			if(itemstack.getItem() instanceof BracerR){
+			if (itemstack.getItem() instanceof BracerR) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case belt:
-			if(itemstack.getItem() instanceof Belt){
+			if (itemstack.getItem() instanceof Belt) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case glovel:
-			if(itemstack.getItem() instanceof GauntletL){
+			if (itemstack.getItem() instanceof GauntletL) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case glover:
-			if(itemstack.getItem() instanceof GauntletR){
+			if (itemstack.getItem() instanceof GauntletR) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case legs:
-			if(itemstack.getItem() instanceof Greaves){
+			if (itemstack.getItem() instanceof Greaves) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case bootl:
-			if(itemstack.getItem() instanceof BootL){
+			if (itemstack.getItem() instanceof BootL) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		case bootr:
-			if(itemstack.getItem() instanceof BootR){
+			if (itemstack.getItem() instanceof BootR) {
 				return true;
-			}else return false;
+			} else
+				return false;
 		default:
 			return false;
 		}

@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 
 import com.github.thelonedevil.rpgoverhaul.Ref;
 
-public class RenderTest extends RenderBiped {	
+public class RenderTest extends RenderBiped {
 
 	public RenderTest(ModelBiped model, float shadowSize) {
 		super(model, shadowSize);
@@ -16,8 +16,7 @@ public class RenderTest extends RenderBiped {
 	@Override
 	protected ResourceLocation getEntityTexture(Entity par3Entity) {
 		Mob1 mob = (Mob1) par3Entity;
-		return new ResourceLocation(Ref.MODID+":textures/models/Unknown.png");
-
+		return new ResourceLocation(Ref.MODID + ":textures/models/Unknown.png");
 
 	}
 }

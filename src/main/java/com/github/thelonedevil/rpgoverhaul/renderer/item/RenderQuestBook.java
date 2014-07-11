@@ -26,8 +26,7 @@ public class RenderQuestBook implements IItemRenderer {
 	}
 
 	@Override
-	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item,
-			ItemRendererHelper helper) {
+	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
 		return false;
 	}
 
@@ -38,10 +37,8 @@ public class RenderQuestBook implements IItemRenderer {
 		mc.renderEngine.bindTexture(texture);
 		float opening = 0F;
 		float pageFlip = 0F;
-
 		int ticks = ClientTickHandler.ticksWithLexicaOpen;
-		GL11.glTranslatef(0.3F + 0.02F * ticks, 0.475F + 0.01F * ticks, -0.2F
-				- 0.01F * ticks);
+		GL11.glTranslatef(0.3F + 0.02F * ticks, 0.475F + 0.01F * ticks, -0.2F - 0.01F * ticks);
 		GL11.glRotatef(87.5F + ticks * 5, 0F, 1F, 0F);
 		GL11.glRotatef(ticks * 2.5F, 0F, 0F, 1F);
 		GL11.glScalef(0.9F, 0.9F, 0.9F);
@@ -59,25 +56,19 @@ public class RenderQuestBook implements IItemRenderer {
 			String origTitle = title;
 
 			if (Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() != null)
-				title = Minecraft.getMinecraft().thePlayer
-						.getCurrentEquippedItem().getDisplayName();
-
+				title = Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getDisplayName();
 
 			font.drawString(font.trimStringToWidth(title, 80), 0, 0, 0xD69700);
 			GL11.glTranslatef(0F, 10F, 0F);
 			GL11.glScalef(0.6F, 0.6F, 0.6F);
-			
+
 			GL11.glTranslatef(0F, 15F, 0F);
-			font.drawString(
-					StatCollector.translateToLocal("botaniamisc.lexiconcover0"),
-					0, 0, 0x79ff92);
+			ItemStack stack = Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() != null ? Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() : null;
+			String line1 = stack != null && stack.getTagCompound() != null ? stack.getTagCompound().getString("player") : "rpgo.creativespawn";
+			font.drawString(StatCollector.translateToLocal(line1), 0, 0, 0x79ff92);
 
 			GL11.glTranslatef(0F, 10F, 0F);
-			font.drawString(
-					EnumChatFormatting.UNDERLINE
-							+ StatCollector
-									.translateToLocal("botaniamisc.lexiconcover1"),
-					0, 0, 0x79ff92);
+			font.drawString(EnumChatFormatting.UNDERLINE + StatCollector.translateToLocal("rpgo.questbook.cover.crafted"), 0, 0, 0x79ff92);
 
 			GL11.glTranslatef(0F, 25F, 0F);
 			GL11.glPushMatrix();
@@ -87,15 +78,9 @@ public class RenderQuestBook implements IItemRenderer {
 			GL11.glPopMatrix();
 
 			GL11.glTranslatef(0F, 25F, 0F);
-			font.drawString(
-					StatCollector.translateToLocal("botaniamisc.lexiconcover2"),
-					0, 0, 0x79ff92);
+			font.drawString(StatCollector.translateToLocal("rpgo.questbook.cover.line3"), 0, 0, 0x79ff92);
 			GL11.glTranslatef(0F, 10F, 0F);
-			font.drawString(
-					EnumChatFormatting.ITALIC
-							+ StatCollector
-									.translateToLocal("botaniamisc.lexiconcover3"),
-					0, 0, 0x79ff92);
+			font.drawString(EnumChatFormatting.ITALIC + StatCollector.translateToLocal("rpgo.questbook.cover.line4"), 0, 0, 0x79ff92);
 		}
 
 		GL11.glPopMatrix();

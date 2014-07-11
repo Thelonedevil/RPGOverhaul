@@ -1,25 +1,20 @@
 package com.github.thelonedevil.rpgoverhaul.handlers;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.github.thelonedevil.rpgoverhaul.gui.GuiQuestBook;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
+
+import com.github.thelonedevil.rpgoverhaul.gui.GuiQuestBook;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.Phase;
-import cpw.mods.fml.common.gameevent.TickEvent.Type;
 
 public class ClientTickHandler {
 
 	public static int ticksWithLexicaOpen = 0;
 	public static int pageFlipTicks = 0;
 	public static int ticksInGame = 0;
+	public static int pageFlipTicks1 = 0;
 
 	@SubscribeEvent
 	public void tickEnd(ClientTickEvent event) {
@@ -46,6 +41,11 @@ public class ClientTickHandler {
 					ticksWithLexicaOpen--;
 				}
 			}
+		} else {
+			pageFlipTicks1++;
+			if (pageFlipTicks1 == 20)
+				pageFlipTicks1 = 0;
+
 		}
 	}
 

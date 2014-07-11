@@ -30,8 +30,7 @@ public class GuiQuestBook extends GuiScreen {
 	public static List<GuiQuestBook> bookmarks = new ArrayList();
 	boolean bookmarksNeedPopulation = false;
 
-	public static final ResourceLocation texture = new ResourceLocation(
-			Ref.MODID+":textures/gui/questbook.png");
+	public static final ResourceLocation texture = new ResourceLocation(Ref.MODID + ":textures/gui/questbook.png");
 
 	String title;
 	int guiWidth = 146;
@@ -42,8 +41,7 @@ public class GuiQuestBook extends GuiScreen {
 	public void initGui() {
 		super.initGui();
 
-		title = Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem()
-				.getDisplayName();
+		title = Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getDisplayName();
 		currentOpenQuestBook = this;
 
 		left = width / 2 - guiWidth / 2;
@@ -54,8 +52,7 @@ public class GuiQuestBook extends GuiScreen {
 			int x = 18;
 			for (int i = 0; i < 12; i++) {
 				int y = 16 + i * 12;
-				buttonList.add(new GuiButtonInvisible(i, left + x, top + y,
-						110, 10, ""));
+				buttonList.add(new GuiButtonInvisible(i, left + x, top + y, 110, 10, ""));
 			}
 			populateIndex();
 		}
@@ -67,13 +64,11 @@ public class GuiQuestBook extends GuiScreen {
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		mc.renderEngine.bindTexture(texture);
 		drawTexturedModalRect(left, top, 0, 0, guiWidth, guiHeight);
-		drawBookmark(left + guiWidth / 2, top - getTitleHeight(), getTitle(),
-				true);
+		drawBookmark(left + guiWidth / 2, top - getTitleHeight(), getTitle(), true);
 		String subtitle = getSubtitle();
 		if (subtitle != null) {
 			GL11.glScalef(0.5F, 0.5F, 1F);
-			drawCenteredString(fontRendererObj, subtitle, left * 2 + guiWidth,
-					(top - getTitleHeight() + 11) * 2, 0x00FF00);
+			drawCenteredString(fontRendererObj, subtitle, left * 2 + guiWidth, (top - getTitleHeight() + 11) * 2, 0x00FF00);
 			GL11.glScalef(2F, 2F, 1F);
 		}
 
@@ -117,9 +112,7 @@ public class GuiQuestBook extends GuiScreen {
 	void drawHeader() {
 		boolean unicode = fontRendererObj.getUnicodeFlag();
 		fontRendererObj.setUnicodeFlag(true);
-		fontRendererObj.drawSplitString(String.format(
-				StatCollector.translateToLocal("rpgo.questbook")
-				), left + 18, top + 14, 110, 0);
+		fontRendererObj.drawSplitString(String.format(StatCollector.translateToLocal("rpgo.questbook")), left + 18, top + 14, 110, 0);
 		fontRendererObj.setUnicodeFlag(unicode);
 	}
 
@@ -133,8 +126,7 @@ public class GuiQuestBook extends GuiScreen {
 				return;
 
 			List<QuestBookCategory> categoryList = QuestBookAPI.getAllCategories();
-			QuestBookCategory category = i >= categoryList.size() ? null
-					: categoryList.get(i);
+			QuestBookCategory category = i >= categoryList.size() ? null : categoryList.get(i);
 
 			if (category != null) {
 				mc.displayGuiScreen(new GuiQuestBookIndex(category));
@@ -199,11 +191,9 @@ public class GuiQuestBook extends GuiScreen {
 		for (int i = 3; i < 12; i++) {
 			int i_ = i - 3;
 			GuiButtonInvisible button = (GuiButtonInvisible) buttonList.get(i);
-			QuestBookCategory category = i_ >= categoryList.size() ? null
-					: categoryList.get(i_);
+			QuestBookCategory category = i_ >= categoryList.size() ? null : categoryList.get(i_);
 			if (category != null)
-				button.displayString = StatCollector.translateToLocal(category
-						.getUnlocalizedName());
+				button.displayString = StatCollector.translateToLocal(category.getUnlocalizedName());
 			else
 				button.displayString = "";
 		}
@@ -223,14 +213,11 @@ public class GuiQuestBook extends GuiScreen {
 			if (lex.getTitle().equals(getTitle()))
 				thisExists = true;
 
-		boolean addEnabled = len < 10 && this instanceof IParented
-				&& !thisExists;
+		boolean addEnabled = len < 10 && this instanceof IParented && !thisExists;
 		for (int i = 0; i < len + (addEnabled ? 1 : 0); i++) {
 			boolean isAdd = i == bookmarks.size();
 			GuiQuestBook gui = isAdd ? null : bookmarks.get(i);
-			buttonList.add(new GuiButtonBookmark(BOOKMARK_START + i,
-					left + 138, top + 18 + 14 * i, gui == null ? this : gui,
-					gui == null ? "+" : gui.getTitle()));
+			buttonList.add(new GuiButtonBookmark(BOOKMARK_START + i, left + 138, top + 18 + 14 * i, gui == null ? this : gui, gui == null ? "+" : gui.getTitle()));
 		}
 	}
 

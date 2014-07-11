@@ -1,6 +1,5 @@
 package com.github.thelonedevil.rpgoverhaul.inventory.slots;
 
-import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
@@ -31,7 +30,7 @@ public class SlotHelmet extends Slot {
 	public boolean isItemValid(ItemStack par1ItemStack) {
 		Item item = (par1ItemStack == null ? null : par1ItemStack.getItem());
 		return item != null && (item instanceof Helmet) && ((Helmet) item).canEquipItem(par1ItemStack, this.slotID);
-		
+
 	}
 
 	@SideOnly(Side.CLIENT)

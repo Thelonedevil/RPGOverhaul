@@ -53,8 +53,6 @@ import cpw.mods.fml.relauncher.Side;
 @Mod(modid = Ref.MODID, version = Ref.VERSION, name = Ref.NAME)
 public class RPGOMain {
 
-
-	
 	@Instance(value = Ref.MODID)
 	public static RPGOMain instance;
 	public static DeathHandler deathHandler = new DeathHandler();
@@ -66,8 +64,7 @@ public class RPGOMain {
 	public static EntityJoinWorldHandler entityjoin = new EntityJoinWorldHandler();
 	public static CraftingHandler craft = new CraftingHandler();
 
-
-	public static HashMap<String,BufferedImage> textures;
+	public static HashMap<String, BufferedImage> textures;
 	public static CreativeTabs myTab = new CreativeTabs("RPG Overhaul") {
 		public Item getTabIconItem() {
 			return Item.getItemFromBlock(Blocks.dirt);
@@ -86,8 +83,8 @@ public class RPGOMain {
 		registerEntity(Goat.class, "Goat");
 		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savanna);
 		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savannaPlateau);
-		//File file1 = new File(Ref.modsfolder, "rpgo/textures");
-		//textures = Util.getImages(file1);
+		// File file1 = new File(Ref.modsfolder, "rpgo/textures");
+		// textures = Util.getImages(file1);
 		MyBlocks.init();
 		MyItems.init();
 		MyClothes.init();
@@ -95,11 +92,10 @@ public class RPGOMain {
 		MyCrystals.init();
 		MyRecipes.init();
 		RecipeRemoval.init();
-		QuestBookData.init();
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
 		network.registerMessage(SyncPlayerProps.Handler.class, SyncPlayerProps.class, 0, Side.SERVER);
 		network.registerMessage(OpenGui.Handler.class, OpenGui.class, 0, Side.SERVER);
-
+		QuestBookData.init();
 		GameRegistry.registerWorldGenerator(worldgen, 9);
 		proxy.registerItemRenderers();
 		LogHelper.info("Pre Initialization Complete");
@@ -116,7 +112,7 @@ public class RPGOMain {
 		MinecraftForge.EVENT_BUS.register(tickHandler);
 		MinecraftForge.EVENT_BUS.register(killHandler);
 		MinecraftForge.EVENT_BUS.register(entityjoin);
-		
+
 		FMLCommonHandler.instance().bus().register(craft);
 		proxy.registerKeys();
 		FMLCommonHandler.instance().bus().register(connectHandler);

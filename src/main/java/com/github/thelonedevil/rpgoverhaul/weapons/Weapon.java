@@ -45,27 +45,29 @@ public class Weapon extends Item {
 			return false;
 		}
 	}
+
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if (GuiScreen.isShiftKeyDown()) {
-			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID+".weapon." + type), par3List);
-			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID+".crystal.info") +" "+ StatCollector.translateToLocal("item.crystal_"+crystal.toString().toLowerCase()+".name"), par3List);
-			if(itemstack.getItem() instanceof LegendarySword){
-				addStringToTooltip(((LegendarySword)itemstack.getItem()).getLore(), par3List);
+			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID + ".weapon." + type), par3List);
+			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID + ".crystal.info") + " " + StatCollector.translateToLocal("item.crystal_" + crystal.toString().toLowerCase() + ".name"),
+					par3List);
+			if (itemstack.getItem() instanceof LegendarySword) {
+				addStringToTooltip(((LegendarySword) itemstack.getItem()).getLore(), par3List);
 			}
 		} else
-			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID+".shiftinfo"), par3List);
+			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID + ".shiftinfo"), par3List);
 	}
 
 	private void addStringToTooltip(String s, List<String> tooltip) {
 		tooltip.add(s.replaceAll("&", "\u00a7"));
 	}
-	
-	public int getAttackDamage(){
+
+	public int getAttackDamage() {
 		return attackDamage;
 	}
-	
-	public int getAttackSpeed(){
+
+	public int getAttackSpeed() {
 		return attackSpeed;
 	}
 

@@ -12,13 +12,14 @@ import com.github.thelonedevil.rpgoverhaul.items.clothes.FoxTunic;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MyClothes {
-	
-	public static ArmorMaterial cloth = EnumHelper.addArmorMaterial("Fabric", 66, new int[]{0,0,0,0}, 0);
+
+	public static ArmorMaterial cloth = EnumHelper.addArmorMaterial("Fabric", 66, new int[] { 0, 0, 0, 0 }, 0);
 	public static Item FoxHat;
 	public static Item FoxTunic;
 	public static Item FoxLeggings;
 	public static Item FoxSocks;
-	public static void init(){
+
+	public static void init() {
 		int render = RPGOMain.proxy.addArmor("Fabric");
 		FoxHat = new FoxHat(cloth, render, 0).setCreativeTab(RPGOMain.myTab).setUnlocalizedName("FoxHat");
 		FoxTunic = new FoxTunic(cloth, render, 1).setCreativeTab(RPGOMain.myTab).setUnlocalizedName("FoxTunic");

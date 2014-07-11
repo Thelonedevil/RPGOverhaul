@@ -15,147 +15,131 @@ import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class WeaponSmithShaplessOreRecipes implements IRecipe
-	{
-	    private ItemStack output = null;
-	    private ArrayList<Object> input = new ArrayList<Object>();
+public class WeaponSmithShaplessOreRecipes implements IRecipe {
+	private ItemStack output = null;
+	private ArrayList<Object> input = new ArrayList<Object>();
 
-	    public WeaponSmithShaplessOreRecipes(Block result, Object... recipe){ this(new ItemStack(result), recipe); }
-	    public WeaponSmithShaplessOreRecipes(Item  result, Object... recipe){ this(new ItemStack(result), recipe); }
+	public WeaponSmithShaplessOreRecipes(Block result, Object... recipe) {
+		this(new ItemStack(result), recipe);
+	}
 
-	    public WeaponSmithShaplessOreRecipes(ItemStack result, Object... recipe)
-	    {
-	        output = result.copy();
-	        for (Object in : recipe)
-	        {
-	            if (in instanceof ItemStack)
-	            {
-	                input.add(((ItemStack)in).copy());
-	            }
-	            else if (in instanceof Item)
-	            {
-	                input.add(new ItemStack((Item)in));
-	            }
-	            else if (in instanceof Block)
-	            {
-	                input.add(new ItemStack((Block)in));
-	            }
-	            else if (in instanceof String)
-	            {
-	                input.add(OreDictionary.getOres((String)in));
-	            }
-	            else
-	            {
-	                String ret = "Invalid shapeless ore recipe: ";
-	                for (Object tmp :  recipe)
-	                {
-	                    ret += tmp + ", ";
-	                }
-	                ret += output;
-	                throw new RuntimeException(ret);
-	            }
-	        }
-	    }
+	public WeaponSmithShaplessOreRecipes(Item result, Object... recipe) {
+		this(new ItemStack(result), recipe);
+	}
 
-	    @SuppressWarnings("unchecked")
-	    WeaponSmithShaplessOreRecipes(ShapelessRecipes recipe, Map<ItemStack, String> replacements)
-	    {
-	        output = recipe.getRecipeOutput();
+	public WeaponSmithShaplessOreRecipes(ItemStack result, Object... recipe) {
+		output = result.copy();
+		for (Object in : recipe) {
+			if (in instanceof ItemStack) {
+				input.add(((ItemStack) in).copy());
+			} else if (in instanceof Item) {
+				input.add(new ItemStack((Item) in));
+			} else if (in instanceof Block) {
+				input.add(new ItemStack((Block) in));
+			} else if (in instanceof String) {
+				input.add(OreDictionary.getOres((String) in));
+			} else {
+				String ret = "Invalid shapeless ore recipe: ";
+				for (Object tmp : recipe) {
+					ret += tmp + ", ";
+				}
+				ret += output;
+				throw new RuntimeException(ret);
+			}
+		}
+	}
 
-	        for(ItemStack ingred : ((List<ItemStack>)recipe.recipeItems))
-	        {
-	            Object finalObj = ingred;
-	            for(Entry<ItemStack, String> replace : replacements.entrySet())
-	            {
-	                if(OreDictionary.itemMatches(replace.getKey(), ingred, false))
-	                {
-	                    finalObj = OreDictionary.getOres(replace.getValue());
-	                    break;
-	                }
-	            }
-	            input.add(finalObj);
-	        }
-	    }
+	@SuppressWarnings("unchecked")
+	WeaponSmithShaplessOreRecipes(ShapelessRecipes recipe, Map<ItemStack, String> replacements) {
+		output = recipe.getRecipeOutput();
 
-	    /**
-	     * Returns the size of the recipe area
-	     */
-	    @Override
-	    public int getRecipeSize(){ return input.size(); }
+		for (ItemStack ingred : ((List<ItemStack>) recipe.recipeItems)) {
+			Object finalObj = ingred;
+			for (Entry<ItemStack, String> replace : replacements.entrySet()) {
+				if (OreDictionary.itemMatches(replace.getKey(), ingred, false)) {
+					finalObj = OreDictionary.getOres(replace.getValue());
+					break;
+				}
+			}
+			input.add(finalObj);
+		}
+	}
 
-	    @Override
-	    public ItemStack getRecipeOutput(){ return output; }
+	/**
+	 * Returns the size of the recipe area
+	 */
+	@Override
+	public int getRecipeSize() {
+		return input.size();
+	}
 
-	    /**
-	     * Returns an Item that is the result of this recipe
-	     */
-	    @Override
-	    public ItemStack getCraftingResult(InventoryCrafting var1){ return output.copy(); }
+	@Override
+	public ItemStack getRecipeOutput() {
+		return output;
+	}
 
-	    /**
-	     * Used to check if a recipe matches current crafting inventory
-	     */
-	    @SuppressWarnings("unchecked")
-	    @Override
-	    public boolean matches(InventoryCrafting var1, World world)
-	    {
-	        ArrayList<Object> required = new ArrayList<Object>(input);
+	/**
+	 * Returns an Item that is the result of this recipe
+	 */
+	@Override
+	public ItemStack getCraftingResult(InventoryCrafting var1) {
+		return output.copy();
+	}
 
-	        for (int x = 0; x < var1.getSizeInventory(); x++)
-	        {
-	            ItemStack slot = var1.getStackInSlot(x);
+	/**
+	 * Used to check if a recipe matches current crafting inventory
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean matches(InventoryCrafting var1, World world) {
+		ArrayList<Object> required = new ArrayList<Object>(input);
 
-	            if (slot != null)
-	            {
-	                boolean inRecipe = false;
-	                Iterator<Object> req = required.iterator();
+		for (int x = 0; x < var1.getSizeInventory(); x++) {
+			ItemStack slot = var1.getStackInSlot(x);
 
-	                while (req.hasNext())
-	                {
-	                    boolean match = false;
+			if (slot != null) {
+				boolean inRecipe = false;
+				Iterator<Object> req = required.iterator();
 
-	                    Object next = req.next();
+				while (req.hasNext()) {
+					boolean match = false;
 
-	                    if (next instanceof ItemStack)
-	                    {
-	                        match = OreDictionary.itemMatches((ItemStack)next, slot, false);
-	                    }
-	                    else if (next instanceof ArrayList)
-	                    {
-	                        Iterator<ItemStack> itr = ((ArrayList<ItemStack>)next).iterator();
-	                        while (itr.hasNext() && !match)
-	                        {
-	                            match = OreDictionary.itemMatches(itr.next(), slot, false);
-	                        }
-	                    }
+					Object next = req.next();
 
-	                    if (match)
-	                    {
-	                        inRecipe = true;
-	                        required.remove(next);
-	                        break;
-	                    }
-	                }
+					if (next instanceof ItemStack) {
+						match = OreDictionary.itemMatches((ItemStack) next, slot, false);
+					} else if (next instanceof ArrayList) {
+						Iterator<ItemStack> itr = ((ArrayList<ItemStack>) next).iterator();
+						while (itr.hasNext() && !match) {
+							match = OreDictionary.itemMatches(itr.next(), slot, false);
+						}
+					}
 
-	                if (!inRecipe)
-	                {
-	                    return false;
-	                }
-	            }
-	        }
+					if (match) {
+						inRecipe = true;
+						required.remove(next);
+						break;
+					}
+				}
 
-	        return required.isEmpty();
-	    }
+				if (!inRecipe) {
+					return false;
+				}
+			}
+		}
 
-	    /**
-	     * Returns the input for this recipe, any mod accessing this value should never
-	     * manipulate the values in this array as it will effect the recipe itself.
-	     * @return The recipes input vales.
-	     */
-	    public ArrayList<Object> getInput()
-	    {
-	        return this.input;
-	    }
-	
+		return required.isEmpty();
+	}
+
+	/**
+	 * Returns the input for this recipe, any mod accessing this value should
+	 * never manipulate the values in this array as it will effect the recipe
+	 * itself.
+	 * 
+	 * @return The recipes input vales.
+	 */
+	public ArrayList<Object> getInput() {
+		return this.input;
+	}
 
 }

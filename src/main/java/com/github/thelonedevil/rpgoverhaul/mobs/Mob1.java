@@ -11,16 +11,15 @@ import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-import com.github.thelonedevil.rpgoverhaul.ai.EntityAIFleeLight;
 import com.github.thelonedevil.rpgoverhaul.ai.EntityAIStartled;
 
 public class Mob1 extends EntityMyMob implements IMob {
-	
+
 	public Mob1(World par1World) {
 		super(par1World);
 		this.tasks.addTask(1, new EntityAISwimming(this));
-		this.tasks.addTask(2,new EntityAIStartled(this,10.0D));
-		//this.tasks.addTask(3, new EntityAIFleeLight(this, 2.0D));
+		this.tasks.addTask(2, new EntityAIStartled(this, 10.0D));
+		// this.tasks.addTask(3, new EntityAIFleeLight(this, 2.0D));
 		this.tasks.addTask(4, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.2D, false));
 		this.tasks.addTask(5, new EntityAIWander(this, 1.0D));
 		this.tasks.addTask(6, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
@@ -42,9 +41,5 @@ public class Mob1 extends EntityMyMob implements IMob {
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.0D);
 
 	}
-
-
-	
-
 
 }

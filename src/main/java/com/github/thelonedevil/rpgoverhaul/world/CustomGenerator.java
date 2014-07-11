@@ -50,7 +50,7 @@ public class CustomGenerator implements IWorldGenerator {
 		this.addOreSpawn(MyBlocks.ore_shikyolt, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
 		this.addOreSpawn(MyBlocks.ore_tenshirium, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
 		this.addOreSpawn(MyBlocks.ore_xiatherium, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 15, 50);
-		
+
 		this.addCrystalSpawn(MyCrystals.Fire_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
 		this.addCrystalSpawn(MyCrystals.Air_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
 		this.addCrystalSpawn(MyCrystals.Earth_Crystal, world, random, x, z, 16, 16, 5, 15, 30);
@@ -60,8 +60,8 @@ public class CustomGenerator implements IWorldGenerator {
 	private void generateNether(World world, Random random, int x, int z) {
 
 	}
-	
-	public void addCrystalSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int minY, int maxY){
+
+	public void addCrystalSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int chancesToSpawn, int minY, int maxY) {
 		int diffBtwnMinMaxY = maxY - minY;
 		for (int x = 0; x < chancesToSpawn; x++) {
 			int posX = blockXPos + random.nextInt(maxX);

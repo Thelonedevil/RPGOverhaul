@@ -1,4 +1,3 @@
-
 package com.github.thelonedevil.rpgoverhaul.gui;
 
 import java.util.List;
@@ -35,7 +34,7 @@ public final class RenderHelper {
 
 	public static void renderTooltip(int x, int y, List<String> tooltipData, int color, int color2) {
 		boolean lighting = GL11.glGetBoolean(GL11.GL_LIGHTING);
-		if(lighting)
+		if (lighting)
 			net.minecraft.client.renderer.RenderHelper.disableStandardItemLighting();
 
 		if (!tooltipData.isEmpty()) {
@@ -75,7 +74,7 @@ public final class RenderHelper {
 			}
 			GL11.glEnable(GL11.GL_DEPTH_TEST);
 		}
-		if(!lighting)
+		if (!lighting)
 			net.minecraft.client.renderer.RenderHelper.disableStandardItemLighting();
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 	}

@@ -44,166 +44,164 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 		case EQUIPPED:
 			scale = 1f;
 			GL11.glPushMatrix();
-	        GL11.glDisable(GL11.GL_LIGHTING);
+			GL11.glDisable(GL11.GL_LIGHTING);
 
-	        // Scale, Translate, Rotate
-	        GL11.glScalef(scale, scale, scale);
-	        GL11.glTranslatef(0F, 0F, 0F);
-	        GL11.glRotatef(0F, 1F, 0, 0);
-	        GL11.glRotatef(0F, 0, 1F, 0);
-	        GL11.glRotatef(0F, 0, 0, 1F);
-	        switch(((CrystalCluster)Block.getBlockFromItem(item.getItem())).type){
-            case 0:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 1:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
-            	break;
-            case 2:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
-            	break;
-            case 3:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
-            	break;
-            case 4:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 5:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 6:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            }
+			// Scale, Translate, Rotate
+			GL11.glScalef(scale, scale, scale);
+			GL11.glTranslatef(0F, 0F, 0F);
+			GL11.glRotatef(0F, 1F, 0, 0);
+			GL11.glRotatef(0F, 0, 1F, 0);
+			GL11.glRotatef(0F, 0, 0, 1F);
+			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
+			case 0:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 1:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
+				break;
+			case 2:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
+				break;
+			case 3:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
+				break;
+			case 4:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 5:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 6:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			}
 
-	        
+			// Render
+			model.render();
 
-	        // Render
-	        model.render();
-
-	        GL11.glEnable(GL11.GL_LIGHTING);
-	        GL11.glPopMatrix();
+			GL11.glEnable(GL11.GL_LIGHTING);
+			GL11.glPopMatrix();
 			break;
 
 		case EQUIPPED_FIRST_PERSON:
 			scale = 1f;
 			GL11.glPushMatrix();
-	        GL11.glDisable(GL11.GL_LIGHTING);
+			GL11.glDisable(GL11.GL_LIGHTING);
 
-	        // Scale, Translate, Rotate
-	        GL11.glScalef(scale,scale,scale);
-	        GL11.glTranslatef(0F, 0.72F, 0F);
-	        GL11.glRotatef(0F, 1F, 0, 0);
-	        GL11.glRotatef(0F, 0, 1F, 0);
-	        GL11.glRotatef(0F, 0, 0, 1F);
+			// Scale, Translate, Rotate
+			GL11.glScalef(scale, scale, scale);
+			GL11.glTranslatef(0F, 0.72F, 0F);
+			GL11.glRotatef(0F, 1F, 0, 0);
+			GL11.glRotatef(0F, 0, 1F, 0);
+			GL11.glRotatef(0F, 0, 0, 1F);
 
-	        switch(((CrystalCluster)Block.getBlockFromItem(item.getItem())).type){
-            case 0:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 1:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
-            	break;
-            case 2:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
-            	break;
-            case 3:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
-            	break;
-            case 4:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 5:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 6:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            }
-	        // Render
-	        model.render();
+			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
+			case 0:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 1:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
+				break;
+			case 2:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
+				break;
+			case 3:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
+				break;
+			case 4:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 5:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 6:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			}
+			// Render
+			model.render();
 
-	        GL11.glEnable(GL11.GL_LIGHTING);
-	        GL11.glPopMatrix();
+			GL11.glEnable(GL11.GL_LIGHTING);
+			GL11.glPopMatrix();
 
 			break;
 
 		case ENTITY:
 			GL11.glPushMatrix();
-	        GL11.glDisable(GL11.GL_LIGHTING);
+			GL11.glDisable(GL11.GL_LIGHTING);
 
-	        // Scale, Translate, Rotate
-	        GL11.glScalef(1F, 1F, 1F);
-	        GL11.glTranslatef(0,0,0);
-	        GL11.glRotatef(0, 1F, 0, 0);
+			// Scale, Translate, Rotate
+			GL11.glScalef(1F, 1F, 1F);
+			GL11.glTranslatef(0, 0, 0);
+			GL11.glRotatef(0, 1F, 0, 0);
 
-	        switch(((CrystalCluster)Block.getBlockFromItem(item.getItem())).type){
-            case 0:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 1:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
-            	break;
-            case 2:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
-            	break;
-            case 3:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
-            	break;
-            case 4:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 5:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 6:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            }
-	        // Render
-	        model.render();
+			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
+			case 0:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 1:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
+				break;
+			case 2:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
+				break;
+			case 3:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
+				break;
+			case 4:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 5:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 6:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			}
+			// Render
+			model.render();
 
-	        GL11.glEnable(GL11.GL_LIGHTING);
-	        GL11.glPopMatrix();
+			GL11.glEnable(GL11.GL_LIGHTING);
+			GL11.glPopMatrix();
 			break;
 
 		case INVENTORY:
 			GL11.glPushMatrix();
-	        GL11.glDisable(GL11.GL_LIGHTING);
+			GL11.glDisable(GL11.GL_LIGHTING);
 
-	        // Scale, Translate, Rotate
-	        GL11.glScalef(1f, 1F, 1F);
-	        GL11.glTranslatef(0, 0, 0);
-	        GL11.glRotatef(-90F, 1F, 0, 0);
+			// Scale, Translate, Rotate
+			GL11.glScalef(1f, 1F, 1F);
+			GL11.glTranslatef(0, 0, 0);
+			GL11.glRotatef(-90F, 1F, 0, 0);
 
-	        switch(((CrystalCluster)Block.getBlockFromItem(item.getItem())).type){
-            case 0:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 1:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
-            	break;
-            case 2:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
-            	break;
-            case 3:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
-            	break;
-            case 4:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 5:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            case 6:
-            	 FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
-            	break;
-            }
-	        // Render
-	        model.render();
+			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
+			case 0:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 1:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
+				break;
+			case 2:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
+				break;
+			case 3:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
+				break;
+			case 4:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 5:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			case 6:
+				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				break;
+			}
+			// Render
+			model.render();
 
-	        GL11.glEnable(GL11.GL_LIGHTING);
-	        GL11.glPopMatrix();
+			GL11.glEnable(GL11.GL_LIGHTING);
+			GL11.glPopMatrix();
 			break;
 
 		default:
@@ -211,6 +209,5 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 		}
 
 	}
-
 
 }

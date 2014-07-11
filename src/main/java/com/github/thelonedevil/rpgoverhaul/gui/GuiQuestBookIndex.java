@@ -1,4 +1,3 @@
-
 package com.github.thelonedevil.rpgoverhaul.gui;
 
 import java.util.ArrayList;
@@ -56,8 +55,8 @@ public class GuiQuestBookIndex extends GuiQuestBook implements IParented {
 
 		entriesToDisplay.clear();
 		IQuestBook lex = (IQuestBook) stackUsed.getItem();
-		for(QuestBookEntry entry : category.entries) {
-			if(lex.isKnowledgeUnlocked(stackUsed, entry.getKnowledgeType()))
+		for (QuestBookEntry entry : category.entries) {
+			if (lex.isKnowledgeUnlocked(stackUsed, entry.getKnowledgeType()))
 				entriesToDisplay.add(entry);
 		}
 		Collections.sort(entriesToDisplay);
@@ -68,40 +67,41 @@ public class GuiQuestBookIndex extends GuiQuestBook implements IParented {
 
 	@Override
 	void populateIndex() {
-		for(int i = page * 12; i < (page + 1) * 12; i++) {
+		for (int i = page * 12; i < (page + 1) * 12; i++) {
 			GuiButtonInvisible button = (GuiButtonInvisible) buttonList.get(i - page * 12);
 			QuestBookEntry entry = i >= entriesToDisplay.size() ? null : entriesToDisplay.get(i);
-			if(entry != null)
+			if (entry != null)
 				button.displayString = entry.getKnowledgeType().color + "" + (entry.isPriority() ? EnumChatFormatting.ITALIC : "") + StatCollector.translateToLocal(entry.getUnlocalizedName());
-			else button.displayString = "";
+			else
+				button.displayString = "";
 		}
 	}
 
 	@Override
 	protected void actionPerformed(GuiButton par1GuiButton) {
-		if(par1GuiButton.id >= BOOKMARK_START)
+		if (par1GuiButton.id >= BOOKMARK_START)
 			handleBookmark(par1GuiButton);
 		else
-			switch(par1GuiButton.id) {
-			case 12 :
+			switch (par1GuiButton.id) {
+			case 12:
 				mc.displayGuiScreen(parent);
 				ClientTickHandler.notifyPageChange();
 				break;
-			case 13 :
+			case 13:
 				page--;
 				updatePageButtons();
 				populateIndex();
 				ClientTickHandler.notifyPageChange();
 				break;
-			case 14 :
+			case 14:
 				page++;
 				updatePageButtons();
 				populateIndex();
 				ClientTickHandler.notifyPageChange();
 				break;
-			default :
+			default:
 				int index = par1GuiButton.id + page * 12;
-				if(index >= entriesToDisplay.size())
+				if (index >= entriesToDisplay.size())
 					return;
 
 				QuestBookEntry entry = entriesToDisplay.get(index);
@@ -125,12 +125,12 @@ public class GuiQuestBookIndex extends GuiQuestBook implements IParented {
 
 	@Override
 	protected void mouseClickMove(int x, int y, int button, long time) {
-		if(button == 0 && Math.abs(x - fx) > 100 && mc.gameSettings.touchscreen && !swiped) {
+		if (button == 0 && Math.abs(x - fx) > 100 && mc.gameSettings.touchscreen && !swiped) {
 			double swipe = (x - fx) / Math.max(1, (double) time);
-			if(swipe < 0.5) {
+			if (swipe < 0.5) {
 				nextPage();
 				swiped = true;
-			} else if(swipe > 0.5) {
+			} else if (swipe > 0.5) {
 				prevPage();
 				swiped = true;
 			}
@@ -142,7 +142,7 @@ public class GuiQuestBookIndex extends GuiQuestBook implements IParented {
 		super.mouseClicked(par1, par2, par3);
 
 		fx = par1;
-		if(par3 == 1)
+		if (par3 == 1)
 			back();
 	}
 
@@ -150,25 +150,26 @@ public class GuiQuestBookIndex extends GuiQuestBook implements IParented {
 	public void handleMouseInput() {
 		super.handleMouseInput();
 
-		if(Mouse.getEventButton() == 0)
+		if (Mouse.getEventButton() == 0)
 			swiped = false;
 
 		int w = Mouse.getEventDWheel();
-		if(w < 0)
+		if (w < 0)
 			nextPage();
-		else if(w > 0)
+		else if (w > 0)
 			prevPage();
 	}
 
 	@Override
 	protected void keyTyped(char par1, int par2) {
-		if(par2 == 203 || par2 == 200 || par2 == 201) // Left, Up, Page Up
+		if (par2 == 203 || par2 == 200 || par2 == 201) // Left, Up, Page Up
 			prevPage();
-		else if(par2 == 205 || par2 == 208 || par2 == 209) // Right, Down Page Down
+		else if (par2 == 205 || par2 == 208 || par2 == 209) // Right, Down Page
+															// Down
 			nextPage();
-		else if(par2 == 14) // Backspace
+		else if (par2 == 14) // Backspace
 			back();
-		else if(par2 == 199) { // Home
+		else if (par2 == 199) { // Home
 			mc.displayGuiScreen(new GuiQuestBook());
 			ClientTickHandler.notifyPageChange();
 		}
@@ -177,17 +178,17 @@ public class GuiQuestBookIndex extends GuiQuestBook implements IParented {
 	}
 
 	void back() {
-		if(backButton.enabled)
+		if (backButton.enabled)
 			actionPerformed(backButton);
 	}
 
 	void nextPage() {
-		if(rightButton.enabled)
+		if (rightButton.enabled)
 			actionPerformed(rightButton);
 	}
 
 	void prevPage() {
-		if(leftButton.enabled)
+		if (leftButton.enabled)
 			actionPerformed(leftButton);
 	}
 }
