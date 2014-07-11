@@ -1,5 +1,6 @@
 package com.github.thelonedevil.rpgoverhaul.mobs.passive;
 
+import net.minecraft.block.BlockColored;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -91,7 +92,26 @@ public class Fox extends EntityTameable {
 
 	public boolean interact(EntityPlayer player) {
 		ItemStack itemstack = player.inventory.getCurrentItem();
-		if (!this.isTamed() && itemstack != null && itemstack.getItem() == Items.bone) {
+		if (this.isTamed()) {
+			if (itemstack != null) {
+				if (itemstack.getItem() == Items.dye)
+                {
+                    int i = BlockColored.func_150032_b(itemstack.getItemDamage());
+
+                    if (i != this.getCollarColor())
+                    {
+                        this.setCollarColor(i);
+
+                        if (!player.capabilities.isCreativeMode && --itemstack.stackSize <= 0)
+                        {
+                           player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
+                        }
+
+                        return true;
+                    }
+                }
+			}
+		} else if (!this.isTamed() && itemstack != null && itemstack.getItem() == Items.bone) {
 			if (!player.capabilities.isCreativeMode) {
 				--itemstack.stackSize;
 			}
@@ -119,6 +139,17 @@ public class Fox extends EntityTameable {
 			return true;
 		}
 		return false;
+	}
+
+	public int getCollarColor() {
+		return this.dataWatcher.getWatchableObjectByte(20) & 15;
+	}
+
+	/**
+	 * Set this wolf's collar color.
+	 */
+	public void setCollarColor(int p_82185_1_) {
+		this.dataWatcher.updateObject(20, Byte.valueOf((byte) (p_82185_1_ & 15)));
 	}
 
 }
