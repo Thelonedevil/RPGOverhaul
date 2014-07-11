@@ -7,7 +7,6 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.github.thelonedevil.rpgoverhaul.MyItems;
-import com.github.thelonedevil.rpgoverhaul.blocks.crystals.CrystalClusterTileEntity;
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
 import com.github.thelonedevil.rpgoverhaul.gui.XpGui;
 import com.github.thelonedevil.rpgoverhaul.handlers.BBHandler;
@@ -25,6 +24,7 @@ import com.github.thelonedevil.rpgoverhaul.renderer.block.TileEntityCrystalRende
 import com.github.thelonedevil.rpgoverhaul.renderer.item.ItemCrystalClusterRenderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.RenderQuestBook;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.ZangetsuRenderer;
+import com.github.thelonedevil.rpgoverhaul.tileentities.CrystalClusterTileEntity;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;

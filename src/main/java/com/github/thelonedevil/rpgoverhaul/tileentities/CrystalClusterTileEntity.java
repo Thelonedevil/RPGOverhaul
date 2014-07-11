@@ -1,4 +1,4 @@
-package com.github.thelonedevil.rpgoverhaul.blocks.crystals;
+package com.github.thelonedevil.rpgoverhaul.tileentities;
 
 import net.minecraft.tileentity.TileEntity;
 

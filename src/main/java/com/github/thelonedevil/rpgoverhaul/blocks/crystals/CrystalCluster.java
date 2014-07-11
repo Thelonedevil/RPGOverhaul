@@ -14,6 +14,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.github.thelonedevil.rpgoverhaul.renderer.RenderIds;
+import com.github.thelonedevil.rpgoverhaul.tileentities.CrystalClusterTileEntity;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

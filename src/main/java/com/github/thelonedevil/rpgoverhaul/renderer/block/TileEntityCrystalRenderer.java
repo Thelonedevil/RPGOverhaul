@@ -9,8 +9,8 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import com.github.thelonedevil.rpgoverhaul.Ref;
-import com.github.thelonedevil.rpgoverhaul.blocks.crystals.CrystalClusterTileEntity;
 import com.github.thelonedevil.rpgoverhaul.models.ModelCrystalBase;
+import com.github.thelonedevil.rpgoverhaul.tileentities.CrystalClusterTileEntity;
 
 public class TileEntityCrystalRenderer extends TileEntitySpecialRenderer {
 	private final ModelCrystalBase model = new ModelCrystalBase();
