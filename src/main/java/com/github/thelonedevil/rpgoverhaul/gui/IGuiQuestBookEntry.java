@@ -1,12 +1,10 @@
-
 package com.github.thelonedevil.rpgoverhaul.gui;
 
 import com.github.thelonedevil.rpgoverhaul.quests.QuestBookEntry;
 
 /**
- * Internal interface for the QuestBook Entry GUI. This contains
- * everything that can be accessed from it. It's safe to cast
- * this type to GuiScreen.
+ * Internal interface for the QuestBook Entry GUI. This contains everything that
+ * can be accessed from it. It's safe to cast this type to GuiScreen.
  */
 public interface IGuiQuestBookEntry {
 

@@ -6,17 +6,15 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class ModelZangetsu
-{
-    private static IModelCustom model;
+public class ModelZangetsu {
+	private static IModelCustom model;
 
-    public ModelZangetsu()
-    {
-        model = AdvancedModelLoader.loadModel(Models.ZANGETSU);
-    }
+	public ModelZangetsu() {
+		model = AdvancedModelLoader.loadModel(Models.ZANGETSU);
+	}
 
 	public static void render() {
-		 model.renderAll();
+		model.renderAll();
 	}
 
 }

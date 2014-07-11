@@ -6,7 +6,6 @@ import net.minecraft.nbt.NBTTagCompound;
 
 import com.github.thelonedevil.rpgoverhaul.MyBlocks;
 import com.github.thelonedevil.rpgoverhaul.MyItems;
-import com.github.thelonedevil.rpgoverhaul.quests.QuestBookData;
 import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -16,16 +15,17 @@ public class CraftingHandler {
 	@SubscribeEvent
 	public void onCraft(ItemCraftedEvent event) {
 		ItemStack crafted = event.crafting;
-		if(crafted.getItem() == MyItems.questBook){
+		if (crafted.getItem() == MyItems.questBook) {
 			NBTTagCompound tag = new NBTTagCompound();
-			tag.setString("player",event.player.getCommandSenderName());
-			LogHelper.info(event.player.getCommandSenderName()+" crafted a quest book");
+			tag.setString("player", event.player.getCommandSenderName());
+			LogHelper.info(event.player.getCommandSenderName() + " crafted a quest book");
 			crafted.setTagCompound(tag);
-			if(crafted.getTagCompound() != null){
-				LogHelper.info("player stored correctly");				
+			if (crafted.getTagCompound() != null) {
+				LogHelper.info("player stored correctly");
 			}
-		}if(crafted.getItem() == Item.getItemFromBlock(MyBlocks.portal)){
-			
+		}
+		if (crafted.getItem() == Item.getItemFromBlock(MyBlocks.portal)) {
+
 		}
 	}
 }

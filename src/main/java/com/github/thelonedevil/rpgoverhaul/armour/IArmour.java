@@ -13,7 +13,7 @@ public interface IArmour {
 	/**
 	 * This method is called when the armour is equipped by a player
 	 */
-	public void onEquipped(ItemStack itemstack, EntityLivingBase player );
+	public void onEquipped(ItemStack itemstack, EntityLivingBase player);
 
 	/**
 	 * This method is called when the armour is unequipped by a player

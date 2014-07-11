@@ -1,10 +1,6 @@
 package com.github.thelonedevil.rpgoverhaul.renderer.item;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureUtil;
@@ -17,7 +13,6 @@ import org.lwjgl.opengl.GL11;
 
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.Ref;
-import com.github.thelonedevil.rpgoverhaul.util.Util;
 
 import cpw.mods.fml.client.FMLClientHandler;
 
@@ -58,20 +53,19 @@ public class BSBRenderer implements IItemRenderer {
 			// Bind texture
 			BufferedImage img = null;
 			ResourceLocation resloc;
-			for(String key : RPGOMain.textures.keySet()){
-				if(key.equalsIgnoreCase("bsb.png")){
+			for (String key : RPGOMain.textures.keySet()) {
+				if (key.equalsIgnoreCase("bsb.png")) {
 					img = RPGOMain.textures.get(key);
 					break;
 				}
 			}
-			if (img == null){
-				resloc= new ResourceLocation(Ref.MODID, "textures/models/bsb.png");
+			if (img == null) {
+				resloc = new ResourceLocation(Ref.MODID, "textures/models/bsb.png");
 				FMLClientHandler.instance().getClient().renderEngine.bindTexture(resloc);
-				
-			}else{
-				 GL11.glBindTexture(GL11.GL_TEXTURE_2D, TextureUtil.uploadTextureImage(TextureUtil.glGenTextures(), img));
+
+			} else {
+				GL11.glBindTexture(GL11.GL_TEXTURE_2D, TextureUtil.uploadTextureImage(TextureUtil.glGenTextures(), img));
 			}
-			
 
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();

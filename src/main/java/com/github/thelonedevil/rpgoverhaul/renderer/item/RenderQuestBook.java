@@ -14,7 +14,6 @@ import org.lwjgl.opengl.GL11;
 import com.github.thelonedevil.rpgoverhaul.MyItems;
 import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.handlers.ClientTickHandler;
-import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 
 public class RenderQuestBook implements IItemRenderer {
 
@@ -38,7 +37,6 @@ public class RenderQuestBook implements IItemRenderer {
 		mc.renderEngine.bindTexture(texture);
 		float opening = 0F;
 		float pageFlip = 0F;
-
 		int ticks = ClientTickHandler.ticksWithLexicaOpen;
 		GL11.glTranslatef(0.3F + 0.02F * ticks, 0.475F + 0.01F * ticks, -0.2F - 0.01F * ticks);
 		GL11.glRotatef(87.5F + ticks * 5, 0F, 1F, 0F);
@@ -65,8 +63,8 @@ public class RenderQuestBook implements IItemRenderer {
 			GL11.glScalef(0.6F, 0.6F, 0.6F);
 
 			GL11.glTranslatef(0F, 15F, 0F);
-			ItemStack stack = Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() !=null?Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem():null;
-			String line1 = stack!=null && stack.getTagCompound() != null ?stack.getTagCompound().getString("player"): "rpgo.creativespawn";
+			ItemStack stack = Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() != null ? Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() : null;
+			String line1 = stack != null && stack.getTagCompound() != null ? stack.getTagCompound().getString("player") : "rpgo.creativespawn";
 			font.drawString(StatCollector.translateToLocal(line1), 0, 0, 0x79ff92);
 
 			GL11.glTranslatef(0F, 10F, 0F);

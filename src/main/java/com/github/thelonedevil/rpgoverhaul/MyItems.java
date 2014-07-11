@@ -93,22 +93,21 @@ public class MyItems {
 	public static Item TestBracerL;
 	public static Item TestBracerR;
 	public static Item TestBelt;
-	
+
 	public static Item RawGoat;
 	public static Item CookedGoat;
 	public static Item Parchment;
 	public static Item goatSkin;
-	public static Item foxFur;		
-	
-	//dummy items
+	public static Item foxFur;
+
+	// dummy items
 	public static Item MIXABLE;
 	public static Item questBook;
-	
 
 	public static void init() {
-		
+
 		MIXABLE = new Item();
-		
+
 		ingot_xiatherium = new Item().setUnlocalizedName("ingot_xiatherium").setTextureName(Ref.MODID + ":ingot_xiatherium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_farunese = new Item().setUnlocalizedName("ingot_farunese").setTextureName(Ref.MODID + ":ingot_farunese").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 		ingot_orobalt = new Item().setUnlocalizedName("ingot_orobalt").setTextureName(Ref.MODID + ":ingot_orobalt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
@@ -168,7 +167,8 @@ public class MyItems {
 		crystal_crest_love = new Item().setUnlocalizedName("crystal_crest_love").setTextureName(Ref.MODID + ":crystal_crest_love").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 		crystal_crest_sincerity = new Item().setUnlocalizedName("crystal_crest_sincerity").setTextureName(Ref.MODID + ":crystal_crest_sincerity").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 		crystal_crest_knowledge = new Item().setUnlocalizedName("crystal_crest_knowledge").setTextureName(Ref.MODID + ":crystal_crest_knowledge").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_crest_reliability = new Item().setUnlocalizedName("crystal_crest_reliability").setTextureName(Ref.MODID + ":crystal_crest_reliability").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_crest_reliability = new Item().setUnlocalizedName("crystal_crest_reliability").setTextureName(Ref.MODID + ":crystal_crest_reliability").setCreativeTab(RPGOMain.myTab)
+				.setMaxStackSize(8);
 		crystal_crest_hope = new Item().setUnlocalizedName("crystal_crest_hope").setTextureName(Ref.MODID + ":crystal_crest_hope").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 		crystal_crest_light = new Item().setUnlocalizedName("crystal_crest_light").setTextureName(Ref.MODID + ":crystal_crest_light").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 		crystal_crest_kindness = new Item().setUnlocalizedName("crystal_crest_kindness").setTextureName(Ref.MODID + ":crystal_crest_kindness").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
@@ -185,10 +185,10 @@ public class MyItems {
 		GameRegistry.registerItem(TestHelmet, "testhelmet");
 		TestBelt = new Belt(0.3D, 1, 20, 10D, 0, 0).setCreativeTab(RPGOMain.myTab).setUnlocalizedName("testbelt");
 		GameRegistry.registerItem(TestBelt, "testbelt");
-		
-		RawGoat = new ItemFood(3, 0.3F, true).setTextureName(Ref.MODID+":goatRaw").setUnlocalizedName("rawGoat");
+
+		RawGoat = new ItemFood(3, 0.3F, true).setTextureName(Ref.MODID + ":goatRaw").setUnlocalizedName("rawGoat");
 		GameRegistry.registerItem(RawGoat, "rawgoat");
-		CookedGoat = new ItemFood(8, 0.8F, true).setTextureName(Ref.MODID+":goatCooked").setUnlocalizedName("cookedGoat");
+		CookedGoat = new ItemFood(8, 0.8F, true).setTextureName(Ref.MODID + ":goatCooked").setUnlocalizedName("cookedGoat");
 		GameRegistry.registerItem(CookedGoat, "cookedgoat");
 		Parchment = new Item().setUnlocalizedName("parchment").setTextureName(Ref.MODID + ":parchment").setCreativeTab(CreativeTabs.tabMaterials);
 		GameRegistry.registerItem(Parchment, "parchment");
@@ -196,13 +196,13 @@ public class MyItems {
 		OreDictionary.registerOre("materialPaper", Items.paper);
 		goatSkin = new Item().setUnlocalizedName("goatSkin").setTextureName(Ref.MODID + ":goatSkin").setCreativeTab(CreativeTabs.tabMaterials);
 		GameRegistry.registerItem(goatSkin, "goatSkin");
-		
+
 		foxFur = new Item().setUnlocalizedName("foxFur").setTextureName(Ref.MODID + ":foxFur").setCreativeTab(CreativeTabs.tabMaterials);
 		GameRegistry.registerItem(foxFur, "foxFur");
-		
-		questBook = new QuestBook().setCreativeTab(RPGOMain.myTab).setTextureName(Ref.MODID+":questbook");
+
+		questBook = new QuestBook().setCreativeTab(RPGOMain.myTab).setTextureName(Ref.MODID + ":questbook");
 		GameRegistry.registerItem(questBook, "questBook");
-		
+
 		GameRegistry.registerItem(ingot_xiatherium, "Xiatherium Ingot");
 		GameRegistry.registerItem(ingot_farunese, "Farunese Ingot");
 		GameRegistry.registerItem(ingot_orobalt, "Orobalt Ingot");
@@ -221,7 +221,7 @@ public class MyItems {
 		GameRegistry.registerItem(ingot_ayagrese, "Ayagrese Ingot");
 		GameRegistry.registerItem(ingot_tenshirium, "Tenshirium Ingot");
 		GameRegistry.registerItem(ingot_onecrum, "Onecrum Ingot");
-		
+
 		OreDictionary.registerOre("ingotMetal", ingot_xiatherium);
 		OreDictionary.registerOre("ingotMetal", ingot_farunese);
 		OreDictionary.registerOre("ingotMetal", ingot_orobalt);
@@ -243,9 +243,8 @@ public class MyItems {
 		OreDictionary.registerOre("ingotMetal", Items.gold_ingot);
 		OreDictionary.registerOre("ingotMetal", Items.iron_ingot);
 
-		
 		OreDictionary.registerOre("ingotMetal", alloyIngot);
-		
+
 		OreDictionary.registerOre("ingotBase", ingot_xiatherium);
 		OreDictionary.registerOre("ingotBase", ingot_farunese);
 		OreDictionary.registerOre("ingotBase", ingot_orobalt);
@@ -273,38 +272,38 @@ public class MyItems {
 		GameRegistry.registerItem(crystal_earth, "Earth Crystal");
 		GameRegistry.registerItem(crystal_plasma, "Plasma Crystal");
 		GameRegistry.registerItem(crystal_smelting, "Smelting Crystal");
-		GameRegistry.registerItem( crystal_sun,"Sun Crystal");
-		GameRegistry.registerItem( crystal_moon,"Moon Crystal");
+		GameRegistry.registerItem(crystal_sun, "Sun Crystal");
+		GameRegistry.registerItem(crystal_moon, "Moon Crystal");
 
-		GameRegistry.registerItem( crystal_aries,"Aries Crystal");
-		GameRegistry.registerItem( crystal_taurus,"Taurus Crystal");
-		GameRegistry.registerItem( crystal_gemini,"Gemini Crystal");
-		GameRegistry.registerItem( crystal_cancer,"Cancer Crystal");
-		GameRegistry.registerItem( crystal_leo,"Leo Crystal");
-		GameRegistry.registerItem( crystal_virgo,"Virgo Crystal");
-		GameRegistry.registerItem( crystal_libra,"Libra Crystal");
-		GameRegistry.registerItem( crystal_scorpio,"Scorpio Crystal");
-		GameRegistry.registerItem( crystal_sagittarius,"Sagittarius Crystal");
-		GameRegistry.registerItem( crystal_capricorn,"Capricorn Crystal");
-		GameRegistry.registerItem( crystal_aquarius,"Aquarius Crystal");
-		GameRegistry.registerItem( crystal_pisces,"Pisces Crystal");
+		GameRegistry.registerItem(crystal_aries, "Aries Crystal");
+		GameRegistry.registerItem(crystal_taurus, "Taurus Crystal");
+		GameRegistry.registerItem(crystal_gemini, "Gemini Crystal");
+		GameRegistry.registerItem(crystal_cancer, "Cancer Crystal");
+		GameRegistry.registerItem(crystal_leo, "Leo Crystal");
+		GameRegistry.registerItem(crystal_virgo, "Virgo Crystal");
+		GameRegistry.registerItem(crystal_libra, "Libra Crystal");
+		GameRegistry.registerItem(crystal_scorpio, "Scorpio Crystal");
+		GameRegistry.registerItem(crystal_sagittarius, "Sagittarius Crystal");
+		GameRegistry.registerItem(crystal_capricorn, "Capricorn Crystal");
+		GameRegistry.registerItem(crystal_aquarius, "Aquarius Crystal");
+		GameRegistry.registerItem(crystal_pisces, "Pisces Crystal");
 
-		GameRegistry.registerItem( crystal_dragon_fire,"Fire Dragon Crystal");
-		GameRegistry.registerItem( crystal_dragon_sky,"Sky Dragon Crystal");
-		GameRegistry.registerItem( crystal_dragon_iron,"Iron Dragon Crystal");
-		GameRegistry.registerItem( crystal_dragon_lightning,"Lightning Dragon Crystal");
-		GameRegistry.registerItem( crystal_dragon_shadow,"Shadow Dragon Crystal");
-		GameRegistry.registerItem( crystal_dragon_light,"Light Dragon Crystal");
+		GameRegistry.registerItem(crystal_dragon_fire, "Fire Dragon Crystal");
+		GameRegistry.registerItem(crystal_dragon_sky, "Sky Dragon Crystal");
+		GameRegistry.registerItem(crystal_dragon_iron, "Iron Dragon Crystal");
+		GameRegistry.registerItem(crystal_dragon_lightning, "Lightning Dragon Crystal");
+		GameRegistry.registerItem(crystal_dragon_shadow, "Shadow Dragon Crystal");
+		GameRegistry.registerItem(crystal_dragon_light, "Light Dragon Crystal");
 
-		GameRegistry.registerItem( crystal_crest_courage,"Crest Courage Crystal");
-		GameRegistry.registerItem( crystal_crest_friendship,"Crest Friendship Crystal");
-		GameRegistry.registerItem( crystal_crest_love,"Crest Love Crystal");
-		GameRegistry.registerItem( crystal_crest_sincerity,"Crest Sincerity Crystal");
-		GameRegistry.registerItem( crystal_crest_knowledge,"Crest Knowledge Crystal");
-		GameRegistry.registerItem( crystal_crest_reliability,"Crest Reliability Crystal");
-		GameRegistry.registerItem( crystal_crest_hope,"Crest Hope Crystal");
-		GameRegistry.registerItem( crystal_crest_light,"Crest Light Crystal");
-		GameRegistry.registerItem( crystal_crest_kindness,"Crest Kindness Crystal");
+		GameRegistry.registerItem(crystal_crest_courage, "Crest Courage Crystal");
+		GameRegistry.registerItem(crystal_crest_friendship, "Crest Friendship Crystal");
+		GameRegistry.registerItem(crystal_crest_love, "Crest Love Crystal");
+		GameRegistry.registerItem(crystal_crest_sincerity, "Crest Sincerity Crystal");
+		GameRegistry.registerItem(crystal_crest_knowledge, "Crest Knowledge Crystal");
+		GameRegistry.registerItem(crystal_crest_reliability, "Crest Reliability Crystal");
+		GameRegistry.registerItem(crystal_crest_hope, "Crest Hope Crystal");
+		GameRegistry.registerItem(crystal_crest_light, "Crest Light Crystal");
+		GameRegistry.registerItem(crystal_crest_kindness, "Crest Kindness Crystal");
 
 	}
 

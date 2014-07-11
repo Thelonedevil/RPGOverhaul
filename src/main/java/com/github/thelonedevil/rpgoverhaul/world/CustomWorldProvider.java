@@ -91,15 +91,15 @@ public class CustomWorldProvider extends WorldProvider {
 
 		}
 	}
+
 	@Override
 	@SideOnly(Side.CLIENT)
-    public float getStarBrightness(float par1)
-    {
-		return par1 *0.5F *6F;
-    }
+	public float getStarBrightness(float par1) {
+		return par1 * 0.5F * 6F;
+	}
+
 	@Override
-    public int getMoonPhase(long par1)
-    {
-        return 4;
-    }
+	public int getMoonPhase(long par1) {
+		return 4;
+	}
 }

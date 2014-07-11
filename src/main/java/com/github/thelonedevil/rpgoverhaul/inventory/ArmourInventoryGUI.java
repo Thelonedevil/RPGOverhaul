@@ -30,7 +30,7 @@ public class ArmourInventoryGUI extends GuiContainer {
 	 * Normally I use '(ModInfo.MOD_ID, "textures/...")', but it can be done
 	 * this way as well
 	 */
-	private static final ResourceLocation iconLocation = new ResourceLocation(Ref.MODID+":textures/gui/container/inventory.png");
+	private static final ResourceLocation iconLocation = new ResourceLocation(Ref.MODID + ":textures/gui/container/inventory.png");
 
 	/**
 	 * Could use IInventory type to be more generic, but this way will save an
@@ -60,12 +60,16 @@ public class ArmourInventoryGUI extends GuiContainer {
 	 */
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
 
-		//String s = this.inventory.hasCustomInventoryName() ? this.inventory.getInventoryName() : I18n.format(this.inventory.getInventoryName());
+		// String s = this.inventory.hasCustomInventoryName() ?
+		// this.inventory.getInventoryName() :
+		// I18n.format(this.inventory.getInventoryName());
 		// with the name "Custom Inventory", the 'Cu' will be drawn in the first
 		// slot
-		//this.fontRendererObj.drawString("test", this.xSize - this.fontRendererObj.getStringWidth("test"), 12, 4210752);
+		// this.fontRendererObj.drawString("test", this.xSize -
+		// this.fontRendererObj.getStringWidth("test"), 12, 4210752);
 		// this just adds "Inventory" above the player's inventory below
-		//this.fontRendererObj.drawString(I18n.format("container.inventory"), 80, this.ySize - 96, 4210752);
+		// this.fontRendererObj.drawString(I18n.format("container.inventory"),
+		// 80, this.ySize - 96, 4210752);
 	}
 
 	/**

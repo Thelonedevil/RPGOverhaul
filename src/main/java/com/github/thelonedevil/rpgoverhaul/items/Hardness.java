@@ -8,9 +8,10 @@ public class Hardness {
 	public static final String SOFT = "SOFT";
 
 	public static String getAlloyHardness(ItemStack item) {
-		String name = item.getTagCompound().getString("metal1") +" "+ item.getTagCompound().getString("metal2");
-		switch(name){
-		case AlloyReferrence.Alloy1: case AlloyReferrence.Alloy2:
+		String name = item.getTagCompound().getString("metal1") + " " + item.getTagCompound().getString("metal2");
+		switch (name) {
+		case AlloyReferrence.Alloy1:
+		case AlloyReferrence.Alloy2:
 			return HARD;
 		default:
 			return HARD;
@@ -19,7 +20,7 @@ public class Hardness {
 
 	public static String getMetalHardness(ItemStack slot1) {
 		String name = slot1.getItem().getUnlocalizedName();
-		switch(name){
+		switch (name) {
 		case "ingot_xiatherium":
 			return HARD;
 		case "ingot_gold":
@@ -30,7 +31,5 @@ public class Hardness {
 			return HARD;
 		}
 	}
-	
-	
 
 }

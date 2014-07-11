@@ -5,4 +5,3 @@ public class BaseXP {
 	public static final int ZOMBIE = 6;
 	public static final int SKELETON = 9;
 }
-

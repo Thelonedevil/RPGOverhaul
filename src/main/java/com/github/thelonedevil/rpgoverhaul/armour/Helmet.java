@@ -14,13 +14,14 @@ public class Helmet extends Armour {
 		// TODO Auto-generated method stub
 		return true;
 	}
-	public Helmet(){
+
+	public Helmet() {
 		super(0);
 	}
-	public void registerIcons(IIconRegister par1IconRegister)
-    {
-        super.registerIcons(par1IconRegister);
-        this.EmptySlotIcon = par1IconRegister.registerIcon(Ref.MODID+":emptyhelmet");
-    }
+
+	public void registerIcons(IIconRegister par1IconRegister) {
+		super.registerIcons(par1IconRegister);
+		this.EmptySlotIcon = par1IconRegister.registerIcon(Ref.MODID + ":emptyhelmet");
+	}
 
 }

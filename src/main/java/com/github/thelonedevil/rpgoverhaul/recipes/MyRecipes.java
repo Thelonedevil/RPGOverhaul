@@ -35,7 +35,8 @@ public class MyRecipes {
 		GameRegistry.addSmelting(MyBlocks.ore_tenshirium, new ItemStack(MyItems.ingot_tenshirium), xp);
 
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.book), new Object[] { "materialPaper", "materialPaper", "materialPaper", Items.leather }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MyItems.questBook), new Object[]{"KLK","PIP","KLK",'K', MyItems.ingot_ketsuekium, 'L',Items.leather, 'P',"materialPaper", 'I',"dyeBlack"}));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(MyItems.questBook), new Object[] { "KLK", "PIP", "KLK", 'K', MyItems.ingot_ketsuekium, 'L', Items.leather, 'P', "materialPaper", 'I',
+				"dyeBlack" }));
 		GameRegistry.addShapedRecipe(new ItemStack(MyItems.crystal_plasma), new Object[] { " A ", "BCD", " E ", 'A', MyItems.crystal_fire, 'B', MyItems.crystal_air, 'C', Items.diamond, 'D',
 				MyItems.crystal_earth, 'E', MyItems.crystal_water });
 		GameRegistry.addShapedRecipe(new ItemStack(MyBlocks.WeaponSmithblock),
@@ -46,8 +47,12 @@ public class MyRecipes {
 
 		CustomCrafting.getInstance().addShapedOreRecipe(new ItemStack(MyWeapons.broadsword_bottom, 1), new Object[] { "AAAAA", "  A  ", "  A  ", "  A  ", "     ", 'A', "ingotMetal" });
 		CustomCrafting.getInstance().addShapedOreRecipe(new ItemStack(MyWeapons.broadsword_top, 1), new Object[] { "  A  ", " AAA ", " AAA ", " AAA ", " AAA ", 'A', "ingotMetal" });
-		/*CustomCrafting.getInstance().addRecipe(new ItemStack(MyItems.questBook, 1),
-				new Object[] { "KLKLK", "LPPPL", "KPIPK", "LPPPL", "KLKLK", 'K', MyItems.ingot_ketsuekium, 'L', Items.leather, 'P', MyItems.Parchment, 'I', Items.coal });*/
+		/*
+		 * CustomCrafting.getInstance().addRecipe(new
+		 * ItemStack(MyItems.questBook, 1), new Object[] { "KLKLK", "LPPPL",
+		 * "KPIPK", "LPPPL", "KLKLK", 'K', MyItems.ingot_ketsuekium, 'L',
+		 * Items.leather, 'P', MyItems.Parchment, 'I', Items.coal });
+		 */
 		CustomCrafting.getInstance().addRecipe(new ItemStack(MyWeapons.broadsword, 1), new Object[] { "A", "B", 'A', MyWeapons.broadsword_top, 'B', MyWeapons.broadsword_bottom });
 	}
 }

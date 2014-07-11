@@ -1,18 +1,19 @@
 package com.github.thelonedevil.rpgoverhaul.tileentities;
 
-import com.github.thelonedevil.rpgoverhaul.MyItems;
-import com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace.AlloyFurnaceSlots;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+
+import com.github.thelonedevil.rpgoverhaul.MyItems;
 
 public class PortalTileEntity extends TileEntity implements ISidedInventory {
 	private static final int[] slotsTop = new int[] { 1 };
 	private static final int[] slotsBottom = new int[] { 1 };
 	private static final int[] slotsSides = new int[] { 1 };
 	private ItemStack[] slots = new ItemStack[2];
+	public boolean book;
 
 	@Override
 	public int getSizeInventory() {
@@ -78,6 +79,16 @@ public class PortalTileEntity extends TileEntity implements ISidedInventory {
 	public void closeInventory() {
 		// TODO Auto-generated method stub
 
+	}
+
+	public void readFromNBT(NBTTagCompound p_145839_1_) {
+		super.readFromNBT(p_145839_1_);
+		book = p_145839_1_.getBoolean("book");
+	}
+
+	public void writeToNBT(NBTTagCompound p_145841_1_) {
+		p_145841_1_.setBoolean("book", book);
+		super.writeToNBT(p_145841_1_);
 	}
 
 	@Override

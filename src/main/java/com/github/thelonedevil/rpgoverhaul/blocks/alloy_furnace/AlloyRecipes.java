@@ -1,13 +1,12 @@
 package com.github.thelonedevil.rpgoverhaul.blocks.alloy_furnace;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-import java.util.Iterator;
 
 import com.github.thelonedevil.rpgoverhaul.MyBlocks;
 import com.github.thelonedevil.rpgoverhaul.MyItems;
@@ -62,7 +61,8 @@ public class AlloyRecipes {
 			} else {
 				return false;
 			}
-		}else return false;
+		} else
+			return false;
 	}
 
 	private boolean isSmeltingResult(ItemStack itemstack, ItemStack itemstack2) {
@@ -94,12 +94,13 @@ public class AlloyRecipes {
 
 	public boolean isAlloyIngredient(ItemStack itemstack1) {
 		boolean i = false;
-		for(ItemStack[] key : smeltingList.keySet()){
-			if(key[0].isItemEqual(itemstack1) || key[1].isItemEqual(itemstack1)){
+		for (ItemStack[] key : smeltingList.keySet()) {
+			if (key[0].isItemEqual(itemstack1) || key[1].isItemEqual(itemstack1)) {
 				i = true;
 				return i;
-			}else i =  false;
-			
+			} else
+				i = false;
+
 		}
 		return i;
 	}

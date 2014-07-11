@@ -1,28 +1,11 @@
-
 package com.github.thelonedevil.rpgoverhaul.quests;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraftforge.common.util.EnumHelper;
-
-
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
 
 public final class QuestBookAPI {
 
@@ -31,7 +14,6 @@ public final class QuestBookAPI {
 
 	public static Map<String, KnowledgeType> knowledgeTypes = new HashMap<String, KnowledgeType>();
 
-
 	public static KnowledgeType firstKnowledge, secondKnowledge;
 
 	static {
@@ -39,11 +21,13 @@ public final class QuestBookAPI {
 		secondKnowledge = registerKnowledgeType("second", EnumChatFormatting.RESET, false);
 	}
 
-
 	/**
 	 * Registers a new Knowledge Type.
-	 * @param id The ID for this knowledge type.
-	 * @param color The color to display this knowledge type as.
+	 * 
+	 * @param id
+	 *            The ID for this knowledge type.
+	 * @param color
+	 *            The color to display this knowledge type as.
 	 */
 	public static KnowledgeType registerKnowledgeType(String id, EnumChatFormatting color, boolean autoUnlock) {
 		KnowledgeType type = new KnowledgeType(id, color, autoUnlock);
@@ -51,13 +35,9 @@ public final class QuestBookAPI {
 		return type;
 	}
 
-
-
-
-
-
 	/**
-	 * Adds a category to the list of registered categories to appear in the QuestBook.
+	 * Adds a category to the list of registered categories to appear in the
+	 * QuestBook.
 	 */
 	public static void addCategory(QuestBookCategory category) {
 		categories.add(category);
@@ -77,10 +57,5 @@ public final class QuestBookAPI {
 		allEntries.add(entry);
 		category.entries.add(entry);
 	}
-
-
-
-
-
 
 }

@@ -4,8 +4,8 @@ import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.world.World;
 
-public class EntityAIStartled extends EntityAIBase{
-	
+public class EntityAIStartled extends EntityAIBase {
+
 	private EntityCreature theCreature;
 	private double shelterX;
 	private double shelterY;

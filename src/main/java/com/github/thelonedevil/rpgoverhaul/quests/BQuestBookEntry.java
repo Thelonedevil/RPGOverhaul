@@ -10,8 +10,7 @@ public class BQuestBookEntry extends QuestBookEntry {
 	@Override
 	public QuestBookEntry setQuestBookPages(QuestBookPage... pages) {
 		for (QuestBookPage page : pages)
-			page.unlocalizedName = "rpgo.questbook.page." + getLazyUnlocalizedName()
-					+ page.unlocalizedName;
+			page.unlocalizedName = "rpgo.questbook.page." + getLazyUnlocalizedName() + page.unlocalizedName;
 
 		return super.setQuestBookPages(pages);
 	}

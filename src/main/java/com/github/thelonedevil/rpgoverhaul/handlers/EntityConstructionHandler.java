@@ -10,13 +10,13 @@ import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class EntityConstructionHandler {
-	
+
 	@SubscribeEvent
-	public void onConstruction(EntityConstructing event){
-		if (event.entity instanceof EntityPlayer && ExtendedPlayer.get((EntityPlayer) event.entity) == null){
-			ExtendedPlayer.register((EntityPlayer) event.entity);	
+	public void onConstruction(EntityConstructing event) {
+		if (event.entity instanceof EntityPlayer && ExtendedPlayer.get((EntityPlayer) event.entity) == null) {
+			ExtendedPlayer.register((EntityPlayer) event.entity);
 		}
-		if (event.entity instanceof EntityMob){
+		if (event.entity instanceof EntityMob) {
 			ExtendedMob.register((EntityMob) event.entity);
 		}
 	}

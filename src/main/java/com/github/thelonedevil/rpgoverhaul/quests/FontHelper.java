@@ -3,13 +3,11 @@ package com.github.thelonedevil.rpgoverhaul.quests;
 public final class FontHelper {
 
 	public static boolean isFormatColor(char par0) {
-		return par0 >= 48 && par0 <= 57 || par0 >= 97 && par0 <= 102
-				|| par0 >= 65 && par0 <= 70;
+		return par0 >= 48 && par0 <= 57 || par0 >= 97 && par0 <= 102 || par0 >= 65 && par0 <= 70;
 	}
 
 	public static boolean isFormatSpecial(char par0) {
-		return par0 >= 107 && par0 <= 111 || par0 >= 75 && par0 <= 79
-				|| par0 == 114 || par0 == 82;
+		return par0 >= 107 && par0 <= 111 || par0 >= 75 && par0 <= 79 || par0 == 114 || par0 == 82;
 	}
 
 	public static String getFormatFromString(String par0Str) {

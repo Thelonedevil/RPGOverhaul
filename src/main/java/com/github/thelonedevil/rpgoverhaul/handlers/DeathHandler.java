@@ -135,7 +135,7 @@ public class DeathHandler {
 						String name = ((EntityPlayer) event.entityLiving).getCommandSenderName();
 						if (inv.getStackInSlot(i).getItem() == MyItems.questBook) {
 							books.put(name, inv.getStackInSlot(i));
-							LogHelper.info("QuestBook of "+name+"stored");
+							LogHelper.info("QuestBook of " + name + "stored");
 						}
 					}
 				}
@@ -148,12 +148,12 @@ public class DeathHandler {
 	public void onRespawn(PlayerRespawnEvent event) {
 		if (!event.player.worldObj.getGameRules().getGameRuleBooleanValue("keepInventory")) {
 			InventoryPlayer inv = event.player.inventory;
-			String name =  event.player.getCommandSenderName();
-			if(books.containsKey(name)){
+			String name = event.player.getCommandSenderName();
+			if (books.containsKey(name)) {
 				inv.setInventorySlotContents(0, books.get(name));
 				books.remove(name);
-				LogHelper.info("QuestBook of "+name+"restored");
-			}else {
+				LogHelper.info("QuestBook of " + name + "restored");
+			} else {
 				LogHelper.info("player had no questbook");
 			}
 		}

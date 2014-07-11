@@ -18,7 +18,6 @@ import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotCuirass;
 import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotGauntletL;
 import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotGauntletR;
 import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotGreaves;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotHelmet;
 import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotPauldronL;
 import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotPauldronR;
 
@@ -26,8 +25,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ArmourContainer extends Container {
-	private static final int HOTBARSTART = 0, HOTBAREND = HOTBARSTART + 9, INVSTART = HOTBAREND + 1, INVEND = INVSTART + 26, VARMSTART = INVEND + 1, VARMEND = VARMSTART + 3,
-			CUSTOMARMSTART = 0, CUSTOMARMEND = CUSTOMARMSTART + 11;
+	private static final int HOTBARSTART = 0, HOTBAREND = HOTBARSTART + 9, INVSTART = HOTBAREND + 1, INVEND = INVSTART + 26, VARMSTART = INVEND + 1, VARMEND = VARMSTART + 3, CUSTOMARMSTART = 0,
+			CUSTOMARMEND = CUSTOMARMSTART + 11;
 
 	// hotbar 0-9
 	// inv 10-36

@@ -6,12 +6,11 @@ import net.minecraftforge.client.model.IModelCustom;
 public class ModelCrystalBase {
 	private static IModelCustom model;
 
-    public ModelCrystalBase()
-    {
-        model = AdvancedModelLoader.loadModel(Models.CRYSTALBASE);
-    }
+	public ModelCrystalBase() {
+		model = AdvancedModelLoader.loadModel(Models.CRYSTALBASE);
+	}
 
 	public static void render() {
-		 model.renderAll();
+		model.renderAll();
 	}
 }

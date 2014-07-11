@@ -34,7 +34,7 @@ public class Armour extends Item implements IArmour {
 	@Override
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if (GuiScreen.isShiftKeyDown()) {
-			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID+".armour." + type), par3List);
+			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID + ".armour." + type), par3List);
 
 			KeyBinding key = null;
 			KeyBinding[] keys = Minecraft.getMinecraft().gameSettings.keyBindings;
@@ -45,9 +45,9 @@ public class Armour extends Item implements IArmour {
 				}
 
 			if (key != null)
-				addStringToTooltip(StatCollector.translateToLocal(Ref.MODID+".armourtooltip").replaceAll("%key%", Keyboard.getKeyName(key.getKeyCode())), par3List);
+				addStringToTooltip(StatCollector.translateToLocal(Ref.MODID + ".armourtooltip").replaceAll("%key%", Keyboard.getKeyName(key.getKeyCode())), par3List);
 		} else
-			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID+".shiftinfo"), par3List);
+			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID + ".shiftinfo"), par3List);
 	}
 
 	private void addStringToTooltip(String s, List<String> tooltip) {

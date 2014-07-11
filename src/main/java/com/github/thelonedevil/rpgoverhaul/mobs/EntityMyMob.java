@@ -19,9 +19,9 @@ public abstract class EntityMyMob extends EntityCreature implements IMob {
 
 	private int lastLight;
 	boolean startled;
-    int x = MathHelper.floor_double(this.posX);
-    int y =MathHelper.floor_double(this.posY);
-    int z=MathHelper.floor_double(this.posZ);
+	int x = MathHelper.floor_double(this.posX);
+	int y = MathHelper.floor_double(this.posY);
+	int z = MathHelper.floor_double(this.posZ);
 
 	public EntityMyMob(World par1World) {
 		super(par1World);
@@ -33,25 +33,22 @@ public abstract class EntityMyMob extends EntityCreature implements IMob {
 	 * required. For example, zombies and skeletons use this to react to
 	 * sunlight and start to burn.
 	 */
-	public void onLivingUpdate()
-    {
-        this.updateArmSwingProgress();
-        float f = this.getBrightness(1.0F);
+	public void onLivingUpdate() {
+		this.updateArmSwingProgress();
+		float f = this.getBrightness(1.0F);
 
-       
-        if (f > 0.5F)
-        {
-            this.entityAge += 2;
-        }
-        
-        if( (this.worldObj.getBlockLightValue(x,y,z) - this.lastLight) > 2){
-        	this.startled= true;
-        	this.findPlayerToAttack();
-        	this.targetTasks.addTask(2,  new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-        } 
-        this.lastLight = this.worldObj.getBlockLightValue(x,y,z);
-        super.onLivingUpdate();
-    }
+		if (f > 0.5F) {
+			this.entityAge += 2;
+		}
+
+		if ((this.worldObj.getBlockLightValue(x, y, z) - this.lastLight) > 2) {
+			this.startled = true;
+			this.findPlayerToAttack();
+			this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+		}
+		this.lastLight = this.worldObj.getBlockLightValue(x, y, z);
+		super.onLivingUpdate();
+	}
 
 	/**
 	 * Called to update the entity's position/logic.
@@ -62,12 +59,12 @@ public abstract class EntityMyMob extends EntityCreature implements IMob {
 		if (!this.worldObj.isRemote && this.worldObj.difficultySetting == EnumDifficulty.PEACEFUL) {
 			this.setDead();
 		}
-        if( (this.worldObj.getBlockLightValue(x,y,z) - this.lastLight) > 2){
-        	this.startled= true;
-        	this.findPlayerToAttack();
-        	this.targetTasks.addTask(2,  new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
-        } 
-        this.lastLight = this.worldObj.getBlockLightValue(x,y,z);
+		if ((this.worldObj.getBlockLightValue(x, y, z) - this.lastLight) > 2) {
+			this.startled = true;
+			this.findPlayerToAttack();
+			this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true));
+		}
+		this.lastLight = this.worldObj.getBlockLightValue(x, y, z);
 	}
 
 	protected String getSwimSound() {

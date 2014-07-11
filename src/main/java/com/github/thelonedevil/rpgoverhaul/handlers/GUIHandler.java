@@ -21,14 +21,14 @@ public class GUIHandler implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if(ID == Ref.Alloy_furnace_GUI){
+		if (ID == Ref.Alloy_furnace_GUI) {
 			Alloy_Furnace_TileEntity tileEntityFurnace = (Alloy_Furnace_TileEntity) world.getTileEntity(x, y, z);
 			return new AlloyContainer(player.inventory, tileEntityFurnace);
 		}
-		if(ID== Ref.Armour_Inventory_GUI){
+		if (ID == Ref.Armour_Inventory_GUI) {
 			return new ArmourContainer(player, player.inventory, ExtendedPlayer.get(player).customInventory);
 		}
-		if(ID == Ref.WEAPON_SMITH_GUI){
+		if (ID == Ref.WEAPON_SMITH_GUI) {
 			return new WeaponSmithContainer(player.inventory, world, x, y, z);
 		}
 		return null;
@@ -36,21 +36,22 @@ public class GUIHandler implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		if(ID == Ref.Alloy_furnace_GUI){
+		if (ID == Ref.Alloy_furnace_GUI) {
 			Alloy_Furnace_TileEntity tileEntityTestContainer = (Alloy_Furnace_TileEntity) world.getTileEntity(x, y, z);
 			return new Alloy_Furnace_GUI(player.inventory, tileEntityTestContainer);
 		}
-		if(ID== Ref.Armour_Inventory_GUI){
+		if (ID == Ref.Armour_Inventory_GUI) {
 			return new ArmourInventoryGUI(player, player.inventory, ExtendedPlayer.get(player).customInventory);
 		}
-		if(ID == Ref.WEAPON_SMITH_GUI){
+		if (ID == Ref.WEAPON_SMITH_GUI) {
 			return new WeaponSmithGUI(player.inventory, world, x, y, z);
-			
-		} if(ID == Ref.QUESTBOOK_GUI){
+
+		}
+		if (ID == Ref.QUESTBOOK_GUI) {
 			GuiQuestBook lex = GuiQuestBook.currentOpenQuestBook;
 			GuiQuestBook.stackUsed = player.getCurrentEquippedItem();
-			if(GuiQuestBook.stackUsed == null || !(GuiQuestBook.stackUsed.getItem() instanceof IQuestBook))
-			return null;
+			if (GuiQuestBook.stackUsed == null || !(GuiQuestBook.stackUsed.getItem() instanceof IQuestBook))
+				return null;
 			return lex;
 		}
 		return null;

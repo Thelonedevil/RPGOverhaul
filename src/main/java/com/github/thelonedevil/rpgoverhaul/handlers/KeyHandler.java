@@ -45,7 +45,7 @@ public class KeyHandler {
 			if (keys[CUSTOM_INV].isPressed()) {
 				RPGOMain.network.sendToServer(new OpenGui(Ref.Armour_Inventory_GUI));
 				System.out.println("Open GUI packet sent to server");
-			}else if(keys[CRYSTAL_SWAP].isPressed()){
+			} else if (keys[CRYSTAL_SWAP].isPressed()) {
 				RPGOMain.network.sendToServer(new OpenGui(Ref.Armour_Inventory_GUI));
 				System.out.println("Open GUI packet sent to server");
 			}

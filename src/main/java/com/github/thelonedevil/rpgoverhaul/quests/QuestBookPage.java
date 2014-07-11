@@ -1,6 +1,4 @@
-
 package com.github.thelonedevil.rpgoverhaul.quests;
-
 
 import com.github.thelonedevil.rpgoverhaul.gui.IGuiQuestBookEntry;
 
@@ -17,9 +15,13 @@ public abstract class QuestBookPage {
 
 	/**
 	 * Does the rendering for this page.
-	 * @param gui The active GuiScreen
-	 * @param mx The mouse's relative X position.
-	 * @param my The mouse's relative Y position.
+	 * 
+	 * @param gui
+	 *            The active GuiScreen
+	 * @param mx
+	 *            The mouse's relative X position.
+	 * @param my
+	 *            The mouse's relative Y position.
 	 */
 	@SideOnly(Side.CLIENT)
 	public abstract void renderScreen(IGuiQuestBookEntry gui, int mx, int my);
@@ -33,7 +35,8 @@ public abstract class QuestBookPage {
 	}
 
 	/**
-	 * Called when {@link QuestBookEntry#setQuestBookPages(QuestBookPage...)} is called.
+	 * Called when {@link QuestBookEntry#setQuestBookPages(QuestBookPage...)} is
+	 * called.
 	 */
 	public void onPageAdded(QuestBookEntry entry, int index) {
 		// NO-OP

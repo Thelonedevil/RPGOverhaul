@@ -26,7 +26,7 @@ public class GuiButtonBookmark extends GuiButton {
 		int k = getHoverState(field_146123_n);
 
 		List<String> tooltip = new ArrayList();
-		if(displayString.equals("+"))
+		if (displayString.equals("+"))
 			tooltip.add(StatCollector.translateToLocal("rpgo.clickToAdd"));
 		else {
 			tooltip.add(String.format(StatCollector.translateToLocal("rpgo.bookmark"), id - GuiQuestBook.BOOKMARK_START + 1));
@@ -35,7 +35,7 @@ public class GuiButtonBookmark extends GuiButton {
 		}
 
 		int tooltipY = (tooltip.size() + 1) * 5;
-		if(k == 2)
+		if (k == 2)
 			RenderHelper.renderTooltip(par2, par3 + tooltipY, tooltip);
 	}
 

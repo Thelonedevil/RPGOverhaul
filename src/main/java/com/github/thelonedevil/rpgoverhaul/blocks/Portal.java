@@ -1,15 +1,21 @@
 package com.github.thelonedevil.rpgoverhaul.blocks;
 
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import com.github.thelonedevil.rpgoverhaul.MyItems;
@@ -17,8 +23,13 @@ import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.tileentities.PortalTileEntity;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 public class Portal extends Block implements ITileEntityProvider {
 	private final Random random = new Random();
+	@SideOnly(Side.CLIENT)
+	private static IIcon top;
 
 	public Portal() {
 		super(Material.anvil);
@@ -33,15 +44,50 @@ public class Portal extends Block implements ITileEntityProvider {
 		return new PortalTileEntity();
 	}
 
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconregister) {
+		this.blockIcon = iconregister.registerIcon(Ref.MODID + ":portal_side");
+		this.top = iconregister.registerIcon(Ref.MODID + ":portal_top");
+	}
+
+	public IIcon getIcon(int side, int meta) {
+		if (side == 1) {
+			return top;
+		} else if (side == 0) {
+			return Blocks.end_stone.getBlockTextureFromSide(side);
+		} else {
+			return this.blockIcon;
+		}
+	}
+
+	public boolean isOpaqueCube() {
+		return false;
+	}
+
+	/**
+	 * Sets the block's bounds for rendering it as an item
+	 */
+	public void setBlockBoundsForItemRender() {
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.8125F, 1.0F);
+	}
+
+	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.8125F, 1.0F);
+		super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
+		this.setBlockBoundsForItemRender();
+	}
+
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
 		if (player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().getItem() == MyItems.questBook) {
 			PortalTileEntity tile = (PortalTileEntity) world.getTileEntity(x, y, z);
 			tile.setInventorySlotContents(0, player.getCurrentEquippedItem());
+			tile.book = true;
 			world.setTileEntity(x, y, z, tile);
 			player.destroyCurrentEquippedItem();
-		} else if (player.getCurrentEquippedItem() == null && !world.isRemote) {
+		} else if (player.getCurrentEquippedItem() == null) {
 			PortalTileEntity tile = (PortalTileEntity) world.getTileEntity(x, y, z);
 			ItemStack itemstack = tile.getStackInSlot(0);
+			tile.book = false;
 			if (itemstack != null) {
 				tile.setInventorySlotContents(0, null);
 				world.setTileEntity(x, y, z, tile);
@@ -59,6 +105,7 @@ public class Portal extends Block implements ITileEntityProvider {
 				entityitem.motionX = (double) ((float) this.random.nextGaussian() * f3);
 				entityitem.motionY = (double) ((float) this.random.nextGaussian() * f3 + 0.1F);
 				entityitem.motionZ = (double) ((float) this.random.nextGaussian() * f3);
+				if(!world.isRemote)
 				world.spawnEntityInWorld(entityitem);
 
 			}

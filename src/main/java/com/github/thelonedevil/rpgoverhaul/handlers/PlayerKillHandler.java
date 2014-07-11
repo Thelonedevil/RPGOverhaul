@@ -1,7 +1,10 @@
 package com.github.thelonedevil.rpgoverhaul.handlers;
 
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.*;
+import net.minecraft.entity.monster.EntityCreeper;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -22,7 +25,7 @@ public class PlayerKillHandler {
 			if (e instanceof EntityMob) {
 				ExtendedMob mob = ExtendedMob.get((EntityMob) e);
 				int moblevel = mob.getLevel();
-				System.out.println("mob level="+moblevel);
+				System.out.println("mob level=" + moblevel);
 				if (e instanceof EntityCreeper) {
 
 					double xp = ((Math.pow(moblevel, 0.6))) * BaseXP.CREEPER;

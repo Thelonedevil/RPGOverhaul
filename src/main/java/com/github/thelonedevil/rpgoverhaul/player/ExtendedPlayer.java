@@ -202,8 +202,9 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	}
 
 	public void openWeaponSmith() {
-		player.openGui(RPGOMain.instance, Ref.WEAPON_SMITH_GUI, player.getEntityWorld(), MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY), MathHelper.floor_double(player.posZ));
-		
+		player.openGui(RPGOMain.instance, Ref.WEAPON_SMITH_GUI, player.getEntityWorld(), MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY),
+				MathHelper.floor_double(player.posZ));
+
 		// this.openContainer.windowId = this.currentWindowId;
 		// this.openContainer.addCraftingToCrafters(this);
 

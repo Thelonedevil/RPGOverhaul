@@ -1,4 +1,3 @@
-
 package com.github.thelonedevil.rpgoverhaul.quests;
 
 import java.util.ArrayList;
@@ -6,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import net.minecraft.util.StatCollector;
-
 
 public class QuestBookEntry implements Comparable<QuestBookEntry> {
 
@@ -19,7 +17,9 @@ public class QuestBookEntry implements Comparable<QuestBookEntry> {
 	private boolean priority = false;
 
 	/**
-	 * @param unlocalizedName The unlocalized name of this entry. This will be localized by the client display.
+	 * @param unlocalizedName
+	 *            The unlocalized name of this entry. This will be localized by
+	 *            the client display.
 	 */
 	public QuestBookEntry(String unlocalizedName, QuestBookCategory category) {
 		this.unlocalizedName = unlocalizedName;
@@ -27,7 +27,8 @@ public class QuestBookEntry implements Comparable<QuestBookEntry> {
 	}
 
 	/**
-	 * Sets this page as prioritized, as in, will appear before others in the lexicon.
+	 * Sets this page as prioritized, as in, will appear before others in the
+	 * lexicon.
 	 */
 	public QuestBookEntry setPriority() {
 		priority = true;
@@ -60,7 +61,7 @@ public class QuestBookEntry implements Comparable<QuestBookEntry> {
 	public QuestBookEntry setQuestBookPages(QuestBookPage... pages) {
 		this.pages.addAll(Arrays.asList(pages));
 
-		for(int i = 0; i < this.pages.size(); i++)
+		for (int i = 0; i < this.pages.size(); i++)
 			this.pages.get(i).onPageAdded(this, i);
 
 		return this;
