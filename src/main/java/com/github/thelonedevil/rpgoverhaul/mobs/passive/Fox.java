@@ -1,7 +1,9 @@
 package com.github.thelonedevil.rpgoverhaul.mobs.passive;
 
 import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIFollowOwner;
 import net.minecraft.entity.ai.EntityAIFollowParent;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAIMate;
@@ -10,23 +12,24 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAITempt;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
-import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.world.World;
 
 import com.github.thelonedevil.rpgoverhaul.MyItems;
 
-public class Fox extends EntityAnimal {
-
+public class Fox extends EntityTameable {
 	public Fox(World p_i1681_1_) {
 		super(p_i1681_1_);
 		this.setSize(0.4F, 0.4F);
 		this.getNavigator().setAvoidsWater(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIPanic(this, 1.25D));
+		this.tasks.addTask(2, new EntityAIFollowOwner(this, 1.0D, 10.0F, 2.0F));
 		this.tasks.addTask(3, new EntityAIMate(this, 1.0D));
 		this.tasks.addTask(4, new EntityAITempt(this, 1.2D, Items.egg, false));
 		this.tasks.addTask(4, new EntityAITempt(this, 1.2D, Items.wheat, false));
@@ -54,7 +57,7 @@ public class Fox extends EntityAnimal {
 	protected void updateAITasks() {
 		super.updateAITasks();
 	}
-	
+
 	protected String getLivingSound() {
 		return "mob.wolf.bark";
 	}
@@ -84,6 +87,38 @@ public class Fox extends EntityAnimal {
 		for (k = 0; k < j; ++k) {
 			this.dropItem(MyItems.foxFur, 1);
 		}
+	}
+
+	public boolean interact(EntityPlayer player) {
+		ItemStack itemstack = player.inventory.getCurrentItem();
+		if (!this.isTamed() && itemstack != null && itemstack.getItem() == Items.bone) {
+			if (!player.capabilities.isCreativeMode) {
+				--itemstack.stackSize;
+			}
+
+			if (itemstack.stackSize <= 0) {
+				player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
+			}
+
+			if (!this.worldObj.isRemote) {
+				if (this.rand.nextInt(3) == 0) {
+					this.setTamed(true);
+					this.setPathToEntity((PathEntity) null);
+					this.setAttackTarget((EntityLivingBase) null);
+					this.aiSit.setSitting(true);
+					this.setHealth(20.0F);
+					this.func_152115_b(player.getUniqueID().toString());
+					this.playTameEffect(true);
+					this.worldObj.setEntityState(this, (byte) 7);
+				} else {
+					this.playTameEffect(false);
+					this.worldObj.setEntityState(this, (byte) 6);
+				}
+			}
+
+			return true;
+		}
+		return false;
 	}
 
 }
