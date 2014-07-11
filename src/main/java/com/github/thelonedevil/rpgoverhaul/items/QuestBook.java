@@ -24,6 +24,7 @@ public class QuestBook extends Item implements IQuestBook {
 
 	private static final String TAG_KNOWLEDGE_PREFIX = "knowledge.";
 	private static final String TAG_FORCED_MESSAGE = "forcedMessage";
+	private static final String TAG_QUESTS= "quests";
 
 	public QuestBook() {
 		super();

@@ -36,6 +36,8 @@ public class MyBlocks {
 	public static Block AlloyFurnaceActive;
 	public static Block LootChest;
 	public static Block WeaponSmithblock;
+	
+	public static Block portal;
 
 	public static void init() {
 		ore_xiatherium = new Base_Ore().setBlockTextureName(Ref.MODID + ":xiatherium_ore").setBlockName("xiatherium_ore");

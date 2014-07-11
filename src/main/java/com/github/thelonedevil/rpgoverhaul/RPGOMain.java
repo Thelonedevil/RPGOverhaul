@@ -95,11 +95,10 @@ public class RPGOMain {
 		MyCrystals.init();
 		MyRecipes.init();
 		RecipeRemoval.init();
-		QuestBookData.init();
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
 		network.registerMessage(SyncPlayerProps.Handler.class, SyncPlayerProps.class, 0, Side.SERVER);
 		network.registerMessage(OpenGui.Handler.class, OpenGui.class, 0, Side.SERVER);
-
+		QuestBookData.init();
 		GameRegistry.registerWorldGenerator(worldgen, 9);
 		proxy.registerItemRenderers();
 		LogHelper.info("Pre Initialization Complete");

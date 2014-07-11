@@ -79,6 +79,9 @@ rpgo.questbook.page.quest1.1=If you are reading this then you have established t
 rpgo.questbook.entry.quest2=First Contact
 rpgo.questbook.page.quest2.0=<Insert Lore Here>
 rpgo.questbook.page.quest2.1=You need to make a stable portal to Them.
+rpgo.questbook.entry.quest3=
+rpgo.questbook.page.quest3.0=<Insert Lore Here>
+rpgo.questbook.page.quest3.1=
 
 rpgo.questbook.cover.crafted=Crafted this Quest Book
 rpgo.questbook.cover.line3=RPGOverhaul Coded By
