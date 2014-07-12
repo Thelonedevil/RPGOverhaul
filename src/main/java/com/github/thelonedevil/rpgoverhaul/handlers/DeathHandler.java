@@ -97,31 +97,33 @@ public class DeathHandler {
 
 	private void addLootToChest(World world, int x, int y, int z, ItemStack loot) {
 		TileEntityChest chest = (TileEntityChest) world.getTileEntity(x, y, z);
-		for (int i = 0; i < chest.getSizeInventory(); i++) {
-			if (chest.getStackInSlot(i) != null) {
-				if (chest.getStackInSlot(i).stackSize != 64) {
-					if (chest.getStackInSlot(i).getItem() == loot.getItem()) {
-						int size = chest.getStackInSlot(i).stackSize + loot.stackSize;
-						if (size < 65) {
-							ItemStack newloot = new ItemStack(loot.getItem(), size);
-							chest.setInventorySlotContents(i, newloot);
-							break;
-						} else {
-							int size2 = size - 64;
-							ItemStack newloot2 = new ItemStack(loot.getItem(), size2);
-							ItemStack newloot = new ItemStack(loot.getItem(), 64);
-							chest.setInventorySlotContents(i, newloot);
-							addLootToChest(world, x, y, z, newloot2);
-							break;
+		if (chest != null) {
+			for (int i = 0; i < chest.getSizeInventory(); i++) {
+				if (chest.getStackInSlot(i) != null) {
+					if (chest.getStackInSlot(i).stackSize != 64) {
+						if (chest.getStackInSlot(i).getItem() == loot.getItem()) {
+							int size = chest.getStackInSlot(i).stackSize + loot.stackSize;
+							if (size < 65) {
+								ItemStack newloot = new ItemStack(loot.getItem(), size);
+								chest.setInventorySlotContents(i, newloot);
+								break;
+							} else {
+								int size2 = size - 64;
+								ItemStack newloot2 = new ItemStack(loot.getItem(), size2);
+								ItemStack newloot = new ItemStack(loot.getItem(), 64);
+								chest.setInventorySlotContents(i, newloot);
+								addLootToChest(world, x, y, z, newloot2);
+								break;
+							}
 						}
 					}
+				} else {
+					chest.setInventorySlotContents(i, loot);
+					break;
 				}
-			} else {
-				chest.setInventorySlotContents(i, loot);
-				break;
 			}
+			world.setTileEntity(x, y, z, chest);
 		}
-		world.setTileEntity(x, y, z, chest);
 	}
 
 	@SubscribeEvent
