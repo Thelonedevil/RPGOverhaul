@@ -20,19 +20,21 @@ public class modelGazelle extends ModelQuadruped {
 		this.head.addBox(-3.0F, -11.0F, -6.0F, 6, 6, 8, scale);
 		this.head.setRotationPoint(0.0F, 6.0F, -8.0F);
 		this.horn = new ModelRenderer(this,22,0);
-		this.horn.addBox(-3.0F, -21.0F, -6.0F, 2, 12, 2, scale);
-		this.horn.addBox(1.0F, -21.0F, -6.0F, 2, 12, 2, scale);
+		this.horn.addBox(-3.0F, -15.0F, -6.0F, 2, 6, 2, scale);
+		this.horn.addBox(1.0F, -15.0F, -6.0F, 2, 6, 2, scale);
+		this.horn.addBox(-2.5F, -21.0F, -5.5F, 1, 6, 1, scale);
+		this.horn.addBox(1.5F, -21.0F, -5.5F, 1, 6, 1, scale);
 		this.body.setTextureOffset(30,0).addBox(0, 6.0f, -4, 2,2, 2,scale);
-		this.leg1 = new ModelRenderer(this, 0, 16);
+		this.leg1 = new ModelRenderer(this, 0, 15);
         this.leg1.addBox(-2.0F, 0.0F, -2.0F, 2, size, 2, scale);
         this.leg1.setRotationPoint(-3.0F, (float)(24 - size), 7.0F);
-        this.leg2 = new ModelRenderer(this, 0, 16);
+        this.leg2 = new ModelRenderer(this, 0, 15);
         this.leg2.addBox(0.0F, 0.0F, -2.0F, 2, size, 2, scale);
         this.leg2.setRotationPoint(3.0F, (float)(24 - size), 7.0F);
-        this.leg3 = new ModelRenderer(this, 0, 16);
+        this.leg3 = new ModelRenderer(this, 0, 15);
         this.leg3.addBox(-2.0F, 0.0F, -2.0F, 2, size, 2, scale);
         this.leg3.setRotationPoint(-3.0F, (float)(24 - size), -5.0F);
-        this.leg4 = new ModelRenderer(this, 0, 16);
+        this.leg4 = new ModelRenderer(this, 0, 15);
         this.leg4.addBox(0.0F, 0.0F, -2.0F, 2, size, 2, scale);
         this.leg4.setRotationPoint(3.0F, (float)(24 - size), -5.0F);
 	}
