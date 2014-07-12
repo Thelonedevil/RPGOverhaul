@@ -82,8 +82,8 @@ public class RPGOMain {
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
 		registerEntity(Mob1.class, "Unknown");
-		registerEntity(Goat.class, "Goat");
-		registerEntity(Fox.class, "Fox");
+		registerEntity(Goat.class, "Goat",0x3f201d,0x707070);
+		registerEntity(Fox.class, "Fox",0xcfc6a4,0x7b6e41);
 		registerEntity(Gazelle.class, "Gazelle");
 		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savanna);
 		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savannaPlateau);
@@ -157,9 +157,6 @@ public class RPGOMain {
 	@SuppressWarnings("unchecked")
 	public static void registerEntity(Class entityClass, String name, int primaryColor, int secondaryColor) {
 		int entityID = EntityRegistry.findGlobalUniqueEntityId();
-		long seed = name.hashCode();
-		Random rand = new Random(seed);
-
 		EntityRegistry.registerGlobalEntityID(entityClass, name, entityID);
 		EntityRegistry.registerModEntity(entityClass, name, entityID, instance, 64, 1, true);
 		EntityList.entityEggs.put(Integer.valueOf(entityID), new EntityList.EntityEggInfo(entityID, primaryColor, secondaryColor));

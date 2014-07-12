@@ -91,6 +91,7 @@ public class Fox extends EntityTameable {
 	}
 
 	public boolean interact(EntityPlayer player) {
+		super.interact(player);
 		ItemStack itemstack = player.inventory.getCurrentItem();
 		if (this.isTamed()) {
 			if (itemstack != null) {
