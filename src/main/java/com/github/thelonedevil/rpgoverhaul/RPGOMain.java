@@ -25,6 +25,8 @@ import com.github.thelonedevil.rpgoverhaul.handlers.PlayerConnectHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerKillHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerTickHandler;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
+import com.github.thelonedevil.rpgoverhaul.mobs.passive.Fox;
+import com.github.thelonedevil.rpgoverhaul.mobs.passive.Gazelle;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.Goat;
 import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
@@ -80,9 +82,17 @@ public class RPGOMain {
 	@EventHandler
 	public void preinit(FMLPreInitializationEvent event) {
 		registerEntity(Mob1.class, "Unknown");
-		registerEntity(Goat.class, "Goat");
+		registerEntity(Goat.class, "Goat",0x3f201d,0x707070);
+		registerEntity(Fox.class, "Fox",0xcfc6a4,0x7b6e41);
+		registerEntity(Gazelle.class, "Gazelle");
 		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savanna);
 		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savannaPlateau);
+		EntityRegistry.addSpawn(Fox.class, 200,2, 8,  EnumCreatureType.creature, BiomeGenBase.desert);
+		EntityRegistry.addSpawn(Fox.class, 200,2, 8,  EnumCreatureType.creature, BiomeGenBase.desertHills);
+		EntityRegistry.addSpawn(Gazelle.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savanna);
+		EntityRegistry.addSpawn(Gazelle.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savannaPlateau);
+		EntityRegistry.addSpawn(Gazelle.class, 100,1, 20,  EnumCreatureType.creature, BiomeGenBase.desert);
+		EntityRegistry.addSpawn(Gazelle.class, 100,1, 20,  EnumCreatureType.creature, BiomeGenBase.desertHills);
 		// File file1 = new File(Ref.modsfolder, "rpgo/textures");
 		// textures = Util.getImages(file1);
 		MyBlocks.init();
@@ -147,9 +157,6 @@ public class RPGOMain {
 	@SuppressWarnings("unchecked")
 	public static void registerEntity(Class entityClass, String name, int primaryColor, int secondaryColor) {
 		int entityID = EntityRegistry.findGlobalUniqueEntityId();
-		long seed = name.hashCode();
-		Random rand = new Random(seed);
-
 		EntityRegistry.registerGlobalEntityID(entityClass, name, entityID);
 		EntityRegistry.registerModEntity(entityClass, name, entityID, instance, 64, 1, true);
 		EntityList.entityEggs.put(Integer.valueOf(entityID), new EntityList.EntityEggInfo(entityID, primaryColor, secondaryColor));
