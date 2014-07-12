@@ -84,7 +84,7 @@ public class RPGOMain {
 		registerEntity(Mob1.class, "Unknown");
 		registerEntity(Goat.class, "Goat",0x3f201d,0x707070);
 		registerEntity(Fox.class, "Fox",0xcfc6a4,0x7b6e41);
-		registerEntity(Gazelle.class, "Gazelle");
+		registerEntity(Gazelle.class, "Gazelle",0xcfc6a4,0x333333);
 		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savanna);
 		EntityRegistry.addSpawn(Goat.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savannaPlateau);
 		EntityRegistry.addSpawn(Fox.class, 200,2, 8,  EnumCreatureType.creature, BiomeGenBase.desert);
