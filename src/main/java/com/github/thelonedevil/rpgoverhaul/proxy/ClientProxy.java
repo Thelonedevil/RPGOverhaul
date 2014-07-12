@@ -14,8 +14,11 @@ import com.github.thelonedevil.rpgoverhaul.handlers.ClientTickHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.KeyHandler;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
 import com.github.thelonedevil.rpgoverhaul.mobs.RenderTest;
+import com.github.thelonedevil.rpgoverhaul.mobs.passive.Gazelle;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.Goat;
+import com.github.thelonedevil.rpgoverhaul.mobs.passive.RenderGazelle;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.RenderGoat;
+import com.github.thelonedevil.rpgoverhaul.mobs.passive.modelGazelle;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.modelGoat;
 import com.github.thelonedevil.rpgoverhaul.renderer.RenderIds;
 import com.github.thelonedevil.rpgoverhaul.renderer.Sword1Renderer;
@@ -43,6 +46,8 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenderers() {
 		RenderingRegistry.registerEntityRenderingHandler(Mob1.class, new RenderTest(new ModelBiped(), 0.5F));
 		RenderingRegistry.registerEntityRenderingHandler(Goat.class, new RenderGoat(new modelGoat(12, 0), 0.5F));
+		RenderingRegistry.registerEntityRenderingHandler(Gazelle.class, new RenderGazelle(new modelGazelle(), 0.5F));
+
 		MinecraftForge.EVENT_BUS.register(new XpGui(Minecraft.getMinecraft()));
 
 	}
