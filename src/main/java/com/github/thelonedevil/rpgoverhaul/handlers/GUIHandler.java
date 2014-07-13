@@ -1,8 +1,10 @@
 package com.github.thelonedevil.rpgoverhaul.handlers;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import com.github.thelonedevil.rpgoverhaul.MyItems;
 import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.blocks.WeaponSmithContainer;
 import com.github.thelonedevil.rpgoverhaul.blocks.WeaponSmithGUI;
@@ -49,7 +51,11 @@ public class GUIHandler implements IGuiHandler {
 		}
 		if (ID == Ref.QUESTBOOK_GUI) {
 			GuiQuestBook lex = GuiQuestBook.currentOpenQuestBook;
+			if(player.getCurrentEquippedItem() != null){
 			GuiQuestBook.stackUsed = player.getCurrentEquippedItem();
+			}else{
+				GuiQuestBook.stackUsed = new ItemStack(MyItems.questBook);
+			}
 			if (GuiQuestBook.stackUsed == null || !(GuiQuestBook.stackUsed.getItem() instanceof IQuestBook))
 				return null;
 			return lex;

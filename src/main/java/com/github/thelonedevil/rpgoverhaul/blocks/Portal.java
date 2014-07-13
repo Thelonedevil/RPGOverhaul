@@ -22,6 +22,7 @@ import com.github.thelonedevil.rpgoverhaul.MyItems;
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.tileentities.PortalTileEntity;
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -87,27 +88,31 @@ public class Portal extends Block implements ITileEntityProvider {
 		} else if (player.getCurrentEquippedItem() == null) {
 			PortalTileEntity tile = (PortalTileEntity) world.getTileEntity(x, y, z);
 			ItemStack itemstack = tile.getStackInSlot(0);
-			tile.book = false;
 			if (itemstack != null) {
-				tile.setInventorySlotContents(0, null);
-				world.setTileEntity(x, y, z, tile);
-				float f = this.random.nextFloat() * 0.6F + 0.1F;
-				float f1 = this.random.nextFloat() * 0.6F + 0.1F;
-				float f2 = this.random.nextFloat() * 0.6F + 0.1F;
-				EntityItem entityitem = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1), (double) ((float) z + f2), new ItemStack(itemstack.getItem(), 1,
-						itemstack.getItemDamage()));
+				if (player.isSneaking()) {
+					tile.book = false;
+					tile.setInventorySlotContents(0, null);
+					world.setTileEntity(x, y, z, tile);
+					float f = this.random.nextFloat() * 0.6F + 0.1F;
+					float f1 = this.random.nextFloat() * 0.6F + 0.1F;
+					float f2 = this.random.nextFloat() * 0.6F + 0.1F;
+					EntityItem entityitem = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1), (double) ((float) z + f2), new ItemStack(itemstack.getItem(), 1,
+							itemstack.getItemDamage()));
 
-				if (itemstack.hasTagCompound()) {
-					entityitem.getEntityItem().setTagCompound(((NBTTagCompound) itemstack.getTagCompound().copy()));
+					if (itemstack.hasTagCompound()) {
+						entityitem.getEntityItem().setTagCompound(((NBTTagCompound) itemstack.getTagCompound().copy()));
+					}
+
+					float f3 = 0.025F;
+					entityitem.motionX = (double) ((float) this.random.nextGaussian() * f3);
+					entityitem.motionY = (double) ((float) this.random.nextGaussian() * f3 + 0.1F);
+					entityitem.motionZ = (double) ((float) this.random.nextGaussian() * f3);
+					if (!world.isRemote)
+						world.spawnEntityInWorld(entityitem);
+				} else {
+					player.openGui(RPGOMain.instance, Ref.QUESTBOOK_GUI, world, 0, 0, 0);
+					LogHelper.info("Gui Opened");
 				}
-
-				float f3 = 0.025F;
-				entityitem.motionX = (double) ((float) this.random.nextGaussian() * f3);
-				entityitem.motionY = (double) ((float) this.random.nextGaussian() * f3 + 0.1F);
-				entityitem.motionZ = (double) ((float) this.random.nextGaussian() * f3);
-				if(!world.isRemote)
-				world.spawnEntityInWorld(entityitem);
-
 			}
 		}
 		return true;

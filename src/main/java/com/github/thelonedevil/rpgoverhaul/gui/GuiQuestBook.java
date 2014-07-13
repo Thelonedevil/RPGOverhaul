@@ -13,6 +13,7 @@ import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
+import com.github.thelonedevil.rpgoverhaul.MyItems;
 import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.gui.button.GuiButtonBookmark;
 import com.github.thelonedevil.rpgoverhaul.gui.button.GuiButtonInvisible;
@@ -40,8 +41,12 @@ public class GuiQuestBook extends GuiScreen {
 	@Override
 	public void initGui() {
 		super.initGui();
-
+		if(Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() != null){
 		title = Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem().getDisplayName();
+		}else{
+			title = StatCollector.translateToLocal("item.questbook.name");
+		}
+		
 		currentOpenQuestBook = this;
 
 		left = width / 2 - guiWidth / 2;
