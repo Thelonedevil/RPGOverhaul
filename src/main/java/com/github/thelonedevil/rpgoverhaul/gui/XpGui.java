@@ -17,16 +17,11 @@ public class XpGui extends Gui {
 
 	public XpGui(Minecraft mc) {
 		super();
-		// We need this to invoke the render engine.
 		this.mc = mc;
 	}
 
-	//
-	// This event is called by GuiIngameForge during each frame by
-	// GuiIngameForge.pre() and GuiIngameForce.post().
-	//
 	@SubscribeEvent(priority = EventPriority.NORMAL)
-	public void onRender(RenderGameOverlayEvent event) {
+	public void onRender(RenderGameOverlayEvent.Text event) {
 		ExtendedPlayer props = ExtendedPlayer.get(this.mc.thePlayer);
 		int xPos = 10;
 		int yPos = 10;
