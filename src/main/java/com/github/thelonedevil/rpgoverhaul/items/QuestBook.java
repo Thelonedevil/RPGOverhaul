@@ -69,7 +69,6 @@ public class QuestBook extends Item implements IQuestBook {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-
 		par3EntityPlayer.openGui(RPGOMain.instance, Ref.QUESTBOOK_GUI, par2World, 0, 0, 0);
 		return par1ItemStack;
 	}
