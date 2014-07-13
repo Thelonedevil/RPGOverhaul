@@ -16,15 +16,7 @@ local.properties
 .settings/
 .loadpath
 .idea
-crash-reports/
-logs/
-asm/
-configs/
-config/
-*iml
-/RPGOverhaul/
-mods/
-saves/
+*.iml
 .gradle/
 gradle/
 build/
@@ -75,7 +67,6 @@ build/
 *_p.c
 *.ilk
 *.meta
-*.obj
 *.pch
 *.pdb
 *.pgc
