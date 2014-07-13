@@ -112,7 +112,7 @@ public class Fox extends EntityTameable {
                     }
                 }
 			}
-		} else if (!this.isTamed() && itemstack != null && itemstack.getItem() == Items.bone) {
+		} else if (!this.isTamed() && itemstack != null && itemstack.getItem() == Items.chicken) {
 			if (!player.capabilities.isCreativeMode) {
 				--itemstack.stackSize;
 			}
