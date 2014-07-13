@@ -83,6 +83,7 @@ public class Portal extends Block implements ITileEntityProvider {
 			PortalTileEntity tile = (PortalTileEntity) world.getTileEntity(x, y, z);
 			tile.setInventorySlotContents(0, player.getCurrentEquippedItem());
 			tile.book = true;
+			tile.markDirty();
 			world.setTileEntity(x, y, z, tile);
 			player.destroyCurrentEquippedItem();
 		} else if (player.getCurrentEquippedItem() == null) {
@@ -92,6 +93,7 @@ public class Portal extends Block implements ITileEntityProvider {
 				if (player.isSneaking()) {
 					tile.book = false;
 					tile.setInventorySlotContents(0, null);
+					tile.markDirty();
 					world.setTileEntity(x, y, z, tile);
 					float f = this.random.nextFloat() * 0.6F + 0.1F;
 					float f1 = this.random.nextFloat() * 0.6F + 0.1F;

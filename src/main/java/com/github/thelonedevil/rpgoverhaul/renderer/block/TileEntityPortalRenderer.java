@@ -15,7 +15,7 @@ import com.github.thelonedevil.rpgoverhaul.tileentities.PortalTileEntity;
 import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 
 public class TileEntityPortalRenderer extends TileEntitySpecialRenderer {
-	private static final ResourceLocation field_147540_b = new ResourceLocation(Ref.MODID + ":textures/models/QuestBook.png");
+	private static final ResourceLocation book = new ResourceLocation(Ref.MODID + ":textures/models/QuestBook.png");
 	private ModelBook model = new ModelBook();
 
 	public void renderTileEntityAt(PortalTileEntity tile, double x, double y, double z, float p_147500_8_) {
@@ -23,7 +23,7 @@ public class TileEntityPortalRenderer extends TileEntitySpecialRenderer {
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) x + 0.5F, (float) y + 0.85f, (float) z + 0.5F);
 			GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
-			this.bindTexture(field_147540_b);
+			this.bindTexture(book);
 			float pageFlip = 0F;
 			float opening = 1F;
 			GL11.glEnable(GL11.GL_CULL_FACE);
