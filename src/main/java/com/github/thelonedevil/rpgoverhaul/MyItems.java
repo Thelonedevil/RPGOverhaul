@@ -96,6 +96,8 @@ public class MyItems {
 
 	public static Item RawGoat;
 	public static Item CookedGoat;
+	public static Item RawGazelle;
+	public static Item CookedGazelle;
 	public static Item Parchment;
 	public static Item goatSkin;
 	public static Item foxFur;
@@ -190,6 +192,10 @@ public class MyItems {
 		GameRegistry.registerItem(RawGoat, "rawgoat");
 		CookedGoat = new ItemFood(8, 0.8F, true).setTextureName(Ref.MODID + ":goatCooked").setUnlocalizedName("cookedGoat");
 		GameRegistry.registerItem(CookedGoat, "cookedgoat");
+		RawGazelle = new ItemFood(3, 0.3F, true).setTextureName(Ref.MODID + ":gazelleRaw").setUnlocalizedName("rawGazelle");
+		GameRegistry.registerItem(RawGazelle, "rawgazelle");
+		CookedGazelle = new ItemFood(8, 0.8F, true).setTextureName(Ref.MODID + ":gazelleCooked").setUnlocalizedName("cookedGazelle");
+		GameRegistry.registerItem(CookedGazelle, "cookedgazelle");
 		Parchment = new Item().setUnlocalizedName("parchment").setTextureName(Ref.MODID + ":parchment").setCreativeTab(CreativeTabs.tabMaterials);
 		GameRegistry.registerItem(Parchment, "parchment");
 		OreDictionary.registerOre("materialPaper", Parchment);
