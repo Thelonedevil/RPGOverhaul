@@ -24,20 +24,21 @@ import net.minecraft.world.World;
 import com.github.thelonedevil.rpgoverhaul.MyItems;
 
 public class Fox extends EntityTameable {
+
 	public Fox(World p_i1681_1_) {
 		super(p_i1681_1_);
 		this.setSize(0.4F, 0.4F);
 		this.getNavigator().setAvoidsWater(true);
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIPanic(this, 1.25D));
-		this.tasks.addTask(2, new EntityAIFollowOwner(this, 1.0D, 10.0F, 2.0F));
-		this.tasks.addTask(3, new EntityAIMate(this, 1.0D));
-		this.tasks.addTask(4, new EntityAITempt(this, 1.2D, Items.egg, false));
-		this.tasks.addTask(4, new EntityAITempt(this, 1.2D, Items.wheat, false));
-		this.tasks.addTask(5, new EntityAIFollowParent(this, 1.1D));
-		this.tasks.addTask(6, new EntityAIWander(this, 1.0D));
-		this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
-		this.tasks.addTask(8, new EntityAILookIdle(this));
+		this.tasks.addTask(3, new EntityAIFollowOwner(this, 1.0D, 10.0F, 2.0F));
+		this.tasks.addTask(4, new EntityAIMate(this, 1.0D));
+		this.tasks.addTask(5, new EntityAITempt(this, 1.2D, Items.egg, false));
+		this.tasks.addTask(5, new EntityAITempt(this, 1.2D, Items.wheat, false));
+		this.tasks.addTask(6, new EntityAIFollowParent(this, 1.1D));
+		this.tasks.addTask(7, new EntityAIWander(this, 1.0D));
+		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+		this.tasks.addTask(9, new EntityAILookIdle(this));
 	}
 
 	@Override
@@ -95,22 +96,19 @@ public class Fox extends EntityTameable {
 		ItemStack itemstack = player.inventory.getCurrentItem();
 		if (this.isTamed()) {
 			if (itemstack != null) {
-				if (itemstack.getItem() == Items.dye)
-                {
-                    int i = BlockColored.func_150032_b(itemstack.getItemDamage());
+				if (itemstack.getItem() == Items.dye) {
+					int i = BlockColored.func_150032_b(itemstack.getItemDamage());
 
-                    if (i != this.getCollarColor())
-                    {
-                        this.setCollarColor(i);
+					if (i != this.getCollarColor()) {
+						this.setCollarColor(i);
 
-                        if (!player.capabilities.isCreativeMode && --itemstack.stackSize <= 0)
-                        {
-                           player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack)null);
-                        }
+						if (!player.capabilities.isCreativeMode && --itemstack.stackSize <= 0) {
+							player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
+						}
 
-                        return true;
-                    }
-                }
+						return true;
+					}
+				}
 			}
 		} else if (!this.isTamed() && itemstack != null && itemstack.getItem() == Items.chicken) {
 			if (!player.capabilities.isCreativeMode) {
