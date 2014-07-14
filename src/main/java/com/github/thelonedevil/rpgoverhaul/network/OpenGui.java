@@ -25,9 +25,9 @@ public class OpenGui implements IMessage {
 
 	@Override
 	public void fromBytes(ByteBuf buf) {
-		data = ByteBufUtils.readVarInt(buf, 5); // this class is very useful in
-												// general for writing more
-												// complex objects
+		data = ByteBufUtils.readVarInt(buf, 5);
+												
+												
 	}
 
 	@Override
