@@ -1,6 +1,6 @@
 package com.github.thelonedevil.rpgoverhaul.handlers;
 
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EntityDamageSource;
@@ -19,11 +19,11 @@ public class AttackHandler {
 			Item item = stack.getItem();
 			if (item instanceof Sword) {
 				Sword sword = (Sword) item;
-				if (event.target instanceof EntityLiving) {
-					EntityLiving target = (EntityLiving) event.target;
+				if (event.target instanceof EntityLivingBase) {
+					EntityLivingBase target = (EntityLivingBase) event.target;
 					target.attackEntityFrom(new EntityDamageSource(sword.getItemStackDisplayName(event.entityPlayer.getHeldItem()), event.entityPlayer), sword.getAttackDamage());
-
 				}
+
 			}
 		}
 

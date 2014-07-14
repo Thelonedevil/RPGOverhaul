@@ -25,9 +25,7 @@ public class SyncPlayerProps implements IMessage {
 
 	@Override
 	public void fromBytes(ByteBuf buf) {
-		data = ByteBufUtils.readTag(buf); // this class is very useful in
-											// general for writing more complex
-											// objects
+		data = ByteBufUtils.readTag(buf); 											
 	}
 
 	@Override
@@ -40,10 +38,8 @@ public class SyncPlayerProps implements IMessage {
 		@Override
 		public IMessage onMessage(SyncPlayerProps message, MessageContext ctx) {
 			System.out.println(String.format("Received %s from %s", "Properties", ctx.getServerHandler().playerEntity.getDisplayName()));
-			data = new NBTTagCompound();
-			// and save our player's data into it
 			ExtendedPlayer.get(ctx.getServerHandler().playerEntity).saveNBTData(data);
-			return null; // no response in this case
+			return null; 
 		}
 	}
 }

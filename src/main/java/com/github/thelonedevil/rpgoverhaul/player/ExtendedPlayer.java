@@ -3,11 +3,11 @@ package com.github.thelonedevil.rpgoverhaul.player;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -18,7 +18,9 @@ import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.armour.Armour;
 import com.github.thelonedevil.rpgoverhaul.inventory.ArmourInventory;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
+import com.github.thelonedevil.rpgoverhaul.network.UpdateXpPacket;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
+import com.github.thelonedevil.rpgoverhaul.util.Util;
 
 public class ExtendedPlayer implements IExtendedEntityProperties {
 
@@ -31,7 +33,6 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	private HashMap<Perks, Boolean> perks = new HashMap<Perks, Boolean>();
 	private double xp = 0;
 	private int skillPoints = 0;
-	private ContainerWorkbench openContainer;
 
 	public ExtendedPlayer(EntityPlayer player) {
 		this.player = player;
@@ -77,7 +78,10 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	public void loadNBTData(NBTTagCompound compound) {
 		NBTTagCompound properties = (NBTTagCompound) compound.getTag(EXT_PROP_NAME);
 		customInventory.readFromNBT(properties);
-		xp = properties.getDouble("xp");
+		double newxp = properties.getDouble("xp");
+		UUID uuid = this.player.getUniqueID();
+		EntityPlayerMP epmp = Util.getPlayerFromUUID(uuid);
+		RPGOMain.network.sendTo(new UpdateXpPacket(newxp), epmp);
 		skills = properties.getIntArray("Skills");
 		Perks[] perklist = Perks.values();
 		for (int i = 0; i < perklist.length; i++) {
@@ -175,8 +179,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		System.out.println("Xp added, xp is now " + this.xp);
 		System.out.println("Level is now " + getLevel());
 		System.out.println(" add player is " + player.getCommandSenderName());
-		ExtendedPlayer.saveProxyData(player);
-		ExtendedPlayer.loadProxyData(player);
+		this.saveProxyData(player);
 	}
 
 	public double getXp() {

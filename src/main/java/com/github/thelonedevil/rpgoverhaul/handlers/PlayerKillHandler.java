@@ -1,17 +1,24 @@
 package com.github.thelonedevil.rpgoverhaul.handlers;
 
+import java.util.UUID;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
+import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.mobs.BaseXP;
 import com.github.thelonedevil.rpgoverhaul.mobs.ExtendedMob;
+import com.github.thelonedevil.rpgoverhaul.network.UpdateXpPacket;
 import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
+import com.github.thelonedevil.rpgoverhaul.util.Util;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -26,25 +33,19 @@ public class PlayerKillHandler {
 				ExtendedMob mob = ExtendedMob.get((EntityMob) e);
 				int moblevel = mob.getLevel();
 				System.out.println("mob level=" + moblevel);
+				double xp = 0.0;
 				if (e instanceof EntityCreeper) {
-
-					double xp = ((Math.pow(moblevel, 0.6))) * BaseXP.CREEPER;
-					if (xp > 0) {
-						player.addXp(xp);
-					}
-
+					 xp = ((Math.pow(moblevel, 0.6))) * BaseXP.CREEPER;
 				} else if (e instanceof EntityZombie) {
-
-					double xp = ((Math.pow(moblevel, 0.6))) * BaseXP.ZOMBIE;
-					if (xp > 0) {
-						player.addXp(xp);
-					}
-
+					 xp = ((Math.pow(moblevel, 0.6))) * BaseXP.ZOMBIE;
 				} else if (e instanceof EntitySkeleton) {
-
-					double xp = ((Math.pow(moblevel, 0.6))) * BaseXP.SKELETON;
-					if (xp > 0) {
-						player.addXp(xp);
+					xp = ((Math.pow(moblevel, 0.6))) * BaseXP.SKELETON;
+				}
+				if (xp > 0) {
+					if (!source.getSourceOfDamage().worldObj.isRemote) {
+						UUID uuid = source.getSourceOfDamage().getUniqueID();
+						EntityPlayerMP epmp = Util.getPlayerFromUUID(uuid);
+						RPGOMain.network.sendTo(new UpdateXpPacket(xp), epmp);
 					}
 
 				}
