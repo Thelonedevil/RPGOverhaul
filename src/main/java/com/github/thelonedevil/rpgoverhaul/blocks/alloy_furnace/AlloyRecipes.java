@@ -23,7 +23,7 @@ public class AlloyRecipes {
 	}
 
 	private AlloyRecipes() {
-		this.addRecipe(Item.getItemFromBlock(MyBlocks.ore_asunalt), Item.getItemFromBlock(MyBlocks.ore_kiritorium), new ItemStack(MyItems.ingot_asunalt), 0.8F);
+		//this.addRecipe(Item.getItemFromBlock(MyBlocks.ore_asunalt), Item.getItemFromBlock(MyBlocks.ore_kiritorium), new ItemStack(MyItems.ingot_asunalt), 0.8F);
 	}
 
 	public void addRecipe(Item item, Item item2, ItemStack itemstack, float experience) {

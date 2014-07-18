@@ -1,5 +1,7 @@
 package com.github.thelonedevil.rpgoverhaul.items;
 
+import com.github.thelonedevil.rpgoverhaul.MyMetals;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
@@ -16,6 +18,15 @@ public class MetalUtil {
 			// base
 			return stack.getUnlocalizedName().substring(11);
 		}
+	}
+	
+	public static ItemStack makeMixedIngot(ItemStack itemstack, ItemStack itemstack1){
+		ItemStack stack = new ItemStack(MyMetals.mixedIngot);
+		NBTTagCompound tag = new NBTTagCompound();
+		tag.setString("metal1", itemstack.getUnlocalizedName().substring(11));
+		tag.setString("metal2", itemstack1.getUnlocalizedName().substring(11));
+		stack.setTagCompound(tag);
+		return stack;
 	}
 
 }

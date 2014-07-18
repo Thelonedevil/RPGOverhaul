@@ -17,28 +17,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MyItems {
 
-	public static Item ingot_xiatherium;
-	public static Item ingot_farunese;
-	public static Item ingot_orobalt;
-	public static Item ingot_kiritorium;
-	public static Item ingot_asunalt;
-	public static Item ingot_eruslalt;
-	public static Item ingot_ithasium;
-	public static Item ingot_ozestum;
-	public static Item ingot_emodralt;
-	public static Item ingot_evosum;
-	public static Item ingot_nautrenese;
-	public static Item ingot_axespium;
-	public static Item ingot_ketsuekium;
-	public static Item ingot_shikyolt;
-	public static Item ingot_sakuralt;
-	public static Item ingot_ayagrese;
-	public static Item ingot_tenshirium;
-	public static Item ingot_onecrum;
-
-	public static Item mixedIngot;
-
-	public static Item alloyIngot;
+	
 
 	public static Item Zangetsu;
 	public static Item Sword1;
@@ -110,30 +89,6 @@ public class MyItems {
 
 		MIXABLE = new Item();
 
-		ingot_xiatherium = new Item().setUnlocalizedName("ingot_xiatherium").setTextureName(Ref.MODID + ":ingot_xiatherium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_farunese = new Item().setUnlocalizedName("ingot_farunese").setTextureName(Ref.MODID + ":ingot_farunese").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_orobalt = new Item().setUnlocalizedName("ingot_orobalt").setTextureName(Ref.MODID + ":ingot_orobalt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_kiritorium = new Item().setUnlocalizedName("ingot_kiritorium").setTextureName(Ref.MODID + ":ingot_kiritorium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_asunalt = new Item().setUnlocalizedName("ingot_asunalt").setTextureName(Ref.MODID + ":ingot_asunalt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_eruslalt = new Item().setUnlocalizedName("ingot_eruslalt").setTextureName(Ref.MODID + ":ingot_eruslalt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_ithasium = new Item().setUnlocalizedName("ingot_ithasium").setTextureName(Ref.MODID + ":ingot_ithasium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_ozestum = new Item().setUnlocalizedName("ingot_ozestum").setTextureName(Ref.MODID + ":ingot_ozestum").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_emodralt = new Item().setUnlocalizedName("ingot_emodralt").setTextureName(Ref.MODID + ":ingot_emodralt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_evosum = new Item().setUnlocalizedName("ingot_evosum").setTextureName(Ref.MODID + ":ingot_evosum").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_nautrenese = new Item().setUnlocalizedName("ingot_nautrenese").setTextureName(Ref.MODID + ":ingot_nautrenese").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_axespium = new Item().setUnlocalizedName("ingot_axespium").setTextureName(Ref.MODID + ":ingot_axespium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_ketsuekium = new Item().setUnlocalizedName("ingot_ketsuekium").setTextureName(Ref.MODID + ":ingot_ketsuekium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_shikyolt = new Item().setUnlocalizedName("ingot_shikyolt").setTextureName(Ref.MODID + ":ingot_shikyolt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_sakuralt = new Item().setUnlocalizedName("ingot_sakuralt").setTextureName(Ref.MODID + ":ingot_sakuralt").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_ayagrese = new Item().setUnlocalizedName("ingot_ayagrese").setTextureName(Ref.MODID + ":ingot_ayagrese").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_tenshirium = new Item().setUnlocalizedName("ingot_tenshirium").setTextureName(Ref.MODID + ":ingot_tenshirium").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-		ingot_onecrum = new Item().setUnlocalizedName("ingot_onecrum").setTextureName(Ref.MODID + ":ingot_onecrum").setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-
-		mixedIngot = new MixedIngot().setUnlocalizedName("mixedIngot").setMaxStackSize(1).setCreativeTab(RPGOMain.myTab);
-		GameRegistry.registerItem(mixedIngot, "mixedIngot");
-
-		alloyIngot = new AlloyIngot().setUnlocalizedName("alloyIngot").setMaxStackSize(1).setCreativeTab(RPGOMain.myTab);
-		GameRegistry.registerItem(alloyIngot, "alloyIngot");
 
 		crystal_fire = new Item().setUnlocalizedName("crystal_fire").setTextureName(Ref.MODID + ":crystal_fire").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 		crystal_water = new Item().setUnlocalizedName("crystal_water").setTextureName(Ref.MODID + ":crystal_water").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
@@ -209,68 +164,7 @@ public class MyItems {
 		questBook = new QuestBook().setCreativeTab(RPGOMain.myTab).setTextureName(Ref.MODID + ":questbook");
 		GameRegistry.registerItem(questBook, "questBook");
 
-		GameRegistry.registerItem(ingot_xiatherium, "Xiatherium Ingot");
-		GameRegistry.registerItem(ingot_farunese, "Farunese Ingot");
-		GameRegistry.registerItem(ingot_orobalt, "Orobalt Ingot");
-		GameRegistry.registerItem(ingot_kiritorium, "Kiritorium Ingot");
-		GameRegistry.registerItem(ingot_asunalt, "Asunalt Ingot");
-		GameRegistry.registerItem(ingot_eruslalt, "Eruslalt Ingot");
-		GameRegistry.registerItem(ingot_ithasium, "Ithasium Ingot");
-		GameRegistry.registerItem(ingot_ozestum, "Ozestum Ingot");
-		GameRegistry.registerItem(ingot_emodralt, "Emodralt Ingot");
-		GameRegistry.registerItem(ingot_evosum, "Evosum Ingot");
-		GameRegistry.registerItem(ingot_nautrenese, "Nautrenese Ingot");
-		GameRegistry.registerItem(ingot_axespium, "Axespium Ingot");
-		GameRegistry.registerItem(ingot_ketsuekium, "Ketsuekium Ingot");
-		GameRegistry.registerItem(ingot_shikyolt, "Shikyolt Ingot");
-		GameRegistry.registerItem(ingot_sakuralt, "Sakuralt Ingot");
-		GameRegistry.registerItem(ingot_ayagrese, "Ayagrese Ingot");
-		GameRegistry.registerItem(ingot_tenshirium, "Tenshirium Ingot");
-		GameRegistry.registerItem(ingot_onecrum, "Onecrum Ingot");
-
-		OreDictionary.registerOre("ingotMetal", ingot_xiatherium);
-		OreDictionary.registerOre("ingotMetal", ingot_farunese);
-		OreDictionary.registerOre("ingotMetal", ingot_orobalt);
-		OreDictionary.registerOre("ingotMetal", ingot_kiritorium);
-		OreDictionary.registerOre("ingotMetal", ingot_asunalt);
-		OreDictionary.registerOre("ingotMetal", ingot_eruslalt);
-		OreDictionary.registerOre("ingotMetal", ingot_ithasium);
-		OreDictionary.registerOre("ingotMetal", ingot_ozestum);
-		OreDictionary.registerOre("ingotMetal", ingot_evosum);
-		OreDictionary.registerOre("ingotMetal", ingot_emodralt);
-		OreDictionary.registerOre("ingotMetal", ingot_nautrenese);
-		OreDictionary.registerOre("ingotMetal", ingot_axespium);
-		OreDictionary.registerOre("ingotMetal", ingot_ketsuekium);
-		OreDictionary.registerOre("ingotMetal", ingot_shikyolt);
-		OreDictionary.registerOre("ingotMetal", ingot_sakuralt);
-		OreDictionary.registerOre("ingotMetal", ingot_ayagrese);
-		OreDictionary.registerOre("ingotMetal", ingot_tenshirium);
-		OreDictionary.registerOre("ingotMetal", ingot_onecrum);
-		OreDictionary.registerOre("ingotMetal", Items.gold_ingot);
-		OreDictionary.registerOre("ingotMetal", Items.iron_ingot);
-
-		OreDictionary.registerOre("ingotMetal", alloyIngot);
-
-		OreDictionary.registerOre("ingotBase", ingot_xiatherium);
-		OreDictionary.registerOre("ingotBase", ingot_farunese);
-		OreDictionary.registerOre("ingotBase", ingot_orobalt);
-		OreDictionary.registerOre("ingotBase", ingot_kiritorium);
-		OreDictionary.registerOre("ingotBase", ingot_asunalt);
-		OreDictionary.registerOre("ingotBase", ingot_eruslalt);
-		OreDictionary.registerOre("ingotBase", ingot_ithasium);
-		OreDictionary.registerOre("ingotBase", ingot_ozestum);
-		OreDictionary.registerOre("ingotBase", ingot_evosum);
-		OreDictionary.registerOre("ingotBase", ingot_emodralt);
-		OreDictionary.registerOre("ingotBase", ingot_nautrenese);
-		OreDictionary.registerOre("ingotBase", ingot_axespium);
-		OreDictionary.registerOre("ingotBase", ingot_ketsuekium);
-		OreDictionary.registerOre("ingotBase", ingot_shikyolt);
-		OreDictionary.registerOre("ingotBase", ingot_sakuralt);
-		OreDictionary.registerOre("ingotBase", ingot_ayagrese);
-		OreDictionary.registerOre("ingotBase", ingot_tenshirium);
-		OreDictionary.registerOre("ingotBase", ingot_onecrum);
-		OreDictionary.registerOre("ingotBase", Items.gold_ingot);
-		OreDictionary.registerOre("ingotBase", Items.iron_ingot);
+		
 
 		GameRegistry.registerItem(crystal_fire, "Fire Crystal");
 		GameRegistry.registerItem(crystal_water, "Water Crystal");
