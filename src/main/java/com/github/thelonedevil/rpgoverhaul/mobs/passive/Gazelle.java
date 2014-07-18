@@ -1,7 +1,5 @@
 package com.github.thelonedevil.rpgoverhaul.mobs.passive;
 
-import com.github.thelonedevil.rpgoverhaul.MyItems;
-
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIFollowParent;
@@ -18,6 +16,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import com.github.thelonedevil.rpgoverhaul.MyItems;
 
 public class Gazelle extends EntityAnimal {
 

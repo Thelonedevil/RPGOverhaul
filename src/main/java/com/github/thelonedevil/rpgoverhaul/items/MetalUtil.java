@@ -1,9 +1,9 @@
 package com.github.thelonedevil.rpgoverhaul.items;
 
-import com.github.thelonedevil.rpgoverhaul.MyMetals;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+
+import com.github.thelonedevil.rpgoverhaul.MyMetals;
 
 public class MetalUtil {
 

@@ -1,6 +1,5 @@
 package com.github.thelonedevil.rpgoverhaul.renderer.item;
 
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -9,17 +8,16 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import com.github.thelonedevil.rpgoverhaul.Ref;
-import com.github.thelonedevil.rpgoverhaul.blocks.crystals.CrystalCluster;
-import com.github.thelonedevil.rpgoverhaul.models.ModelCrystalBase;
+import com.github.thelonedevil.rpgoverhaul.items.Crystal;
+import com.github.thelonedevil.rpgoverhaul.models.ModelCrystal;
 
 import cpw.mods.fml.client.FMLClientHandler;
 
-public class ItemCrystalClusterRenderer implements IItemRenderer {
+public class CrystalRenderer implements IItemRenderer {
+	ModelCrystal model;
 
-	ModelCrystalBase model;
-
-	public ItemCrystalClusterRenderer() {
-		model = new ModelCrystalBase();
+	public CrystalRenderer() {
+		model = new ModelCrystal();
 	}
 
 	@Override
@@ -42,21 +40,21 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 		switch (type) {
 
 		case EQUIPPED:
-			scale = 1f;
+			scale = 0.5f;
 			GL11.glPushMatrix();
 			GL11.glDisable(GL11.GL_LIGHTING);
 
 			// Scale, Translate, Rotate
 			GL11.glScalef(scale, scale, scale);
-			GL11.glTranslatef(0F, 0F, 0F);
-			GL11.glRotatef(0F, 1F, 0, 0);
+			GL11.glTranslatef(1.8F, 1.5F, 1F);
+			GL11.glRotatef(-135F, 1F, 0, 0);
 			GL11.glRotatef(0F, 0, 1F, 0);
 			GL11.glRotatef(0F, 0, 0, 1F);
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			//GL11.glColor4f(1F, 1F, 1F, 0.75F);
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/crystal.png"));
-			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
+			switch (((Crystal)item.getItem()).type) {
 			case 0:
 				GL11.glColor4f(1f, 0f, 0f,0.75F);
 				break;
@@ -88,14 +86,14 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 			break;
 
 		case EQUIPPED_FIRST_PERSON:
-			scale = 1f;
+			scale = 0.5f;
 			GL11.glPushMatrix();
 			GL11.glDisable(GL11.GL_LIGHTING);
 
 			// Scale, Translate, Rotate
 			GL11.glScalef(scale, scale, scale);
-			GL11.glTranslatef(0F, 0.72F, 0F);
-			GL11.glRotatef(0F, 1F, 0, 0);
+			GL11.glTranslatef(0F, 2F, 0F);
+			GL11.glRotatef(-45F, 1F, 0, 0);
 			GL11.glRotatef(0F, 0, 1F, 0);
 			GL11.glRotatef(0F, 0, 0, 1F);
 
@@ -103,7 +101,7 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			//GL11.glColor4f(1F, 1F, 1F, 0.75F);
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/crystal.png"));
-			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
+			switch (((Crystal)item.getItem()).type) {
 			case 0:
 				GL11.glColor4f(1f, 0f, 0f,0.75F);
 				break;
@@ -139,7 +137,7 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 			GL11.glDisable(GL11.GL_LIGHTING);
 
 			// Scale, Translate, Rotate
-			GL11.glScalef(1F, 1F, 1F);
+			GL11.glScalef(0.5F, 0.5F, 0.5F);
 			GL11.glTranslatef(0, 0, 0);
 			GL11.glRotatef(0, 1F, 0, 0);
 
@@ -147,7 +145,7 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			//GL11.glColor4f(1F, 1F, 1F, 0.75F);
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/crystal.png"));
-			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
+			switch (((Crystal)item.getItem()).type) {
 			case 0:
 				GL11.glColor4f(1f, 0f, 0f,0.75F);
 				break;
@@ -182,15 +180,15 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 			GL11.glDisable(GL11.GL_LIGHTING);
 
 			// Scale, Translate, Rotate
-			GL11.glScalef(1f, 1F, 1F);
-			GL11.glTranslatef(0, -0.3f, 0);
-			GL11.glRotatef(0F, 1F, 0, 0);
+			GL11.glScalef(0.5f, 0.5F, 0.5F);
+			GL11.glTranslatef(0, 0, 0);
+			GL11.glRotatef(-135F, 1F, 0, 0);
 
 			GL11.glEnable(GL11.GL_BLEND);
 			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 			//GL11.glColor4f(1F, 1F, 1F, 0.75F);
 			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/crystal.png"));
-			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
+			switch (((Crystal)item.getItem()).type) {
 			case 0:
 				GL11.glColor4f(1f, 0f, 0f,0.75F);
 				break;

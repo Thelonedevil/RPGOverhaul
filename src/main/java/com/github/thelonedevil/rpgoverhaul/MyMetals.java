@@ -1,12 +1,13 @@
 package com.github.thelonedevil.rpgoverhaul;
 
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraftforge.oredict.OreDictionary;
+
 import com.github.thelonedevil.rpgoverhaul.items.AlloyIngot;
 import com.github.thelonedevil.rpgoverhaul.items.MixedIngot;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class MyMetals {
 	public static final String XIATHERIUM = "ingot_xiatherium";

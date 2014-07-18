@@ -13,7 +13,6 @@ import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
-import com.github.thelonedevil.rpgoverhaul.MyItems;
 import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.gui.button.GuiButtonBookmark;
 import com.github.thelonedevil.rpgoverhaul.gui.button.GuiButtonInvisible;

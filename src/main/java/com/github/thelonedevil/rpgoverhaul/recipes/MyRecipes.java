@@ -46,14 +46,6 @@ public class MyRecipes {
 
 		CustomCrafting.getInstance().addShapelessRecipe(new ItemStack(MyMetals.alloyIngot, 1), new Object[] { MyMetals.mixedIngot, MyItems.crystal_smelting });
 
-		CustomCrafting.getInstance().addShapedOreRecipe(new ItemStack(MyWeapons.broadsword_bottom, 1), new Object[] { "AAAAA", "  A  ", "  A  ", "  A  ", "     ", 'A', "ingotMetal" });
-		CustomCrafting.getInstance().addShapedOreRecipe(new ItemStack(MyWeapons.broadsword_top, 1), new Object[] { "  A  ", " AAA ", " AAA ", " AAA ", " AAA ", 'A', "ingotMetal" });
-		/*
-		 * CustomCrafting.getInstance().addRecipe(new
-		 * ItemStack(MyItems.questBook, 1), new Object[] { "KLKLK", "LPPPL",
-		 * "KPIPK", "LPPPL", "KLKLK", 'K', MyItems.ingot_ketsuekium, 'L',
-		 * Items.leather, 'P', MyItems.Parchment, 'I', Items.coal });
-		 */
-		CustomCrafting.getInstance().addRecipe(new ItemStack(MyWeapons.broadsword, 1), new Object[] { "A", "B", 'A', MyWeapons.broadsword_top, 'B', MyWeapons.broadsword_bottom });
+		CustomCrafting.getInstance().addShapedOreRecipe(new ItemStack(MyWeapons.broadSword, 1), new Object[] {"A","A","B",'A',"ingotMetal",'B',Items.stick});
 	}
 }

@@ -20,6 +20,7 @@ public class Weapon extends Item {
 
 	public Weapon(WeaponType type, String name, int[] stats) {
 		super();
+		this.setUnlocalizedName(name);
 		this.type = type;
 		this.attackDamage = stats[0];
 		this.attackSpeed = stats[1];

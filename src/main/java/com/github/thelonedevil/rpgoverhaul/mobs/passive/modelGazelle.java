@@ -1,12 +1,10 @@
 package com.github.thelonedevil.rpgoverhaul.mobs.passive;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.model.ModelQuadruped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.MathHelper;
+
+import org.lwjgl.opengl.GL11;
 
 public class modelGazelle extends ModelQuadruped {
 	ModelRenderer horn;

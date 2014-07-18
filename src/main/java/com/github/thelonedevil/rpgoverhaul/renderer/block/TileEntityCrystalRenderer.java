@@ -37,18 +37,22 @@ public class TileEntityCrystalRenderer extends TileEntitySpecialRenderer {
 			float scale = 1.0f;
 			GL11.glScalef(scale, scale, scale);
 			GL11.glTranslated((float) x + 0.4f, (float) y, (float) z + 0.4f);
+			GL11.glEnable(GL11.GL_BLEND);
+			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+			//GL11.glColor4f(1F, 1F, 1F, 0.75F);
+			this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/crystal.png"));
 			switch (TE.Type) {
 			case 0:
-				this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				GL11.glColor4f(1f, 0f, 0f,0.75F);
 				break;
 			case 1:
-				this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
+				GL11.glColor4f(0f, 0f, 1f,0.75F);
 				break;
 			case 2:
-				this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
+				GL11.glColor4f(1f, 1f, 0.68235294117f,0.75F);
 				break;
 			case 3:
-				this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
+				GL11.glColor4f(0f, 1f, 0f,0.75F);
 				break;
 			case 4:
 				this.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));

@@ -3,16 +3,12 @@ package com.github.thelonedevil.rpgoverhaul.renderer.block;
 import net.minecraft.client.model.ModelBook;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import com.github.thelonedevil.rpgoverhaul.MyItems;
 import com.github.thelonedevil.rpgoverhaul.Ref;
-import com.github.thelonedevil.rpgoverhaul.handlers.ClientTickHandler;
 import com.github.thelonedevil.rpgoverhaul.tileentities.PortalTileEntity;
-import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 
 public class TileEntityPortalRenderer extends TileEntitySpecialRenderer {
 	private static final ResourceLocation book = new ResourceLocation(Ref.MODID + ":textures/models/QuestBook.png");

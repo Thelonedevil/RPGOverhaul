@@ -8,20 +8,12 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.github.thelonedevil.rpgoverhaul.armour.Belt;
 import com.github.thelonedevil.rpgoverhaul.armour.Helmet;
-import com.github.thelonedevil.rpgoverhaul.items.AlloyIngot;
-import com.github.thelonedevil.rpgoverhaul.items.MixedIngot;
+import com.github.thelonedevil.rpgoverhaul.items.Crystal;
 import com.github.thelonedevil.rpgoverhaul.items.QuestBook;
-import com.github.thelonedevil.rpgoverhaul.weapons.swords.LegendarySword;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MyItems {
-
-	
-
-	public static Item Zangetsu;
-	public static Item Sword1;
-	public static Item Sword2;
 
 	public static Item crystal_fire;
 	public static Item crystal_water;
@@ -81,62 +73,51 @@ public class MyItems {
 	public static Item goatSkin;
 	public static Item foxFur;
 
-	// dummy items
-	public static Item MIXABLE;
 	public static Item questBook;
 
 	public static void init() {
 
-		MIXABLE = new Item();
+		
 
+		crystal_fire = new Crystal(0).setUnlocalizedName("crystal_fire").setTextureName(Ref.MODID + ":crystal_fire").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_water = new Crystal(1).setUnlocalizedName("crystal_water").setTextureName(Ref.MODID + ":crystal_water").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_air = new Crystal(2).setUnlocalizedName("crystal_air").setTextureName(Ref.MODID + ":crystal_air").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_earth = new Crystal(3).setUnlocalizedName("crystal_earth").setTextureName(Ref.MODID + ":crystal_earth").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_plasma = new Crystal(4).setUnlocalizedName("crystal_plasma").setTextureName(Ref.MODID + ":crystal_plasma").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_smelting = new Crystal(5).setUnlocalizedName("crystal_smelting").setTextureName(Ref.MODID + ":crystal_smelting").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_sun = new Crystal(6).setUnlocalizedName("crystal_sun").setTextureName(Ref.MODID + ":crystal_sun").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_moon = new Crystal(7).setUnlocalizedName("crystal_moon").setTextureName(Ref.MODID + ":crystal_moon").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 
-		crystal_fire = new Item().setUnlocalizedName("crystal_fire").setTextureName(Ref.MODID + ":crystal_fire").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_water = new Item().setUnlocalizedName("crystal_water").setTextureName(Ref.MODID + ":crystal_water").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_air = new Item().setUnlocalizedName("crystal_air").setTextureName(Ref.MODID + ":crystal_air").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_earth = new Item().setUnlocalizedName("crystal_earth").setTextureName(Ref.MODID + ":crystal_earth").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_plasma = new Item().setUnlocalizedName("crystal_plasma").setTextureName(Ref.MODID + ":crystal_plasma").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_smelting = new Item().setUnlocalizedName("crystal_smelting").setTextureName(Ref.MODID + ":crystal_smelting").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_sun = new Item().setUnlocalizedName("crystal_sun").setTextureName(Ref.MODID + ":crystal_sun").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_moon = new Item().setUnlocalizedName("crystal_moon").setTextureName(Ref.MODID + ":crystal_moon").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_aries = new Crystal(8).setUnlocalizedName("crystal_aries").setTextureName(Ref.MODID + ":crystal_aires").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_taurus = new Crystal(9).setUnlocalizedName("crystal_taurus").setTextureName(Ref.MODID + ":crystal_taurus").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_gemini = new Crystal(10).setUnlocalizedName("crystal_gemini").setTextureName(Ref.MODID + ":crystal_gemini").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_cancer = new Crystal(11).setUnlocalizedName("crystal_cancer").setTextureName(Ref.MODID + ":crystal_cancer").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_leo = new Crystal(12).setUnlocalizedName("crystal_leo").setTextureName(Ref.MODID + ":crystal_leo").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_virgo = new Crystal(13).setUnlocalizedName("crystal_virgo").setTextureName(Ref.MODID + ":crystal_virgo").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_libra = new Crystal(14).setUnlocalizedName("crystal_libra").setTextureName(Ref.MODID + ":crystal_libra").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_scorpio = new Crystal(15).setUnlocalizedName("crystal_scorpio").setTextureName(Ref.MODID + ":crystal_scorpio").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_sagittarius = new Crystal(16).setUnlocalizedName("crystal_sagittarius").setTextureName(Ref.MODID + ":crystal_sagittarius").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_capricorn = new Crystal(17).setUnlocalizedName("crystal_capricorn").setTextureName(Ref.MODID + ":crystal_capricorn").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_aquarius = new Crystal(18).setUnlocalizedName("crystal_aquarius").setTextureName(Ref.MODID + ":crystal_aquarius").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_pisces = new Crystal(19).setUnlocalizedName("crystal_pisces").setTextureName(Ref.MODID + ":crystal_pisces").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 
-		crystal_aries = new Item().setUnlocalizedName("crystal_aries").setTextureName(Ref.MODID + ":crystal_aires").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_taurus = new Item().setUnlocalizedName("crystal_taurus").setTextureName(Ref.MODID + ":crystal_taurus").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_gemini = new Item().setUnlocalizedName("crystal_gemini").setTextureName(Ref.MODID + ":crystal_gemini").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_cancer = new Item().setUnlocalizedName("crystal_cancer").setTextureName(Ref.MODID + ":crystal_cancer").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_leo = new Item().setUnlocalizedName("crystal_leo").setTextureName(Ref.MODID + ":crystal_leo").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_virgo = new Item().setUnlocalizedName("crystal_virgo").setTextureName(Ref.MODID + ":crystal_virgo").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_libra = new Item().setUnlocalizedName("crystal_libra").setTextureName(Ref.MODID + ":crystal_libra").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_scorpio = new Item().setUnlocalizedName("crystal_scorpio").setTextureName(Ref.MODID + ":crystal_scorpio").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_sagittarius = new Item().setUnlocalizedName("crystal_sagittarius").setTextureName(Ref.MODID + ":crystal_sagittarius").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_capricorn = new Item().setUnlocalizedName("crystal_capricorn").setTextureName(Ref.MODID + ":crystal_capricorn").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_aquarius = new Item().setUnlocalizedName("crystal_aquarius").setTextureName(Ref.MODID + ":crystal_aquarius").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_pisces = new Item().setUnlocalizedName("crystal_pisces").setTextureName(Ref.MODID + ":crystal_pisces").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_dragon_fire = new Crystal(20).setUnlocalizedName("crystal_dragon_fire").setTextureName(Ref.MODID + ":crystal_dragon_fire").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_dragon_sky = new Crystal(21).setUnlocalizedName("crystal_dragon_sky").setTextureName(Ref.MODID + ":crystal_dragon_sky").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_dragon_iron = new Crystal(22).setUnlocalizedName("crystal_dragon_iron").setTextureName(Ref.MODID + ":crystal_dragon_iron").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_dragon_lightning = new Crystal(23).setUnlocalizedName("crystal_dragon_lightning").setTextureName(Ref.MODID + ":crystal_").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_dragon_shadow = new Crystal(24).setUnlocalizedName("crystal_dragon_shadow").setTextureName(Ref.MODID + ":crystal_dragon_shadow").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_dragon_light = new Crystal(25).setUnlocalizedName("crystal_dragon_light").setTextureName(Ref.MODID + ":crystal_dragon_light").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 
-		crystal_dragon_fire = new Item().setUnlocalizedName("crystal_dragon_fire").setTextureName(Ref.MODID + ":crystal_dragon_fire").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_dragon_sky = new Item().setUnlocalizedName("crystal_dragon_sky").setTextureName(Ref.MODID + ":crystal_dragon_sky").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_dragon_iron = new Item().setUnlocalizedName("crystal_dragon_iron").setTextureName(Ref.MODID + ":crystal_dragon_iron").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_dragon_lightning = new Item().setUnlocalizedName("crystal_dragon_lightning").setTextureName(Ref.MODID + ":crystal_").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_dragon_shadow = new Item().setUnlocalizedName("crystal_dragon_shadow").setTextureName(Ref.MODID + ":crystal_dragon_shadow").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_dragon_light = new Item().setUnlocalizedName("crystal_dragon_light").setTextureName(Ref.MODID + ":crystal_dragon_light").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-
-		crystal_crest_courage = new Item().setUnlocalizedName("crystal_crest_courage").setTextureName(Ref.MODID + ":crystal_crest_courage").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_crest_friendship = new Item().setUnlocalizedName("crystal_crest_friendship").setTextureName(Ref.MODID + ":crystal_crest_friendship").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_crest_love = new Item().setUnlocalizedName("crystal_crest_love").setTextureName(Ref.MODID + ":crystal_crest_love").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_crest_sincerity = new Item().setUnlocalizedName("crystal_crest_sincerity").setTextureName(Ref.MODID + ":crystal_crest_sincerity").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_crest_knowledge = new Item().setUnlocalizedName("crystal_crest_knowledge").setTextureName(Ref.MODID + ":crystal_crest_knowledge").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_crest_reliability = new Item().setUnlocalizedName("crystal_crest_reliability").setTextureName(Ref.MODID + ":crystal_crest_reliability").setCreativeTab(RPGOMain.myTab)
+		crystal_crest_courage = new Crystal(26).setUnlocalizedName("crystal_crest_courage").setTextureName(Ref.MODID + ":crystal_crest_courage").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_crest_friendship = new Crystal(27).setUnlocalizedName("crystal_crest_friendship").setTextureName(Ref.MODID + ":crystal_crest_friendship").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_crest_love = new Crystal(28).setUnlocalizedName("crystal_crest_love").setTextureName(Ref.MODID + ":crystal_crest_love").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_crest_sincerity = new Crystal(29).setUnlocalizedName("crystal_crest_sincerity").setTextureName(Ref.MODID + ":crystal_crest_sincerity").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_crest_knowledge = new Crystal(30).setUnlocalizedName("crystal_crest_knowledge").setTextureName(Ref.MODID + ":crystal_crest_knowledge").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_crest_reliability = new Crystal(31).setUnlocalizedName("crystal_crest_reliability").setTextureName(Ref.MODID + ":crystal_crest_reliability").setCreativeTab(RPGOMain.myTab)
 				.setMaxStackSize(8);
-		crystal_crest_hope = new Item().setUnlocalizedName("crystal_crest_hope").setTextureName(Ref.MODID + ":crystal_crest_hope").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_crest_light = new Item().setUnlocalizedName("crystal_crest_light").setTextureName(Ref.MODID + ":crystal_crest_light").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		crystal_crest_kindness = new Item().setUnlocalizedName("crystal_crest_kindness").setTextureName(Ref.MODID + ":crystal_crest_kindness").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
-		Zangetsu = new LegendarySword("Zangetsu", "The Slaying Moon", new int[] { 20, 20, 4 });
-		GameRegistry.registerItem(Zangetsu, "Zangetsu");
-
-		Sword1 = new LegendarySword("Sword1", "test Sword", new int[] { 20, 20, 4 });
-		GameRegistry.registerItem(Sword1, "sword1");
-
-		Sword2 = new LegendarySword("Sword2", "test Sword", new int[] { 20, 20, 4 });
-		GameRegistry.registerItem(Sword2, "sword2");
+		crystal_crest_hope = new Crystal(32).setUnlocalizedName("crystal_crest_hope").setTextureName(Ref.MODID + ":crystal_crest_hope").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_crest_light = new Crystal(33).setUnlocalizedName("crystal_crest_light").setTextureName(Ref.MODID + ":crystal_crest_light").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
+		crystal_crest_kindness = new Crystal(34).setUnlocalizedName("crystal_crest_kindness").setTextureName(Ref.MODID + ":crystal_crest_kindness").setCreativeTab(RPGOMain.myTab).setMaxStackSize(8);
 
 		TestHelmet = new Helmet().setCreativeTab(RPGOMain.myTab).setUnlocalizedName("testhelmet");
 		GameRegistry.registerItem(TestHelmet, "testhelmet");
