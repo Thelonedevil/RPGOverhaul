@@ -15,14 +15,14 @@ public class MyWeapons {
 	public static Item Zangetsu;
 
 	public static void init() {
-		Zangetsu = new LegendarySword("Zangetsu", "The Slaying Moon", new int[] { 20, 20, 4 });
+		Zangetsu = new LegendarySword("Zangetsu", "The Slaying Moon", new int[] { 20, 4 });
 		GameRegistry.registerItem(Zangetsu, "Zangetsu");
 
-		broadSword = new Sword("BroadSword", new int[] { 20, 20, 4 });
+		broadSword = new Sword("BroadSword", new int[] {20, 4 });
 		GameRegistry.registerItem(broadSword, "broadsword");
-		longSword = new Sword("longSword", new int[] { 20, 20, 6 });
+		longSword = new Sword("longSword", new int[] {20, 6 });
 		GameRegistry.registerItem(longSword, "longsword");
-		greatSword = new Sword("greatSword", new int[] { 20, 20, 8 });
+		greatSword = new Sword("greatSword", new int[] {20, 8 });
 		GameRegistry.registerItem(greatSword, "greatsword");
 	}
 }

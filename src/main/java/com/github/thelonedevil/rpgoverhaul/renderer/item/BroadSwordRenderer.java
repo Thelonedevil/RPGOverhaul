@@ -38,17 +38,27 @@ public class BroadSwordRenderer implements IItemRenderer {
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack itemstack, Object... data) {
+		String blade = "iron";
+		String bottom = "iron";
+		if (itemstack.getTagCompound() != null) {
+			blade = itemstack.getTagCompound().getString("blade");
+			bottom = itemstack.getTagCompound().getString("bottom");
+		}
 		switch (type) {
 		case EQUIPPED:
 			float scale = 2f;
 			GL11.glPushMatrix();
 			GL11.glDisable(GL11.GL_LIGHTING);
 			GL11.glScalef(scale, scale, scale);
-			GL11.glTranslatef(-0.2F,0.7F,0.9F);
+			GL11.glTranslatef(-0.2F, 0.7F, 0.9F);
 			GL11.glRotatef(110F, 1F, 0, 0);
 			GL11.glRotatef(110F, 0, 1F, 0);
 			GL11.glRotatef(120F, 0, 0, 1F);
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/broadsword.png"));
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/broadsword-handle.png"));
+			model.render((Entity) data[1], 0, 0, 0, 0, 0, 0.0625F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/" + bottom + "-broadsword-bottom.png"));
+			model.render((Entity) data[1], 0, 0, 0, 0, 0, 0.0625F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/" + blade + "-broadsword-blade.png"));
 			model.render((Entity) data[1], 0, 0, 0, 0, 0, 0.0625F);
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
@@ -60,7 +70,11 @@ public class BroadSwordRenderer implements IItemRenderer {
 			GL11.glRotatef(180F, 1F, 0, 0);
 			GL11.glRotatef(180F, 0, 1F, 0);
 			GL11.glRotatef(90F, 0, 0, 1F);
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/broadsword.png"));
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/broadsword-handle.png"));
+			model.render((Entity) data[1], 0, 0, 0, 0, 0, 0.0625F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/" + bottom + "-broadsword-bottom.png"));
+			model.render((Entity) data[1], 0, 0, 0, 0, 0, 0.0625F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/" + blade + "-broadsword-blade.png"));
 			model.render((Entity) data[1], 0, 0, 0, 0, 0, 0.0625F);
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
@@ -73,7 +87,11 @@ public class BroadSwordRenderer implements IItemRenderer {
 			GL11.glRotatef(90F, 1F, 0, 0);
 			GL11.glRotatef(0F, 0, 1F, 0);
 			GL11.glRotatef(90F, 0, 0, 1F);
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/broadsword.png"));
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/broadsword-handle.png"));
+			model.render((Entity) data[1], 0, 0, 0, 0, 0, 0.0625F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/" + bottom + "-broadsword-bottom.png"));
+			model.render((Entity) data[1], 0, 0, 0, 0, 0, 0.0625F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/" + blade + "-broadsword-blade.png"));
 			model.render((Entity) data[1], 0, 0, 0, 0, 0, 0.0625F);
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
@@ -85,8 +103,12 @@ public class BroadSwordRenderer implements IItemRenderer {
 			GL11.glRotatef(90F, 1F, 0, 0);
 			GL11.glRotatef(90F, 0, 1F, 0);
 			GL11.glRotatef(90F, 0, 0, 1F);
-			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/broadsword.png"));
-			model.render(null, 0.0625F,0.0625F, 0.0625F, 0.0625F, 0.0625F, 0.0625F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/broadsword-handle.png"));
+			model.render(null, 0F, 0F, 0F, 0F, 0F, 0.0625F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/" + bottom + "-broadsword-bottom.png"));
+			model.render(null, 0F, 0F, 0F, 0F, 0F, 0.0625F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/" + blade + "-broadsword-blade.png"));
+			model.render(null, 0F, 0F, 0F, 0F, 0F, 0.0625F);
 			GL11.glEnable(GL11.GL_LIGHTING);
 			GL11.glPopMatrix();
 			break;

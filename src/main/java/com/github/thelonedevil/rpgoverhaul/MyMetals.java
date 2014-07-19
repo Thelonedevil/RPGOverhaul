@@ -10,24 +10,26 @@ import com.github.thelonedevil.rpgoverhaul.items.MixedIngot;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MyMetals {
-	public static final String XIATHERIUM = "ingot_xiatherium";
-	public static final String FARUNESE = "ingot_farunese";
-	public static final String OROBALT = "ingot_orobalt";
-	public static final String KIRITORIUM = "ingot_kiritorium";
-	public static final String ASUNALT = "ingot_asunalt";
-	public static final String ERUSLALT = "ingot_eruslalt";
-	public static final String ITHASIUM = "ingot_ithasium";
-	public static final String OZESTUM = "ingot_ozestum";
-	public static final String EMODRALT = "ingot_emodralt";
-	public static final String EVOSUM = "ingot_evosum";
-	public static final String NAUTRENESE = "ingot_nautrenese";
-	public static final String AXESPIUM = "ingot_axespium";
-	public static final String KETSUEKIUM = "ingot_ketsuekium";
-	public static final String SHIKYOLT = "ingot_shikyolt";
-	public static final String SAKURALT = "ingot_sakuralt";
-	public static final String AYAGRESE = "ingot_ayagrese";
-	public static final String TENSHIRIUM = "ingot_tenshirium";
-	public static final String ONECRUM = "ingot_onecrum";
+	public static final String XIATHERIUM = "ingotXiatherium";
+	public static final String FARUNESE = "ingotFarunese";
+	public static final String OROBALT = "ingotOrobalt";
+	public static final String KIRITORIUM = "ingotKiritorium";
+	public static final String ASUNALT = "ingotAsunalt";
+	public static final String ERUSLALT = "ingotEruslalt";
+	public static final String ITHASIUM = "ingotIthasium";
+	public static final String OZESTUM = "ingotOzestum";
+	public static final String EMODRALT = "ingotEmodralt";
+	public static final String EVOSUM = "ingotEvosum";
+	public static final String NAUTRENESE = "ingotNautrenese";
+	public static final String AXESPIUM = "ingotAxespium";
+	public static final String KETSUEKIUM = "ingotKetsuekium";
+	public static final String SHIKYOLT = "ingotShikyolt";
+	public static final String SAKURALT = "ingotSakuralt";
+	public static final String AYAGRESE = "ingotAyagrese";
+	public static final String TENSHIRIUM = "ingotTenshirium";
+	public static final String ONECRUM = "ingotOnecrum";
+	public static final String IRON = "ingotIron";
+	public static final String GOLD = "ingotGold";
 
 	public static final Item ingot_xiatherium = new Item().setUnlocalizedName(XIATHERIUM).setTextureName(Ref.MODID + ":" + XIATHERIUM).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
 	public static final Item ingot_farunese = new Item().setUnlocalizedName(FARUNESE).setTextureName(Ref.MODID + ":" + FARUNESE).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
@@ -51,6 +53,7 @@ public class MyMetals {
 	public static final Item mixedIngot = new MixedIngot().setUnlocalizedName("mixedIngot").setMaxStackSize(1).setCreativeTab(RPGOMain.myTab);
 
 	public static final Item alloyIngot = new AlloyIngot().setUnlocalizedName("alloyIngot").setMaxStackSize(1).setCreativeTab(RPGOMain.myTab);
+	
 
 	public static void init() {
 		GameRegistry.registerItem(mixedIngot, "mixedIngot");

@@ -17,6 +17,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import com.github.thelonedevil.rpgoverhaul.MyMetals;
 import com.github.thelonedevil.rpgoverhaul.MyWeapons;
 import com.github.thelonedevil.rpgoverhaul.items.MetalUtil;
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 
 public class CustomCrafting {
 	/** The static instance of this class */
@@ -182,8 +183,8 @@ public class CustomCrafting {
 		}
 
 		if (i == 2 && itemstack != null && itemstack1 != null) {
-			String name1 = itemstack.getItem().getUnlocalizedName().substring(11);
-			String name2 = itemstack1.getItem().getUnlocalizedName().substring(11);
+			String name1 = itemstack.getItem().getUnlocalizedName().substring(5);
+			String name2 = itemstack1.getItem().getUnlocalizedName().substring(5);
 			switch (name1) {
 			case MyMetals.ASUNALT:
 				switch (name2) {
@@ -203,7 +204,7 @@ public class CustomCrafting {
 					return MetalUtil.makeMixedIngot(itemstack, itemstack1);
 				}
 			case MyMetals.SHIKYOLT:
-				switch(name2){
+				switch (name2) {
 				case MyMetals.KETSUEKIUM:
 					return MetalUtil.makeMixedIngot(itemstack, itemstack1);
 				}
@@ -227,7 +228,7 @@ public class CustomCrafting {
 				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyWeapons.broadSword)) {
 					return WeaponUtil.makeBroadSword(par1InventoryCrafting);
 				}
-				
+
 				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyMetals.alloyIngot)) {
 					ItemStack itemstack4 = null;
 					for (j = 0; j < par1InventoryCrafting.getSizeInventory(); ++j) {
@@ -237,7 +238,6 @@ public class CustomCrafting {
 							if (itemstack4 == null && itemstack2.getItem().equals(MyMetals.mixedIngot)) {
 								itemstack4 = itemstack2;
 							}
-
 
 						}
 					}
@@ -250,6 +250,7 @@ public class CustomCrafting {
 						return stack;
 					}
 				}
+					
 			}
 		}
 
