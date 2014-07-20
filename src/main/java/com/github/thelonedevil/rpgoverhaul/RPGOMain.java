@@ -83,6 +83,11 @@ public class RPGOMain {
 			return Items.diamond_sword;
 		}
 	};
+	public static CreativeTabs CrystalTab = new CreativeTabs("rpgo.crystals") {
+		public Item getTabIconItem() {
+			return MyItems.crystal_fire;
+		}
+	};
 
 	@SidedProxy(clientSide = "com.github.thelonedevil.rpgoverhaul.proxy.ClientProxy", serverSide = "com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy")
 	public static CommonProxy proxy;

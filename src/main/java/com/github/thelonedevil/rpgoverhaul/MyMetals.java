@@ -31,34 +31,31 @@ public class MyMetals {
 	public static final String IRON = "ingotIron";
 	public static final String GOLD = "ingotGold";
 
-	public static final Item ingot_xiatherium = new Item().setUnlocalizedName(XIATHERIUM).setTextureName(Ref.MODID + ":" + XIATHERIUM).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_farunese = new Item().setUnlocalizedName(FARUNESE).setTextureName(Ref.MODID + ":" + FARUNESE).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_orobalt = new Item().setUnlocalizedName(OROBALT).setTextureName(Ref.MODID + ":"+OROBALT).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_kiritorium = new Item().setUnlocalizedName(KIRITORIUM).setTextureName(Ref.MODID + ":"+KIRITORIUM).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_asunalt = new Item().setUnlocalizedName(ASUNALT).setTextureName(Ref.MODID + ":"+ASUNALT).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_eruslalt = new Item().setUnlocalizedName(ERUSLALT).setTextureName(Ref.MODID + ":"+ERUSLALT).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_ithasium = new Item().setUnlocalizedName(ITHASIUM).setTextureName(Ref.MODID + ":"+ITHASIUM).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_ozestum = new Item().setUnlocalizedName(OZESTUM).setTextureName(Ref.MODID + ":"+OZESTUM).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_emodralt = new Item().setUnlocalizedName(EMODRALT).setTextureName(Ref.MODID + ":"+EMODRALT).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_evosum = new Item().setUnlocalizedName(EVOSUM).setTextureName(Ref.MODID + ":"+EVOSUM).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_nautrenese = new Item().setUnlocalizedName(NAUTRENESE).setTextureName(Ref.MODID + ":"+NAUTRENESE).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_axespium = new Item().setUnlocalizedName(AXESPIUM).setTextureName(Ref.MODID + ":"+AXESPIUM).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_ketsuekium = new Item().setUnlocalizedName(KETSUEKIUM).setTextureName(Ref.MODID + ":"+KETSUEKIUM).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_shikyolt = new Item().setUnlocalizedName(SHIKYOLT).setTextureName(Ref.MODID + ":"+SHIKYOLT).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_sakuralt = new Item().setUnlocalizedName(SAKURALT).setTextureName(Ref.MODID + ":"+SAKURALT).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_ayagrese = new Item().setUnlocalizedName(AYAGRESE).setTextureName(Ref.MODID + ":"+AYAGRESE).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_tenshirium = new Item().setUnlocalizedName(TENSHIRIUM).setTextureName(Ref.MODID + ":"+TENSHIRIUM).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
-	public static final Item ingot_onecrum = new Item().setUnlocalizedName(ONECRUM).setTextureName(Ref.MODID + ":"+ONECRUM).setCreativeTab(RPGOMain.myTab).setMaxStackSize(64);
+	public static final Item ingot_xiatherium = new Item().setUnlocalizedName(XIATHERIUM).setTextureName(Ref.MODID + ":" + XIATHERIUM).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_farunese = new Item().setUnlocalizedName(FARUNESE).setTextureName(Ref.MODID + ":" + FARUNESE).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_orobalt = new Item().setUnlocalizedName(OROBALT).setTextureName(Ref.MODID + ":"+OROBALT).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_kiritorium = new Item().setUnlocalizedName(KIRITORIUM).setTextureName(Ref.MODID + ":"+KIRITORIUM).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_asunalt = new Item().setUnlocalizedName(ASUNALT).setTextureName(Ref.MODID + ":"+ASUNALT).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_eruslalt = new Item().setUnlocalizedName(ERUSLALT).setTextureName(Ref.MODID + ":"+ERUSLALT).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_ithasium = new Item().setUnlocalizedName(ITHASIUM).setTextureName(Ref.MODID + ":"+ITHASIUM).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_ozestum = new Item().setUnlocalizedName(OZESTUM).setTextureName(Ref.MODID + ":"+OZESTUM).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_emodralt = new Item().setUnlocalizedName(EMODRALT).setTextureName(Ref.MODID + ":"+EMODRALT).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_evosum = new Item().setUnlocalizedName(EVOSUM).setTextureName(Ref.MODID + ":"+EVOSUM).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_nautrenese = new Item().setUnlocalizedName(NAUTRENESE).setTextureName(Ref.MODID + ":"+NAUTRENESE).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_axespium = new Item().setUnlocalizedName(AXESPIUM).setTextureName(Ref.MODID + ":"+AXESPIUM).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_ketsuekium = new Item().setUnlocalizedName(KETSUEKIUM).setTextureName(Ref.MODID + ":"+KETSUEKIUM).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_shikyolt = new Item().setUnlocalizedName(SHIKYOLT).setTextureName(Ref.MODID + ":"+SHIKYOLT).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_sakuralt = new Item().setUnlocalizedName(SAKURALT).setTextureName(Ref.MODID + ":"+SAKURALT).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_ayagrese = new Item().setUnlocalizedName(AYAGRESE).setTextureName(Ref.MODID + ":"+AYAGRESE).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_tenshirium = new Item().setUnlocalizedName(TENSHIRIUM).setTextureName(Ref.MODID + ":"+TENSHIRIUM).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
+	public static final Item ingot_onecrum = new Item().setUnlocalizedName(ONECRUM).setTextureName(Ref.MODID + ":"+ONECRUM).setCreativeTab(RPGOMain.MetalTab).setMaxStackSize(64);
 
-	public static final Item mixedIngot = new MixedIngot().setUnlocalizedName("mixedIngot").setMaxStackSize(1).setCreativeTab(RPGOMain.myTab);
+	public static final Item mixedIngot = new MixedIngot().setUnlocalizedName("mixedIngot").setMaxStackSize(1).setCreativeTab(RPGOMain.MetalTab);
 
-	public static final Item alloyIngot = new AlloyIngot().setUnlocalizedName("alloyIngot").setMaxStackSize(1).setCreativeTab(RPGOMain.myTab);
+	public static final Item alloyIngot = new AlloyIngot().setUnlocalizedName("alloyIngot").setMaxStackSize(1).setCreativeTab(RPGOMain.MetalTab);
 	
 
 	public static void init() {
-		GameRegistry.registerItem(mixedIngot, "mixedIngot");
-		GameRegistry.registerItem(alloyIngot, "alloyIngot");
-
 		GameRegistry.registerItem(ingot_xiatherium, "Xiatherium Ingot");
 		GameRegistry.registerItem(ingot_farunese, "Farunese Ingot");
 		GameRegistry.registerItem(ingot_orobalt, "Orobalt Ingot");
@@ -77,6 +74,9 @@ public class MyMetals {
 		GameRegistry.registerItem(ingot_ayagrese, "Ayagrese Ingot");
 		GameRegistry.registerItem(ingot_tenshirium, "Tenshirium Ingot");
 		GameRegistry.registerItem(ingot_onecrum, "Onecrum Ingot");
+		
+		GameRegistry.registerItem(mixedIngot, "mixedIngot");
+		GameRegistry.registerItem(alloyIngot, "alloyIngot");
 
 		OreDictionary.registerOre("ingotMetal", ingot_xiatherium);
 		OreDictionary.registerOre("ingotMetal", ingot_farunese);

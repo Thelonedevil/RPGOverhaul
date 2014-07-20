@@ -7,18 +7,18 @@ import com.github.thelonedevil.rpgoverhaul.weapons.Weapon;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class LeftClickHandler {
-	
+
 	@SubscribeEvent
-	public void onLeftClick(PlayerInteractEvent event){
-		switch(event.action){
+	public void onLeftClick(PlayerInteractEvent event) {
+		switch (event.action) {
 		case LEFT_CLICK_BLOCK:
-			if(event.entityPlayer.capabilities.isCreativeMode && event.entityPlayer.getCurrentEquippedItem().getItem() instanceof Weapon){
+			if (event.entityPlayer.capabilities.isCreativeMode && event.entityPlayer.getCurrentEquippedItem() != null && event.entityPlayer.getCurrentEquippedItem().getItem() instanceof Weapon) {
 				event.setCanceled(true);
 			}
 			break;
 		default:
 			break;
-				
+
 		}
 	}
 

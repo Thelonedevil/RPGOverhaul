@@ -61,7 +61,62 @@ public class WeaponUtil {
 			case MyMetals.IRON:
 				tag.setInteger("damage", MetalUtil.damage_iron);
 				break;
+			case MyMetals.KIRITORIUM:
+				tag.setInteger("damage", MetalUtil.damage_kiritorium);
+				break;
+			case MyMetals.NAUTRENESE:
+				tag.setInteger("damage", MetalUtil.damage_nautrenese);
+				break;
+			case MyMetals.ASUNALT:
+				tag.setInteger("damage", MetalUtil.damage_asunalt);
+				break;
+			case MyMetals.ITHASIUM:
+				tag.setInteger("damage", MetalUtil.damage_ithasium);
+				break;
+			case MyMetals.OZESTUM:
+				tag.setInteger("damage", MetalUtil.damage_ozestum);
+				break;
+			case MyMetals.SAKURALT:
+				tag.setInteger("damage", MetalUtil.damage_sakuralt);
+				break;
+			case MyMetals.XIATHERIUM:
+				tag.setInteger("damage", MetalUtil.damage_xiatherium);
+				break;
+			case MyMetals.OROBALT:
+				tag.setInteger("damage", MetalUtil.damage_orobalt);
+				break;
+			case MyMetals.SHIKYOLT:
+				tag.setInteger("damage", MetalUtil.damage_shikyolt);
+				break;
+			case MyMetals.AXESPIUM:
+				tag.setInteger("damage", MetalUtil.damage_axespium);
+				break;
+			case MyMetals.AYAGRESE:
+				tag.setInteger("damage", MetalUtil.damage_ayagrese);
+				break;
+			case MyMetals.EMODRALT:
+				tag.setInteger("damage", MetalUtil.damage_emodralt);
+				break;
+			case MyMetals.ERUSLALT:
+				tag.setInteger("damage", MetalUtil.damage_eruslalt);
+				break;
+			case MyMetals.EVOSUM:
+				tag.setInteger("damage", MetalUtil.damage_evosum);
+				break;
+			case MyMetals.GOLD:
+				tag.setInteger("damage", MetalUtil.damage_gold);
+				break;
+			case MyMetals.ONECRUM:
+				tag.setInteger("damage", MetalUtil.damage_onecrum);
+				break;
+			case MyMetals.TENSHIRIUM:
+				tag.setInteger("damage",MetalUtil.damage_tenshirium);
+				break;
+			case MyMetals.FARUNESE:
+				tag.setInteger("damage", MetalUtil.damage_farunese);
+				
 			}
+
 			stack.setTagCompound(tag);
 			LogHelper.info("NBT SET!!");
 			return stack;

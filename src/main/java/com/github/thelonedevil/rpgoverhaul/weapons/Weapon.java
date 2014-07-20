@@ -23,7 +23,7 @@ public class Weapon extends Item {
 		this.setUnlocalizedName(name);
 		this.type = type;
 		this.attackSpeed = stats[0];
-		this.setCreativeTab(RPGOMain.myTab).setMaxStackSize(1);
+		this.setCreativeTab(RPGOMain.WeaponTab).setMaxStackSize(1);
 
 	}
 
