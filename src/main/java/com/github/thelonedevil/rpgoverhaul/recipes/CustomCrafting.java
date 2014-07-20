@@ -14,10 +14,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
 
-import com.github.thelonedevil.rpgoverhaul.MyItems;
+import com.github.thelonedevil.rpgoverhaul.MyMetals;
 import com.github.thelonedevil.rpgoverhaul.MyWeapons;
-import com.github.thelonedevil.rpgoverhaul.items.Hardness;
 import com.github.thelonedevil.rpgoverhaul.items.MetalUtil;
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 
 public class CustomCrafting {
 	/** The static instance of this class */
@@ -182,42 +182,67 @@ public class CustomCrafting {
 			}
 		}
 
-		if (i == 2 && itemstack != null && itemstack1 != null && !itemstack1.getItem().equals(itemstack.getItem())) {
-			ItemStack stack = new ItemStack(MyItems.mixedIngot);
-			NBTTagCompound tag = new NBTTagCompound();
-			tag.setString("metal1", itemstack.getUnlocalizedName().substring(11));
-			tag.setString("metal2", itemstack1.getUnlocalizedName().substring(11));
-			stack.setTagCompound(tag);
-			return stack;
+		if (i == 2 && itemstack != null && itemstack1 != null) {
+			String name1 = itemstack.getItem().getUnlocalizedName().substring(5);
+			String name2 = itemstack1.getItem().getUnlocalizedName().substring(5);
+			switch (name1) {
+			case MyMetals.ASUNALT:
+				switch (name2) {
+				case MyMetals.KIRITORIUM:
+				case MyMetals.KETSUEKIUM:
+					return MetalUtil.makeMixedIngot(itemstack, itemstack1);
+				}
+			case MyMetals.KIRITORIUM:
+				switch (name2) {
+				case MyMetals.ASUNALT:
+					return MetalUtil.makeMixedIngot(itemstack, itemstack1);
+				}
+			case MyMetals.KETSUEKIUM:
+				switch (name2) {
+				case MyMetals.ASUNALT:
+				case MyMetals.SHIKYOLT:
+					return MetalUtil.makeMixedIngot(itemstack, itemstack1);
+				}
+			case MyMetals.SHIKYOLT:
+				switch (name2) {
+				case MyMetals.KETSUEKIUM:
+					return MetalUtil.makeMixedIngot(itemstack, itemstack1);
+				}
+			case MyMetals.XIATHERIUM:
+				switch (name2) {
+				case MyMetals.FARUNESE:
+					return MetalUtil.makeMixedIngot(itemstack, itemstack1);
+				}
+			case MyMetals.FARUNESE:
+				switch (name2) {
+				case MyMetals.XIATHERIUM:
+					return MetalUtil.makeMixedIngot(itemstack, itemstack1);
+				}
+			}
+
 		}
 		for (j = 0; j < this.recipes.size(); ++j) {
 			IRecipe irecipe = (IRecipe) this.recipes.get(j);
 
 			if (irecipe.matches(par1InventoryCrafting, par2World)) {
-				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyWeapons.broadsword_bottom)) {
-					return broadswordBottom(par1InventoryCrafting, irecipe);
+				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyWeapons.broadSword)) {
+					return WeaponUtil.makeBroadSword(par1InventoryCrafting);
 				}
-				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyItems.alloyIngot)) {
-					ItemStack itemstack4 = null;
-					ItemStack itemstack5 = null;
 
+				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyMetals.alloyIngot)) {
+					ItemStack itemstack4 = null;
 					for (j = 0; j < par1InventoryCrafting.getSizeInventory(); ++j) {
 						ItemStack itemstack2 = par1InventoryCrafting.getStackInSlot(j);
 						if (itemstack2 != null) {
 
-							if (itemstack4 == null && itemstack2.getItem().equals(MyItems.mixedIngot)) {
+							if (itemstack4 == null && itemstack2.getItem().equals(MyMetals.mixedIngot)) {
 								itemstack4 = itemstack2;
-							}
-
-							if (itemstack5 == null && itemstack2.getItem().equals(MyItems.crystal_smelting)) {
-								itemstack5 = itemstack2;
 							}
 
 						}
 					}
-
-					if (itemstack4 != null && itemstack5 != null) {
-						ItemStack stack = new ItemStack(MyItems.alloyIngot);
+					if (itemstack4 != null) {
+						ItemStack stack = new ItemStack(MyMetals.alloyIngot);
 						NBTTagCompound tag = new NBTTagCompound();
 						tag.setString("metal1", itemstack4.getTagCompound().getString("metal1"));
 						tag.setString("metal2", itemstack4.getTagCompound().getString("metal2"));
@@ -225,59 +250,12 @@ public class CustomCrafting {
 						return stack;
 					}
 				}
+					
 			}
 		}
 
 		return null;
 
-	}
-
-	private ItemStack broadswordBottom(InventoryCrafting par1InventoryCrafting, IRecipe irecipe) {
-		ItemStack slot1 = null;
-		ItemStack slot2 = null;
-		ItemStack slot3 = null;
-		ItemStack slot4 = null;
-		ItemStack slot5 = null;
-		ItemStack slot6 = null;
-		ItemStack slot7 = null;
-		ItemStack slot8 = null;
-		for (int k = 0; k < par1InventoryCrafting.getSizeInventory(); k++) {
-			if (slot1 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
-				slot1 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot2 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
-				slot2 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot3 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
-				slot3 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot4 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
-				slot4 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot5 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
-				slot5 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot6 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
-				slot6 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot7 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
-				slot7 = par1InventoryCrafting.getStackInSlot(k);
-			} else if (slot8 == null && par1InventoryCrafting.getStackInSlot(k) != null) {
-				slot8 = par1InventoryCrafting.getStackInSlot(k);
-			}
-		}
-		if (Hardness.getMetalHardness(slot1) == Hardness.HARD && Hardness.getMetalHardness(slot2) == Hardness.HARD && Hardness.getMetalHardness(slot3) == Hardness.HARD
-				&& Hardness.getMetalHardness(slot4) == Hardness.HARD && Hardness.getMetalHardness(slot5) == Hardness.HARD && Hardness.getMetalHardness(slot6) == Hardness.HARD
-				&& Hardness.getMetalHardness(slot7) == Hardness.HARD && Hardness.getMetalHardness(slot8) == Hardness.SOFT) {
-			ItemStack stack = irecipe.getCraftingResult(par1InventoryCrafting);
-			NBTTagCompound tag = new NBTTagCompound();
-			tag.setString("metals1", MetalUtil.getMetals(slot1));
-			tag.setString("metals2", MetalUtil.getMetals(slot2));
-			tag.setString("metals3", MetalUtil.getMetals(slot3));
-			tag.setString("metals4", MetalUtil.getMetals(slot4));
-			tag.setString("metals5", MetalUtil.getMetals(slot5));
-			tag.setString("metals6", MetalUtil.getMetals(slot6));
-			tag.setString("metals7", MetalUtil.getMetals(slot7));
-			tag.setString("metals8", MetalUtil.getMetals(slot8));
-			stack.setTagCompound(tag);
-			return stack;
-		} else {
-			return null;
-		}
 	}
 
 	/**

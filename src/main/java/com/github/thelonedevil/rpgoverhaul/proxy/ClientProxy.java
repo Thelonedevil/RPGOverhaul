@@ -7,6 +7,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.github.thelonedevil.rpgoverhaul.MyItems;
+import com.github.thelonedevil.rpgoverhaul.MyWeapons;
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
 import com.github.thelonedevil.rpgoverhaul.gui.XpGui;
 import com.github.thelonedevil.rpgoverhaul.handlers.BBHandler;
@@ -24,10 +25,10 @@ import com.github.thelonedevil.rpgoverhaul.mobs.passive.modelFox;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.modelGazelle;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.modelGoat;
 import com.github.thelonedevil.rpgoverhaul.renderer.RenderIds;
-import com.github.thelonedevil.rpgoverhaul.renderer.Sword1Renderer;
-import com.github.thelonedevil.rpgoverhaul.renderer.Sword2Renderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.block.TileEntityCrystalRenderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.block.TileEntityPortalRenderer;
+import com.github.thelonedevil.rpgoverhaul.renderer.item.BroadSwordRenderer;
+import com.github.thelonedevil.rpgoverhaul.renderer.item.CrystalRenderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.ItemCrystalClusterRenderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.RenderQuestBook;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.ZangetsuRenderer;
@@ -65,16 +66,20 @@ public class ClientProxy extends CommonProxy {
 
 		RenderIds.CrystalCluster = RenderingRegistry.getNextAvailableRenderId();
 
-		MinecraftForgeClient.registerItemRenderer(MyItems.Zangetsu, new ZangetsuRenderer());
-		MinecraftForgeClient.registerItemRenderer(MyItems.Sword1, new Sword1Renderer());
-		MinecraftForgeClient.registerItemRenderer(MyItems.Sword2, new Sword2Renderer());
-
+		MinecraftForgeClient.registerItemRenderer(MyWeapons.Zangetsu, new ZangetsuRenderer());
+		
 		MinecraftForgeClient.registerItemRenderer(MyItems.questBook, new RenderQuestBook());
+		
+		MinecraftForgeClient.registerItemRenderer(MyWeapons.broadSword, new BroadSwordRenderer());
 
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(MyCrystals.Fire_Crystal), new ItemCrystalClusterRenderer());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(MyCrystals.Water_Crystal), new ItemCrystalClusterRenderer());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(MyCrystals.Air_Crystal), new ItemCrystalClusterRenderer());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(MyCrystals.Earth_Crystal), new ItemCrystalClusterRenderer());
+		MinecraftForgeClient.registerItemRenderer(MyItems.crystal_fire, new CrystalRenderer());
+		MinecraftForgeClient.registerItemRenderer(MyItems.crystal_air, new CrystalRenderer());
+		MinecraftForgeClient.registerItemRenderer(MyItems.crystal_water, new CrystalRenderer());
+		MinecraftForgeClient.registerItemRenderer(MyItems.crystal_earth, new CrystalRenderer());
 
 		ClientRegistry.bindTileEntitySpecialRenderer(CrystalClusterTileEntity.class, new TileEntityCrystalRenderer());
 		ClientRegistry.bindTileEntitySpecialRenderer(PortalTileEntity.class, new TileEntityPortalRenderer());

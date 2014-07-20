@@ -2,23 +2,27 @@ package com.github.thelonedevil.rpgoverhaul;
 
 import net.minecraft.item.Item;
 
-import com.github.thelonedevil.rpgoverhaul.items.BroadSwordBottom;
+import com.github.thelonedevil.rpgoverhaul.weapons.swords.LegendarySword;
 import com.github.thelonedevil.rpgoverhaul.weapons.swords.Sword;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class MyWeapons {
-	public static Item broadsword;
-	public static Item broadsword_bottom;
-	public static Item broadsword_top;
+	public static Item broadSword;
+	public static Item longSword;
+	public static Item greatSword;
+
+	public static Item Zangetsu;
 
 	public static void init() {
-		broadsword = new Sword("BroadSword", new int[] { 20, 20, 4 });
-		broadsword_bottom = new BroadSwordBottom().setCreativeTab(RPGOMain.myTab).setUnlocalizedName("BSB");
-		broadsword_top = new Item().setCreativeTab(RPGOMain.myTab).setUnlocalizedName("BST");
+		Zangetsu = new LegendarySword("Zangetsu", "The Slaying Moon", new int[] { 20, 4 });
+		GameRegistry.registerItem(Zangetsu, "Zangetsu");
 
-		GameRegistry.registerItem(broadsword, "broadsword");
-		GameRegistry.registerItem(broadsword_bottom, "broadsword_bottom");
-		GameRegistry.registerItem(broadsword_top, "broadsword_top");
+		broadSword = new Sword("BroadSword", new int[] {20, 4 });
+		GameRegistry.registerItem(broadSword, "broadsword");
+		longSword = new Sword("longSword", new int[] {20, 6 });
+		GameRegistry.registerItem(longSword, "longsword");
+		greatSword = new Sword("greatSword", new int[] {20, 8 });
+		GameRegistry.registerItem(greatSword, "greatsword");
 	}
 }

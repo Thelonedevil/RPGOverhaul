@@ -21,6 +21,7 @@ import com.github.thelonedevil.rpgoverhaul.handlers.CraftingHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.DeathHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.EntityConstructionHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.EntityJoinWorldHandler;
+import com.github.thelonedevil.rpgoverhaul.handlers.LeftClickHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerConnectHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerKillHandler;
 import com.github.thelonedevil.rpgoverhaul.handlers.PlayerTickHandler;
@@ -30,7 +31,6 @@ import com.github.thelonedevil.rpgoverhaul.mobs.passive.Gazelle;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.Goat;
 import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
 import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
-import com.github.thelonedevil.rpgoverhaul.network.UpdateXpPacket;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
 import com.github.thelonedevil.rpgoverhaul.quests.QuestBookData;
 import com.github.thelonedevil.rpgoverhaul.recipes.MyRecipes;
@@ -68,9 +68,24 @@ public class RPGOMain {
 	public static CraftingHandler craft = new CraftingHandler();
 
 	public static HashMap<String, BufferedImage> textures;
-	public static CreativeTabs myTab = new CreativeTabs("RPG Overhaul") {
+	public static CreativeTabs myTab = new CreativeTabs("rpgo") {
 		public Item getTabIconItem() {
 			return Item.getItemFromBlock(Blocks.dirt);
+		}
+	};
+	public static CreativeTabs MetalTab = new CreativeTabs("rpgo.metals") {
+		public Item getTabIconItem() {
+			return MyMetals.ingot_ketsuekium;
+		}
+	};
+	public static CreativeTabs WeaponTab = new CreativeTabs("rpgo.weapons") {
+		public Item getTabIconItem() {
+			return Items.diamond_sword;
+		}
+	};
+	public static CreativeTabs CrystalTab = new CreativeTabs("rpgo.crystals") {
+		public Item getTabIconItem() {
+			return MyItems.crystal_fire;
 		}
 	};
 
@@ -101,12 +116,13 @@ public class RPGOMain {
 		MyClothes.init();
 		MyWeapons.init();
 		MyCrystals.init();
-		MyRecipes.init();
-		RecipeRemoval.init();
+		MyMetals.init();
+
+
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
 		network.registerMessage(SyncPlayerProps.Handler.class, SyncPlayerProps.class, 0, Side.SERVER);
 		network.registerMessage(OpenGui.Handler.class, OpenGui.class, 0, Side.SERVER);
-		network.registerMessage(UpdateXpPacket.Handler.class, UpdateXpPacket.class, 0, Side.CLIENT);
+		//network.registerMessage(UpdateXpPacket.Handler.class, UpdateXpPacket.class, 0, Side.CLIENT);
 		QuestBookData.init();
 		GameRegistry.registerWorldGenerator(worldgen, 9);
 		proxy.registerItemRenderers();
@@ -116,6 +132,7 @@ public class RPGOMain {
 
 	@EventHandler
 	public static void load(FMLInitializationEvent event) {
+		MyRecipes.init();
 		proxy.registerNetworkStuff();
 		MinecraftForge.EVENT_BUS.register(deathHandler);
 		FMLCommonHandler.instance().bus().register(deathHandler);
@@ -123,8 +140,8 @@ public class RPGOMain {
 		MinecraftForge.EVENT_BUS.register(entityCHandler);
 		MinecraftForge.EVENT_BUS.register(tickHandler);
 		MinecraftForge.EVENT_BUS.register(killHandler);
+		MinecraftForge.EVENT_BUS.register(new LeftClickHandler());
 		MinecraftForge.EVENT_BUS.register(entityjoin);
-
 		FMLCommonHandler.instance().bus().register(craft);
 		proxy.registerKeys();
 		FMLCommonHandler.instance().bus().register(connectHandler);
@@ -136,6 +153,7 @@ public class RPGOMain {
 
 	@EventHandler
 	public static void post(FMLPostInitializationEvent event) {
+		RecipeRemoval.init();
 		WorldTypeCustom custom = new WorldTypeCustom();
 		LogHelper.info("Post Initialization Complete");
 

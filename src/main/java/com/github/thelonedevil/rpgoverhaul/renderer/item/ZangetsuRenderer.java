@@ -44,7 +44,6 @@ public class ZangetsuRenderer implements IItemRenderer {
 		Minecraft mc = Minecraft.getMinecraft();
 		Float scale;
 		switch (type) {
-
 		case EQUIPPED:
 			scale = 0.04f;
 			GL11.glPushMatrix();

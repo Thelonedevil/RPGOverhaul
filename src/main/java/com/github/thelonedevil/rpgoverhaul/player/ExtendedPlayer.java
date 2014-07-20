@@ -81,7 +81,7 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 		double newxp = properties.getDouble("xp");
 		UUID uuid = this.player.getUniqueID();
 		EntityPlayerMP epmp = Util.getPlayerFromUUID(uuid);
-		RPGOMain.network.sendTo(new UpdateXpPacket(newxp), epmp);
+		//RPGOMain.network.sendTo(new UpdateXpPacket(newxp), epmp);
 		skills = properties.getIntArray("Skills");
 		Perks[] perklist = Perks.values();
 		for (int i = 0; i < perklist.length; i++) {

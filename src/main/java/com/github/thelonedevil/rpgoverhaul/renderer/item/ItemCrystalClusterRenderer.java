@@ -52,18 +52,22 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 			GL11.glRotatef(0F, 1F, 0, 0);
 			GL11.glRotatef(0F, 0, 1F, 0);
 			GL11.glRotatef(0F, 0, 0, 1F);
+			GL11.glEnable(GL11.GL_BLEND);
+			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+			//GL11.glColor4f(1F, 1F, 1F, 0.75F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/crystal.png"));
 			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
 			case 0:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				GL11.glColor4f(1f, 0f, 0f,0.75F);
 				break;
 			case 1:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
+				GL11.glColor4f(0f, 0f, 1f,0.75F);
 				break;
 			case 2:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
+				GL11.glColor4f(1f, 1f, 0.68235294117f,0.75F);
 				break;
 			case 3:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
+				GL11.glColor4f(0f, 1f, 0f,0.75F);
 				break;
 			case 4:
 				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
@@ -95,18 +99,22 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 			GL11.glRotatef(0F, 0, 1F, 0);
 			GL11.glRotatef(0F, 0, 0, 1F);
 
+			GL11.glEnable(GL11.GL_BLEND);
+			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+			//GL11.glColor4f(1F, 1F, 1F, 0.75F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/crystal.png"));
 			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
 			case 0:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				GL11.glColor4f(1f, 0f, 0f,0.75F);
 				break;
 			case 1:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
+				GL11.glColor4f(0f, 0f, 1f,0.75F);
 				break;
 			case 2:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
+				GL11.glColor4f(1f, 1f, 0.68235294117f,0.75F);
 				break;
 			case 3:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
+				GL11.glColor4f(0f, 1f, 0f,0.75F);
 				break;
 			case 4:
 				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
@@ -135,18 +143,22 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 			GL11.glTranslatef(0, 0, 0);
 			GL11.glRotatef(0, 1F, 0, 0);
 
+			GL11.glEnable(GL11.GL_BLEND);
+			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+			//GL11.glColor4f(1F, 1F, 1F, 0.75F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/crystal.png"));
 			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
 			case 0:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				GL11.glColor4f(1f, 0f, 0f,0.75F);
 				break;
 			case 1:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
+				GL11.glColor4f(0f, 0f, 1f,0.75F);
 				break;
 			case 2:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
+				GL11.glColor4f(1f, 1f, 0.68235294117f,0.75F);
 				break;
 			case 3:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
+				GL11.glColor4f(0f, 1f, 0f,0.75F);
 				break;
 			case 4:
 				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
@@ -171,21 +183,25 @@ public class ItemCrystalClusterRenderer implements IItemRenderer {
 
 			// Scale, Translate, Rotate
 			GL11.glScalef(1f, 1F, 1F);
-			GL11.glTranslatef(0, 0, 0);
-			GL11.glRotatef(-90F, 1F, 0, 0);
+			GL11.glTranslatef(0, -0.3f, 0);
+			GL11.glRotatef(0F, 1F, 0, 0);
 
+			GL11.glEnable(GL11.GL_BLEND);
+			GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+			//GL11.glColor4f(1F, 1F, 1F, 0.75F);
+			FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/crystal.png"));
 			switch (((CrystalCluster) Block.getBlockFromItem(item.getItem())).type) {
 			case 0:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));
+				GL11.glColor4f(1f, 0f, 0f,0.75F);
 				break;
 			case 1:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/water_crystal.png"));
+				GL11.glColor4f(0f, 0f, 1f,0.75F);
 				break;
 			case 2:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/air_crystal.png"));
+				GL11.glColor4f(1f, 1f, 0.68235294117f,0.75F);
 				break;
 			case 3:
-				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/earth_crystal.png"));
+				GL11.glColor4f(0f, 1f, 0f,0.75F);
 				break;
 			case 4:
 				FMLClientHandler.instance().getClient().renderEngine.bindTexture(new ResourceLocation(Ref.MODID, "textures/models/fire_crystal.png"));

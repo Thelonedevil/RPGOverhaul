@@ -18,8 +18,8 @@ import com.github.thelonedevil.rpgoverhaul.tileentities.CrystalClusterTileEntity
 
 public class CrystalCluster extends Block implements ITileEntityProvider {
 
-	Item drop;
-	public static int type;
+	final Item drop;
+	public final int type;
 
 	public CrystalCluster(Material material, Item item, int type) {
 		super(material);

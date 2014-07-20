@@ -13,17 +13,17 @@ import com.github.thelonedevil.rpgoverhaul.Ref;
 import com.github.thelonedevil.rpgoverhaul.weapons.swords.LegendarySword;
 
 public class Weapon extends Item {
-	int attackDamage;
+
 	int attackSpeed;
 	WeaponType type;
 	CrystalType crystal = CrystalType.NONE;
 
 	public Weapon(WeaponType type, String name, int[] stats) {
 		super();
+		this.setUnlocalizedName(name);
 		this.type = type;
-		this.attackDamage = stats[0];
-		this.attackSpeed = stats[1];
-		this.setCreativeTab(RPGOMain.myTab).setMaxStackSize(1);
+		this.attackSpeed = stats[0];
+		this.setCreativeTab(RPGOMain.WeaponTab).setMaxStackSize(1);
 
 	}
 
@@ -61,10 +61,6 @@ public class Weapon extends Item {
 
 	private void addStringToTooltip(String s, List<String> tooltip) {
 		tooltip.add(s.replaceAll("&", "\u00a7"));
-	}
-
-	public int getAttackDamage() {
-		return attackDamage;
 	}
 
 	public int getAttackSpeed() {

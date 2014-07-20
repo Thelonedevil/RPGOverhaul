@@ -8,9 +8,6 @@ import java.util.Map.Entry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import com.github.thelonedevil.rpgoverhaul.MyBlocks;
-import com.github.thelonedevil.rpgoverhaul.MyItems;
-
 public class AlloyRecipes {
 
 	private static final AlloyRecipes SMELTING_BASE = new AlloyRecipes();
@@ -23,7 +20,7 @@ public class AlloyRecipes {
 	}
 
 	private AlloyRecipes() {
-		this.addRecipe(Item.getItemFromBlock(MyBlocks.ore_asunalt), Item.getItemFromBlock(MyBlocks.ore_kiritorium), new ItemStack(MyItems.ingot_asunalt), 0.8F);
+		//this.addRecipe(Item.getItemFromBlock(MyBlocks.ore_asunalt), Item.getItemFromBlock(MyBlocks.ore_kiritorium), new ItemStack(MyItems.ingot_asunalt), 0.8F);
 	}
 
 	public void addRecipe(Item item, Item item2, ItemStack itemstack, float experience) {

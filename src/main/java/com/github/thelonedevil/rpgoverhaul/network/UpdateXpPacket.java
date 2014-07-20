@@ -1,11 +1,11 @@
 package com.github.thelonedevil.rpgoverhaul.network;
 
-import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+
+import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
+
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;

@@ -3,6 +3,7 @@ package com.github.thelonedevil.rpgoverhaul.handlers;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 
@@ -21,7 +22,14 @@ public class AttackHandler {
 				Sword sword = (Sword) item;
 				if (event.target instanceof EntityLivingBase) {
 					EntityLivingBase target = (EntityLivingBase) event.target;
-					target.attackEntityFrom(new EntityDamageSource(sword.getItemStackDisplayName(event.entityPlayer.getHeldItem()), event.entityPlayer), sword.getAttackDamage());
+					int damage;
+					NBTTagCompound tag = stack.getTagCompound();
+					if(tag != null){
+						damage = tag.getInteger("damage");
+					}else{
+						damage = 6;
+					}
+					target.attackEntityFrom(new EntityDamageSource(sword.getItemStackDisplayName(event.entityPlayer.getHeldItem()), event.entityPlayer), damage);
 				}
 
 			}
