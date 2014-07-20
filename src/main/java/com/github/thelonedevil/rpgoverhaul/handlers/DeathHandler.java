@@ -88,8 +88,6 @@ public class DeathHandler {
 		addLootToChest(world, x, y, z, loot);
 		for (int i = 0; i < event.drops.size(); i++) {
 			addLootToChest(world, x, y, z, event.drops.get(i).getEntityItem());
-			LogHelper.info(event.drops.get(i).getEntityItem().getDisplayName() + event.drops.get(i).getEntityItem().stackSize);
-
 		}
 
 		world.markBlockForUpdate(x, y, z);
