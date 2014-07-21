@@ -47,5 +47,6 @@ public class MyRecipes {
 		CustomCrafting.getInstance().addShapelessRecipe(new ItemStack(MyMetals.alloyIngot, 1), new Object[] { MyMetals.mixedIngot, MyItems.crystal_smelting });
 
 		CustomCrafting.getInstance().addShapedOreRecipe(new ItemStack(MyWeapons.broadSword, 1), new Object[] {"A","A","B",'A',"ingotMetal",'B',Items.stick});
+		CustomCrafting.getInstance().addShapedOreRecipe(new ItemStack(MyWeapons.longSword, 1), new Object[] {"A","A","A","B",'A',"ingotMetal",'B',Items.stick});
 	}
 }

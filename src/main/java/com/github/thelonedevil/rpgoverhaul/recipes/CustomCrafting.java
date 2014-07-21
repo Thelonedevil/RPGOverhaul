@@ -228,6 +228,9 @@ public class CustomCrafting {
 				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyWeapons.broadSword)) {
 					return WeaponUtil.makeBroadSword(par1InventoryCrafting);
 				}
+				if(irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyWeapons.longSword)){
+					return WeaponUtil.makeLongSword(par1InventoryCrafting);
+				}
 
 				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyMetals.alloyIngot)) {
 					ItemStack itemstack4 = null;
