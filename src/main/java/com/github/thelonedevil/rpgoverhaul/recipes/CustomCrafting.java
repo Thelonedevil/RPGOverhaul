@@ -16,8 +16,9 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.github.thelonedevil.rpgoverhaul.MyMetals;
 import com.github.thelonedevil.rpgoverhaul.MyWeapons;
-import com.github.thelonedevil.rpgoverhaul.items.MetalUtil;
 import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
+import com.github.thelonedevil.rpgoverhaul.util.MetalUtil;
+import com.github.thelonedevil.rpgoverhaul.util.WeaponUtil;
 
 public class CustomCrafting {
 	/** The static instance of this class */
@@ -227,6 +228,9 @@ public class CustomCrafting {
 			if (irecipe.matches(par1InventoryCrafting, par2World)) {
 				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyWeapons.broadSword)) {
 					return WeaponUtil.makeBroadSword(par1InventoryCrafting);
+				}
+				if(irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyWeapons.longSword)){
+					return WeaponUtil.makeLongSword(par1InventoryCrafting);
 				}
 
 				if (irecipe.getCraftingResult(par1InventoryCrafting).getItem().equals(MyMetals.alloyIngot)) {

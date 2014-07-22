@@ -3,14 +3,22 @@ package com.github.thelonedevil.rpgoverhaul.weapons;
 import java.util.List;
 
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 
+import com.github.thelonedevil.rpgoverhaul.MyWeapons;
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.Ref;
-import com.github.thelonedevil.rpgoverhaul.weapons.swords.LegendarySword;
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
+import com.github.thelonedevil.rpgoverhaul.util.MetalUtil;
+import com.github.thelonedevil.rpgoverhaul.util.WeaponUtil;
+import com.github.thelonedevil.rpgoverhaul.weapons.swords.legendary.LegendarySword;
 
 public class Weapon extends Item {
 
@@ -24,6 +32,7 @@ public class Weapon extends Item {
 		this.type = type;
 		this.attackSpeed = stats[0];
 		this.setCreativeTab(RPGOMain.WeaponTab).setMaxStackSize(1);
+
 
 	}
 
@@ -66,5 +75,30 @@ public class Weapon extends Item {
 	public int getAttackSpeed() {
 		return attackSpeed;
 	}
+	
+    /**
+     * returns the action that specifies what animation to play when the items is being used
+     */
+    public EnumAction getItemUseAction(ItemStack p_77661_1_)
+    {
+        return EnumAction.block;
+    }
+
+    /**
+     * How long it takes to use or consume an item
+     */
+    public int getMaxItemUseDuration(ItemStack p_77626_1_)
+    {
+        return 72000;
+    }
+
+    /**
+     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
+     */
+    public ItemStack onItemRightClick(ItemStack p_77659_1_, World p_77659_2_, EntityPlayer p_77659_3_)
+    {
+        p_77659_3_.setItemInUse(p_77659_1_, this.getMaxItemUseDuration(p_77659_1_));
+        return p_77659_1_;
+    }
 
 }

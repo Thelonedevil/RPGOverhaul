@@ -29,7 +29,9 @@ import com.github.thelonedevil.rpgoverhaul.renderer.block.TileEntityCrystalRende
 import com.github.thelonedevil.rpgoverhaul.renderer.block.TileEntityPortalRenderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.BroadSwordRenderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.CrystalRenderer;
+import com.github.thelonedevil.rpgoverhaul.renderer.item.FistRenderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.ItemCrystalClusterRenderer;
+import com.github.thelonedevil.rpgoverhaul.renderer.item.LongSwordRenderer;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.RenderQuestBook;
 import com.github.thelonedevil.rpgoverhaul.renderer.item.ZangetsuRenderer;
 import com.github.thelonedevil.rpgoverhaul.tileentities.CrystalClusterTileEntity;
@@ -71,6 +73,8 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.registerItemRenderer(MyItems.questBook, new RenderQuestBook());
 		
 		MinecraftForgeClient.registerItemRenderer(MyWeapons.broadSword, new BroadSwordRenderer());
+		MinecraftForgeClient.registerItemRenderer(MyWeapons.longSword, new LongSwordRenderer());
+		MinecraftForgeClient.registerItemRenderer(MyWeapons.fist, new FistRenderer());
 
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(MyCrystals.Fire_Crystal), new ItemCrystalClusterRenderer());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(MyCrystals.Water_Crystal), new ItemCrystalClusterRenderer());

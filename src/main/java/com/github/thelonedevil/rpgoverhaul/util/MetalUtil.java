@@ -1,4 +1,4 @@
-package com.github.thelonedevil.rpgoverhaul.items;
+package com.github.thelonedevil.rpgoverhaul.util;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -48,6 +48,77 @@ public class MetalUtil {
 		tag.setString("metal2", itemstack1.getUnlocalizedName().substring(10));
 		stack.setTagCompound(tag);
 		return stack;
+	}
+	
+	public static int getDamage(ItemStack stack){
+		int damage1;
+		switch (stack.getItem().getUnlocalizedName().substring(5)) {
+		case MyMetals.KETSUEKIUM:
+			damage1 = MetalUtil.damage_ketsuekium;
+			break;
+		case MyMetals.IRON:
+			damage1 = MetalUtil.damage_iron;
+			break;
+		case MyMetals.KIRITORIUM:
+			damage1 = MetalUtil.damage_kiritorium;
+			break;
+		case MyMetals.NAUTRENESE:
+			damage1 = MetalUtil.damage_nautrenese;
+			break;
+		case MyMetals.ASUNALT:
+			damage1 = MetalUtil.damage_asunalt;
+			break;
+		case MyMetals.ITHASIUM:
+			damage1 = MetalUtil.damage_ithasium;
+			break;
+		case MyMetals.OZESTUM:
+			damage1 = MetalUtil.damage_ozestum;
+			break;
+		case MyMetals.SAKURALT:
+			damage1 = MetalUtil.damage_sakuralt;
+			break;
+		case MyMetals.XIATHERIUM:
+			damage1 = MetalUtil.damage_xiatherium;
+			break;
+		case MyMetals.OROBALT:
+			damage1 = MetalUtil.damage_orobalt;
+			break;
+		case MyMetals.SHIKYOLT:
+			damage1 = MetalUtil.damage_shikyolt;
+			break;
+		case MyMetals.AXESPIUM:
+			damage1 = MetalUtil.damage_axespium;
+			break;
+		case MyMetals.AYAGRESE:
+			damage1 = MetalUtil.damage_ayagrese;				
+			break;
+		case MyMetals.EMODRALT:
+			damage1 = MetalUtil.damage_emodralt;				
+			break;
+		case MyMetals.ERUSLALT:
+			damage1 = MetalUtil.damage_eruslalt;
+			break;
+		case MyMetals.EVOSUM:
+			damage1 = MetalUtil.damage_evosum;
+			break;
+		case MyMetals.GOLD:
+			damage1 = MetalUtil.damage_gold;
+			break;
+		case MyMetals.ONECRUM:
+			damage1 = MetalUtil.damage_onecrum;
+			break;
+		case MyMetals.TENSHIRIUM:
+			damage1 = MetalUtil.damage_tenshirium;
+			break;
+		case MyMetals.FARUNESE:
+			damage1 = MetalUtil.damage_farunese;
+			break;
+		default:
+			damage1 = 6;
+		}
+		
+		return damage1;
+		
 	}
 
 }

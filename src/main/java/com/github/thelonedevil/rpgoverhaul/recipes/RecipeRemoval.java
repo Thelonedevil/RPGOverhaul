@@ -21,8 +21,9 @@ public class RecipeRemoval {
 					&& (is.getItem() == Items.diamond_boots || is.getItem() == Items.diamond_chestplate || is.getItem() == Items.diamond_leggings || is.getItem() == Items.diamond_helmet
 							|| is.getItem() == Items.leather_boots || is.getItem() == Items.leather_chestplate || is.getItem() == Items.leather_leggings || is.getItem() == Items.leather_helmet
 							|| is.getItem() == Items.iron_boots || is.getItem() == Items.iron_chestplate || is.getItem() == Items.iron_leggings || is.getItem() == Items.iron_helmet
-							|| is.getItem() == Items.golden_boots || is.getItem() == Items.golden_chestplate || is.getItem() == Items.golden_leggings || is.getItem() == Items.golden_helmet || is
-							.getItem() == Items.paper)) {
+							|| is.getItem() == Items.golden_boots || is.getItem() == Items.golden_chestplate || is.getItem() == Items.golden_leggings || is.getItem() == Items.golden_helmet
+							|| is.getItem() == Items.paper || is.getItem() == Items.wooden_sword || is.getItem() == Items.stone_sword || is.getItem() == Items.iron_sword
+							|| is.getItem() == Items.golden_sword || is.getItem() == Items.diamond_sword)) {
 				recipe.remove();
 			}
 		}
