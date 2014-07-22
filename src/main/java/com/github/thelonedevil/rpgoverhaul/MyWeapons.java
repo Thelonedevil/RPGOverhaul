@@ -3,6 +3,7 @@ package com.github.thelonedevil.rpgoverhaul;
 import net.minecraft.item.Item;
 
 import com.github.thelonedevil.rpgoverhaul.util.WeaponUtil;
+import com.github.thelonedevil.rpgoverhaul.weapons.fist.Fist;
 import com.github.thelonedevil.rpgoverhaul.weapons.swords.Sword;
 import com.github.thelonedevil.rpgoverhaul.weapons.swords.legendary.Zangetsu;
 
@@ -12,6 +13,7 @@ public class MyWeapons {
 	public static Item broadSword;
 	public static Item longSword;
 	public static Item greatSword;
+	public static Item fist;
 
 	public static Item Zangetsu;
 	public static Item TensaZangetsu;
@@ -31,5 +33,7 @@ public class MyWeapons {
 		GameRegistry.registerItem(longSword, "longsword");
 		greatSword = new Sword(WeaponUtil.GREATSWORD, new int[] {15, 8 });
 		GameRegistry.registerItem(greatSword, "greatsword");
+		fist = new Fist(WeaponUtil.FIST, new int[]{20});
+		GameRegistry.registerItem(fist, "fist");
 	}
 }
