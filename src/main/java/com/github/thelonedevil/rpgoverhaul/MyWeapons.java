@@ -2,8 +2,9 @@ package com.github.thelonedevil.rpgoverhaul;
 
 import net.minecraft.item.Item;
 
-import com.github.thelonedevil.rpgoverhaul.weapons.swords.LegendarySword;
+import com.github.thelonedevil.rpgoverhaul.util.WeaponUtil;
 import com.github.thelonedevil.rpgoverhaul.weapons.swords.Sword;
+import com.github.thelonedevil.rpgoverhaul.weapons.swords.legendary.Zangetsu;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -21,14 +22,14 @@ public class MyWeapons {
 	public static Item HandSonicv5;
 
 	public static void init() {
-		Zangetsu = new LegendarySword("Zangetsu", "The Slaying Moon", new int[] { 20, 4 });
+		Zangetsu = new Zangetsu();
 		GameRegistry.registerItem(Zangetsu, "Zangetsu");
 
-		broadSword = new Sword("BroadSword", new int[] {20, 4 });
+		broadSword = new Sword(WeaponUtil.BROADSWORD, new int[] {20, 4 });
 		GameRegistry.registerItem(broadSword, "broadsword");
-		longSword = new Sword("longSword", new int[] {20, 6 });
+		longSword = new Sword(WeaponUtil.LONGSWORD, new int[] {20, 6 });
 		GameRegistry.registerItem(longSword, "longsword");
-		greatSword = new Sword("greatSword", new int[] {15, 8 });
+		greatSword = new Sword(WeaponUtil.GREATSWORD, new int[] {15, 8 });
 		GameRegistry.registerItem(greatSword, "greatsword");
 	}
 }

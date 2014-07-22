@@ -1,9 +1,10 @@
-package com.github.thelonedevil.rpgoverhaul.weapons.swords;
+package com.github.thelonedevil.rpgoverhaul.weapons.swords.legendary;
 
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 
 import com.github.thelonedevil.rpgoverhaul.Ref;
+import com.github.thelonedevil.rpgoverhaul.weapons.swords.Sword;
 
 public class LegendarySword extends Sword {
 	String lore;

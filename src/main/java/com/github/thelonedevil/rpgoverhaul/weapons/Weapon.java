@@ -8,13 +8,17 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
+import com.github.thelonedevil.rpgoverhaul.MyWeapons;
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.Ref;
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
+import com.github.thelonedevil.rpgoverhaul.util.MetalUtil;
 import com.github.thelonedevil.rpgoverhaul.util.WeaponUtil;
-import com.github.thelonedevil.rpgoverhaul.weapons.swords.LegendarySword;
+import com.github.thelonedevil.rpgoverhaul.weapons.swords.legendary.LegendarySword;
 
 public class Weapon extends Item {
 
@@ -30,19 +34,6 @@ public class Weapon extends Item {
 		this.setCreativeTab(RPGOMain.WeaponTab).setMaxStackSize(1);
 
 
-	}
-
-	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		switch(item.getUnlocalizedName().substring(5)){
-		case WeaponUtil.BROADSWORD:
-			break;
-		case WeaponUtil.LONGSWORD:
-			break;
-		case WeaponUtil.GREATSWORD:
-			break;
-		}
-		list.add(new ItemStack(item));
 	}
 
 	public void addCrystal(CrystalType newCrystal) {
