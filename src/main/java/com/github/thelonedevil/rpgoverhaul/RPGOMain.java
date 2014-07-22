@@ -70,7 +70,7 @@ public class RPGOMain {
 	public static HashMap<String, BufferedImage> textures;
 	public static CreativeTabs myTab = new CreativeTabs("rpgo") {
 		public Item getTabIconItem() {
-			return Item.getItemFromBlock(Blocks.dirt);
+			return Item.getItemFromBlock(MyBlocks.portal);
 		}
 	};
 	public static CreativeTabs MetalTab = new CreativeTabs("rpgo.metals") {
@@ -80,7 +80,7 @@ public class RPGOMain {
 	};
 	public static CreativeTabs WeaponTab = new CreativeTabs("rpgo.weapons") {
 		public Item getTabIconItem() {
-			return Items.diamond_sword;
+			return MyWeapons.broadSword;
 		}
 	};
 	public static CreativeTabs CrystalTab = new CreativeTabs("rpgo.crystals") {
@@ -109,8 +109,6 @@ public class RPGOMain {
 		EntityRegistry.addSpawn(Gazelle.class, 100, 1, 20, EnumCreatureType.creature, BiomeGenBase.savannaPlateau);
 		EntityRegistry.addSpawn(Gazelle.class, 100,1, 20,  EnumCreatureType.creature, BiomeGenBase.desert);
 		EntityRegistry.addSpawn(Gazelle.class, 100,1, 20,  EnumCreatureType.creature, BiomeGenBase.desertHills);
-		// File file1 = new File(Ref.modsfolder, "rpgo/textures");
-		// textures = Util.getImages(file1);
 		MyBlocks.init();
 		MyItems.init();
 		MyClothes.init();

@@ -13,6 +13,12 @@ public class MyWeapons {
 	public static Item greatSword;
 
 	public static Item Zangetsu;
+	public static Item TensaZangetsu;
+	public static Item HandSonicv1;
+	public static Item HandSonicv2;
+	public static Item HandSonicv3;
+	public static Item HandSonicv4;
+	public static Item HandSonicv5;
 
 	public static void init() {
 		Zangetsu = new LegendarySword("Zangetsu", "The Slaying Moon", new int[] { 20, 4 });
@@ -22,7 +28,7 @@ public class MyWeapons {
 		GameRegistry.registerItem(broadSword, "broadsword");
 		longSword = new Sword("longSword", new int[] {20, 6 });
 		GameRegistry.registerItem(longSword, "longsword");
-		greatSword = new Sword("greatSword", new int[] {20, 8 });
+		greatSword = new Sword("greatSword", new int[] {15, 8 });
 		GameRegistry.registerItem(greatSword, "greatsword");
 	}
 }

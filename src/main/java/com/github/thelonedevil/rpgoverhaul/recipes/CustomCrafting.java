@@ -16,8 +16,9 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.github.thelonedevil.rpgoverhaul.MyMetals;
 import com.github.thelonedevil.rpgoverhaul.MyWeapons;
-import com.github.thelonedevil.rpgoverhaul.items.MetalUtil;
 import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
+import com.github.thelonedevil.rpgoverhaul.util.MetalUtil;
+import com.github.thelonedevil.rpgoverhaul.util.WeaponUtil;
 
 public class CustomCrafting {
 	/** The static instance of this class */
