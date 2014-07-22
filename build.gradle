@@ -1,6 +1,5 @@
 buildscript {
-    repositories
-    {
+    repositories {
         mavenCentral()
         maven {
             name = "forge"
@@ -11,24 +10,57 @@ buildscript {
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
     }
-    dependencies
-    {
-        classpath "net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT"
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
- 
-apply plugin: "forge"
+
+apply plugin: 'forge'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
-sourceSets
+
+version = "1.7.10-0.2.001"
+group= "com.github.thelonedevil.RPGOverhaul" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "RPGOverhaul"
+
+
+minecraft {
+    version = "1.7.10-10.13.0.1179"
+    assetDir = "eclipse/assets"
+}
+
+dependencies {
+    // you may put jars on which you depend on in ./libs
+    // or you may define them like so..
+    //compile "some.group:artifact:version:classifier"
+    //compile "some.group:artifact:version"
+      
+    // real examples
+    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
+    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+
+    // for more info...
+    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
+    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+}
+
+processResources
 {
-    main
-    {
-       java { srcDirs = ["$projectDir/src/main/java"] }
-       resources { srcDirs = ["$projectDir/src/main/resources"] }
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
     }
 }
- 
-archivesBaseName = "RPGOverhaul"
-version = "1.7.10-0.2.001"
-minecraft.version = "1.7.10-10.13.0.1179"
