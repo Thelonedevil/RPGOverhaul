@@ -46,7 +46,8 @@ public class GuiQuestBookIndex extends GuiQuestBook implements IParented {
 		return title;
 	}
 
-	@Override
+	@SuppressWarnings("unchecked")
+    @Override
 	public void initGui() {
 		super.initGui();
 		buttonList.add(backButton = new GuiButtonBack(12, left + guiWidth / 2 - 8, top + guiHeight + 2));

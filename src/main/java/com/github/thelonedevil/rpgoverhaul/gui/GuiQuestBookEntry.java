@@ -31,7 +31,8 @@ public class GuiQuestBookEntry extends GuiQuestBook implements IGuiQuestBookEntr
 		title = StatCollector.translateToLocal(entry.getUnlocalizedName());
 	}
 
-	@Override
+	@SuppressWarnings("unchecked")
+    @Override
 	public void initGui() {
 		super.initGui();
 

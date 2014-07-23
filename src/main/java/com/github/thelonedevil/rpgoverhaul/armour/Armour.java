@@ -32,6 +32,7 @@ public class Armour extends Item implements IArmour {
 	}
 
 	@Override
+    @SuppressWarnings("unchecked")
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if (GuiScreen.isShiftKeyDown()) {
 			addStringToTooltip(StatCollector.translateToLocal(Ref.MODID + ".armour." + type), par3List);
