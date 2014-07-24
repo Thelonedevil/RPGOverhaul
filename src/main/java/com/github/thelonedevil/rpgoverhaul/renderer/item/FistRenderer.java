@@ -37,7 +37,6 @@ public class FistRenderer implements IItemRenderer {
             case EQUIPPED:
                 break;
             case EQUIPPED_FIRST_PERSON:
-                EntityPlayer playermp = mc.thePlayer;
                 float var7 = 0.8F;
                 GL11.glPushMatrix();
                 if (mc.gameSettings.thirdPersonView == 0) {
