@@ -30,7 +30,6 @@ public class FistRenderer implements IItemRenderer {
         Minecraft mc = Minecraft.getMinecraft();
         switch (type) {
             case EQUIPPED:
-
                 break;
             case EQUIPPED_FIRST_PERSON:
                 GL11.glPushMatrix();
@@ -44,8 +43,6 @@ public class FistRenderer implements IItemRenderer {
                     RenderPlayer player = (RenderPlayer) render;
                     player.renderFirstPersonArm(mc.thePlayer);
                 }
-                GL11.glPopMatrix();
-
                 GL11.glPopMatrix();
                 break;
             case ENTITY:
