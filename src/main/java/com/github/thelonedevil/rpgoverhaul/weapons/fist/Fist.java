@@ -21,10 +21,7 @@ public class Fist extends Weapon {
         if (itemstack.getTagCompound() != null) {
             if (itemstack.getItem() instanceof LegendaryFist) {
             }else{
-                String s = itemstack.getTagCompound().getString("bottom");
-                String s1 = itemstack.getTagCompound().getString("blade");
-                String s2 = "Made from " + s + " and " + s1;
-                addStringToTooltip(StatCollector.translateToLocal(s2), par3List);
+                //TODO add display information for materials used
             }
             String s3 = "&9+" + itemstack.getTagCompound().getInteger("damage") + " Attack Damage";
             addStringToTooltip(StatCollector.translateToLocal(s3), par3List);
