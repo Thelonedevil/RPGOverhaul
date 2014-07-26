@@ -31,16 +31,6 @@ public class Sword extends Weapon {
 	}
 
 	@Override
-	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
-		return EnumAction.block;
-	}
-
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
-		par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
-		return par1ItemStack;
-	}
-
-	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		String name1 = "Iron";
 		String name2 = "Iron";

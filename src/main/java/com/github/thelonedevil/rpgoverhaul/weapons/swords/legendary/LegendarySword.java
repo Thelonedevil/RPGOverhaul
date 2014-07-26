@@ -12,7 +12,7 @@ public class LegendarySword extends Sword {
 	public LegendarySword(String name, String lore, int[] stats) {
 		super(name, stats);
 		this.lore = lore;
-		this.setUnlocalizedName(name).setTextureName(Ref.MODID + ":" + name);
+		this.setTextureName(Ref.MODID + ":" + name);
 	}
 
 	public String getLore() {
