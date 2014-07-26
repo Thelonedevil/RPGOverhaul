@@ -41,8 +41,8 @@ public class BroadSwordRenderer implements IItemRenderer {
 		String blade = "iron";
 		String bottom = "iron";
 		if (itemstack.getTagCompound() != null) {
-			blade = itemstack.getTagCompound().getString("blade");
-			bottom = itemstack.getTagCompound().getString("bottom");
+			blade = itemstack.getTagCompound().getString("blade").toLowerCase();
+			bottom = itemstack.getTagCompound().getString("bottom").toLowerCase();
 		}
 		switch (type) {
 		case EQUIPPED:

@@ -27,7 +27,7 @@ public class GuiQuestBook extends GuiScreen {
 	public static ItemStack stackUsed;
 
 	public static final int BOOKMARK_START = 1337;
-	public static List<GuiQuestBook> bookmarks = new ArrayList();
+	public static List<GuiQuestBook> bookmarks = new ArrayList<>();
 	boolean bookmarksNeedPopulation = false;
 
 	public static final ResourceLocation texture = new ResourceLocation(Ref.MODID + ":textures/gui/questbook.png");
@@ -38,6 +38,7 @@ public class GuiQuestBook extends GuiScreen {
 	int left, top;
 
 	@Override
+    @SuppressWarnings("unchecked")
 	public void initGui() {
 		super.initGui();
 		if(Minecraft.getMinecraft().thePlayer.getCurrentEquippedItem() != null){

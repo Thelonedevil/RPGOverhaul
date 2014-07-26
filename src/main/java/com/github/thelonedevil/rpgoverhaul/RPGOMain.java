@@ -178,7 +178,6 @@ public class RPGOMain {
 		EntityRegistry.registerGlobalEntityID(entityClass, name, entityID);
 		EntityRegistry.registerModEntity(entityClass, name, entityID, instance, 64, 1, true);
 		EntityList.entityEggs.put(Integer.valueOf(entityID), new EntityList.EntityEggInfo(entityID, primaryColor, secondaryColor));
-
 		proxy.registerRenderers();
 	}
 

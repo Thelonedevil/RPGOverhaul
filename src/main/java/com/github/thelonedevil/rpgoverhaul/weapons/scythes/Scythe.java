@@ -1,25 +1,27 @@
-package com.github.thelonedevil.rpgoverhaul.weapons.fist;
+package com.github.thelonedevil.rpgoverhaul.weapons.scythes;
 
 import com.github.thelonedevil.rpgoverhaul.weapons.Weapon;
 import com.github.thelonedevil.rpgoverhaul.weapons.WeaponType;
-import com.github.thelonedevil.rpgoverhaul.weapons.fist.legendary.LegendaryFist;
+import com.github.thelonedevil.rpgoverhaul.weapons.scythes.legendary.LegendaryScythe;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 import java.util.List;
 
-public class Fist extends Weapon {
+/**
+ * Created by justin on 26/07/2014.
+ */
+public class Scythe extends Weapon {
 
-	public Fist(String name, int[] stats) {
-		super(WeaponType.FIST, name, stats);
-		// TODO Auto-generated constructor stub
-	}
+    public Scythe(String name, int[] stats) {
+        super(WeaponType.SCYTHE, name, stats);
+    }
     @Override
     public void addInformation(ItemStack itemstack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
         super.addInformation(itemstack, par2EntityPlayer, par3List, par4);
         if (itemstack.getTagCompound() != null) {
-            if (itemstack.getItem() instanceof LegendaryFist) {
+            if (itemstack.getItem() instanceof LegendaryScythe) {
             }else{
                 //TODO add display information for materials used
             }
@@ -31,5 +33,4 @@ public class Fist extends Weapon {
     private void addStringToTooltip(String s, List<String> tooltip) {
         tooltip.add(s.replaceAll("&", "\u00a7"));
     }
-
 }

@@ -42,9 +42,9 @@ public class LongSwordRenderer implements IItemRenderer {
 		String bottom = "iron";
 		String blade1 = "iron"; 
 		if (itemstack.getTagCompound() != null) {
-			blade = itemstack.getTagCompound().getString("blade");
-			blade1 = itemstack.getTagCompound().getString("blade1");
-			bottom = itemstack.getTagCompound().getString("bottom");
+			blade = itemstack.getTagCompound().getString("blade").toLowerCase();
+			blade1 = itemstack.getTagCompound().getString("blade1").toLowerCase();
+			bottom = itemstack.getTagCompound().getString("bottom").toLowerCase();
 		}
 		switch (type) {
 		case EQUIPPED:

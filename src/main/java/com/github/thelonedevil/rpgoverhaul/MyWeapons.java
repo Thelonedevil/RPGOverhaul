@@ -1,5 +1,6 @@
 package com.github.thelonedevil.rpgoverhaul;
 
+import com.github.thelonedevil.rpgoverhaul.weapons.scythes.Scythe;
 import net.minecraft.item.Item;
 
 import com.github.thelonedevil.rpgoverhaul.util.WeaponUtil;
@@ -14,6 +15,7 @@ public class MyWeapons {
 	public static Item longSword;
 	public static Item greatSword;
 	public static Item fist;
+    public static Item scythe;
 
 	public static Item Zangetsu;
 	public static Item TensaZangetsu;
@@ -35,5 +37,7 @@ public class MyWeapons {
 		GameRegistry.registerItem(greatSword, "greatsword");
 		fist = new Fist(WeaponUtil.FIST, new int[]{20});
 		GameRegistry.registerItem(fist, "fist");
+        scythe = new Scythe(WeaponUtil.SCYTHE, new int[]{20,6});
+        GameRegistry.registerItem(scythe, "scythe");
 	}
 }

@@ -16,6 +16,7 @@ public class WeaponUtil {
 	public static final String LONGSWORD = "longsword";
 	public static final String GREATSWORD = "greatsword";
 	public static final String FIST = "fist";
+    public static final String SCYTHE = "scythe";
 
 	public static ItemStack makeBroadSword(InventoryCrafting par1InventoryCrafting) {
 		LogHelper.info("BroadSword Crafted!");
