@@ -8,7 +8,7 @@ public class Models {
 
 	public static final ResourceLocation ZANGETSU = new ResourceLocation(Ref.MODID, "models/zangetsu.obj");
 	public static final ResourceLocation CRYSTALBASE = new ResourceLocation(Ref.MODID, "models/crystalBase.obj");
-	public static final ResourceLocation CRYSTAL = new ResourceLocation(Ref.MODID, "models/Crystal.obj");
+	public static final ResourceLocation CRYSTAL = new ResourceLocation(Ref.MODID, "models/crystal.obj");
 	public static final ResourceLocation BROADSWORD = new ResourceLocation(Ref.MODID, "models/broadsword.obj");
 
 }
