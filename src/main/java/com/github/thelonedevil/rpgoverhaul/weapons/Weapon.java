@@ -23,7 +23,7 @@ import com.github.thelonedevil.rpgoverhaul.weapons.swords.legendary.LegendarySwo
 public class Weapon extends Item {
 
 	int attackSpeed;
-	WeaponType type;
+	public WeaponType type;
 	CrystalType crystal = CrystalType.NONE;
 
 	public Weapon(WeaponType type, String name, int[] stats) {
