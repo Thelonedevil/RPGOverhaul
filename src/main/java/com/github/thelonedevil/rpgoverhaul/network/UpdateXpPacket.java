@@ -1,5 +1,6 @@
 package com.github.thelonedevil.rpgoverhaul.network;
 
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagCompound;
@@ -40,6 +41,7 @@ public class UpdateXpPacket implements IMessage {
 
 		@Override
 		public IMessage onMessage(UpdateXpPacket message, MessageContext ctx) {
+            LogHelper.info(String.format("Received %s from %s", "XP Update", "Server"));
 			ExtendedPlayer.get(Minecraft.getMinecraft().thePlayer).addXp(xp);
 			return null;
 		}

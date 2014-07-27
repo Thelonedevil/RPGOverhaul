@@ -44,7 +44,7 @@ public class OpenGui implements IMessage {
 			int y = MathHelper.floor_double(ctx.getServerHandler().playerEntity.posY);
 			int z = MathHelper.floor_double(ctx.getServerHandler().playerEntity.posZ);
 			ctx.getServerHandler().playerEntity.openGui(RPGOMain.instance, Ref.Armour_Inventory_GUI, ctx.getServerHandler().playerEntity.worldObj, x, y, z);
-			return null; // no response in this case
+			return null;
 		}
 	}
 }

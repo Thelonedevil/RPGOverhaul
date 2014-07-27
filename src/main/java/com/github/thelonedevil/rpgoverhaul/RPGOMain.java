@@ -7,7 +7,6 @@ import java.util.Random;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -29,8 +28,7 @@ import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.Fox;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.Gazelle;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.Goat;
-import com.github.thelonedevil.rpgoverhaul.network.OpenGui;
-import com.github.thelonedevil.rpgoverhaul.network.SyncPlayerProps;
+import com.github.thelonedevil.rpgoverhaul.network.*;
 import com.github.thelonedevil.rpgoverhaul.proxy.CommonProxy;
 import com.github.thelonedevil.rpgoverhaul.quests.QuestBookData;
 import com.github.thelonedevil.rpgoverhaul.recipes.MyRecipes;
@@ -118,9 +116,8 @@ public class RPGOMain {
 
 
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
-		network.registerMessage(SyncPlayerProps.Handler.class, SyncPlayerProps.class, 0, Side.SERVER);
-		network.registerMessage(OpenGui.Handler.class, OpenGui.class, 0, Side.SERVER);
-		//network.registerMessage(UpdateXpPacket.Handler.class, UpdateXpPacket.class, 0, Side.CLIENT);
+		network.registerMessage(OpenGui.Handler.class, OpenGui.class, 1, Side.SERVER);
+		network.registerMessage(UpdateXpPacket.Handler.class, UpdateXpPacket.class, 2, Side.CLIENT);
 		QuestBookData.init();
 		GameRegistry.registerWorldGenerator(worldgen, 9);
 		proxy.registerItemRenderers();

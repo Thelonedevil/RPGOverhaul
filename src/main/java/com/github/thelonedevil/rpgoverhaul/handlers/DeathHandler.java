@@ -77,8 +77,6 @@ public class DeathHandler {
 
 		for (int i = 0; i < drops.size(); i++) {
 			addLootToChest(world, x, y, z, drops.get(i).getEntityItem());
-			LogHelper.info(drops.get(i).getEntityItem().getDisplayName() + drops.get(i).getEntityItem().stackSize);
-
 		}
 	}
 
@@ -127,7 +125,6 @@ public class DeathHandler {
 	@SubscribeEvent
 	public void onLivingDeathEvent(LivingDeathEvent event) {
 		if (!event.entity.worldObj.isRemote && event.entity instanceof EntityPlayer) {
-			ExtendedPlayer.saveProxyData((EntityPlayer) event.entity);
 			if (!event.entity.worldObj.getGameRules().getGameRuleBooleanValue("keepInventory")) {
 				InventoryPlayer inv = ((EntityPlayer) event.entityLiving).inventory;
 				for (int i = 0; i < inv.getSizeInventory(); i++) {
@@ -152,9 +149,6 @@ public class DeathHandler {
 			if (books.containsKey(name)) {
 				inv.setInventorySlotContents(0, books.get(name));
 				books.remove(name);
-				LogHelper.info("QuestBook of " + name + "restored");
-			} else {
-				LogHelper.info("player had no questbook");
 			}
 		}
 	}

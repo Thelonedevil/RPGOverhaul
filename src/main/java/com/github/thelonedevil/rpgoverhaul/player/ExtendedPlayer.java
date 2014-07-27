@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -61,77 +62,23 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	}
 
 	@Override
-	public void saveNBTData(NBTTagCompound compound) {
-		NBTTagCompound properties = new NBTTagCompound();
-		customInventory.writeToNBT(properties);
-		properties.setDouble("xp", xp);
-		properties.setIntArray("Skills", skills);
-		for (Perks key : perks.keySet()) {
-			properties.setBoolean(key.toString(), perks.get(key));
-		}
-
-		compound.setTag(EXT_PROP_NAME, properties);
-
+	public void saveNBTData(NBTTagCompound tag) {
+        customInventory.writeToNBT(tag);
+        tag.setDouble("xp",xp);
 	}
 
 	@Override
-	public void loadNBTData(NBTTagCompound compound) {
-		NBTTagCompound properties = (NBTTagCompound) compound.getTag(EXT_PROP_NAME);
-		customInventory.readFromNBT(properties);
-		double newxp = properties.getDouble("xp");
-		UUID uuid = this.player.getUniqueID();
-		EntityPlayerMP epmp = Util.getPlayerFromUUID(uuid);
-		//RPGOMain.network.sendTo(new UpdateXpPacket(newxp), epmp);
-		skills = properties.getIntArray("Skills");
-		Perks[] perklist = Perks.values();
-		for (int i = 0; i < perklist.length; i++) {
-			if (properties.getBoolean(perklist[i].toString())) {
-				addPerk(perklist[i]);
-			}
-		}
-
-	}
-
-	private static String getSaveKey(EntityPlayer player) {
-		return player.getUniqueID() + ":" + EXT_PROP_NAME;
-	}
-
-	/**
-	 * Does everything I did in onLivingDeathEvent and it's static, so you now
-	 * only need to use the following in the above event:
-	 * ExtendedPlayer.saveProxyData((EntityPlayer) event.entity));
-	 */
-	public static void saveProxyData(EntityPlayer player) {
-		ExtendedPlayer playerData = ExtendedPlayer.get(player);
-		NBTTagCompound savedData = new NBTTagCompound();
-
-		playerData.saveNBTData(savedData);
-		// Note that we made the CommonProxy method storeEntityData static,
-		// so now we don't need an instance of CommonProxy to use it! Great!
-		CommonProxy.storeEntityData(getSaveKey(player), savedData);
-	}
-
-	/**
-	 * This cleans up the onEntityJoinWorld event by replacing most of the code
-	 * with a single line: ExtendedPlayer.loadProxyData((EntityPlayer)
-	 * event.entity));
-	 */
-	public static void loadProxyData(EntityPlayer player) {
-		ExtendedPlayer playerData = ExtendedPlayer.get(player);
-		NBTTagCompound savedData = CommonProxy.getEntityData(getSaveKey(player));
-
-		if (savedData != null) {
-			playerData.loadNBTData(savedData);
-		}
-		// note we renamed 'syncExtendedProperties' to 'syncProperties' because
-		// yay, it's shorter
-		RPGOMain.network.sendTo(new SyncPlayerProps(player), (EntityPlayerMP) player);
-
+	public void loadNBTData(NBTTagCompound tag) {
+        customInventory.readFromNBT(tag);
+        this.xp = tag.getDouble("xp");
+        UUID uuid = player.getUniqueID();
+        EntityPlayerMP epmp = Util.getPlayerFromUUID(uuid);
+        ExtendedPlayer.get(epmp).addXp(xp);
+        RPGOMain.network.sendTo(new UpdateXpPacket( tag.getDouble("xp")), epmp);
 	}
 
 	@Override
 	public void init(Entity entity, World world) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -169,22 +116,15 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 	}
 
 	public void addXp(double xp) {
-
 		int oldlvl = this.getLevel();
 		this.xp += xp;
 		int newlvl = this.getLevel();
 		if (newlvl > oldlvl) {
 			levelUp(newlvl);
 		}
-		System.out.println("Xp added, xp is now " + this.xp);
-		System.out.println("Level is now " + getLevel());
-		System.out.println(" add player is " + player.getCommandSenderName());
-		this.saveProxyData(player);
 	}
 
 	public double getXp() {
-		// System.out.println("xp got and is " + this.xp);
-		// System.out.println("get player is " + player.getCommandSenderName());
 		return this.xp;
 	}
 
@@ -202,14 +142,5 @@ public class ExtendedPlayer implements IExtendedEntityProperties {
 			addPerk(Perks.RESPIRATION);
 			break;
 		}
-	}
-
-	public void openWeaponSmith() {
-		player.openGui(RPGOMain.instance, Ref.WEAPON_SMITH_GUI, player.getEntityWorld(), MathHelper.floor_double(player.posX), MathHelper.floor_double(player.posY),
-				MathHelper.floor_double(player.posZ));
-
-		// this.openContainer.windowId = this.currentWindowId;
-		// this.openContainer.addCraftingToCrafters(this);
-
 	}
 }

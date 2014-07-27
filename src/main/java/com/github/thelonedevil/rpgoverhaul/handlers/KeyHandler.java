@@ -1,5 +1,6 @@
 package com.github.thelonedevil.rpgoverhaul.handlers;
 
+import com.github.thelonedevil.rpgoverhaul.util.LogHelper;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.settings.KeyBinding;
 
@@ -44,10 +45,10 @@ public class KeyHandler {
 		if (!FMLClientHandler.instance().isGUIOpen(GuiChat.class) && FMLClientHandler.instance().getClient().inGameHasFocus) {
 			if (keys[CUSTOM_INV].isPressed()) {
 				RPGOMain.network.sendToServer(new OpenGui(Ref.Armour_Inventory_GUI));
-				System.out.println("Open GUI packet sent to server");
+				LogHelper.info("Open GUI packet sent to server");
 			} else if (keys[CRYSTAL_SWAP].isPressed()) {
 				RPGOMain.network.sendToServer(new OpenGui(Ref.Armour_Inventory_GUI));
-				System.out.println("Open GUI packet sent to server");
+				LogHelper.info("Open GUI packet sent to server");
 			}
 
 		}
