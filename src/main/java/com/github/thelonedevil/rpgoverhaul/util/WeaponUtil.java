@@ -5,6 +5,7 @@ import java.util.List;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MathHelper;
 import net.minecraftforge.oredict.OreDictionary;
 
 import com.github.thelonedevil.rpgoverhaul.MyMetals;
@@ -121,7 +122,8 @@ public class WeaponUtil {
 			tag.setString("bottom", name3);
 			int damage1 = MetalUtil.getDamage(blade);
 			int damage2 = MetalUtil.getDamage(blade1);
-			int damage = damage1 + damage2 / 2;
+            double damage3 = ((damage1 + damage2) / 2);
+            int damage = (int)Math.ceil(damage3);
 			tag.setInteger("damage", damage);
 			stack.setTagCompound(tag);
 			LogHelper.info("NBT SET!!");
