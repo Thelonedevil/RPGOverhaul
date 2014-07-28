@@ -15,7 +15,7 @@ import java.util.List;
 public class Hammer extends Weapon {
 
     public Hammer(String name, int[] stats) {
-        super(WeaponType.FIST, name, stats);
+        super(WeaponType.WARHAMMER, name, stats);
         // TODO Auto-generated constructor stub
     }
     @Override

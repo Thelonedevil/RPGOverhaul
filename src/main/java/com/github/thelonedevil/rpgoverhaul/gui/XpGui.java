@@ -2,6 +2,7 @@ package com.github.thelonedevil.rpgoverhaul.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
+import net.minecraft.util.MathHelper;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 
 import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
@@ -20,13 +21,13 @@ public class XpGui extends Gui {
 		this.mc = mc;
 	}
 
-	@SubscribeEvent(priority = EventPriority.NORMAL)
+	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public void onRender(RenderGameOverlayEvent.Text event) {
 		ExtendedPlayer props = ExtendedPlayer.get(this.mc.thePlayer);
 		int xPos = 10;
-		int yPos = 10;
+		int yPos = 75;
 		mc.fontRenderer.drawString("Level: " + props.getLevel(), xPos, yPos, 4210752);
-		mc.fontRenderer.drawString("XP: " + props.getXp(), xPos, yPos + 10, 4210752);
+		mc.fontRenderer.drawString("XP: " + MathHelper.floor_double(props.getXp()), xPos, yPos + 10, 4210752);
 
 	}
 }

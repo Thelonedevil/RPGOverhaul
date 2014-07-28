@@ -2,6 +2,7 @@ package com.github.thelonedevil.rpgoverhaul.handlers;
 
 import java.util.UUID;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
@@ -44,6 +45,7 @@ public class PlayerKillHandler {
 					if (!source.getSourceOfDamage().worldObj.isRemote) {
 						UUID uuid = source.getSourceOfDamage().getUniqueID();
 						EntityPlayerMP epmp = Util.getPlayerFromUUID(uuid);
+                        ExtendedPlayer.get(epmp).addXp(xp);
 						RPGOMain.network.sendTo(new UpdateXpPacket(xp), epmp);
 					}
 

@@ -54,8 +54,7 @@ public class ArmourInventory implements IInventory {
 	private ItemStack[] inventory = new ItemStack[INV_SIZE];
 
 	public ArmourInventory() {
-		// don't need anything here!
-	}
+    }
 
 	@Override
 	public int getSizeInventory() {
@@ -233,10 +232,6 @@ public class ArmourInventory implements IInventory {
 				items.appendTag(item);
 			}
 		}
-
-		// We're storing our items in a custom tag list using our 'tagName' from
-		// above
-		// to prevent potential conflicts
 		compound.setTag(tagName, items);
 	}
 
