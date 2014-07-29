@@ -70,7 +70,7 @@ public class Belt extends Armour {
 	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
 		if (!par2World.isRemote) {
-			ArmourInventory armour = ExtendedPlayer.get(par3EntityPlayer).customInventory;
+			ArmourInventory armour = ExtendedPlayer.get(par3EntityPlayer).armour;
 			for (int i = 0; i < 12; i++)
 				if (armour.getStackInSlot(i) == null && armour.isItemValidForSlot(i, par1ItemStack)) {
 					armour.setInventorySlotContents(i, par1ItemStack.copy());
