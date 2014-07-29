@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Random;
 
+import com.github.thelonedevil.rpgoverhaul.handlers.*;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
@@ -15,15 +16,6 @@ import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.github.thelonedevil.rpgoverhaul.blocks.crystals.MyCrystals;
-import com.github.thelonedevil.rpgoverhaul.handlers.AttackHandler;
-import com.github.thelonedevil.rpgoverhaul.handlers.CraftingHandler;
-import com.github.thelonedevil.rpgoverhaul.handlers.DeathHandler;
-import com.github.thelonedevil.rpgoverhaul.handlers.EntityConstructionHandler;
-import com.github.thelonedevil.rpgoverhaul.handlers.EntityJoinWorldHandler;
-import com.github.thelonedevil.rpgoverhaul.handlers.LeftClickHandler;
-import com.github.thelonedevil.rpgoverhaul.handlers.PlayerConnectHandler;
-import com.github.thelonedevil.rpgoverhaul.handlers.PlayerKillHandler;
-import com.github.thelonedevil.rpgoverhaul.handlers.PlayerTickHandler;
 import com.github.thelonedevil.rpgoverhaul.mobs.Mob1;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.Fox;
 import com.github.thelonedevil.rpgoverhaul.mobs.passive.Gazelle;
@@ -136,6 +128,7 @@ public class RPGOMain {
 		MinecraftForge.EVENT_BUS.register(tickHandler);
 		MinecraftForge.EVENT_BUS.register(killHandler);
 		MinecraftForge.EVENT_BUS.register(new LeftClickHandler());
+        MinecraftForge.EVENT_BUS.register(new CloneHandler());
 		MinecraftForge.EVENT_BUS.register(entityjoin);
 		FMLCommonHandler.instance().bus().register(craft);
 		proxy.registerKeys();
