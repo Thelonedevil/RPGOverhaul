@@ -2,6 +2,7 @@ package com.github.thelonedevil.rpgoverhaul.handlers;
 
 import java.util.UUID;
 
+import com.github.thelonedevil.rpgoverhaul.network.SyncEEP;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityCreeper;
@@ -16,7 +17,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import com.github.thelonedevil.rpgoverhaul.RPGOMain;
 import com.github.thelonedevil.rpgoverhaul.mobs.BaseXP;
 import com.github.thelonedevil.rpgoverhaul.mobs.ExtendedMob;
-import com.github.thelonedevil.rpgoverhaul.network.UpdateXpPacket;
+
 import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
 import com.github.thelonedevil.rpgoverhaul.util.Util;
 
@@ -46,7 +47,7 @@ public class PlayerKillHandler {
 						UUID uuid = source.getSourceOfDamage().getUniqueID();
 						EntityPlayerMP epmp = Util.getPlayerFromUUID(uuid);
                         ExtendedPlayer.get(epmp).addXp(xp);
-						RPGOMain.network.sendTo(new UpdateXpPacket(xp), epmp);
+                        RPGOMain.network.sendTo(new SyncEEP((EntityPlayer)source.getSourceOfDamage()), epmp);
 					}
 
 				}

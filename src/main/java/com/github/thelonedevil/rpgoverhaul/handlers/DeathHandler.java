@@ -129,7 +129,7 @@ public class DeathHandler {
 				InventoryPlayer inv = ((EntityPlayer) event.entityLiving).inventory;
 				for (int i = 0; i < inv.getSizeInventory(); i++) {
 					if (inv.getStackInSlot(i) != null) {
-						String name = ((EntityPlayer) event.entityLiving).getCommandSenderName();
+						String name = event.entityLiving.getCommandSenderName();
 						if (inv.getStackInSlot(i).getItem() == MyItems.questBook) {
 							books.put(name, inv.getStackInSlot(i));
 							LogHelper.info("QuestBook of " + name + "stored");

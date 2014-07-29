@@ -28,7 +28,7 @@ public class GUIHandler implements IGuiHandler {
 			return new AlloyContainer(player.inventory, tileEntityFurnace);
 		}
 		if (ID == Ref.Armour_Inventory_GUI) {
-			return new ArmourContainer(player, player.inventory, ExtendedPlayer.get(player).customInventory);
+			return new ArmourContainer(player, player.inventory, ExtendedPlayer.get(player).armour);
 		}
 		if (ID == Ref.WEAPON_SMITH_GUI) {
 			return new WeaponSmithContainer(player.inventory, world, x, y, z);
@@ -43,7 +43,7 @@ public class GUIHandler implements IGuiHandler {
 			return new Alloy_Furnace_GUI(player.inventory, tileEntityTestContainer);
 		}
 		if (ID == Ref.Armour_Inventory_GUI) {
-			return new ArmourInventoryGUI(player, player.inventory, ExtendedPlayer.get(player).customInventory);
+			return new ArmourInventoryGUI(player, player.inventory, ExtendedPlayer.get(player).armour);
 		}
 		if (ID == Ref.WEAPON_SMITH_GUI) {
 			return new WeaponSmithGUI(player.inventory, world, x, y, z);

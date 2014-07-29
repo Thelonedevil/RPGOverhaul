@@ -116,8 +116,8 @@ public class RPGOMain {
 
 
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
+        network.registerMessage(SyncEEP.Handler.class, SyncEEP.class, 0 , Side.CLIENT);
 		network.registerMessage(OpenGui.Handler.class, OpenGui.class, 1, Side.SERVER);
-		network.registerMessage(UpdateXpPacket.Handler.class, UpdateXpPacket.class, 2, Side.CLIENT);
 		QuestBookData.init();
 		GameRegistry.registerWorldGenerator(worldgen, 9);
 		proxy.registerItemRenderers();

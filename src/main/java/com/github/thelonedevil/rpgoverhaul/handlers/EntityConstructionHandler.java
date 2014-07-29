@@ -13,7 +13,7 @@ public class EntityConstructionHandler {
 
 	@SubscribeEvent
 	public void onConstruction(EntityConstructing event) {
-		if (event.entity instanceof EntityPlayer && ExtendedPlayer.get((EntityPlayer) event.entity) == null) {
+		if (event.entity instanceof EntityPlayer /*&& ExtendedPlayer.get((EntityPlayer) event.entity) == null*/) {
 			ExtendedPlayer.register((EntityPlayer) event.entity);
 		}
 		if (event.entity instanceof EntityMob) {
