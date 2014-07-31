@@ -1,5 +1,6 @@
 package com.github.thelonedevil.rpgoverhaul.inventory;
 
+import com.github.thelonedevil.rpgoverhaul.inventory.slots.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -9,17 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 import com.github.thelonedevil.rpgoverhaul.armour.Armour;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotBelt;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotBootL;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotBootR;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotBracerL;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotBracerR;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotCuirass;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotGauntletL;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotGauntletR;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotGreaves;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotPauldronL;
-import com.github.thelonedevil.rpgoverhaul.inventory.slots.SlotPauldronR;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -39,7 +29,7 @@ public class ArmourContainer extends Container {
 
 	public ArmourContainer(final EntityPlayer player, InventoryPlayer inventoryplayer, ArmourInventory inv) {
 
-		this.addSlotToContainer(new Slot(inv, 0, 112, 8));
+		this.addSlotToContainer(new SlotHelmet(inv, 0, 112, 8));
 		this.addSlotToContainer(new SlotPauldronL(inv, 1, 80, 8));
 		this.addSlotToContainer(new SlotPauldronR(inv, 2, 144, 8));
 		this.addSlotToContainer(new SlotCuirass(inv, 3, 112, 26));

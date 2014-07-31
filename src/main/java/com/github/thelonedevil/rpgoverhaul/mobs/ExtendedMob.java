@@ -11,18 +11,18 @@ import com.github.thelonedevil.rpgoverhaul.Ref;
 public class ExtendedMob implements IExtendedEntityProperties {
 	public final static String EXT_PROP_NAME = Ref.MODID + "ExtendedMob";
 
-	private final EntityMob Mob;
+	private final Entity Mob;
 	private int lvl = 1;
 
-	public ExtendedMob(EntityMob mob) {
+	public ExtendedMob(Entity mob) {
 		this.Mob = mob;
 	}
 
-	public static final void register(EntityMob mob) {
+	public static final void register(Entity mob) {
 		mob.registerExtendedProperties(ExtendedMob.EXT_PROP_NAME, new ExtendedMob(mob));
 	}
 
-	public static final ExtendedMob get(EntityMob mob) {
+	public static final ExtendedMob get(Entity mob) {
 		return (ExtendedMob) mob.getExtendedProperties(EXT_PROP_NAME);
 	}
 

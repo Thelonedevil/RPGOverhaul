@@ -1,5 +1,6 @@
 package com.github.thelonedevil.rpgoverhaul;
 
+import com.github.thelonedevil.rpgoverhaul.util.ArmourUtil;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -119,7 +120,7 @@ public class MyItems {
 		crystal_crest_light = new Crystal(33).setUnlocalizedName("crystal_crest_light").setTextureName(Ref.MODID + ":crystal_crest_light").setCreativeTab(RPGOMain.CrystalTab).setMaxStackSize(8);
 		crystal_crest_kindness = new Crystal(34).setUnlocalizedName("crystal_crest_kindness").setTextureName(Ref.MODID + ":crystal_crest_kindness").setCreativeTab(RPGOMain.CrystalTab).setMaxStackSize(8);
 
-		TestHelmet = new Helmet().setCreativeTab(RPGOMain.myTab).setUnlocalizedName("testhelmet");
+		TestHelmet = new Helmet().setCreativeTab(RPGOMain.myTab).setUnlocalizedName(ArmourUtil.HELMET);
 		GameRegistry.registerItem(TestHelmet, "testhelmet");
 		TestBelt = new Belt(0.3D, 1, 20, 10D, 0, 0).setCreativeTab(RPGOMain.myTab).setUnlocalizedName("testbelt");
 		GameRegistry.registerItem(TestBelt, "testbelt");
