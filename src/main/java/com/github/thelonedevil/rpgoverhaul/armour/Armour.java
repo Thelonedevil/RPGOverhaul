@@ -9,8 +9,10 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 
+import net.minecraftforge.common.ISpecialArmor;
 import org.lwjgl.input.Keyboard;
 
 import com.github.thelonedevil.rpgoverhaul.Ref;
@@ -24,7 +26,6 @@ public class Armour extends Item implements IArmour {
 
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
-		// TODO Auto-generated method stub if(player.ticksExisted == 1)
 		if (player.ticksExisted == 1) {
 			onEquipped(itemstack, player);
 		}
@@ -66,5 +67,4 @@ public class Armour extends Item implements IArmour {
 		// TODO Auto-generated method stub
 
 	}
-
 }

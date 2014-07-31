@@ -130,6 +130,7 @@ public class RPGOMain {
 		MinecraftForge.EVENT_BUS.register(new LeftClickHandler());
         MinecraftForge.EVENT_BUS.register(new CloneHandler());
 		MinecraftForge.EVENT_BUS.register(entityjoin);
+        MinecraftForge.EVENT_BUS.register(new RenderPlayerHandler());
 		FMLCommonHandler.instance().bus().register(craft);
 		proxy.registerKeys();
 		FMLCommonHandler.instance().bus().register(connectHandler);

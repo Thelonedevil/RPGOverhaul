@@ -2,8 +2,9 @@ package com.github.thelonedevil.rpgoverhaul.armour;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.ISpecialArmor;
 
-public interface IArmour {
+public interface IArmour{
 	/**
 	 * This method is called once per tick if the armour is being worn by a
 	 * player
