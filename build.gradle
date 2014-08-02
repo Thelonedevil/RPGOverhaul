@@ -25,7 +25,7 @@ archivesBaseName = "RPGOverhaul"
 
 
 minecraft {
-    version = "1.7.10-10.13.0.1179"
+    version = "1.7.10-10.13.0.1190"
     assetDir = "eclipse/assets"
 }
 
