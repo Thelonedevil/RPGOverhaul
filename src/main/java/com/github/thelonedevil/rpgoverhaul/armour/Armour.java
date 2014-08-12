@@ -8,6 +8,7 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
@@ -21,7 +22,7 @@ public class Armour extends Item implements IArmour {
 	public int type;
 
 	public Armour(int i) {
-		this.type = i;
+        this.type = i;
 	}
 
 	@Override

@@ -10,32 +10,16 @@ import com.github.thelonedevil.rpgoverhaul.player.ExtendedPlayer;
 
 public class Belt extends Armour {
 
-	int stepheight, attack, regen, defense;
-	double health, speed;
-
 	public boolean canEquipItem(ItemStack par1ItemStack, int slotID) {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
-	/**
-	 * 
-	 * @param speed
-	 * @param stepheight
-	 * @param attack
-	 * @param health
-	 * @param regen
-	 * @param defense
-	 */
 
-	public Belt(double speed, int stepheight, int attack, double health, int regen, int defense) {
+
+	public Belt() {
 		super(2);
-		this.speed = speed;
-		this.stepheight = stepheight;
-		this.attack = attack;
-		this.health = health;
-		this.regen = regen;
-		this.defense = defense;
+
 
 	}
 

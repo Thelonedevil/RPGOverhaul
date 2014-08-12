@@ -105,6 +105,7 @@ public class RPGOMain {
 		MyWeapons.init();
 		MyCrystals.init();
 		MyMetals.init();
+        MyArmour.init();
 
 
 		network = NetworkRegistry.INSTANCE.newSimpleChannel("RPGO");
